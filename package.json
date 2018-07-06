@@ -1,0 +1,29 @@
+{
+  "name": "trip-reviewer",
+  "version": "1.0.0",
+  "description": "This is a project for learning purpose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KovDimaY/Trip-Reviewer.git"
+  },
+  "author": "Dmytro Kovalenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KovDimaY/Trip-Reviewer/issues"
+  },
+  "homepage": "https://github.com/KovDimaY/Trip-Reviewer#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.0.1",
+    "moment-js": "^1.1.15",
+    "mongoose": "^4.10.8"
+  }
+}
