@@ -72,6 +72,27 @@ userSchema.methods.generateToken = function(callback) {
     });
 };
 
+userSchema.statics.findByToken = function(token, callback) {
+    const user  = this;
+
+    jwt.verify(token, config.SECRET, function(err, decode) {
+        user.findOne({ "_id": decode, "token": token }, function(err, user) {
+            if (err) return callback(err);
+            callback(null, user);
+        });
+    });
+};
+
+userSchema.methods.deleteToken = function(token, callback) {
+    var user = this;
+
+    user.update({ $unset: { token: 1 } }, (err, user) => {
+        if (err) return callback(err);
+
+        callback(null,user)
+    });
+};
+
 
 const User = mongoose.model('User', userSchema);
 
