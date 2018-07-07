@@ -23,7 +23,7 @@ const { Trip } = require('./models/trip');
 
 // localhost:3001/api/getTrip?id=5b3f851338c4fc09f4487b24
 app.get('/api/getTrip', (req,res) => {
-    let id = req.query.id;
+    const id = req.query.id;
 
     Trip.findById(id, (err, doc) => {
         if (err) return res.status(400).send(err);
@@ -33,9 +33,9 @@ app.get('/api/getTrip', (req,res) => {
 
 // locahost:3001/api/getManyTrips?skip=3&limit=2&order=asc
 app.get('/api/getManyTrips', (req,res) => {
-    let skip = parseInt(req.query.skip);
-    let limit = parseInt(req.query.limit);
-    let order = req.query.order === 'desc' ? 'desc' : 'asc';
+    const skip = parseInt(req.query.skip);
+    const limit = parseInt(req.query.limit);
+    const order = req.query.order === 'desc' ? 'desc' : 'asc';
 
     // ORDER = asc || desc
     Trip.find().skip(skip).sort({_id: order}).limit(limit).exec((err, doc) => {
@@ -43,6 +43,7 @@ app.get('/api/getManyTrips', (req,res) => {
         res.send(doc);
     })
 });
+
 
 // POST //
 app.post('/api/trip', (req, res) => {
@@ -58,10 +59,36 @@ app.post('/api/trip', (req, res) => {
     });
 });
 
+
 // UPDATE //
+app.post('/api/tripUpdate', (req, res) => {
+    Trip.findByIdAndUpdate(req.body._id, req.body, { new: true }, (err, doc) => {
+        if (err) return res.status(400).send(err);
+        
+        res.json({
+            success: true,
+            doc
+        });
+    });
+});
+
 
 // DELETE //
 
-app.listen(port, ()=>{
-    console.log(`Server is running on the localhost:${port}`.rainbow)
-})
+// localhost:3001/api/tripDelete?id=5b3f851338c4fc09f4487b24
+app.delete('/api/tripDelete', (req, res) => {
+    const id = req.query.id;
+
+    Trip.findByIdAndRemove(id, (err, doc) => {
+        if(err) return res.status(400).send(err);
+
+        res.json(true);
+    });
+});
+
+
+
+
+app.listen(port, () => {
+    console.log(`Server is running on the localhost:${port}`.rainbow);
+});
