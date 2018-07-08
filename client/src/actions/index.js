@@ -3,7 +3,8 @@ import axios from 'axios';
 import {
     GET_TRIPS,
     GET_TRIP_W_REVIEWER,
-    CLEAR_TRIP_W_REVIEWER
+    CLEAR_TRIP_W_REVIEWER,
+    USER_LOGIN
 } from '../constants/action-names';
 
 export function getTrips(
@@ -53,5 +54,16 @@ export function clearTripWithReviewer() {
             trip: null,
             reviewer: null
         }
+    };
+}
+
+export function loginUser({ email, password }) {
+    const request = axios
+        .post('/api/login',{ email, password })
+        .then(response => response.data);
+
+    return {
+        type: USER_LOGIN,
+        payload: request
     };
 }
