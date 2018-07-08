@@ -5,15 +5,16 @@ import Home from './components/Home';
 import Login from './containers/Login';
 import TripView from './components/TripView';
 
-import Layout from './hoc/layout'
+import Layout from './hoc/layout';
+import Auth from './hoc/auth';
 
 const Routes = () => {
     return (
         <Layout>
             <Switch>
-                <Route path="/" exact component={Home}/>
-                <Route path="/login" exact component={Login}/>
-                <Route path="/trips/:id" exact component={TripView}/>
+                <Route path="/" exact component={Auth(Home, null)}/>
+                <Route path="/login" exact component={Auth(Login, false)}/>
+                <Route path="/trips/:id" exact component={Auth(TripView, null)}/>
             </Switch>
         </Layout>
     );

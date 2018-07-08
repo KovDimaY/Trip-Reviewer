@@ -4,7 +4,8 @@ import {
     GET_TRIPS,
     GET_TRIP_W_REVIEWER,
     CLEAR_TRIP_W_REVIEWER,
-    USER_LOGIN
+    USER_LOGIN,
+    USER_AUTH
 } from '../constants/action-names';
 
 export function getTrips(
@@ -66,4 +67,15 @@ export function loginUser({ email, password }) {
         type: USER_LOGIN,
         payload: request
     };
+}
+
+export function auth() {
+    const request = axios
+        .get('/api/auth')
+        .then(response => response.data);
+
+    return {
+        type: USER_AUTH,
+        payload: request
+    }
 }

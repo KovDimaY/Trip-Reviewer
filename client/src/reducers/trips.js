@@ -9,11 +9,6 @@ export default function(state = {}, action) {
         case GET_TRIPS:
             return { ...state, list: action.payload };
         case GET_TRIP_W_REVIEWER:
-            return {
-                ...state,
-                current: action.payload.trip,
-                reviewer: action.payload.reviewer
-            };
         case CLEAR_TRIP_W_REVIEWER:
             return {
                 ...state,
