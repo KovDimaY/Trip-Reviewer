@@ -44,7 +44,6 @@ class TripView extends Component {
 
     render() {
         const { trips } = this.props;
-        console.log(trips)
         return (
             <div>
                 {this.renderTrip(trips)}
