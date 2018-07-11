@@ -1,7 +1,9 @@
 import {
     GET_TRIPS,
     GET_TRIP_W_REVIEWER,
-    CLEAR_TRIP_W_REVIEWER
+    CLEAR_TRIP_W_REVIEWER,
+    ADD_TRIP,
+    CLEAR_NEW_TRIP
 } from '../constants/action-names';
 
 export default function(state = {}, action) {
@@ -15,6 +17,9 @@ export default function(state = {}, action) {
                 current: action.payload.trip,
                 reviewer: action.payload.reviewer
             };
+        case ADD_TRIP:
+        case CLEAR_NEW_TRIP:
+            return { ...state, newtrip: action.payload }
         default:
             return state;
     }

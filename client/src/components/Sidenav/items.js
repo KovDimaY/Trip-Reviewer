@@ -39,7 +39,7 @@ export const items = [
         type: 'navItem',
         icon: 'edit',
         text: 'Add reviews',
-        link: '/user/add',
+        link: '/trip/add',
         restricted: true
     },
     {

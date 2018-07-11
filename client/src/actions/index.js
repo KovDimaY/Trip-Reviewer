@@ -5,7 +5,9 @@ import {
     GET_TRIP_W_REVIEWER,
     CLEAR_TRIP_W_REVIEWER,
     USER_LOGIN,
-    USER_AUTH
+    USER_AUTH,
+    ADD_TRIP,
+    CLEAR_NEW_TRIP
 } from '../constants/action-names';
 
 export function getTrips(
@@ -78,4 +80,22 @@ export function auth() {
         type: USER_AUTH,
         payload: request
     }
+}
+
+export function addTrip(trip) {
+    const request = axios
+        .post('/api/trip', trip)
+        .then(response => response.data);
+
+    return {
+        type: ADD_TRIP,
+        payload: request
+    };
+}
+
+export function clearNewTrip() {
+    return {
+        type: CLEAR_NEW_TRIP,
+        payload: null
+    };
 }
