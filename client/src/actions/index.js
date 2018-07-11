@@ -7,7 +7,8 @@ import {
     USER_LOGIN,
     USER_AUTH,
     ADD_TRIP,
-    CLEAR_NEW_TRIP
+    CLEAR_NEW_TRIP,
+    GET_USER_REVIEWS
 } from '../constants/action-names';
 
 export function getTrips(
@@ -47,6 +48,17 @@ export function getTripWithReviewer(id) {
                     });
                 });
         });
+    };
+}
+
+export function getUserReviews(userId) {
+    const request = axios
+        .get(`/api/getUserReviews?user=${userId}`)
+        .then(response => response.data);
+
+    return {
+        type: GET_USER_REVIEWS,
+        payload: request
     };
 }
 

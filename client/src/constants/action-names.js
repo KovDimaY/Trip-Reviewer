@@ -5,3 +5,4 @@ export const CLEAR_TRIP_W_REVIEWER = 'clear-trip-w-reviewer';
 export const CLEAR_NEW_TRIP = 'clear-new-trip';
 export const USER_LOGIN = 'user-login';
 export const USER_AUTH = 'user-auth';
+export const GET_USER_REVIEWS = 'get-user-reviews';

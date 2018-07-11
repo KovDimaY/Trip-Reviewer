@@ -78,8 +78,8 @@ app.get('/api/users', (req, res) => {
     });
 });
 
-// locahost:3001/api/getUserPosts?user=5b40f519c1632805acd50639
-app.get('/api/getUserPosts', (req, res) => {
+// locahost:3001/api/getUserReviews?user=5b40f519c1632805acd50639
+app.get('/api/getUserReviews', (req, res) => {
     Trip.find({ ownerId: req.query.user }).exec((err, docs) => {
         if (err) return res.status(400).send(err);
 
