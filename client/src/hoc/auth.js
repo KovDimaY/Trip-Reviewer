@@ -15,7 +15,7 @@ export default function(ComposedClass, reload) {
         componentWillReceiveProps(nextProps) {
             this.setState({ loading: false });
 
-            if (!nextProps.user.login.isAuth) {
+            if (!nextProps.users.login.isAuth) {
                 if (reload) {
                     this.props.history.push('/login');
                 }
@@ -30,13 +30,13 @@ export default function(ComposedClass, reload) {
             if (this.state.loading) {
                 return <div className="loader">Loading...</div>;
             }
-            return <ComposedClass {...this.props} user={this.props.user}/>;
+            return <ComposedClass {...this.props} user={this.props.users}/>;
         }
     }
 
     function mapStateToProps(state) {
         return {
-            user: state.user
+            users: state.users
         };
     };
 

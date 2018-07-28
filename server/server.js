@@ -71,8 +71,14 @@ app.get('/api/getReviewer', (req, res) => {
 });
 
 app.get('/api/users', (req, res) => {
-    User.find({}, (err, users) => {
+    User.find({}, (err, rawUsers) => {
         if (err) return res.status(400).send(err);
+        const users = rawUsers.map((user) => ({
+            _id: user._id,
+            lastname: user.lastname,
+            name: user.name,
+            avatar: user.avatar
+        }));
 
         res.status(200).send(users);
     });
@@ -115,7 +121,7 @@ app.post('/api/register', (req, res) => {
     const user = new User(req.body);
 
     user.save((err, doc) => {
-        if (err) return res.json({ success: false });
+        if (err) return res.json({ success: false, err });
         
         res.status(200).json({
             success: true,

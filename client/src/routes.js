@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Home from './components/Home';
 import Login from './containers/Login';
+import Register from './containers/Register';
 import User from './components/User';
 import UserReviews from './components/UserReviews';
 import TripView from './components/TripView';
@@ -18,6 +19,7 @@ const Routes = () => {
             <Switch>
                 <Route path="/" exact component={Auth(Home, null)}/>
                 <Route path="/login" exact component={Auth(Login, false)}/>
+                <Route path="/user/register" exact component={Auth(Register, null)}/>
                 <Route path="/user" exact component={Auth(User, true)}/>
                 <Route path="/user/user-reviews" exact component={Auth(UserReviews, true)}/>
                 <Route path="/user/edit-post/:id" exact component={Auth(EditTrip, true)}/>

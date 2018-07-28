@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 
 class UserPosts extends Component {
     componentWillMount() {
-        this.props.dispatch(getUserReviews(this.props.user.login.id));
+        this.props.dispatch(getUserReviews(this.props.users.login.id));
     }
 
-    showUserPosts = (user) => (
-        user.userPosts 
-        ? user.userPosts.map(item => (
+    showUserPosts = ({ userPosts }) => (
+        userPosts 
+        ? userPosts.map(item => (
                 <tr key={item._id}>
                     <td><Link to={
                         `/user/edit-post/${item._id}`
@@ -28,7 +28,7 @@ class UserPosts extends Component {
     )
 
     render() {
-        const user = this.props.user;
+        const { users } = this.props;
 
         return (
             <div className="user_posts">
@@ -42,7 +42,7 @@ class UserPosts extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.showUserPosts(user)}
+                        {this.showUserPosts(users)}
                     </tbody>
                 </table>
             </div>
@@ -52,7 +52,7 @@ class UserPosts extends Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.user
+        users: state.users
     };
 }
 

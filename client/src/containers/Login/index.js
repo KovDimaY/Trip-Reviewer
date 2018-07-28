@@ -20,7 +20,7 @@ class Login extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.user.login.isAuth) {
+        if (nextProps.users.login.isAuth) {
             this.props.history.push('/user');
         }
     }
@@ -31,7 +31,7 @@ class Login extends Component {
     }
 
     render() {
-        const { user } = this.props;
+        const { users } = this.props;
         return (
             <div className="rl_container">
                 <form onSubmit={this.submitForm}>
@@ -59,8 +59,8 @@ class Login extends Component {
 
                     <div className="error">
                     {
-                        user.login 
-                            ? <div>{user.login.message}</div>
+                        users.login 
+                            ? <div>{users.login.message}</div>
                             : null
                     }
                     </div>
@@ -73,7 +73,7 @@ class Login extends Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.user
+        users: state.users
     };
 }
 
