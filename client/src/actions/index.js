@@ -7,7 +7,11 @@ import {
     USER_LOGIN,
     USER_AUTH,
     ADD_TRIP,
+    UPDATE_TRIP,
+    DELETE_TRIP,
+    GET_TRIP,
     CLEAR_NEW_TRIP,
+    CLEAR_TRIP,
     GET_USER_REVIEWS
 } from '../constants/action-names';
 
@@ -60,6 +64,50 @@ export function getUserReviews(userId) {
         type: GET_USER_REVIEWS,
         payload: request
     };
+}
+
+export function getTrip(id) {
+    const request = axios
+        .get(`/api/getTrip?id=${id}`)
+        .then(response => response.data);
+
+    return {
+        type: GET_TRIP,
+        payload: request
+    }
+}
+
+export function updateTrip(data) {
+    const request = axios
+        .post(`/api/tripUpdate`, data)
+        .then(response => response.data);
+
+    return {
+        type: UPDATE_TRIP,
+        payload: request
+    }
+}
+
+export function deleteTrip(id) {
+    const request = axios
+        .delete(`/api/tripDelete?id=${id}`)
+        .then(response => response.data);
+
+    return {
+        type: DELETE_TRIP,
+        payload: request
+    }
+}
+
+export function clearTrip() {
+    return {
+        type: CLEAR_TRIP,
+        payload: {
+            trip: null,
+            updateTrip: false,
+            postDeleted: false
+        }
+    }
 }
 
 export function clearTripWithReviewer() {

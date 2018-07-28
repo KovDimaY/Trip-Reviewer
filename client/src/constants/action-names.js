@@ -1,8 +1,12 @@
 export const GET_TRIPS = 'get-trips';
 export const ADD_TRIP = 'add-trip';
+export const UPDATE_TRIP = 'update-trip';
+export const DELETE_TRIP = 'delete-trip';
+export const GET_TRIP = 'get-trip';
 export const GET_TRIP_W_REVIEWER = 'get-trip-w-reviewer';
 export const CLEAR_TRIP_W_REVIEWER = 'clear-trip-w-reviewer';
 export const CLEAR_NEW_TRIP = 'clear-new-trip';
+export const CLEAR_TRIP = 'clear-trip';
 export const USER_LOGIN = 'user-login';
 export const USER_AUTH = 'user-auth';
 export const GET_USER_REVIEWS = 'get-user-reviews';
