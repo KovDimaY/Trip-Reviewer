@@ -37,7 +37,6 @@
     "babel-preset-stage-0": "6.24.1",
     "enzyme": "3.2.0",
     "enzyme-adapter-react-16": "1.1.1",
-    "imports-loader": "0.8.0",
     "jest-cli": "20.0.4",
     "react-hot-loader": "4.0.0"
   },
@@ -77,14 +76,6 @@
       "cobertura"
     ]
   },
-  "dllPlugin": {
-    "path": "node_modules/app-dlls",
-    "exclude": [
-      "alt",
-      "lodash"
-    ],
-    "include": []
-  },
   "babel": {
     "plugins": [
       "transform-runtime",
@@ -101,15 +92,6 @@
       "stage-0"
     ],
     "env": {
-      "production": {
-        "only": [
-          "src"
-        ],
-        "plugins": [
-          "transform-react-remove-prop-types",
-          "transform-react-inline-elements"
-        ]
-      },
       "test": {
         "plugins": [
           "transform-es2015-modules-commonjs",
