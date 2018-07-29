@@ -18,7 +18,8 @@ export const items = [
         icon: 'user-plus',
         text: 'Register',
         link: '/user/register',
-        restricted: true
+        restricted: false,
+        exclude: true
     },
     {
         type: 'navItem',

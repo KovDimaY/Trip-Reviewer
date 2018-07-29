@@ -124,7 +124,7 @@ export function clearTripWithReviewer() {
 
 export function loginUser({ email, password }) {
     const request = axios
-        .post('/api/login',{ email, password })
+        .post('/api/login', { email, password })
         .then(response => response.data);
 
     return {
@@ -173,15 +173,13 @@ export function getUsers() {
     }
 }
 
-export function userRegister(user, userList) {
+export function userRegister(user) {
     const request = axios.post(`/api/register`, user);
 
     return (dispatch) => {
         request.then(({ data }) => {
-            const users = data.success ? [...userList, data.user] : userList;
             const response = {
-                success: data.success,
-                users
+                success: data.success
             };
 
             dispatch({

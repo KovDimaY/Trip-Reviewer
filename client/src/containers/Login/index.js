@@ -6,9 +6,7 @@ import { loginUser } from '../../actions'
 class Login extends Component {
     state = {
         email: '',
-        password: '',
-        error: '',
-        success: false
+        password: ''
     }
 
     handleInputEmail = (event) => {
