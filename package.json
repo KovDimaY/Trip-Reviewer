@@ -4,7 +4,9 @@
   "description": "This is a project for learning purpose",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test-jest --prefix client",
+    "test:coverage": "npm run test:coverage --prefix client",
+    "test:update": "npm run test:update --prefix client",
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
     "client": "npm run start --prefix client",
