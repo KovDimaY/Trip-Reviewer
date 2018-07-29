@@ -32,7 +32,9 @@ class Register extends PureComponent {
     } 
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.users.register === false) {
+        if (nextProps.users.login.isAuth) {
+            this.props.history.push('/user');
+        } else if (nextProps.users.register === false) {
             this.setState({ error: 'Error, try again' });
         } else {
             this.setState({
@@ -54,8 +56,7 @@ class Register extends PureComponent {
                 password: this.state.password,
                 name: this.state.name,
                 lastname: this.state.lastname
-            }, 
-            this.props.user.users)
+            })
         )
     }
 

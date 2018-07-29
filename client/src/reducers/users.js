@@ -19,7 +19,7 @@ export default function(state = {}, action) {
             return {
                 ...state,
                 register: action.payload.success,
-                users: action.payload.users
+                login: { isAuth: action.payload.success }
             }
         default:
             return state;

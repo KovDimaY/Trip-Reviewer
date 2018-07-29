@@ -124,9 +124,13 @@ app.post('/api/register', (req, res) => {
     user.save((err, doc) => {
         if (err) return res.json({ success: false, err });
         
-        res.status(200).json({
-            success: true,
-            user:doc
+        user.generateToken((err, user) => {
+            if (err) return res.status(400).send(err);
+
+            res.cookie('auth', user.token).json({
+                success: true,
+                id: user._id
+            });
         });
     });
 });
@@ -146,8 +150,7 @@ app.post('/api/login', (req, res) => {
 
                 res.cookie('auth', user.token).json({
                     isAuth: true,
-                    id: user._id,
-                    email: user.email
+                    id: user._id
                 });
             });
         });
