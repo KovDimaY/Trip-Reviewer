@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should render component 1`] = `
+<header>
+  <div
+    className="open_nav"
+  >
+    <span
+      aria-hidden={true}
+      className="fa fa-bars"
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "#ffffff",
+          "cursor": "pointer",
+          "padding": "10px",
+        }
+      }
+    />
+  </div>
+  <Nav
+    onHideNav={[Function]}
+    showNav={false}
+  />
+  <Link
+    className="logo"
+    to="/"
+  >
+    Travel Stories
+  </Link>
+</header>
+`;
