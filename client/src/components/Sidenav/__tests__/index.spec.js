@@ -4,7 +4,7 @@ import { create } from 'react-test-renderer';
 import Sidenav from './../../Sidenav';
 
 jest.mock('react-simple-sidenav', () => 'ReactSideNav');
-jest.mock('./../sidenav-item', () => 'SidenavItem');
+jest.mock('./../../../containers/SidenavItem', () => 'SidenavItem');
 
 const mockComponent = props => {
     return (
