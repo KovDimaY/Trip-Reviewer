@@ -3,13 +3,13 @@ import { Switch, Route } from 'react-router-dom';
 
 import Home from './components/Home';
 import User from './components/User';
-import TripView from './components/TripView';
-import UserReviews from './components/UserReviews';
 import Logout from './components/Logout';
 import Login from './containers/Login';
 import Register from './containers/Register';
 import AddTrip from './containers/AddTrip';
 import EditTrip from './containers/EditTrip';
+import TripView from './containers/TripView';
+import UserReviews from './containers/UserReviews';
 
 import Layout from './hoc/layout';
 import Auth from './hoc/auth';

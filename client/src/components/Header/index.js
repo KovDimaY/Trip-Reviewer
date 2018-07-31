@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import { Link } from 'react-router-dom';
 
-import Nav from '../Sidenav/index';
+import Nav from './../Sidenav/index';
 
 class Header extends Component {
     state = {
         showNav: false
     }
 
-    onHideNav = () => {
+    handleHideNav = () => {
         this.setState({ showNav: false });
+    }
+
+    handleOpenNav = () => {
+        this.setState({ showNav: true });
     }
 
     render() {
@@ -18,7 +22,7 @@ class Header extends Component {
             <header>
                 <div className="open_nav">
                     <FontAwesome name="bars"
-                        onClick={() => this.setState({ showNav: true })}
+                        onClick={this.handleOpenNav}
                         style={{
                             color: '#ffffff',
                             padding: '10px',
@@ -28,7 +32,7 @@ class Header extends Component {
                 </div>
                 <Nav
                     showNav={this.state.showNav}
-                    onHideNav={()=>this.onHideNav()}
+                    onHideNav={this.handleHideNav}
                 />
 
                 <Link to="/" className="logo">

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactSideNav from 'react-simple-sidenav';
 
 import { items } from './items';
-import SidenavItem from './sidenav-item';
+import SidenavItem from './../../containers/SidenavItem/index';
 
 const Sidenav = (props) => {
     return (

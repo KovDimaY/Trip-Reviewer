@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TripItem /> should render component 1`] = `
+<Link 
+  className="book_item"
+  to="/trips/_id"
+>
+  <div
+    className="book_header"
+  >
+    <h2 />
+  </div>
+  <div
+    className="book_items"
+  >
+    <div
+      className="book_author"
+    >
+      author
+    </div>
+    <div
+      className="book_bubble"
+    >
+      <strong>
+        Price
+      </strong>
+       $ 
+      price
+    </div>
+    <div
+      className="book_bubble"
+    >
+      <strong>
+        Duration
+      </strong>
+        
+      duration
+       days
+    </div>
+    <div
+      className="book_bubble rating"
+    >
+      <strong>
+        Rating
+      </strong>
+        
+      rating
+       / 5
+    </div>
+  </div>
+</Link >
+`;
