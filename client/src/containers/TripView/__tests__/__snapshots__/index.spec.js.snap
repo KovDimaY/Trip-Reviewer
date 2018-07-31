@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TripView /> should render component with current trip 1`] = `<div />`;
+
+exports[`<TripView /> should render component with empty trips 1`] = `<div />`;

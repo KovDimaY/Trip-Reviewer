@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserPosts /> should render component 1`] = `
+<div
+  className="user_posts"
+>
+  <h4>
+    Your reviews:
+  </h4>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Author
+        </th>
+        <th>
+          Date
+        </th>
+      </tr>
+    </thead>
+    <tbody />
+  </table>
+</div>
+`;

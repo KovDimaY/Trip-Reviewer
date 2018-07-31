@@ -1,22 +1,20 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
-import { mount } from 'enzyme';
  
-import TripView from './../../TripView';
+import EditTrip from './../../EditTrip';
 import Root from './../../../hoc/root';
 
 const mockComponent = props => {
     return (
         <Root>
-            <TripView {...props} />
+            <EditTrip {...props} />
         </Root>
     );
 };
  
-describe('<TripView />', () => {
-    it('should render component without trips', () => {
+describe('<EditTrip />', () => {
+    it('should render component', () => {
         const props = {
-            trips: {},
             match: {
                 params: {
                     id: 'id'
