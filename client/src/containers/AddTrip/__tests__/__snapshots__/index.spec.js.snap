@@ -14,6 +14,7 @@ exports[`<AddTrip /> should render component 1`] = `
       className="form_element"
     >
       <input
+        name="title"
         onChange={[Function]}
         placeholder="Enter title"
         type="text"
@@ -24,6 +25,7 @@ exports[`<AddTrip /> should render component 1`] = `
       className="form_element"
     >
       <input
+        name="autor"
         onChange={[Function]}
         placeholder="Enter author"
         type="text"
@@ -38,6 +40,7 @@ exports[`<AddTrip /> should render component 1`] = `
       className="form_element"
     >
       <input
+        name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
         type="number"
@@ -48,6 +51,7 @@ exports[`<AddTrip /> should render component 1`] = `
       className="form_element"
     >
       <select
+        name="rating"
         onChange={[Function]}
         value=""
       >
@@ -82,6 +86,7 @@ exports[`<AddTrip /> should render component 1`] = `
       className="form_element"
     >
       <input
+        name="price"
         onChange={[Function]}
         placeholder="Enter Price"
         type="number"
