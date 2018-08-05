@@ -1,4 +1,6 @@
 import moxios from 'moxios';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
 
 import {
     getTrips,
@@ -33,6 +35,9 @@ import {
     GET_USER_REVIEWS
 } from './../../constants/action-names';
 
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
+
 describe('getTrips', () => {
     it('has the correct type', () => {
         const action = getTrips();
@@ -58,15 +63,29 @@ describe('getTrips', () => {
     // });
 });
 
-describe('getTripWithReviewer', () => {
-    it('has the correct type', () => {
-        const id = 'id';
-        const action = getTripWithReviewer(id);
-        const expected = GET_TRIP_W_REVIEWER;
+// describe('getTripWithReviewer', () => {
+//     it('has the correct typedasd asd asd as das das das das das das das das das das d asd as', () => {
+//         moxios.install();
 
-        expect(action.type).toEqual(expected);
-    });
-});
+//         moxios.wait(() => {
+//             const request = moxios.requests.mostRecent();
+//             request.respondWith({
+//               status: 200,
+//               response: [],
+//             });
+//         });
+
+//         const expectedActions = [
+//             { type: GET_TRIP_W_REVIEWER, posts: ["dfdf"] },
+//         ];
+
+//         const store = mockStore({});
+        
+//         return store.dispatch(getTripWithReviewer()).then(() => {
+//             expect(store.getActions()).toEqual(expectedActions);
+//         });
+//     });
+// });
 
 describe('getUserReviews', () => {
     it('has the correct type', () => {
@@ -117,14 +136,14 @@ describe('clearTrip', () => {
     });
 });
 
-// describe('clearTripWithReviewer', () => {
-//     it('has the correct type', () => {
-//         const action = clearTripWithReviewer();
-//         const expected = CLEAR_TRIP_W_REVIEWER;
+describe('clearTripWithReviewer', () => {
+    it('has the correct type', () => {
+        const action = clearTripWithReviewer();
+        const expected = CLEAR_TRIP_W_REVIEWER;
 
-//         expect(action.type).toEqual(expected);
-//     });
-// });
+        expect(action.type).toEqual(expected);
+    });
+});
 
 describe('loginUser', () => {
     it('has the correct type', () => {
@@ -176,12 +195,26 @@ describe('getUsers', () => {
     });
 });
 
-// describe('userRegister', () => {
-//     it('has the correct type', () => {
-//         const user = 'user';
-//         const action = userRegister(user);
-//         const expected = USER_REGISTER;
+describe('userRegister', () => {
+    it('has the correct typeand payload', () => {
+        moxios.install();
 
-//         expect(action.type).toEqual(expected);
-//     });
-// });
+        moxios.wait(() => {
+            const request = moxios.requests.mostRecent();
+            request.respondWith({
+              status: 200,
+              response: { success: true },
+            });
+        });
+
+        const expectedActions = [
+            { type: USER_REGISTER, payload: { success: true } },
+        ];
+
+        const store = mockStore({});
+        
+        return store.dispatch(userRegister()).then(() => {
+            expect(store.getActions()).toEqual(expectedActions);
+        });
+    });
+});
