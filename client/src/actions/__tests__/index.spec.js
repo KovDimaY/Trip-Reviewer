@@ -38,29 +38,333 @@ import {
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('getTrips', () => {
-    it('has the correct type', () => {
-        const action = getTrips();
-        const expected = GET_TRIPS;
 
-        expect(action.type).toEqual(expected);
+describe('Testing async actions', () => {
+    beforeEach(() => {
+        moxios.install();
+    });
+    
+    afterEach(() => {
+        moxios.uninstall();
     });
 
-    // it('has the correct payload with the default request', (done) => {
-    //     moxios.install();
-    //     moxios.stubRequest('/api/getManyTrips?limit=10&skip=0&order=asc', {
-    //         status: 200,
-    //         response: ['test']
-    //     });
+    describe('getTrips', () => {
+        it('has the correct type and payload for the default request', () => {
+            const responceMock = [ 'test' ];
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                  status: 200,
+                  response: responceMock,
+                });
+            });
+    
+            const expectedActions = [
+                { type: GET_TRIPS, payload: responceMock },
+            ];
+    
+            const store = mockStore({});
+            
+            return store.dispatch(getTrips()).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
 
-    //     const action = getTrips();
-    //     const expected = ['test'];
+        it('has the correct type and payload for a provided list', () => {
+            const list = [ '1', '2', '3' ];
+            const responceMock = [ 'test' ];
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                  status: 200,
+                  response: responceMock,
+                });
+            });
+            const expectedPayload = ['1', '2', '3', 'test'];
+    
+            const expectedActions = [
+                { type: GET_TRIPS, payload: expectedPayload },
+            ];
+    
+            const store = mockStore({});
+            
+            return store.dispatch(getTrips(10, 0, 'asc', list)).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
+    });
 
-    //     moxios.wait(() => {
-    //         expect(action.payload).toEqual(expected);
-    //         done();
-    //     });
-    // });
+    describe('getUserReviews', () => {
+        it('has the correct type and payload', () => {
+            const userId = 'userId';
+            const responceMock = 'test';
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                  status: 200,
+                  response: responceMock,
+                });
+            });
+    
+            const expectedActions = [
+                { type: GET_USER_REVIEWS, payload: responceMock },
+            ];
+    
+            const store = mockStore({});
+            
+            return store.dispatch(getUserReviews(userId)).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
+    });
+
+    describe('getTrip', () => {
+        it('has the correct type and payload', () => {
+            const id = 'id';
+            const responceMock = 'test';
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                  status: 200,
+                  response: responceMock,
+                });
+            });
+    
+            const expectedActions = [
+                { type: GET_TRIP, payload: responceMock },
+            ];
+    
+            const store = mockStore({});
+            
+            return store.dispatch(getTrip(id)).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
+    });
+
+    describe('updateTrip', () => {
+        it('has the correct type and payload', () => {
+            const data = 'data';
+            const responceMock = 'test';
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                  status: 200,
+                  response: responceMock,
+                });
+            });
+    
+            const expectedActions = [
+                { type: UPDATE_TRIP, payload: responceMock },
+            ];
+    
+            const store = mockStore({});
+            
+            return store.dispatch(updateTrip(data)).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
+    });
+
+    describe('deleteTrip', () => {
+        it('has the correct type and payload', () => {
+            const id = 'id';
+            const responceMock = 'test';
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                  status: 200,
+                  response: responceMock,
+                });
+            });
+    
+            const expectedActions = [
+                { type: DELETE_TRIP, payload: responceMock },
+            ];
+    
+            const store = mockStore({});
+            
+            return store.dispatch(deleteTrip(id)).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
+    });
+
+    describe('loginUser', () => {
+        it('has the correct type and payload', () => {
+            const input = {
+                email: 'email',
+                password: 'password'
+            };
+            const responceMock = 'test';
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                  status: 200,
+                  response: responceMock,
+                });
+            });
+    
+            const expectedActions = [
+                { type: USER_LOGIN, payload: responceMock },
+            ];
+    
+            const store = mockStore({});
+            
+            return store.dispatch(loginUser(input)).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
+    });
+
+    describe('auth', () => {
+        it('has the correct type and payload', () => {
+            const responceMock = 'test';
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                  status: 200,
+                  response: responceMock,
+                });
+            });
+    
+            const expectedActions = [
+                { type: USER_AUTH, payload: responceMock },
+            ];
+    
+            const store = mockStore({});
+            
+            return store.dispatch(auth()).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
+    });
+
+    describe('addTrip', () => {
+        it('has the correct type and payload', () => {
+            const responceMock = 'test';
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                  status: 200,
+                  response: responceMock,
+                });
+            });
+    
+            const expectedActions = [
+                { type: ADD_TRIP, payload: responceMock },
+            ];
+    
+            const store = mockStore({});
+            
+            return store.dispatch(addTrip()).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
+    });
+
+    describe('getUsers', () => {
+        it('has the correct type and payload', () => {
+            const responceMock = 'test';
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                  status: 200,
+                  response: responceMock,
+                });
+            });
+    
+            const expectedActions = [
+                { type: GET_USERS, payload: responceMock },
+            ];
+    
+            const store = mockStore({});
+            
+            return store.dispatch(getUsers()).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
+    });
+    
+    describe('userRegister', () => {
+        it('has the correct type and payload', () => {
+            const responceMock = { success: true };
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                  status: 200,
+                  response: responceMock,
+                });
+            });
+    
+            const expectedActions = [
+                { type: USER_REGISTER, payload: responceMock },
+            ];
+    
+            const store = mockStore({});
+            
+            return store.dispatch(userRegister()).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
+    });
+});
+
+describe('Testing simple actions', () => {
+    describe('clearTrip', () => {
+        it('has the correct type', () => {
+            const action = clearTrip();
+            const expected = CLEAR_TRIP;
+    
+            expect(action.type).toEqual(expected);
+        });
+    
+        it('has the correct payload', () => {
+            const action = clearTrip();
+            const expected = {
+                trip: null,
+                updateTrip: false,
+                postDeleted: false
+            };
+    
+            expect(action.payload).toEqual(expected);
+        });
+    });
+    
+    describe('clearTripWithReviewer', () => {
+        it('has the correct type', () => {
+            const action = clearTripWithReviewer();
+            const expected = CLEAR_TRIP_W_REVIEWER;
+    
+            expect(action.type).toEqual(expected);
+        });
+    
+        it('has the correct payload', () => {
+            const action = clearTripWithReviewer();
+            const expected = {
+                trip: null,
+                reviewer: null
+            };
+    
+            expect(action.payload).toEqual(expected);
+        });
+    });
+
+    describe('clearNewTrip', () => {
+        it('has the correct type', () => {
+            const action = clearNewTrip();
+            const expected = CLEAR_NEW_TRIP;
+    
+            expect(action.type).toEqual(expected);
+        });
+    
+        it('has the correct payload', () => {
+            const action = clearNewTrip();
+            const expected = null;
+    
+            expect(action.payload).toEqual(expected);
+        });
+    });
 });
 
 // describe('getTripWithReviewer', () => {
@@ -86,135 +390,3 @@ describe('getTrips', () => {
 //         });
 //     });
 // });
-
-describe('getUserReviews', () => {
-    it('has the correct type', () => {
-        const userId = 'userId';
-        const action = getUserReviews(userId);
-        const expected = GET_USER_REVIEWS;
-
-        expect(action.type).toEqual(expected);
-    });
-});
-
-describe('getTrip', () => {
-    it('has the correct type', () => {
-        const id = 'id';
-        const action = getTrip(id);
-        const expected = GET_TRIP;
-
-        expect(action.type).toEqual(expected);
-    });
-});
-
-describe('updateTrip', () => {
-    it('has the correct type', () => {
-        const data = 'data';
-        const action = updateTrip(data);
-        const expected = UPDATE_TRIP;
-
-        expect(action.type).toEqual(expected);
-    });
-});
-
-describe('deleteTrip', () => {
-    it('has the correct type', () => {
-        const id = 'id';
-        const action = deleteTrip(id);
-        const expected = DELETE_TRIP;
-
-        expect(action.type).toEqual(expected);
-    });
-});
-
-describe('clearTrip', () => {
-    it('has the correct type', () => {
-        const action = clearTrip();
-        const expected = CLEAR_TRIP;
-
-        expect(action.type).toEqual(expected);
-    });
-});
-
-describe('clearTripWithReviewer', () => {
-    it('has the correct type', () => {
-        const action = clearTripWithReviewer();
-        const expected = CLEAR_TRIP_W_REVIEWER;
-
-        expect(action.type).toEqual(expected);
-    });
-});
-
-describe('loginUser', () => {
-    it('has the correct type', () => {
-        const input = {
-            email: 'email',
-            password: 'password'
-        };
-        const action = loginUser(input);
-        const expected = USER_LOGIN;
-
-        expect(action.type).toEqual(expected);
-    });
-});
-
-describe('auth', () => {
-    it('has the correct type', () => {
-        const action = auth();
-        const expected = USER_AUTH;
-
-        expect(action.type).toEqual(expected);
-    });
-});
-
-describe('addTrip', () => {
-    it('has the correct type', () => {
-        const trip = 'trip';
-        const action = addTrip(trip);
-        const expected = ADD_TRIP;
-
-        expect(action.type).toEqual(expected);
-    });
-});
-
-describe('clearNewTrip', () => {
-    it('has the correct type', () => {
-        const action = clearNewTrip();
-        const expected = CLEAR_NEW_TRIP;
-
-        expect(action.type).toEqual(expected);
-    });
-});
-
-describe('getUsers', () => {
-    it('has the correct type', () => {
-        const action = getUsers();
-        const expected = GET_USERS;
-
-        expect(action.type).toEqual(expected);
-    });
-});
-
-describe('userRegister', () => {
-    it('has the correct typeand payload', () => {
-        moxios.install();
-
-        moxios.wait(() => {
-            const request = moxios.requests.mostRecent();
-            request.respondWith({
-              status: 200,
-              response: { success: true },
-            });
-        });
-
-        const expectedActions = [
-            { type: USER_REGISTER, payload: { success: true } },
-        ];
-
-        const store = mockStore({});
-        
-        return store.dispatch(userRegister()).then(() => {
-            expect(store.getActions()).toEqual(expectedActions);
-        });
-    });
-});

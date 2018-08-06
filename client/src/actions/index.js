@@ -24,13 +24,16 @@ export function getTrips(
     list = []
 ) {
     const request = axios
-        .get(`/api/getManyTrips?limit=${limit}&skip=${start}&order=${order}`)
-        .then(response => [...list, ...response.data]);
+        .get(`/api/getManyTrips?limit=${limit}&skip=${start}&order=${order}`);
 
-    return {
-        type: GET_TRIPS,
-        payload: request
-    };
+    return (dispatch) => {
+        return request.then((response) => {
+            dispatch({
+                type: GET_TRIPS,
+                payload: [...list, ...response.data]
+            });
+        });
+    }
 }
 
 export function getTripWithReviewer(id) {
@@ -59,45 +62,55 @@ export function getTripWithReviewer(id) {
 
 export function getUserReviews(userId) {
     const request = axios
-        .get(`/api/getUserReviews?user=${userId}`)
-        .then(response => response.data);
+        .get(`/api/getUserReviews?user=${userId}`);
 
-    return {
-        type: GET_USER_REVIEWS,
-        payload: request
-    };
+    return (dispatch) => {
+        return request.then((response) => {
+            dispatch({
+                type: GET_USER_REVIEWS,
+                payload: response.data
+            });
+        });
+    }
 }
 
 export function getTrip(id) {
-    const request = axios
-        .get(`/api/getTrip?id=${id}`)
-        .then(response => response.data);
+    const request = axios.get(`/api/getTrip?id=${id}`);
 
-    return {
-        type: GET_TRIP,
-        payload: request
+    return (dispatch) => {
+        return request.then((response) => {
+            dispatch({
+                type: GET_TRIP,
+                payload: response.data
+            });
+        });
     }
 }
 
 export function updateTrip(data) {
-    const request = axios
-        .post(`/api/tripUpdate`, data)
-        .then(response => response.data);
+    const request = axios.post(`/api/tripUpdate`, data);
 
-    return {
-        type: UPDATE_TRIP,
-        payload: request
+    return (dispatch) => {
+        return request.then((response) => {
+            dispatch({
+                type: UPDATE_TRIP,
+                payload: response.data
+            });
+        });
     }
 }
 
 export function deleteTrip(id) {
     const request = axios
-        .delete(`/api/tripDelete?id=${id}`)
-        .then(response => response.data);
+        .delete(`/api/tripDelete?id=${id}`);
 
-    return {
-        type: DELETE_TRIP,
-        payload: request
+    return (dispatch) => {
+        return request.then((response) => {
+            dispatch({
+                type: DELETE_TRIP,
+                payload: response.data
+            });
+        });
     }
 }
 
@@ -124,35 +137,42 @@ export function clearTripWithReviewer() {
 
 export function loginUser({ email, password }) {
     const request = axios
-        .post('/api/login', { email, password })
-        .then(response => response.data);
+        .post('/api/login', { email, password });
 
-    return {
-        type: USER_LOGIN,
-        payload: request
-    };
+    return (dispatch) => {
+        return request.then((response) => {
+            dispatch({
+                type: USER_LOGIN,
+                payload: response.data
+            });
+        });
+    }
 }
 
 export function auth() {
-    const request = axios
-        .get('/api/auth')
-        .then(response => response.data);
+    const request = axios.get('/api/auth');
 
-    return {
-        type: USER_AUTH,
-        payload: request
+    return (dispatch) => {
+        return request.then((response) => {
+            dispatch({
+                type: USER_AUTH,
+                payload: response.data
+            });
+        });
     }
 }
 
 export function addTrip(trip) {
-    const request = axios
-        .post('/api/trip', trip)
-        .then(response => response.data);
+    const request = axios.post('/api/trip', trip);
 
-    return {
-        type: ADD_TRIP,
-        payload: request
-    };
+    return (dispatch) => {
+        return request.then((response) => {
+            dispatch({
+                type: ADD_TRIP,
+                payload: response.data
+            });
+        });
+    }
 }
 
 export function clearNewTrip() {
@@ -163,13 +183,15 @@ export function clearNewTrip() {
 }
 
 export function getUsers() {
-    const request = axios
-        .get(`/api/users`)
-        .then(response => response.data);
-        
-    return {
-        type: GET_USERS,
-        payload: request
+    const request = axios.get(`/api/users`);
+
+    return (dispatch) => {
+        return request.then((response) => {
+            dispatch({
+                type: GET_USERS,
+                payload: response.data
+            });
+        });
     }
 }
 
