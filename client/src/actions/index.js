@@ -40,10 +40,10 @@ export function getTripWithReviewer(id) {
     const request = axios.get(`/api/getTrip?id=${id}`);
 
     return (dispatch) => {
-        request.then(({ data }) => {
+        return request.then(({ data }) => {
             const trip = data;
 
-            axios
+            return axios
                 .get(`/api/getReviewer?id=${trip.ownerId}`)
                 .then(({ data }) => {
                     const response = {

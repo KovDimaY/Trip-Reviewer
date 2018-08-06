@@ -94,6 +94,43 @@ describe('Testing async actions', () => {
         });
     });
 
+    describe('getTripWithReviewer', () => {
+        it('has the correct type and payload', () => {
+            const id = 'test';
+            const firstResponceMock = {
+                ownerId: 'ownerId'
+            };
+            const secondResponceMock = 'test';
+            moxios.stubRequest(`/api/getTrip?id=${id}`, {
+                status: 200,
+                response: firstResponceMock
+            });
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                  status: 200,
+                  response: secondResponceMock,
+                });
+            });
+    
+            const expectedActions = [
+                { 
+                    type: GET_TRIP_W_REVIEWER, 
+                    payload: {
+                        trip: firstResponceMock,
+                        reviewer: secondResponceMock
+                    }
+                },
+            ];
+    
+            const store = mockStore({});
+            
+            return store.dispatch(getTripWithReviewer(id)).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
+    });
+
     describe('getUserReviews', () => {
         it('has the correct type and payload', () => {
             const userId = 'userId';
@@ -366,27 +403,3 @@ describe('Testing simple actions', () => {
         });
     });
 });
-
-// describe('getTripWithReviewer', () => {
-//     it('has the correct typedasd asd asd as das das das das das das das das das das d asd as', () => {
-//         moxios.install();
-
-//         moxios.wait(() => {
-//             const request = moxios.requests.mostRecent();
-//             request.respondWith({
-//               status: 200,
-//               response: [],
-//             });
-//         });
-
-//         const expectedActions = [
-//             { type: GET_TRIP_W_REVIEWER, posts: ["dfdf"] },
-//         ];
-
-//         const store = mockStore({});
-        
-//         return store.dispatch(getTripWithReviewer()).then(() => {
-//             expect(store.getActions()).toEqual(expectedActions);
-//         });
-//     });
-// });
