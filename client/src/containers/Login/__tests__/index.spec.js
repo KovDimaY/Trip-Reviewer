@@ -4,7 +4,7 @@ import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
  
 import Login from './../../Login';
-import { loginUser } from './../../../actions'
+import { loginUser } from './../../../actions';
 
 const mockStore = configureStore();
 

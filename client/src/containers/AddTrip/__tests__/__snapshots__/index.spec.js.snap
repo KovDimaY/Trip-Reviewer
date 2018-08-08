@@ -101,3 +101,217 @@ exports[`<AddTrip /> should render component 1`] = `
   </form>
 </div>
 `;
+
+exports[`<AddTrip /> should render component with newTrip and post 1`] = `
+<div
+  className="rl_container article"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2>
+      Add a review
+    </h2>
+    <div
+      className="form_element"
+    >
+      <input
+        name="title"
+        onChange={[Function]}
+        placeholder="Enter title"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        name="autor"
+        onChange={[Function]}
+        placeholder="Enter author"
+        type="text"
+        value=""
+      />
+    </div>
+    <textarea
+      onChange={[Function]}
+      value=""
+    />
+    <div
+      className="form_element"
+    >
+      <input
+        name="duration"
+        onChange={[Function]}
+        placeholder="Enter duration"
+        type="number"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <select
+        name="rating"
+        onChange={[Function]}
+        value=""
+      >
+        <option
+          val="1"
+        >
+          1
+        </option>
+        <option
+          val="2"
+        >
+          2
+        </option>
+        <option
+          val="3"
+        >
+          3
+        </option>
+        <option
+          val="4"
+        >
+          4
+        </option>
+        <option
+          val="5"
+        >
+          5
+        </option>
+      </select>
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        name="price"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value=""
+      />
+    </div>
+    <button
+      type="submit"
+    >
+      Add review
+    </button>
+    <div
+      className="conf_link"
+    >
+      Cool !! 
+      <Link
+        to="/trips/test"
+      >
+        Click the link to see the post
+      </Link>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`<AddTrip /> should render component with newTrip but no post 1`] = `
+<div
+  className="rl_container article"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2>
+      Add a review
+    </h2>
+    <div
+      className="form_element"
+    >
+      <input
+        name="title"
+        onChange={[Function]}
+        placeholder="Enter title"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        name="autor"
+        onChange={[Function]}
+        placeholder="Enter author"
+        type="text"
+        value=""
+      />
+    </div>
+    <textarea
+      onChange={[Function]}
+      value=""
+    />
+    <div
+      className="form_element"
+    >
+      <input
+        name="duration"
+        onChange={[Function]}
+        placeholder="Enter duration"
+        type="number"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <select
+        name="rating"
+        onChange={[Function]}
+        value=""
+      >
+        <option
+          val="1"
+        >
+          1
+        </option>
+        <option
+          val="2"
+        >
+          2
+        </option>
+        <option
+          val="3"
+        >
+          3
+        </option>
+        <option
+          val="4"
+        >
+          4
+        </option>
+        <option
+          val="5"
+        >
+          5
+        </option>
+      </select>
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        name="price"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value=""
+      />
+    </div>
+    <button
+      type="submit"
+    >
+      Add review
+    </button>
+  </form>
+</div>
+`;
