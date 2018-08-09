@@ -34,8 +34,8 @@ const SidenavItem = ({ item, users }) => {
     );
 };
 
-function mapStateToProps(state){
-    return{
+function mapStateToProps(state) {
+    return {
         users: state.users
     }
 }
