@@ -10,7 +10,7 @@ const mockStore = configureStore();
 
 jest.mock('./../../../actions', () => ({ 
     loginUser: jest.fn(() => ({
-        type: 'test'
+        type: 'loginUser'
     })) 
 }));
 
@@ -105,7 +105,7 @@ describe('<Login />', () => {
             history: {
                 push
             }
-        }
+        };
         const nextProps = {
             users: {
                 login: {
@@ -130,7 +130,7 @@ describe('<Login />', () => {
             history: {
                 push
             }
-        }
+        };
         const nextProps = {
             users: {
                 login: {}
