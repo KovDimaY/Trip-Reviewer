@@ -14,6 +14,7 @@ exports[`<EditTrip /> should render component 1`] = `
       className="form_element"
     >
       <input
+        name="title"
         onChange={[Function]}
         placeholder="Enter title"
         type="text"
@@ -24,6 +25,7 @@ exports[`<EditTrip /> should render component 1`] = `
       className="form_element"
     >
       <input
+        name="author"
         onChange={[Function]}
         placeholder="Enter author"
         type="text"
@@ -31,6 +33,7 @@ exports[`<EditTrip /> should render component 1`] = `
       />
     </div>
     <textarea
+      name="review"
       onChange={[Function]}
       value=""
     />
@@ -38,6 +41,7 @@ exports[`<EditTrip /> should render component 1`] = `
       className="form_element"
     >
       <input
+        name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
         type="number"
@@ -48,6 +52,7 @@ exports[`<EditTrip /> should render component 1`] = `
       className="form_element"
     >
       <select
+        name="rating"
         onChange={[Function]}
         value=""
       >
@@ -82,6 +87,248 @@ exports[`<EditTrip /> should render component 1`] = `
       className="form_element"
     >
       <input
+        name="ptice"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value=""
+      />
+    </div>
+    <button
+      type="submit"
+    >
+      Edit review
+    </button>
+    <div
+      className="delete_post"
+    >
+      <div
+        className="button"
+        onClick={[Function]}
+      >
+        Delete review
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`<EditTrip /> should render component with postDeleted 1`] = `
+<div
+  className="rl_container article"
+>
+  <div
+    className="red_tag"
+  >
+    Post Deleted
+  </div>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2>
+      Edit review
+    </h2>
+    <div
+      className="form_element"
+    >
+      <input
+        name="title"
+        onChange={[Function]}
+        placeholder="Enter title"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        name="author"
+        onChange={[Function]}
+        placeholder="Enter author"
+        type="text"
+        value=""
+      />
+    </div>
+    <textarea
+      name="review"
+      onChange={[Function]}
+      value=""
+    />
+    <div
+      className="form_element"
+    >
+      <input
+        name="duration"
+        onChange={[Function]}
+        placeholder="Enter duration"
+        type="number"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <select
+        name="rating"
+        onChange={[Function]}
+        value=""
+      >
+        <option
+          val="1"
+        >
+          1
+        </option>
+        <option
+          val="2"
+        >
+          2
+        </option>
+        <option
+          val="3"
+        >
+          3
+        </option>
+        <option
+          val="4"
+        >
+          4
+        </option>
+        <option
+          val="5"
+        >
+          5
+        </option>
+      </select>
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        name="ptice"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value=""
+      />
+    </div>
+    <button
+      type="submit"
+    >
+      Edit review
+    </button>
+    <div
+      className="delete_post"
+    >
+      <div
+        className="button"
+        onClick={[Function]}
+      >
+        Delete review
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`<EditTrip /> should render component with updateTrip 1`] = `
+<div
+  className="rl_container article"
+>
+  <div
+    className="edit_confirm"
+  >
+    Post updated, 
+    <Link
+      to="/trips/_id"
+    >
+      Click here to see your post
+    </Link>
+  </div>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2>
+      Edit review
+    </h2>
+    <div
+      className="form_element"
+    >
+      <input
+        name="title"
+        onChange={[Function]}
+        placeholder="Enter title"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        name="author"
+        onChange={[Function]}
+        placeholder="Enter author"
+        type="text"
+        value=""
+      />
+    </div>
+    <textarea
+      name="review"
+      onChange={[Function]}
+      value=""
+    />
+    <div
+      className="form_element"
+    >
+      <input
+        name="duration"
+        onChange={[Function]}
+        placeholder="Enter duration"
+        type="number"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <select
+        name="rating"
+        onChange={[Function]}
+        value=""
+      >
+        <option
+          val="1"
+        >
+          1
+        </option>
+        <option
+          val="2"
+        >
+          2
+        </option>
+        <option
+          val="3"
+        >
+          3
+        </option>
+        <option
+          val="4"
+        >
+          4
+        </option>
+        <option
+          val="5"
+        >
+          5
+        </option>
+      </select>
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        name="ptice"
         onChange={[Function]}
         placeholder="Enter Price"
         type="number"
