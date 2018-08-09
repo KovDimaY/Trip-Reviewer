@@ -24,6 +24,8 @@ jest.mock('./../../../actions', () => ({
     }))
 }));
 
+const mockStore = configureStore();
+
 const mockComponent = (initialState = {}, props) => {
     const store = mockStore(initialState);
 
@@ -31,8 +33,6 @@ const mockComponent = (initialState = {}, props) => {
         <EditTrip {...props} store={store} />
     );
 };
-
-const mockStore = configureStore();
  
 describe('<EditTrip />', () => {
     it('should render component', () => {
