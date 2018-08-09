@@ -1,21 +1,36 @@
 import React from 'react';
+import configureStore from 'redux-mock-store';
 import { create } from 'react-test-renderer';
+import { shallow } from 'enzyme';
  
 import TripView from './../../TripView';
-import Root from './../../../hoc/root';
+import { clearTripWithReviewer } from './../../../actions';
 
-const mockComponent = props => {
+jest.mock('./../../../actions', () => ({ 
+    getTripWithReviewer: jest.fn(() => ({
+        type: 'getTripWithReviewer'
+    })),
+    clearTripWithReviewer: jest.fn(() => ({
+        type: 'clearTripWithReviewer'
+    }))
+}));
+
+const mockStore = configureStore();
+
+const mockComponent = (initialState = {}, props) => {
+    const store = mockStore(initialState);
+
     return (
-        <Root>
-            <TripView {...props} />
-        </Root>
+        <TripView {...props} store={store} />
     );
 };
  
 describe('<TripView />', () => {
     it('should render component with empty trips', () => {
+        const initialState = {
+            trips: {}
+        };
         const props = {
-            trips: {},
             match: {
                 params: {
                     id: 'id'
@@ -23,13 +38,13 @@ describe('<TripView />', () => {
             }
         };
         
-        const tree = create(mockComponent(props)).toJSON();
+        const tree = create(mockComponent(initialState, props)).toJSON();
         
         expect(tree).toMatchSnapshot();
     });
 
     it('should render component with current trip', () => {
-        const props = {
+        const initialState = {
             trips: {
                 current: {
                     title: 'title',
@@ -43,15 +58,36 @@ describe('<TripView />', () => {
                     name: 'name',
                     lastname: 'lastname'
                 }   
-            },
+            }
+        };
+        const props = {
             match: {
                 params: {
                     id: 'id'
                 }
             }
         };
-        const tree = create(mockComponent(props)).toJSON();
+        const tree = create(mockComponent(initialState, props)).toJSON();
         
         expect(tree).toMatchSnapshot();
+    });
+
+    it('should dispatch clearTripWithReviewer when componentWillUnmount is called', () => {
+        const initialState = {
+            trips: {}
+        };
+        const props = {
+            match: {
+                params: {
+                    id: 'id'
+                }
+            }
+        };
+
+        const instance = shallow(mockComponent(initialState, props)).dive().instance();
+    
+        instance.componentWillUnmount();
+
+        expect(clearTripWithReviewer).toHaveBeenCalled();
     });
 });
