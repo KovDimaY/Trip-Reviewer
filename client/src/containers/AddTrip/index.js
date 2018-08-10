@@ -16,11 +16,13 @@ class AddTrip extends Component {
     }
 
 
-    handleInput = (event, name) => {
+    handleInput = (event) => {
         const newFormdata = {
             ...this.state.formdata
         };
-        newFormdata[name] = event.target.value;
+        const { value, name } = event.target;
+
+        newFormdata[name] = value;
 
         this.setState({
             formdata: newFormdata
@@ -59,39 +61,43 @@ class AddTrip extends Component {
                     <div className="form_element">
                         <input
                             type="text"
+                            name="title"
                             placeholder="Enter title"
                             value={this.state.formdata.title}
-                            onChange={event => this.handleInput(event, 'title')}
+                            onChange={this.handleInput}
                         />
                     </div>
 
                     <div className="form_element">
                         <input
                             type="text"
+                            name='autor'
                             placeholder="Enter author"
                             value={this.state.formdata.author}
-                            onChange={event => this.handleInput(event, 'author')}
+                            onChange={this.handleInput}
                         />
                     </div>
 
                     <textarea
                         value={this.state.formdata.review}
-                        onChange={event => this.handleInput(event, 'review')}
+                        onChange={this.handleInput}
                     />
 
                     <div className="form_element">
                         <input
                             type="number"
+                            name='duration'
                             placeholder="Enter duration"
                             value={this.state.formdata.duration}
-                            onChange={event => this.handleInput(event, 'duration')}
+                            onChange={this.handleInput}
                         />
                     </div>
 
                     <div className="form_element">
                         <select
                             value={this.state.formdata.rating}
-                            onChange={event => this.handleInput(event, 'rating')}
+                            name='rating'
+                            onChange={this.handleInput}
                         >
                             <option val="1">1</option>
                             <option val="2">2</option>
@@ -104,9 +110,10 @@ class AddTrip extends Component {
                     <div className="form_element">
                         <input
                             type="number"
+                            name='price'
                             placeholder="Enter Price"
                             value={this.state.formdata.price}
-                            onChange={event => this.handleInput(event, 'price')}
+                            onChange={this.handleInput}
                         />
                     </div>
 

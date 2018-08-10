@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Register /> should render component 1`] = `
+<div
+  className="rl_container"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2>
+      Sing Up
+    </h2>
+    <div
+      className="form_element"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Enter name"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Enter Lastname"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Enter Email"
+        type="email"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Enter Password"
+        type="password"
+        value=""
+      />
+    </div>
+    <button
+      type="submit"
+    >
+      Sign Up
+    </button>
+    <div
+      className="error"
+    >
+      
+    </div>
+  </form>
+  <div
+    className="current_users"
+  >
+    <h4>
+      Current users:
+    </h4>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Lastname
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
+</div>
+`;
+
+exports[`<Register /> should render component with users 1`] = `
+<div
+  className="rl_container"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2>
+      Sing Up
+    </h2>
+    <div
+      className="form_element"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Enter name"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Enter Lastname"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Enter Email"
+        type="email"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Enter Password"
+        type="password"
+        value=""
+      />
+    </div>
+    <button
+      type="submit"
+    >
+      Sign Up
+    </button>
+    <div
+      className="error"
+    >
+      
+    </div>
+  </form>
+  <div
+    className="current_users"
+  >
+    <h4>
+      Current users:
+    </h4>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Lastname
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            name
+          </td>
+          <td>
+            lastname
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
