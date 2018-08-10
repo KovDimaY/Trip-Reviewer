@@ -1,22 +1,29 @@
 import React from 'react';
+import configureStore from 'redux-mock-store';
 import { create } from 'react-test-renderer';
  
 import UserPosts from './../../UserReviews';
-import Root from './../../../hoc/root';
 
 jest.mock('react-router-dom', () => ({ Link: 'Link' }));
+jest.mock('./../../../actions', () => ({ 
+    getUserReviews: jest.fn(() => ({
+        type: 'getTripWithReviewer'
+    }))
+}));
 
-const mockComponent = props => {
+const mockStore = configureStore();
+
+const mockComponent = (initialState = {}, props) => {
+    const store = mockStore(initialState);
+
     return (
-        <Root>
-            <UserPosts {...props} />
-        </Root>
+        <UserPosts {...props} store={store} />
     );
 };
  
 describe('<UserPosts />', () => {
-    it('should render component', () => {
-        const props = {
+    it('should render component with login', () => {
+        const initialState = {
             users: {
                 login: {
                     id: 'id'
@@ -29,7 +36,16 @@ describe('<UserPosts />', () => {
                 }]
             }
         };
-        const tree = create(mockComponent(props)).toJSON();
+        const tree = create(mockComponent(initialState)).toJSON();
+        
+        expect(tree).toMatchSnapshot();
+    });
+
+    it('should render component with no login', () => {
+        const initialState = {
+            users: {}
+        };
+        const tree = create(mockComponent(initialState)).toJSON();
         
         expect(tree).toMatchSnapshot();
     });
