@@ -71,7 +71,7 @@ class AddTrip extends Component {
                     <div className="form_element">
                         <input
                             type="text"
-                            name='autor'
+                            name='author'
                             placeholder="Enter author"
                             value={this.state.formdata.author}
                             onChange={this.handleInput}
@@ -80,6 +80,7 @@ class AddTrip extends Component {
 
                     <textarea
                         value={this.state.formdata.review}
+                        name='review'
                         onChange={this.handleInput}
                     />
 

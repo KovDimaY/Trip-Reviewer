@@ -10,5 +10,6 @@ export const CLEAR_NEW_TRIP = 'clear-new-trip';
 export const CLEAR_TRIP = 'clear-trip';
 export const USER_REGISTER = 'user-register';
 export const USER_LOGIN = 'user-login';
+export const RESET_PASSWORD = 'reset-password';
 export const USER_AUTH = 'user-auth';
 export const GET_USER_REVIEWS = 'get-user-reviews';

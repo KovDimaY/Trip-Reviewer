@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loginUser } from '../../actions';
 
-class Login extends Component {
+import { resetPassword } from '../../actions';
+
+class ResetPass extends Component {
     state = {
-        email: '',
-        password: ''
+        email: ''
     }
 
     handleInputEmail = (event) => {
         this.setState({ email: event.target.value });
-    }
-
-    handleInputPassword = (event) => {
-        this.setState({ password: event.target.value });
     }
 
     componentWillReceiveProps(nextProps) {
@@ -24,7 +20,7 @@ class Login extends Component {
 
     submitForm = (event) => {
         event.preventDefault();
-        this.props.dispatch(loginUser(this.state));
+        this.props.dispatch(resetPassword(this.state));
     }
 
     render() {
@@ -44,20 +40,7 @@ class Login extends Component {
                         />
                     </div>
 
-                    <div className="form_element">
-                        <input 
-                            type="password"
-                            placeholder="Enter your password"
-                            value={this.state.password}
-                            onChange={this.handleInputPassword}
-                        />
-                    </div>
-
-                    <button type="submit">Log in</button><br/>
-
-                    {
-                        users.login && users.login.message && <a href="reset-password" class="reset-password">Forgot my password</a>
-                    }
+                    <button type="submit">Reset</button>
 
                     <div className="error">
                     {
@@ -79,4 +62,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps)(ResetPass);

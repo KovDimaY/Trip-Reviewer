@@ -146,7 +146,7 @@ class EditTrip extends PureComponent {
                     <div className="form_element">
                         <input
                             type="number"
-                            name="ptice"
+                            name="price"
                             placeholder="Enter Price"
                             value={this.state.formdata.price}
                             onChange={this.handleInput}

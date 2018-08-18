@@ -116,6 +116,12 @@ header .navItem span {
     cursor: pointer;
 }
 
+.reset-password {
+    color: gold !important;
+    display: block;
+    margin-top: 10px;
+}
+
 /*=============================
             REGISTER
 ===============================*/

@@ -35,6 +35,7 @@ exports[`<Login /> should render component 1`] = `
     >
       Log in
     </button>
+    <br />
     <div
       className="error"
     />
@@ -77,6 +78,13 @@ exports[`<Login /> should render component with error message 1`] = `
     >
       Log in
     </button>
+    <br />
+    <a
+      class="reset-password"
+      href="reset-password"
+    >
+      Forgot my password
+    </a>
     <div
       className="error"
     >

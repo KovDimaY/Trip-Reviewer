@@ -25,7 +25,7 @@ exports[`<AddTrip /> should render component 1`] = `
       className="form_element"
     >
       <input
-        name="autor"
+        name="author"
         onChange={[Function]}
         placeholder="Enter author"
         type="text"
@@ -33,6 +33,7 @@ exports[`<AddTrip /> should render component 1`] = `
       />
     </div>
     <textarea
+      name="review"
       onChange={[Function]}
       value=""
     />
@@ -127,7 +128,7 @@ exports[`<AddTrip /> should render component with newTrip and post 1`] = `
       className="form_element"
     >
       <input
-        name="autor"
+        name="author"
         onChange={[Function]}
         placeholder="Enter author"
         type="text"
@@ -135,6 +136,7 @@ exports[`<AddTrip /> should render component with newTrip and post 1`] = `
       />
     </div>
     <textarea
+      name="review"
       onChange={[Function]}
       value=""
     />
@@ -239,7 +241,7 @@ exports[`<AddTrip /> should render component with newTrip but no post 1`] = `
       className="form_element"
     >
       <input
-        name="autor"
+        name="author"
         onChange={[Function]}
         placeholder="Enter author"
         type="text"
@@ -247,6 +249,7 @@ exports[`<AddTrip /> should render component with newTrip but no post 1`] = `
       />
     </div>
     <textarea
+      name="review"
       onChange={[Function]}
       value=""
     />

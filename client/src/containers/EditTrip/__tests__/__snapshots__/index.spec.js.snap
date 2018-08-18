@@ -87,7 +87,7 @@ exports[`<EditTrip /> should render component 1`] = `
       className="form_element"
     >
       <input
-        name="ptice"
+        name="price"
         onChange={[Function]}
         placeholder="Enter Price"
         type="number"
@@ -205,7 +205,7 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
       className="form_element"
     >
       <input
-        name="ptice"
+        name="price"
         onChange={[Function]}
         placeholder="Enter Price"
         type="number"
@@ -328,7 +328,7 @@ exports[`<EditTrip /> should render component with updateTrip 1`] = `
       className="form_element"
     >
       <input
-        name="ptice"
+        name="price"
         onChange={[Function]}
         placeholder="Enter Price"
         type="number"
