@@ -5,6 +5,7 @@ import Home from './components/Home';
 import User from './components/User';
 import Logout from './components/Logout';
 import Login from './containers/Login';
+import ResetPass from './containers/ResetPass';
 import Register from './containers/Register';
 import AddTrip from './containers/AddTrip';
 import EditTrip from './containers/EditTrip';
@@ -20,6 +21,7 @@ const Routes = () => {
             <Switch>
                 <Route path="/" exact component={Auth(Home, null)}/>
                 <Route path="/login" exact component={Auth(Login, false)}/>
+                <Route path="/reset-password" exact component={Auth(ResetPass, false)}/>
                 <Route path="/user/logout" exact component={Auth(Logout, true)}/>
                 <Route path="/user/register" exact component={Auth(Register, false)}/>
                 <Route path="/user" exact component={Auth(User, true)}/>

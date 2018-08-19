@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loginUser } from '../../actions'
-
+import { loginUser } from '../../actions';
 
 class Login extends Component {
     state = {
@@ -30,6 +29,7 @@ class Login extends Component {
 
     render() {
         const { users } = this.props;
+
         return (
             <div className="rl_container">
                 <form onSubmit={this.submitForm}>
@@ -53,7 +53,11 @@ class Login extends Component {
                         />
                     </div>
 
-                    <button type="submit">Log in</button>
+                    <button type="submit">Log in</button><br/>
+
+                    {
+                        users.login && users.login.message && <a href="reset-password" className="reset-password">Forgot my password</a>
+                    }
 
                     <div className="error">
                     {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Login /> should render component 1`] = `
+exports[`<ResetPass /> should render component 1`] = `
 <div
   className="rl_container"
 >
@@ -8,7 +8,7 @@ exports[`<Login /> should render component 1`] = `
     onSubmit={[Function]}
   >
     <h2>
-      Log in here
+      Reset Password
     </h2>
     <div
       className="form_element"
@@ -20,22 +20,11 @@ exports[`<Login /> should render component 1`] = `
         value=""
       />
     </div>
-    <div
-      className="form_element"
-    >
-      <input
-        onChange={[Function]}
-        placeholder="Enter your password"
-        type="password"
-        value=""
-      />
-    </div>
     <button
       type="submit"
     >
-      Log in
+      Reset
     </button>
-    <br />
     <div
       className="error"
     />
@@ -43,7 +32,7 @@ exports[`<Login /> should render component 1`] = `
 </div>
 `;
 
-exports[`<Login /> should render component with error message 1`] = `
+exports[`<ResetPass /> should render component with error message 1`] = `
 <div
   className="rl_container"
 >
@@ -51,7 +40,7 @@ exports[`<Login /> should render component with error message 1`] = `
     onSubmit={[Function]}
   >
     <h2>
-      Log in here
+      Reset Password
     </h2>
     <div
       className="form_element"
@@ -63,28 +52,11 @@ exports[`<Login /> should render component with error message 1`] = `
         value=""
       />
     </div>
-    <div
-      className="form_element"
-    >
-      <input
-        onChange={[Function]}
-        placeholder="Enter your password"
-        type="password"
-        value=""
-      />
-    </div>
     <button
       type="submit"
     >
-      Log in
+      Reset
     </button>
-    <br />
-    <a
-      className="reset-password"
-      href="reset-password"
-    >
-      Forgot my password
-    </a>
     <div
       className="error"
     >

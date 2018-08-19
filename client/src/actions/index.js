@@ -7,6 +7,7 @@ import {
     CLEAR_TRIP_W_REVIEWER,
     USER_REGISTER,
     USER_LOGIN,
+    RESET_PASSWORD,
     USER_AUTH,
     ADD_TRIP,
     UPDATE_TRIP,
@@ -143,6 +144,20 @@ export function loginUser({ email, password }) {
         return request.then((response) => {
             dispatch({
                 type: USER_LOGIN,
+                payload: response.data
+            });
+        });
+    }
+}
+
+export function resetPassword({ email }) {
+    const request = axios
+        .post('/api/resetPassword', { email });
+
+    return (dispatch) => {
+        return request.then((response) => {
+            dispatch({
+                type: RESET_PASSWORD,
                 payload: response.data
             });
         });
