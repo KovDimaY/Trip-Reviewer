@@ -152,7 +152,7 @@ export function loginUser({ email, password }) {
 
 export function resetPassword({ email }) {
     const request = axios
-        .post('/api/reset-password', { email });
+        .post('/api/resetPassword', { email });
 
     return (dispatch) => {
         return request.then((response) => {

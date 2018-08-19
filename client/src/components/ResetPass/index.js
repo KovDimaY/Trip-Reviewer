@@ -44,8 +44,8 @@ class ResetPass extends Component {
 
                     <div className="error">
                     {
-                        users.login 
-                            ? <div>{users.login.message}</div>
+                        users.reset 
+                            ? <div>{users.reset.message}</div>
                             : null
                     }
                     </div>

@@ -80,7 +80,7 @@ exports[`<Login /> should render component with error message 1`] = `
     </button>
     <br />
     <a
-      class="reset-password"
+      className="reset-password"
       href="reset-password"
     >
       Forgot my password

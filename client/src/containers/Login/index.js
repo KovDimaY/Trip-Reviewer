@@ -56,7 +56,7 @@ class Login extends Component {
                     <button type="submit">Log in</button><br/>
 
                     {
-                        users.login && users.login.message && <a href="reset-password" class="reset-password">Forgot my password</a>
+                        users.login && users.login.message && <a href="reset-password" className="reset-password">Forgot my password</a>
                     }
 
                     <div className="error">
