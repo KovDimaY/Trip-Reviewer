@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const config = require('./../config/config').get(process.env.NODE_ENV);
-const encriptPassword = require('./../helpers/auth').encriptPassword;
+const auth = require('./../constants/auth');
 
 const userSchema = mongoose.Schema({
     email: {
@@ -38,7 +38,7 @@ userSchema.pre('save', function(next) {
     const user = this;
 
     if(user.isModified('password')) {
-        bcrypt.genSalt(SALT_I, function(err, salt) {
+        bcrypt.genSalt(auth.USER_SALT_I, function(err, salt) {
             if (err) return next(err);
 
             bcrypt.hash(user.password, salt, function(err, hash) {

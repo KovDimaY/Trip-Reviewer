@@ -16,7 +16,8 @@ import {
     addTrip,
     clearNewTrip,
     getUsers,
-    userRegister
+    userRegister,
+    resetPassword
 } from './../index';
 import {
     GET_TRIPS,
@@ -32,7 +33,8 @@ import {
     GET_TRIP,
     CLEAR_NEW_TRIP,
     CLEAR_TRIP,
-    GET_USER_REVIEWS
+    GET_USER_REVIEWS,
+    RESET_PASSWORD
 } from './../../constants/action-names';
 
 const middlewares = [thunk];
@@ -341,6 +343,32 @@ describe('Testing async actions', () => {
             const store = mockStore({});
             
             return store.dispatch(userRegister()).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
+    });
+
+    describe('resetPassword', () => {
+        it('has the correct type and payload', () => {
+            const input = {
+                email: 'email'
+            };
+            const responceMock = 'test';
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                  status: 200,
+                  response: responceMock,
+                });
+            });
+    
+            const expectedActions = [
+                { type: RESET_PASSWORD, payload: responceMock },
+            ];
+    
+            const store = mockStore({});
+            
+            return store.dispatch(resetPassword(input)).then(() => {
                 expect(store.getActions()).toEqual(expectedActions);
             });
         });

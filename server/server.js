@@ -195,7 +195,7 @@ app.post('/api/resetPassword', (req, res) => {
             
             const mailOptions = {
                 from: `"Admin TripReview" <${adminMail}>`,
-                to: 'kovalenko.d.y@gmail.com',
+                to: req.body.email,
                 subject: 'Reset Password',
                 text: `Your new password is ${newPassword}`
             };

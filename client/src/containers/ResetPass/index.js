@@ -12,12 +12,6 @@ class ResetPass extends Component {
         this.setState({ email: event.target.value });
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.users.login.isAuth) {
-            this.props.history.push('/user');
-        }
-    }
-
     submitForm = (event) => {
         event.preventDefault();
         this.props.dispatch(resetPassword(this.state));
@@ -29,7 +23,7 @@ class ResetPass extends Component {
         return (
             <div className="rl_container">
                 <form onSubmit={this.submitForm}>
-                    <h2>Log in here</h2>
+                    <h2>Reset Password</h2>
 
                     <div className="form_element">
                         <input 

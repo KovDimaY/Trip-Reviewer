@@ -1,12 +1,12 @@
+import reducer from './../users';
 import {
     USER_LOGIN,
     USER_AUTH,
     GET_USERS,
     GET_USER_REVIEWS,
-    USER_REGISTER
+    USER_REGISTER,
+    RESET_PASSWORD
 } from './../../constants/action-names';
-import reducer from './../users';
-
 
 describe('users reducer', () => {
     it('handles actions of unknown type', () => {
@@ -92,6 +92,21 @@ describe('users reducer', () => {
         const expected = {
             register: 'success',
             login: { isAuth: 'success' }
+        };
+
+        const newState = reducer(initialState, action);
+
+        expect(newState).toEqual(expected);
+    });
+
+    it('handles actions of type RESET_PASSWORD', () => {
+        const initialState = {};
+        const action = {
+            type: RESET_PASSWORD,
+            payload: 'test'
+        };
+        const expected = {
+            reset: 'test'
         };
 
         const newState = reducer(initialState, action);

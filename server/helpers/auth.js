@@ -1,9 +1,9 @@
 const bcrypt = require('bcrypt');
 
-const SALT_I = 10;
+const auth = require('./../constants/auth');
 
 const encryptPassword = function(rawPassword, callback) {
-    bcrypt.genSalt(SALT_I, function(err, salt) {
+    bcrypt.genSalt(auth.USER_SALT_I, function(err, salt) {
         if (err) return callback(err);
 
         bcrypt.hash(rawPassword, salt, function(err, hash) {
