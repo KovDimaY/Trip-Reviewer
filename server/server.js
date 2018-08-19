@@ -206,7 +206,7 @@ app.post('/api/resetPassword', (req, res) => {
                     return res.json({ success: false, error });
                 } else {
                     console.log('Email sent: ' + info.response);
-                    return res.json({ success: true, info: info.response });
+                    return res.json({ success: true, info: info.response, message: 'New password is sent to your email' });
                 }
             });
         });
