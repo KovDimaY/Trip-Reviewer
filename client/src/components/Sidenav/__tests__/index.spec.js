@@ -14,7 +14,10 @@ const mockComponent = props => {
  
 describe('<Sidenav />', () => {
     it('should render component', () => {
-        const tree = create(mockComponent()).toJSON();
+        const props = {
+            onHideNav: () => {}
+        }
+        const tree = create(mockComponent(props)).toJSON();
         
         expect(tree).toMatchSnapshot();
     });
