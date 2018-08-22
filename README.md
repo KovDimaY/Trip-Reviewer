@@ -33,10 +33,8 @@ Thank you in advance!
 7) Trip Review page:
 ![screenshot at aug 21 18-33-21](https://user-images.githubusercontent.com/26466644/44415607-31314480-a571-11e8-9f31-6dd5e1d12acb.png)
 
-
 <br>
 <br>
-
 
 
 
@@ -58,24 +56,31 @@ To understand better our basic approaches to contributions, please take a look a
 ```
 git clone https://github.com/KovDimaY/Trip-Reviewer.git
 ```
+
 ##### Open it:
 ```
 cd Trip-Reviewer
 ```
+
 ##### Install all required packages:
 ```
 npm install
 ```
+
 ##### Run the mongoDB database:
 ```
 npm run mongo
 ```
+
 ##### IN THE NEW TAB run the combined dev-server:
 ```
 npm run dev
 ```
 
 ##### Open your browser at http://localhost:3000/
+
+<br>
+<br>
 
 
 
@@ -84,12 +89,13 @@ npm run dev
 ```
 npm run test
 ```
+
 ##### To generate coverage report:
 ```
 npm run test:coverage
 ```
 
-After running this command you can find the HTML version of the generated report in the next directory of the project:
+##### After running this command you can find the HTML version of the generated report in the next directory of the project:
 ```
 .../Trip-Reviewer/client/coverage/jest/lcov-report/index.html
 ```
