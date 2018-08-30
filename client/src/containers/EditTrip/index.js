@@ -39,11 +39,13 @@ class EditTrip extends PureComponent {
         this.props.dispatch(clearTrip());
     }
 
-    handleInput = (event, name) => {
+    handleInput = (event) => {
         const newFormdata = {
             ...this.state.formdata
         };
-        newFormdata[name] = event.target.value;
+        const { value, name } = event.target;
+
+        newFormdata[name] = value;
 
         this.setState({
             formdata: newFormdata
@@ -59,10 +61,12 @@ class EditTrip extends PureComponent {
         this.props.dispatch(deleteTrip(this.props.match.params.id));
     }
 
+    goToReviews = () => {
+        this.props.history.push('/user/user-reviews');
+    }
+
     redirectUser = () => {
-        setTimeout(() => {
-            this.props.history.push('/user/user-reviews');
-        }, 1000);
+        setTimeout(this.goToReviews, 1000);
     }
 
     render() {
@@ -92,39 +96,44 @@ class EditTrip extends PureComponent {
                     <div className="form_element">
                         <input
                             type="text"
+                            name="title"
                             placeholder="Enter title"
                             value={this.state.formdata.title}
-                            onChange={event => this.handleInput(event, 'title')}
+                            onChange={this.handleInput}
                         />
                     </div>
 
                     <div className="form_element">
                         <input
                             type="text"
+                            name="author"
                             placeholder="Enter author"
                             value={this.state.formdata.author}
-                            onChange={event => this.handleInput(event, 'author')}
+                            onChange={this.handleInput}
                         />
                     </div>
 
                     <textarea
                         value={this.state.formdata.review}
-                        onChange={event => this.handleInput(event, 'review')}
+                        name="review"
+                        onChange={this.handleInput}
                     />
 
                     <div className="form_element">
                         <input
                             type="number"
+                            name="duration"
                             placeholder="Enter duration"
                             value={this.state.formdata.duration}
-                            onChange={event => this.handleInput(event, 'duration')}
+                            onChange={this.handleInput}
                         />
                     </div>
 
                     <div className="form_element">
                         <select
                             value={this.state.formdata.rating}
-                            onChange={event => this.handleInput(event, 'rating')}
+                            name="rating"
+                            onChange={this.handleInput}
                         >
                             <option val="1">1</option>
                             <option val="2">2</option>
@@ -137,9 +146,10 @@ class EditTrip extends PureComponent {
                     <div className="form_element">
                         <input
                             type="number"
+                            name="price"
                             placeholder="Enter Price"
                             value={this.state.formdata.price}
-                            onChange={event => this.handleInput(event, 'price')}
+                            onChange={this.handleInput}
                         />
                     </div>
 

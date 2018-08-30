@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResetPass /> should render component 1`] = `
+<div
+  className="rl_container"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2>
+      Reset Password
+    </h2>
+    <div
+      className="form_element"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Enter your mail"
+        type="email"
+        value=""
+      />
+    </div>
+    <button
+      type="submit"
+    >
+      Reset
+    </button>
+    <div
+      className="error"
+    />
+  </form>
+</div>
+`;
+
+exports[`<ResetPass /> should render component with error message 1`] = `
+<div
+  className="rl_container"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2>
+      Reset Password
+    </h2>
+    <div
+      className="form_element"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Enter your mail"
+        type="email"
+        value=""
+      />
+    </div>
+    <button
+      type="submit"
+    >
+      Reset
+    </button>
+    <div
+      className="error"
+    >
+      <div>
+        test
+      </div>
+    </div>
+  </form>
+</div>
+`;

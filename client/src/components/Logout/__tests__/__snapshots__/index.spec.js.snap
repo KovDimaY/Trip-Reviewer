@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Logout /> should render component 1`] = `
+<div
+  className="logout_container"
+>
+  <h1>
+    Sorry to see you go :(
+  </h1>
+</div>
+`;

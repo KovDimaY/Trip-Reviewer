@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TripView /> should render component with current trip 1`] = `
+<div>
+  <div
+    className="br_container"
+  >
+    <div
+      className="br_header"
+    >
+      <h2>
+        title
+      </h2>
+      <h5>
+        author
+      </h5>
+      <div
+        className="br_reviewer"
+      >
+        <span>
+          Review by:
+        </span>
+         
+        name
+         
+        lastname
+      </div>
+    </div>
+    <div
+      className="br_review"
+    >
+      review
+    </div>
+    <div
+      className="br_box"
+    >
+      <div
+        className="left"
+      >
+        <div>
+          <span>
+            Duration:
+          </span>
+           
+          duration
+           days
+        </div>
+        <div>
+          <span>
+            Price:
+          </span>
+           
+          price
+        </div>
+      </div>
+      <div
+        className="right"
+      >
+        <span>
+          Rating
+        </span>
+        <div>
+          rating
+          /5
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<TripView /> should render component with empty trips 1`] = `<div />`;

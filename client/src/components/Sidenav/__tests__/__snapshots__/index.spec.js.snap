@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Sidenav /> should render component 1`] = `
+<ReactSideNav
+  navStyle={
+    Object {
+      "background": "#242424",
+      "maxWidth": "220px",
+    }
+  }
+  onHideNav={[Function]}
+  showNav={undefined}
+>
+  <div
+    onClick={[Function]}
+  >
+    <SidenavItem
+      item={
+        Object {
+          "icon": "home",
+          "link": "/",
+          "restricted": false,
+          "text": "Home",
+          "type": "navItem",
+        }
+      }
+    />
+  </div>
+  <div
+    onClick={[Function]}
+  >
+    <SidenavItem
+      item={
+        Object {
+          "icon": "user",
+          "link": "/user",
+          "restricted": true,
+          "text": "My Profile",
+          "type": "navItem",
+        }
+      }
+    />
+  </div>
+  <div
+    onClick={[Function]}
+  >
+    <SidenavItem
+      item={
+        Object {
+          "exclude": true,
+          "icon": "user-plus",
+          "link": "/user/register",
+          "restricted": false,
+          "text": "Register",
+          "type": "navItem",
+        }
+      }
+    />
+  </div>
+  <div
+    onClick={[Function]}
+  >
+    <SidenavItem
+      item={
+        Object {
+          "exclude": true,
+          "icon": "sign-in-alt",
+          "link": "/login",
+          "restricted": false,
+          "text": "Login",
+          "type": "navItem",
+        }
+      }
+    />
+  </div>
+  <div
+    onClick={[Function]}
+  >
+    <SidenavItem
+      item={
+        Object {
+          "icon": "file-alt",
+          "link": "/user/user-reviews",
+          "restricted": true,
+          "text": "My reviews",
+          "type": "navItem",
+        }
+      }
+    />
+  </div>
+  <div
+    onClick={[Function]}
+  >
+    <SidenavItem
+      item={
+        Object {
+          "icon": "edit",
+          "link": "/trip/add",
+          "restricted": true,
+          "text": "Add reviews",
+          "type": "navItem",
+        }
+      }
+    />
+  </div>
+  <div
+    onClick={[Function]}
+  >
+    <SidenavItem
+      item={
+        Object {
+          "icon": "sign-out-alt",
+          "link": "/user/logout",
+          "restricted": true,
+          "text": "Logout",
+          "type": "navItem",
+        }
+      }
+    />
+  </div>
+</ReactSideNav>
+`;

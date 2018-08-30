@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Auth /> should render component 1`] = `
+<div
+  className="loader"
+>
+  Loading...
+</div>
+`;

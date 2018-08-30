@@ -2,7 +2,7 @@ import React from 'react';
 import ReactSideNav from 'react-simple-sidenav';
 
 import { items } from './items';
-import SidenavItem from './sidenav-item';
+import SidenavItem from './../../containers/SidenavItem/index';
 
 const Sidenav = (props) => {
     return (
@@ -15,7 +15,11 @@ const Sidenav = (props) => {
             }}
        >    
             {
-               items.map((item, i) =>  <SidenavItem item={item} key={i}/>) 
+                items.map((item, i) =>
+                    <div key={i} onClick={props.onHideNav}>
+                        <SidenavItem item={item} />
+                    </div>
+                )
             }
         </ReactSideNav>
     );

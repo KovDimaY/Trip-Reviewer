@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserPosts /> should render component with login 1`] = `
+<div
+  className="user_posts"
+>
+  <h4>
+    Your reviews:
+  </h4>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Author
+        </th>
+        <th>
+          Date
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <Link
+            to="/user/edit-post/id"
+          >
+            title
+          </Link>
+        </td>
+        <td>
+          author
+        </td>
+        <td>
+          Invalid Date
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`<UserPosts /> should render component with no login 1`] = `
+<div
+  className="user_posts"
+>
+  <h4>
+    Your reviews:
+  </h4>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Author
+        </th>
+        <th>
+          Date
+        </th>
+      </tr>
+    </thead>
+    <tbody />
+  </table>
+</div>
+`;

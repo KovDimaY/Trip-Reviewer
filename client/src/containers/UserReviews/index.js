@@ -6,7 +6,10 @@ import { Link } from 'react-router-dom';
 
 class UserPosts extends Component {
     componentWillMount() {
-        this.props.dispatch(getUserReviews(this.props.users.login.id));
+        const { login } = this.props.users;
+        if (login && login.id) {
+            this.props.dispatch(getUserReviews(login.id));
+        }
     }
 
     showUserPosts = ({ userPosts }) => (

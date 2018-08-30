@@ -3,11 +3,16 @@ const colors = require('colors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const nodemailer = require('nodemailer');
+const uuid = require('uuid');
 
 const config = require('./config/config').get(process.env.NODE_ENV);
+const encryptPassword = require('./helpers/auth').encryptPassword;
 
 const app = express();
 const port = process.env.PORT || 3001;
+const adminMail = process.env.ADMIN_EMAIL;
+const adminPassword = process.env.ADMIN_PASSWORD;
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DATABASE);
@@ -19,6 +24,14 @@ app.use(express.static('client/build'));
 const { User } = require('./models/user');
 const { Trip } = require('./models/trip');
 const { auth } = require('./middleware/auth');
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: adminMail,
+      pass: adminPassword
+    }
+});
 
 
 // GET //
@@ -124,9 +137,13 @@ app.post('/api/register', (req, res) => {
     user.save((err, doc) => {
         if (err) return res.json({ success: false, err });
         
-        res.status(200).json({
-            success: true,
-            user:doc
+        user.generateToken((err, user) => {
+            if (err) return res.status(400).send(err);
+
+            res.cookie('auth', user.token).json({
+                success: true,
+                id: user._id
+            });
         });
     });
 });
@@ -146,8 +163,7 @@ app.post('/api/login', (req, res) => {
 
                 res.cookie('auth', user.token).json({
                     isAuth: true,
-                    id: user._id,
-                    email: user.email
+                    id: user._id
                 });
             });
         });
@@ -163,6 +179,36 @@ app.post('/api/tripUpdate', (req, res) => {
         res.json({
             success: true,
             doc
+        });
+    });
+});
+
+app.post('/api/resetPassword', (req, res) => {
+    const newPassword = uuid();
+
+    encryptPassword(newPassword, (err, encrypted) => {
+        if (err) return res.json({ success: false, message: err });
+
+        User.findOneAndUpdate({ email: req.body.email }, { password: encrypted }, (err, user) => {
+            if (err) return res.json({ success: false, message: err });
+            if (!user) return res.json({ success: false, message: 'Request failed, email not found'});
+            
+            const mailOptions = {
+                from: `"Admin TripReview" <${adminMail}>`,
+                to: req.body.email,
+                subject: 'Reset Password',
+                text: `Your new password is ${newPassword}`
+            };
+              
+            transporter.sendMail(mailOptions, function(error, info) {
+                if (error) {
+                    console.log(error);
+                    return res.json({ success: false, error });
+                } else {
+                    console.log('Email sent: ' + info.response);
+                    return res.json({ success: true, info: info.response, message: 'New password is sent to your email' });
+                }
+            });
         });
     });
 });
