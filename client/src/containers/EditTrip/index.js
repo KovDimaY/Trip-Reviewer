@@ -14,7 +14,7 @@ class EditTrip extends PureComponent {
             rating: '',
             price: ''
         }
-    }
+    };
 
     componentWillMount() {
         this.props.dispatch(getTrip(this.props.match.params.id));

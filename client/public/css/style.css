@@ -182,7 +182,7 @@ header .navItem span {
     width: 260px;
 }
 
-.button-link {
+.user_container .button-link {
     font-size: 20px;
     padding: 10px 52px;
     background: #02bcd4;

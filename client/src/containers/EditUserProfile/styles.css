@@ -1,0 +1,72 @@
+.edit-user-profile-container .avatar {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.edit-user-profile-container .avatar img {
+    width: 200px;
+}
+
+.edit-user-profile-container .info{
+    box-sizing: border-box;
+    padding:20px;
+}
+
+.edit-user-profile-container .info .form_element {
+    font-size: 23px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    color: #a4a4a4;
+}
+
+.edit-user-profile-container .info div span {
+    display: block;
+    font-weight: 500;
+    color: #02bcd4;
+}
+
+.edit-user-profile-container .danger div span {
+    display: block;
+    color: orange;
+}
+
+.edit-user-profile-container .danger-zone {
+    color: orangered;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.edit-user-profile-container .text-center {
+    margin-bottom: 30px;
+}
+
+.edit-user-profile-container .info .current-password {
+    margin-bottom: 50px;
+}
+
+.edit-user-profile-container input {
+    width: -webkit-fill-available;
+    border: solid 1px gray;
+    height: 36px;
+    margin: 5px 0;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+.edit-user-profile-container .button-link {
+    font-size: 20px;
+    padding: 10px 52px;
+    background: #02bcd4;
+    color: #fff;
+    font-weight: 300;
+    border-radius: 3px;
+    border: none;
+    margin-top: 20px;
+    width: 260px;
+}
+
+.edit-user-profile-container .calcel {
+    background-color: orange;
+}
