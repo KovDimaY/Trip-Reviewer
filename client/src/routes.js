@@ -9,6 +9,7 @@ import ResetPass from './containers/ResetPass';
 import Register from './containers/Register';
 import AddTrip from './containers/AddTrip';
 import EditTrip from './containers/EditTrip';
+import EditUserProfile from './containers/EditUserProfile';
 import TripView from './containers/TripView';
 import UserReviews from './containers/UserReviews';
 
@@ -25,6 +26,7 @@ const Routes = () => {
                 <Route path="/user/logout" exact component={Auth(Logout, true)}/>
                 <Route path="/user/register" exact component={Auth(Register, false)}/>
                 <Route path="/user" exact component={Auth(User, true)}/>
+                <Route path="/user/edit-profile/:id" exact component={Auth(EditUserProfile, true)}/>
                 <Route path="/user/user-reviews" exact component={Auth(UserReviews, true)}/>
                 <Route path="/user/edit-post/:id" exact component={Auth(EditTrip, true)}/>
                 <Route path="/trip/add" exact component={Auth(AddTrip, true)}/>

@@ -6,12 +6,10 @@ body {
 
 a {
     text-decoration: none;
-    color:black;
 }
-a:active,
-a:visited,
-a:focus {
-    color:black
+
+.text-center {
+    text-align: center;
 }
 
 .red_tag {
@@ -183,6 +181,19 @@ header .navItem span {
     margin-top: 20px;
     width: 260px;
 }
+
+.button-link {
+    font-size: 20px;
+    padding: 10px 52px;
+    background: #02bcd4;
+    color: #fff;
+    font-weight: 300;
+    border-radius: 3px;
+    border: none;
+    margin-top: 20px;
+    width: 260px;
+}
+
 .rl_container.article button {
     width: 80%;
 }
@@ -274,6 +285,7 @@ header .navItem span {
   .user_container .nfo{
     box-sizing: border-box;
     padding:20px;
+    margin-bottom: 25px;
   }
   .user_container .nfo div {
     font-size: 23px;
