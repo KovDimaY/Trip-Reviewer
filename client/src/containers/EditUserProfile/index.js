@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { updateUser } from '../../actions';
@@ -18,19 +19,10 @@ class EditUserProfile extends PureComponent {
     };
 
     componentWillReceiveProps(nextProps) {
-        const { name, lastname, email } = nextProps.users.login;
-
-        this.setState({
-            formdata: {
-                name,
-                lastname,
-                email
-            }
-        });
-    }
-
-    componentWillUnmount() {
-        //this.props.dispatch(clearUser());
+        console.log(nextProps);
+        if (nextProps.result && nextProps.result.success) {
+            this.props.history.push('/user');
+        }
     }
 
     submitForm = (event) => {
@@ -57,6 +49,7 @@ class EditUserProfile extends PureComponent {
             oldPassword, newPassword,
             repeatPassword
         } = this.state.formdata;
+        const { result } = this.props;
 
         return (
             <div className="edit-user-profile-container">
@@ -137,6 +130,14 @@ class EditUserProfile extends PureComponent {
                         </div>
                     </div>
 
+                    <div className="error">
+                    {
+                        result && result.message 
+                            ? <div>{this.props.result.message }</div>
+                            : null
+                    }
+                    </div>
+
                     <div className="text-center">
                         <button type="submit" className="button-link">Submit changes</button>
                     </div>
@@ -149,4 +150,10 @@ class EditUserProfile extends PureComponent {
     }
 }
 
-export default EditUserProfile;
+function mapStateToProps(state) {
+    return {
+        result: state.users.userUpdate
+    }
+}
+
+export default connect(mapStateToProps)(EditUserProfile);

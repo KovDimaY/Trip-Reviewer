@@ -70,3 +70,9 @@
 .edit-user-profile-container .calcel {
     background-color: orange;
 }
+
+.edit-user-profile-container .error {
+    text-align: center;
+    font-size: 24px;
+    color: red;
+}

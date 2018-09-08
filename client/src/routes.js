@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Home from './components/Home';
 import User from './components/User';
-import EditUserProfile from './components/EditUserProfile';
+import EditUserProfile from './containers/EditUserProfile';
 import Logout from './components/Logout';
 import Login from './containers/Login';
 import ResetPass from './containers/ResetPass';
