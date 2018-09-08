@@ -30,7 +30,7 @@ export default function(ComposedClass, reload) {
             if (this.state.loading) {
                 return <div className="loader">Loading...</div>;
             }
-            return <ComposedClass {...this.props} user={this.props.users}/>;
+            return <ComposedClass {...this.props} />;
         }
     }
 

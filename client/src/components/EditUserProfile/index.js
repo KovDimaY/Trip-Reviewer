@@ -1,20 +1,42 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 
+import { updateUser } from '../../actions';
 import './styles.css';
 
 class EditUserProfile extends PureComponent {
     state = {
         formdata: {
-            _id: '',
-            name: 'Test1',
-            latname: 'Test2',
-            email: 'Test3',
-            oldPassword: 'Test4',
-            newPassword: 'Test5',
-            repeatPassword: 'Test6'
+            _id: this.props.users.login.id,
+            name: this.props.users.login.name,
+            lastname: this.props.users.login.lastname,
+            email: this.props.users.login.email,
+            oldPassword: '',
+            newPassword: '',
+            repeatPassword: ''
         }
     };
+
+    componentWillReceiveProps(nextProps) {
+        const { name, lastname, email } = nextProps.users.login;
+
+        this.setState({
+            formdata: {
+                name,
+                lastname,
+                email
+            }
+        });
+    }
+
+    componentWillUnmount() {
+        //this.props.dispatch(clearUser());
+    }
+
+    submitForm = (event) => {
+        event.preventDefault();
+        this.props.dispatch(updateUser(this.state.formdata));
+    }
 
     handleInput = (event) => {
         const newFormdata = {
@@ -31,7 +53,7 @@ class EditUserProfile extends PureComponent {
 
     render() {
         const {
-            name, latname, email,
+            name, lastname, email,
             oldPassword, newPassword,
             repeatPassword
         } = this.state.formdata;
@@ -41,7 +63,7 @@ class EditUserProfile extends PureComponent {
                 <div className="avatar">
                     <img alt="avatar" src="/images/avatar.png"/>
                 </div>
-                <form>
+                <form onSubmit={this.submitForm}>
                     <div className="info">
                         <div className="form_element">
                             <span>Name:</span>
@@ -58,9 +80,9 @@ class EditUserProfile extends PureComponent {
                             <span>Lastname:</span>
                             <input
                                 type="text"
-                                name="latname"
-                                placeholder="Enter latname"
-                                value={latname}
+                                name="lastname"
+                                placeholder="Enter lastname"
+                                value={lastname}
                                 onChange={this.handleInput}
                             />
                         </div>

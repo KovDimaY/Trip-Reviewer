@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const User = (props) => {
-    const user = props.user.login;
+    const user = props.users.login;
     const url = `/user/edit-profile/${user.id}`;
 
     return (

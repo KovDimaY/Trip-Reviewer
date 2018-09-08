@@ -183,6 +183,17 @@ app.post('/api/tripUpdate', (req, res) => {
     });
 });
 
+app.post('/api/userUpdate', (req, res) => {
+    User.findByIdAndUpdate(req.body._id, req.body, { new: true }, (err, doc) => {
+        if (err) return res.status(400).send(err);
+        
+        res.json({
+            success: true,
+            doc
+        });
+    });
+});
+
 app.post('/api/resetPassword', (req, res) => {
     const newPassword = uuid();
 
