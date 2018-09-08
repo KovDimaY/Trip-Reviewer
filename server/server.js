@@ -184,13 +184,109 @@ app.post('/api/tripUpdate', (req, res) => {
 });
 
 app.post('/api/userUpdate', (req, res) => {
-    User.findByIdAndUpdate(req.body._id, req.body, { new: true }, (err, doc) => {
-        if (err) return res.status(400).send(err);
-        
-        res.json({
-            success: true,
-            doc
-        });
+    const {
+        _id, name, lastname, email,
+        oldPassword, newPassword, repeatPassword,
+    } = req.body;
+    const fieldsToUpdate = {
+        name,
+        lastname
+    };
+
+    User.findById(_id, (err1, user) => {
+        if (err1) return res.status(400).send(err1);
+
+        if (req.body.oldPassword) {
+            user.comparePassword(oldPassword, (err2, isMatch) => {
+                if (err2) return res.status(400).send(err2);
+
+                if (!isMatch) {
+                    return res.json({
+                        success: false,
+                        message: 'Wrong current password'
+                    });
+                }
+
+                if (newPassword || repeatPassword) {
+                    const newPassCorrect = newPassword === repeatPassword && newPassword.length > 5;
+                    if (newPassCorrect) {
+                        encryptPassword(newPassword, (err3, encrypted) => {
+                            if (err3) return res.json({ success: false, message: err3 });
+
+                            fieldsToUpdate.email = email;
+                            fieldsToUpdate.password = encrypted;
+
+                            User.findByIdAndUpdate(_id, fieldsToUpdate, (err4) => {
+                                if (err4) return res.json({ success: false, message: err });
+
+                                const mailOptions = {
+                                    from: `"Admin TripReview" <${adminMail}>`,
+                                    to: user.email,
+                                    subject: 'Update Profile',
+                                    text: `The data of your profile just was changed.
+                                        \nYour new data is the next:
+                                        \nName: ${name}
+                                        \nLastname: ${lastname}
+                                        \nEmail: ${email}
+                                        \nPassword: ${newPassword}
+                                        \n\nWarning! If you change your email, new notification will not arive to this email anymore.`
+                                };
+
+                                transporter.sendMail(mailOptions, function(error, info) {
+                                    if (error) {
+                                        console.log(error);
+                                        return res.json({ success: true, error, message: "Your data is updated, but the email failed to be sent" });
+                                    } else {
+                                        console.log('Email sent: ' + info.response);
+                                        return res.json({ success: true, info: info.response, message: 'Your profile was successfully updated' });
+                                    }
+                                });
+                            });
+                        });
+                    } else {
+                        return res.json({
+                            success: false,
+                            message: 'New passwords are incorrect, check them and try again'
+                        });
+                    }
+                } else {
+                    fieldsToUpdate.email = email;
+                    User.findByIdAndUpdate(_id, fieldsToUpdate, { new: true }, (err4) => {
+                        if (err4) return res.status(400).send(err4);
+
+                        const mailOptions = {
+                            from: `"Admin TripReview" <${adminMail}>`,
+                            to: user.email,
+                            subject: 'Update Profile',
+                            text: `The data of your profile just was changed.
+                                \nYour new data is the next:
+                                \nName: ${name}
+                                \nLastname: ${lastname}
+                                \nEmail: ${email}
+                                \n\nWarning! If you change your email, new notification will not arive to this email anymore.`
+                        };
+
+                        transporter.sendMail(mailOptions, function(error, info) {
+                            if (error) {
+                                console.log(error);
+                                return res.json({ success: true, error, message: "Your data is updated, but the email failed to be sent" });
+                            } else {
+                                console.log('Email sent: ' + info.response);
+                                return res.json({ success: true, info: info.response, message: 'Your profile was successfully updated' });
+                            }
+                        });
+                    });
+                }
+            });
+        } else {
+            User.findByIdAndUpdate(_id, fieldsToUpdate, { new: true }, (err4) => {
+                if (err4) return res.status(400).send(err4);
+
+                res.json({
+                    success: true
+                });
+            });
+        }
     });
 });
 
