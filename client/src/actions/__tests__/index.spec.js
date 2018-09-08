@@ -8,6 +8,7 @@ import {
     getUserReviews,
     getTrip,
     updateTrip,
+    updateUser,
     deleteTrip,
     clearTrip,
     clearTripWithReviewer,
@@ -29,6 +30,7 @@ import {
     USER_AUTH,
     ADD_TRIP,
     UPDATE_TRIP,
+    UPDATE_USER,
     DELETE_TRIP,
     GET_TRIP,
     CLEAR_NEW_TRIP,
@@ -200,6 +202,30 @@ describe('Testing async actions', () => {
             const store = mockStore({});
             
             return store.dispatch(updateTrip(data)).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
+    });
+
+    describe('updateUser', () => {
+        it('has the correct type and payload', () => {
+            const data = 'data';
+            const responceMock = 'test';
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                  status: 200,
+                  response: responceMock,
+                });
+            });
+
+            const expectedActions = [
+                { type: UPDATE_USER, payload: responceMock },
+            ];
+
+            const store = mockStore({});
+
+            return store.dispatch(updateUser(data)).then(() => {
                 expect(store.getActions()).toEqual(expectedActions);
             });
         });
