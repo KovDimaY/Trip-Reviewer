@@ -3,6 +3,8 @@ import { create } from 'react-test-renderer';
  
 import User from './../../User';
 
+jest.mock('react-router-dom', () => ({ Link: 'Link' }));
+
 const mockComponent = props => {
     return (
         <User {...props} />
@@ -12,7 +14,7 @@ const mockComponent = props => {
 describe('<User />', () => {
     it('should render component', () => {
         const props = {
-            user: {
+            users: {
                 login: {
                     name: 'name',
                     lastname: 'lastname',

@@ -2,6 +2,7 @@ import {
     USER_LOGIN,
     USER_AUTH,
     GET_USERS,
+    UPDATE_USER,
     GET_USER_REVIEWS,
     USER_REGISTER,
     RESET_PASSWORD
@@ -16,6 +17,8 @@ export default function(state = {}, action) {
             return { ...state, reset: action.payload };
         case GET_USERS:
             return { ...state, users: action.payload };
+        case UPDATE_USER:
+            return { ...state, userUpdate: action.payload };
         case GET_USER_REVIEWS:
             return { ...state, userPosts: action.payload };
         case USER_REGISTER:

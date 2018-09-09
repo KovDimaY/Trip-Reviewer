@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getTrip, updateTrip, clearTrip, deleteTrip } from '../../actions'
+import { getTrip, updateTrip, clearTrip, deleteTrip } from '../../actions';
 
 class EditTrip extends PureComponent {
     state = {
@@ -14,7 +14,7 @@ class EditTrip extends PureComponent {
             rating: '',
             price: ''
         }
-    }
+    };
 
     componentWillMount() {
         this.props.dispatch(getTrip(this.props.match.params.id));

@@ -3,6 +3,7 @@ import {
     USER_LOGIN,
     USER_AUTH,
     GET_USERS,
+    UPDATE_USER,
     GET_USER_REVIEWS,
     USER_REGISTER,
     RESET_PASSWORD
@@ -59,6 +60,21 @@ describe('users reducer', () => {
         };
         const expected = {
             users: 'test'
+        };
+
+        const newState = reducer(initialState, action);
+
+        expect(newState).toEqual(expected);
+    });
+
+    it('handles actions of type UPDATE_USER', () => {
+        const initialState = {};
+        const action = {
+            type: UPDATE_USER,
+            payload: 'test'
+        };
+        const expected = {
+            userUpdate: 'test'
         };
 
         const newState = reducer(initialState, action);

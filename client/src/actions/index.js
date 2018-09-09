@@ -11,6 +11,7 @@ import {
     USER_AUTH,
     ADD_TRIP,
     UPDATE_TRIP,
+    UPDATE_USER,
     DELETE_TRIP,
     GET_TRIP,
     CLEAR_NEW_TRIP,
@@ -69,6 +70,19 @@ export function getUserReviews(userId) {
         return request.then((response) => {
             dispatch({
                 type: GET_USER_REVIEWS,
+                payload: response.data
+            });
+        });
+    }
+}
+
+export function updateUser(data) {
+    const request = axios.post(`/api/userUpdate`, data);
+
+    return (dispatch) => {
+        return request.then((response) => {
+            dispatch({
+                type: UPDATE_USER,
                 payload: response.data
             });
         });

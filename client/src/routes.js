@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Home from './components/Home';
 import User from './components/User';
+import EditUserProfile from './containers/EditUserProfile';
 import Logout from './components/Logout';
 import Login from './containers/Login';
 import ResetPass from './containers/ResetPass';
@@ -25,6 +26,7 @@ const Routes = () => {
                 <Route path="/user/logout" exact component={Auth(Logout, true)}/>
                 <Route path="/user/register" exact component={Auth(Register, false)}/>
                 <Route path="/user" exact component={Auth(User, true)}/>
+                <Route path="/user/edit-profile/:id" exact component={Auth(EditUserProfile, true)}/>
                 <Route path="/user/user-reviews" exact component={Auth(UserReviews, true)}/>
                 <Route path="/user/edit-post/:id" exact component={Auth(EditTrip, true)}/>
                 <Route path="/trip/add" exact component={Auth(AddTrip, true)}/>

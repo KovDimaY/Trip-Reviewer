@@ -8,6 +8,7 @@ const uuid = require('uuid');
 
 const config = require('./config/config').get(process.env.NODE_ENV);
 const encryptPassword = require('./helpers/auth').encryptPassword;
+const updateModelAndSendEmail = require('./helpers/mailing').updateModelAndSendEmail;
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -180,6 +181,67 @@ app.post('/api/tripUpdate', (req, res) => {
             success: true,
             doc
         });
+    });
+});
+
+app.post('/api/userUpdate', (req, res) => {
+    const {
+        _id, name, lastname, email,
+        oldPassword, newPassword, repeatPassword,
+    } = req.body;
+    const fieldsToUpdate = {
+        name,
+        lastname
+    };
+
+    User.findById(_id, (err1, user) => {
+        if (err1) return res.status(400).send(err1);
+
+        if (req.body.oldPassword) {
+            user.comparePassword(oldPassword, (err2, isMatch) => {
+                if (err2) return res.status(400).send(err2);
+
+                if (!isMatch) {
+                    return res.json({
+                        success: false,
+                        message: 'Wrong current password'
+                    });
+                }
+
+                if (newPassword || repeatPassword) {
+                    const newPassCorrect = newPassword === repeatPassword && newPassword.length > 5;
+                    if (newPassCorrect) {
+                        encryptPassword(newPassword, (err3, encrypted) => {
+                            if (err3) return res.json({ success: false, message: err3 });
+
+                            fieldsToUpdate.email = email;
+                            fieldsToUpdate.password = encrypted;
+
+                            updateModelAndSendEmail(User, _id, fieldsToUpdate, res, transporter,
+                                { adminMail, mailTo: user.email, name, lastname, email, newPassword });
+                        });
+                    } else {
+                        return res.json({
+                            success: false,
+                            message: 'New passwords are incorrect, check them and try again'
+                        });
+                    }
+                } else {
+                    fieldsToUpdate.email = email;
+
+                    updateModelAndSendEmail(User, _id, fieldsToUpdate, res, transporter,
+                        { adminMail, mailTo: user.email, name, lastname, email, newPassword: null });
+                }
+            });
+        } else {
+            User.findByIdAndUpdate(_id, fieldsToUpdate, { new: true }, (err4) => {
+                if (err4) return res.status(400).send(err4);
+
+                res.json({
+                    success: true
+                });
+            });
+        }
     });
 });
 

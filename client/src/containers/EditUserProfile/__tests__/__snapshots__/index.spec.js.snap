@@ -1,0 +1,285 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EditUserProfile /> should render component 1`] = `
+<div
+  className="edit-user-profile-container"
+>
+  <div
+    className="avatar"
+  >
+    <img
+      alt="avatar"
+      src="/images/avatar.png"
+    />
+  </div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="info"
+    >
+      <div
+        className="form_element"
+      >
+        <span>
+          Name:
+        </span>
+        <input
+          name="name"
+          onChange={[Function]}
+          placeholder="Enter name"
+          type="text"
+          value={undefined}
+        />
+      </div>
+      <div
+        className="form_element"
+      >
+        <span>
+          Lastname:
+        </span>
+        <input
+          name="lastname"
+          onChange={[Function]}
+          placeholder="Enter lastname"
+          type="text"
+          value={undefined}
+        />
+      </div>
+    </div>
+    <hr />
+    <p
+      className="danger-zone"
+    >
+      Danger zone
+    </p>
+    <div
+      className="info danger"
+    >
+      <div
+        className="form_element current-password"
+      >
+        <span>
+          Current Password:
+        </span>
+        <input
+          name="oldPassword"
+          onChange={[Function]}
+          placeholder="Enter your current password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="form_element"
+      >
+        <span>
+          New Password:
+        </span>
+        <input
+          name="newPassword"
+          onChange={[Function]}
+          placeholder="Enter your new password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="form_element"
+      >
+        <span>
+          Repeat New Password:
+        </span>
+        <input
+          name="repeatPassword"
+          onChange={[Function]}
+          placeholder="Repeat your new password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="form_element"
+      >
+        <span>
+          Email:
+        </span>
+        <input
+          name="email"
+          onChange={[Function]}
+          placeholder="Enter new email"
+          type="email"
+          value={undefined}
+        />
+      </div>
+    </div>
+    <div
+      className="error"
+    />
+    <div
+      className="text-center"
+    >
+      <button
+        className="button-link"
+        type="submit"
+      >
+        Submit changes
+      </button>
+    </div>
+  </form>
+  <div
+    className="text-center"
+  >
+    <Link
+      className="button-link calcel"
+      to="/user"
+    >
+      Cancel
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`<EditUserProfile /> should render component with error 1`] = `
+<div
+  className="edit-user-profile-container"
+>
+  <div
+    className="avatar"
+  >
+    <img
+      alt="avatar"
+      src="/images/avatar.png"
+    />
+  </div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="info"
+    >
+      <div
+        className="form_element"
+      >
+        <span>
+          Name:
+        </span>
+        <input
+          name="name"
+          onChange={[Function]}
+          placeholder="Enter name"
+          type="text"
+          value={undefined}
+        />
+      </div>
+      <div
+        className="form_element"
+      >
+        <span>
+          Lastname:
+        </span>
+        <input
+          name="lastname"
+          onChange={[Function]}
+          placeholder="Enter lastname"
+          type="text"
+          value={undefined}
+        />
+      </div>
+    </div>
+    <hr />
+    <p
+      className="danger-zone"
+    >
+      Danger zone
+    </p>
+    <div
+      className="info danger"
+    >
+      <div
+        className="form_element current-password"
+      >
+        <span>
+          Current Password:
+        </span>
+        <input
+          name="oldPassword"
+          onChange={[Function]}
+          placeholder="Enter your current password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="form_element"
+      >
+        <span>
+          New Password:
+        </span>
+        <input
+          name="newPassword"
+          onChange={[Function]}
+          placeholder="Enter your new password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="form_element"
+      >
+        <span>
+          Repeat New Password:
+        </span>
+        <input
+          name="repeatPassword"
+          onChange={[Function]}
+          placeholder="Repeat your new password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="form_element"
+      >
+        <span>
+          Email:
+        </span>
+        <input
+          name="email"
+          onChange={[Function]}
+          placeholder="Enter new email"
+          type="email"
+          value={undefined}
+        />
+      </div>
+    </div>
+    <div
+      className="error"
+    >
+      <div>
+        test
+      </div>
+    </div>
+    <div
+      className="text-center"
+    >
+      <button
+        className="button-link"
+        type="submit"
+      >
+        Submit changes
+      </button>
+    </div>
+  </form>
+  <div
+    className="text-center"
+  >
+    <Link
+      className="button-link calcel"
+      to="/user"
+    >
+      Cancel
+    </Link>
+  </div>
+</div>
+`;
