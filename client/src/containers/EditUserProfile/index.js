@@ -19,7 +19,6 @@ class EditUserProfile extends PureComponent {
     };
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
         if (nextProps.result && nextProps.result.success) {
             nextProps.history.push('/user');
         }

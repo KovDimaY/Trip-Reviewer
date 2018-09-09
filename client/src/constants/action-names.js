@@ -9,7 +9,6 @@ export const GET_TRIP_W_REVIEWER = 'get-trip-w-reviewer';
 export const CLEAR_TRIP_W_REVIEWER = 'clear-trip-w-reviewer';
 export const CLEAR_NEW_TRIP = 'clear-new-trip';
 export const CLEAR_TRIP = 'clear-trip';
-export const CLEAR_USER = 'clear-user';
 export const USER_REGISTER = 'user-register';
 export const USER_LOGIN = 'user-login';
 export const RESET_PASSWORD = 'reset-password';

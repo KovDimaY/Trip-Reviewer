@@ -8,6 +8,7 @@ const uuid = require('uuid');
 
 const config = require('./config/config').get(process.env.NODE_ENV);
 const encryptPassword = require('./helpers/auth').encryptPassword;
+const updateModelAndSendEmail = require('./helpers/mailing').updateModelAndSendEmail;
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -216,32 +217,8 @@ app.post('/api/userUpdate', (req, res) => {
                             fieldsToUpdate.email = email;
                             fieldsToUpdate.password = encrypted;
 
-                            User.findByIdAndUpdate(_id, fieldsToUpdate, (err4) => {
-                                if (err4) return res.json({ success: false, message: err });
-
-                                const mailOptions = {
-                                    from: `"Admin TripReview" <${adminMail}>`,
-                                    to: user.email,
-                                    subject: 'Update Profile',
-                                    text: `The data of your profile just was changed.
-                                        \nYour new data is the next:
-                                        \nName: ${name}
-                                        \nLastname: ${lastname}
-                                        \nEmail: ${email}
-                                        \nPassword: ${newPassword}
-                                        \n\nWarning! If you change your email, new notification will not arive to this email anymore.`
-                                };
-
-                                transporter.sendMail(mailOptions, function(error, info) {
-                                    if (error) {
-                                        console.log(error);
-                                        return res.json({ success: true, error, message: "Your data is updated, but the email failed to be sent" });
-                                    } else {
-                                        console.log('Email sent: ' + info.response);
-                                        return res.json({ success: true, info: info.response, message: 'Your profile was successfully updated' });
-                                    }
-                                });
-                            });
+                            updateModelAndSendEmail(User, _id, fieldsToUpdate, res, transporter,
+                                { adminMail, mailTo: user.email, name, lastname, email, newPassword });
                         });
                     } else {
                         return res.json({
@@ -251,31 +228,9 @@ app.post('/api/userUpdate', (req, res) => {
                     }
                 } else {
                     fieldsToUpdate.email = email;
-                    User.findByIdAndUpdate(_id, fieldsToUpdate, { new: true }, (err4) => {
-                        if (err4) return res.status(400).send(err4);
 
-                        const mailOptions = {
-                            from: `"Admin TripReview" <${adminMail}>`,
-                            to: user.email,
-                            subject: 'Update Profile',
-                            text: `The data of your profile just was changed.
-                                \nYour new data is the next:
-                                \nName: ${name}
-                                \nLastname: ${lastname}
-                                \nEmail: ${email}
-                                \n\nWarning! If you change your email, new notification will not arive to this email anymore.`
-                        };
-
-                        transporter.sendMail(mailOptions, function(error, info) {
-                            if (error) {
-                                console.log(error);
-                                return res.json({ success: true, error, message: "Your data is updated, but the email failed to be sent" });
-                            } else {
-                                console.log('Email sent: ' + info.response);
-                                return res.json({ success: true, info: info.response, message: 'Your profile was successfully updated' });
-                            }
-                        });
-                    });
+                    updateModelAndSendEmail(User, _id, fieldsToUpdate, res, transporter,
+                        { adminMail, mailTo: user.email, name, lastname, email, newPassword: null });
                 }
             });
         } else {
