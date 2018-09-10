@@ -6,7 +6,6 @@ import { shallow } from 'enzyme';
 import AddTrip from './../../AddTrip';
 import { addTrip, clearNewTrip } from './../../../actions';
 
-jest.mock('react-router-dom', () => ({ Link: 'Link' }));
 jest.mock('./../../../actions', () => ({ 
     addTrip: jest.fn(() => ({
         type: 'test'
@@ -61,6 +60,66 @@ describe('<AddTrip />', () => {
         expect(tree).toMatchSnapshot();
     });
 
+    it('componentWillReceiveProps should redirect when newtrip exists', () => {
+        const push = jest.fn();
+        const tripId = 'test';
+        const path = `/trips/${tripId}`;
+        const initialState = {
+            trips: {}
+        };
+        const props = {
+            users: {
+                login: {
+                    id: 'id'
+                }
+            }
+        };
+        const newProps = {
+            trips: {
+                newtrip: {
+                    tripId
+                }
+            },
+            history: {
+                push
+            }
+        }
+
+        const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+        instance.componentWillReceiveProps(newProps);
+
+        expect(push).toHaveBeenCalledWith(path);
+    });
+
+    it('componentWillReceiveProps should not redirect when newtrip does not exists', () => {
+        const push = jest.fn();
+        const initialState = {
+            trips: {}
+        };
+        const props = {
+            users: {
+                login: {
+                    id: 'id'
+                }
+            }
+        };
+        const newProps = {
+            trips: {
+                newtrip: null
+            },
+            history: {
+                push
+            }
+        }
+
+        const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+        instance.componentWillReceiveProps(newProps);
+
+        expect(push).not.toHaveBeenCalled();
+    });
+
     it('handleInput should change state correctly', () => {
         const initialState = {
             trips: {}
@@ -82,7 +141,7 @@ describe('<AddTrip />', () => {
     it('should dispatch addTrip when submitForm is called', () => {
         const preventDefault = jest.fn();
         const props = {
-            user: {
+            users: {
                 login: {
                     id: 'id'
                 }
