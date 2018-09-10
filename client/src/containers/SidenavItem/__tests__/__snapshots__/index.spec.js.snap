@@ -2,19 +2,16 @@
 
 exports[`<SidenavItem /> should render component when no authenticated 1`] = `
 <div>
-  <div
+  <Link
     className="type"
+    to="link"
   >
-    <Link
-      to="link"
-    >
-      <span
-        aria-hidden={true}
-        className="fa fa-icon"
-      />
-      text
-    </Link>
-  </div>
+    <span
+      aria-hidden={true}
+      className="fa fa-icon"
+    />
+    text
+  </Link>
 </div>
 `;
 
@@ -22,19 +19,16 @@ exports[`<SidenavItem /> should render component when no authenticated and restr
 
 exports[`<SidenavItem /> should render component with authentication 1`] = `
 <div>
-  <div
+  <Link
     className="type"
+    to="link"
   >
-    <Link
-      to="link"
-    >
-      <span
-        aria-hidden={true}
-        className="fa fa-icon"
-      />
-      text
-    </Link>
-  </div>
+    <span
+      aria-hidden={true}
+      className="fa fa-icon"
+    />
+    text
+  </Link>
 </div>
 `;
 

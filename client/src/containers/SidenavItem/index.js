@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import FontAwesome from 'react-fontawesome';
 import { connect } from 'react-redux';
 
+import './styles.css';
+
 const SidenavItem = ({ item, users }) => {
     const element = (
-        <div className={item.type}>
-            <Link to={item.link}>
-                <FontAwesome name={item.icon}/>
-                {item.text}
-            </Link>
-        </div>
+        <Link to={item.link} className={item.type}>
+            <FontAwesome name={item.icon}/>
+            {item.text}
+        </Link>
     );
 
     const showItem = () => {
