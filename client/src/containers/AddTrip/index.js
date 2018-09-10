@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { addTrip, clearNewTrip } from '../../actions'
+import { addTrip, clearNewTrip } from '../../actions';
 
 class AddTrip extends Component {
     state = {
@@ -10,11 +9,17 @@ class AddTrip extends Component {
             author: '',
             review: '',
             duration: '',
-            rating: '',
+            rating: '1',
             price: ''
         }
-    }
+    };
 
+    componentWillReceiveProps(newProps) {
+        const { newtrip } = newProps.trips;
+        if (newtrip) {
+            newProps.history.push(`/trips/${newtrip.tripId}`);
+        }
+    }
 
     handleInput = (event) => {
         const newFormdata = {
@@ -29,22 +34,11 @@ class AddTrip extends Component {
         });
     }
 
-    showNewTrip = (trip) => (
-        trip.post 
-            ? <div className="conf_link">
-                    Cool !! <Link to={`/trips/${trip.tripId}`}>
-                        Click the link to see the post
-                    </Link>
-                </div>
-            : null
-    )
-
-
     submitForm = (event) => {
         event.preventDefault();
         this.props.dispatch(addTrip({
             ...this.state.formdata,
-            ownerId:this.props.user.login.id
+            ownerId: this.props.users.login.id
         }));
     }
 
@@ -53,6 +47,11 @@ class AddTrip extends Component {
     }
 
     render() {
+        const {
+            title, author, review,
+            duration, rating, price
+        } = this.state.formdata;
+
         return (
             <div className="rl_container article">
                 <form onSubmit={this.submitForm}>
@@ -63,7 +62,7 @@ class AddTrip extends Component {
                             type="text"
                             name="title"
                             placeholder="Enter title"
-                            value={this.state.formdata.title}
+                            value={title}
                             onChange={this.handleInput}
                         />
                     </div>
@@ -73,13 +72,13 @@ class AddTrip extends Component {
                             type="text"
                             name='author'
                             placeholder="Enter author"
-                            value={this.state.formdata.author}
+                            value={author}
                             onChange={this.handleInput}
                         />
                     </div>
 
                     <textarea
-                        value={this.state.formdata.review}
+                        value={review}
                         name='review'
                         onChange={this.handleInput}
                     />
@@ -89,14 +88,14 @@ class AddTrip extends Component {
                             type="number"
                             name='duration'
                             placeholder="Enter duration"
-                            value={this.state.formdata.duration}
+                            value={duration}
                             onChange={this.handleInput}
                         />
                     </div>
 
                     <div className="form_element">
                         <select
-                            value={this.state.formdata.rating}
+                            value={rating}
                             name='rating'
                             onChange={this.handleInput}
                         >
@@ -113,17 +112,12 @@ class AddTrip extends Component {
                             type="number"
                             name='price'
                             placeholder="Enter Price"
-                            value={this.state.formdata.price}
+                            value={price}
                             onChange={this.handleInput}
                         />
                     </div>
 
                     <button type="submit">Add review</button>
-                    {
-                        this.props.trips.newtrip 
-                        ? this.showNewTrip(this.props.trips.newtrip)
-                        : null
-                    }
                 </form>
             </div>
         );

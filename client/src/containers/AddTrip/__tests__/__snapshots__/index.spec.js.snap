@@ -54,7 +54,7 @@ exports[`<AddTrip /> should render component 1`] = `
       <select
         name="rating"
         onChange={[Function]}
-        value=""
+        value="1"
       >
         <option
           val="1"
@@ -157,7 +157,7 @@ exports[`<AddTrip /> should render component with newTrip and post 1`] = `
       <select
         name="rating"
         onChange={[Function]}
-        value=""
+        value="1"
       >
         <option
           val="1"
@@ -202,16 +202,6 @@ exports[`<AddTrip /> should render component with newTrip and post 1`] = `
     >
       Add review
     </button>
-    <div
-      className="conf_link"
-    >
-      Cool !! 
-      <Link
-        to="/trips/test"
-      >
-        Click the link to see the post
-      </Link>
-    </div>
   </form>
 </div>
 `;
@@ -270,7 +260,7 @@ exports[`<AddTrip /> should render component with newTrip but no post 1`] = `
       <select
         name="rating"
         onChange={[Function]}
-        value=""
+        value="1"
       >
         <option
           val="1"
