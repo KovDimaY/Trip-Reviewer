@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import ImageUploader from './../../components/ImageUploader';
 import { updateUser } from '../../actions';
 import './styles.css';
 
@@ -55,6 +56,7 @@ class EditUserProfile extends PureComponent {
                 <div className="avatar">
                     <img alt="avatar" src="/images/avatar.png"/>
                 </div>
+                <ImageUploader filename="hello"/>
                 <form onSubmit={this.submitForm}>
                     <div className="info">
                         <div className="form_element">
