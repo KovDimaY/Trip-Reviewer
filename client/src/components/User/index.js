@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 const User = (props) => {
     const user = props.users.login;
     const url = `/user/edit-profile/${user.id}`;
+    const imageURL = user.avatar || '/images/avatar.png';
 
     return (
         <div className="user_container">
             <div className="avatar">
-                <img alt="avatar" src="/images/avatar.png"/>
+                <img alt="avatar" src={imageURL} />
             </div>
             <div className="nfo">
                 <div><span>Name:</span> {user.name}</div>

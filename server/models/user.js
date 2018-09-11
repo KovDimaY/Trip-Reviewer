@@ -25,6 +25,9 @@ const userSchema = mongoose.Schema({
         type: String,
         maxlength: 100
     },
+    avatar: {
+        type: String,
+    },
     role: {
         type: Number,
         default: 0

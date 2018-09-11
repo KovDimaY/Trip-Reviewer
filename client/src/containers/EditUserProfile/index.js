@@ -13,6 +13,7 @@ class EditUserProfile extends PureComponent {
             name: this.props.users.login.name,
             lastname: this.props.users.login.lastname,
             email: this.props.users.login.email,
+            avatar: this.props.users.login.avatar,
             oldPassword: '',
             newPassword: '',
             repeatPassword: ''
@@ -23,6 +24,18 @@ class EditUserProfile extends PureComponent {
         if (nextProps.result && nextProps.result.success) {
             nextProps.history.push('/user');
         }
+    }
+
+    getAvatarImage = () => {
+        const currentAvatar = this.state.formdata.avatar;
+        const savedAvatar = this.props.users.login.avatar;
+
+        if (currentAvatar) {
+            return currentAvatar;
+        } else if (savedAvatar) {
+            return savedAvatar;
+        }
+        return '/images/avatar.png';
     }
 
     submitForm = (event) => {
@@ -43,6 +56,18 @@ class EditUserProfile extends PureComponent {
         });
     }
 
+    onUploadSuccess = (imageUrl) => {
+        const newFormdata = {
+            ...this.state.formdata
+        };
+
+        newFormdata.avatar = imageUrl;
+
+        this.setState({
+            formdata: newFormdata
+        });
+    }
+
     render() {
         const {
             name, lastname, email,
@@ -54,9 +79,13 @@ class EditUserProfile extends PureComponent {
         return (
             <div className="edit-user-profile-container">
                 <div className="avatar">
-                    <img alt="avatar" src="/images/avatar.png"/>
+                    <img alt="avatar" src={this.getAvatarImage()}/>
                 </div>
-                <ImageUploader filename="hello"/>
+                <ImageUploader
+                    filename={this.props.users.login.id}
+                    onUploadSuccess={this.onUploadSuccess}
+                    onUploadError={this.onUploadError}
+                />
                 <form onSubmit={this.submitForm}>
                     <div className="info">
                         <div className="form_element">
