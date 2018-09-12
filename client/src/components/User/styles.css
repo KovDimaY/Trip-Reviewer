@@ -1,6 +1,7 @@
 .user_container .data {
     box-sizing: border-box;
     padding: 20px;
+    margin-bottom: 25px;
 }
 .user_container .data div {
     text-align: center;

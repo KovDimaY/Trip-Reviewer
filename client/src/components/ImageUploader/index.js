@@ -54,9 +54,9 @@ class ImageUploader extends Component {
                 onUploadError={this.handleUploadError}
                 onUploadSuccess={this.handleUploadSuccess}
                 onProgress={this.handleProgress}
-                style={{ textAlign: 'center', display: 'block', backgroundColor: 'steelblue', color: 'white', padding: 10, borderRadius: 4, pointer: 'cursor'}}
+                className={this.props.className}
             >
-                Select your awesome avatar
+                Update avatar
             </CustomUploadButton>
         );
     }

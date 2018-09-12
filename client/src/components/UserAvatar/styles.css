@@ -14,4 +14,5 @@
 .user-avatar-container .avatar-picture img {
     width: 200px;
     box-shadow: 1px 3px 15px black;
+    border: solid 1px;
 }

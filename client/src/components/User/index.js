@@ -17,7 +17,6 @@ class User extends PureComponent {
                     <div><span>Name:</span> {user.name}</div>
                     <div><span>Lastname:</span> {user.lastname}</div>
                     <div><span>Email:</span> {user.email}</div>
-                    <div><span>Password:</span> * * * * * * </div>
                 </div>
                 <div className="text-center">
                     <Link to={redirect} className="button-link">Edit Profile</Link>

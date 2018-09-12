@@ -38,6 +38,13 @@
     margin-bottom: 10px;
 }
 
+.edit-user-profile-container .disclamer {
+    color: darkgray;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: -5px;
+}
+
 .edit-user-profile-container .text-center {
     margin-bottom: 30px;
 }
@@ -53,6 +60,33 @@
     margin: 5px 0;
     padding-left: 10px;
     font-size: 16px;
+}
+
+.edit-user-profile-container .user-avatar-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.edit-user-profile-container .user-avatar-controls .update-user-avatar {
+    text-align: center;
+    display: block;
+    background-color: #02bcd4;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    width: 35%;
+}
+
+.edit-user-profile-container .user-avatar-controls .delete-user-avatar {
+    text-align: center;
+    display: block;
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    width: 35%;
 }
 
 .edit-user-profile-container .button-link {
