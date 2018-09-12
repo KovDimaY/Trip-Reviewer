@@ -11,7 +11,15 @@ class UserAvatar extends PureComponent {
     };
     
     componentWillMount() {
-        const { filename } = this.props;
+        this.updateImage(this.props);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.updateImage(nextProps);
+    }
+
+    updateImage(props) {
+        const { filename } = props;
 
         if (filename) {
             firebase.storage().ref('avatars')

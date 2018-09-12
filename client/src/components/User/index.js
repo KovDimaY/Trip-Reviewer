@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 
-import UserAvatar from './../Avatar';
+import UserAvatar from './../UserAvatar';
 
 import './styles.css';
 

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import ImageUploader from './../../components/ImageUploader';
+import UserAvatar from './../../components/UserAvatar';
 import { updateUser } from '../../actions';
 import { firebase } from './../../firebase';
 
@@ -25,13 +26,9 @@ class EditUserProfile extends PureComponent {
     };
 
     componentWillMount() {
-        const filename = this.props.users.login.avatar;
-
-        if (filename) {
-            firebase.storage().ref('avatars')
-                .child(filename).getDownloadURL()
-                .then( url => this.setState({ savedAvatar: url }) );
-        }
+        firebase.auth().signInAnonymously().catch((error) => {
+            console.log(error);
+        });
     }
 
     componentWillReceiveProps(nextProps) {
@@ -76,25 +73,20 @@ class EditUserProfile extends PureComponent {
 
         newFormdata.avatar = filename;
 
-        firebase.storage().ref('avatars')
-            .child(filename).getDownloadURL()
-            .then( url => this.setState({ formdata: newFormdata, currentAvatar: url }) );
-
+        this.setState({ formdata: newFormdata});
     }
 
     render() {
         const {
             name, lastname, email,
             oldPassword, newPassword,
-            repeatPassword
+            repeatPassword, avatar
         } = this.state.formdata;
         const { result } = this.props;
 
         return (
             <div className="edit-user-profile-container">
-                <div className="avatar">
-                    <img alt="avatar" src={this.getAvatarImage()}/>
-                </div>
+                <UserAvatar filename={avatar} />
                 <ImageUploader
                     filename={this.props.users.login.id}
                     onUploadSuccess={this.onUploadSuccess}
