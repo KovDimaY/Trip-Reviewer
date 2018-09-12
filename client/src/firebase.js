@@ -11,6 +11,10 @@ var config = {
 
 firebase.initializeApp(config);
 
+firebase.auth().signInAnonymously().catch((error) => {
+    console.log(error);
+});
+
 export {
     firebase
 }

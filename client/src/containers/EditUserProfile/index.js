@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import ImageUploader from './../../components/ImageUploader';
 import { updateUser } from '../../actions';
+import { firebase } from './../../firebase';
+
 import './styles.css';
 
 class EditUserProfile extends PureComponent {
@@ -17,8 +19,20 @@ class EditUserProfile extends PureComponent {
             oldPassword: '',
             newPassword: '',
             repeatPassword: ''
-        }
+        },
+        currentAvatar: null,
+        savedAvatar: null
     };
+
+    componentWillMount() {
+        const filename = this.props.users.login.avatar;
+
+        if (filename) {
+            firebase.storage().ref('avatars')
+                .child(filename).getDownloadURL()
+                .then( url => this.setState({ savedAvatar: url }) );
+        }
+    }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.result && nextProps.result.success) {
@@ -27,8 +41,7 @@ class EditUserProfile extends PureComponent {
     }
 
     getAvatarImage = () => {
-        const currentAvatar = this.state.formdata.avatar;
-        const savedAvatar = this.props.users.login.avatar;
+        const { currentAvatar, savedAvatar } = this.state;
 
         if (currentAvatar) {
             return currentAvatar;
@@ -56,16 +69,17 @@ class EditUserProfile extends PureComponent {
         });
     }
 
-    onUploadSuccess = (imageUrl) => {
+    onUploadSuccess = (filename) => {
         const newFormdata = {
             ...this.state.formdata
         };
 
-        newFormdata.avatar = imageUrl;
+        newFormdata.avatar = filename;
 
-        this.setState({
-            formdata: newFormdata
-        });
+        firebase.storage().ref('avatars')
+            .child(filename).getDownloadURL()
+            .then( url => this.setState({ formdata: newFormdata, currentAvatar: url }) );
+
     }
 
     render() {

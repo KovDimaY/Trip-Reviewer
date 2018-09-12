@@ -30,21 +30,16 @@ class ImageUploader extends Component {
     }
 
     handleProgress = (progress) => {
-        this.setState({
-            progress
-        });
+        this.setState({ progress });
     }
 
     handleUploadSuccess = (filename) => {
         this.setState({
-            name: filename,
             progress: 100,
             isUploading: false
         });
 
-        firebase.storage().ref('avatars')
-            .child(filename).getDownloadURL()
-            .then( url => this.props.onUploadSuccess(url) );
+        this.props.onUploadSuccess(filename);
     }
 
     render(){

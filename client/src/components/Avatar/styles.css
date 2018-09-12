@@ -1,0 +1,15 @@
+.user-avatar-container .user-avatar-spinner {
+    line-height: 200px;
+    margin-top: 30px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.user-avatar-container .avatar-picture {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.user-avatar-container .avatar-picture img {
+    width: 200px;
+}
