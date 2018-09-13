@@ -8,6 +8,8 @@ import { UPDATE_USER } from './../../../constants/action-names';
 import { updateUser } from './../../../actions';
 
 jest.mock('react-router-dom', () => ({ Link: 'Link' }));
+jest.mock('./../../../components/ImageUploader', () => ('ImageUploader'));
+jest.mock('./../../../components/UserAvatar', () => ('UserAvatar'));
 jest.mock('./../../../actions', () => ({ 
     updateUser: jest.fn(() => ({
         type: UPDATE_USER,
@@ -88,9 +90,9 @@ describe('<EditUserProfile />', () => {
         };
 
         const instance = shallow(mockComponent(initialState, props)).dive().instance();
-    
+
         instance.componentWillReceiveProps(nextProps);
-    
+
         expect(push).toHaveBeenCalledWith(path);
     });
 
@@ -120,9 +122,9 @@ describe('<EditUserProfile />', () => {
         };
 
         const instance = shallow(mockComponent(initialState, props)).dive().instance();
-    
+
         instance.componentWillReceiveProps(nextProps);
-    
+
         expect(push).not.toHaveBeenCalledWith(path);
     });
 
@@ -181,5 +183,49 @@ describe('<EditUserProfile />', () => {
         instance.handleInput(event);
     
         expect(instance.state.formdata.title).toEqual('test');
+    });
+
+    it('handleDeleteAvatar should change state correctly', () => {
+        const initialState = {
+            users: {
+                userUpdate: {},
+            }
+        };
+        const props = {
+            users: {
+                login: {
+                    id: 'id',
+                    avatar: 'avatar'
+                }
+            }
+        };
+
+        const instance = shallow(mockComponent(initialState, props)).dive().instance();
+    
+        instance.handleDeleteAvatar();
+    
+        expect(instance.state.formdata.avatar).toEqual(null);
+    });
+
+    it('onUploadSuccess should change state correctly', () => {
+        const initialState = {
+            users: {
+                userUpdate: {},
+            }
+        };
+        const props = {
+            users: {
+                login: {
+                    id: 'id',
+                    avatar: 'avatar'
+                }
+            }
+        };
+
+        const instance = shallow(mockComponent(initialState, props)).dive().instance();
+    
+        instance.onUploadSuccess('test');
+    
+        expect(instance.state.formdata.avatar).toEqual('test');
     });
 });

@@ -5,15 +5,19 @@ exports[`<User /> should render component 1`] = `
   className="user_container"
 >
   <div
-    className="avatar"
+    className="user-avatar-container"
   >
-    <img
-      alt="avatar"
-      src="/images/avatar.png"
-    />
+    <div
+      className="avatar-picture"
+    >
+      <img
+        alt="avatar"
+        src="/images/avatar.png"
+      />
+    </div>
   </div>
   <div
-    className="nfo"
+    className="data"
   >
     <div>
       <span>
@@ -35,12 +39,6 @@ exports[`<User /> should render component 1`] = `
       </span>
        
       email
-    </div>
-    <div>
-      <span>
-        Password:
-      </span>
-       * * * * * * 
     </div>
   </div>
   <div

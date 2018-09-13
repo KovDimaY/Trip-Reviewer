@@ -24,10 +24,14 @@ class UserAvatar extends PureComponent {
         if (filename) {
             firebase.storage().ref('avatars')
                 .child(filename).getDownloadURL()
-                .then( url => this.setState({ src: url, isLoading: false }) );
+                .then(this.handleGetUrlSuccess);
         } else {
             this.setState({ src: '/images/avatar.png', isLoading: false })
         }
+    }
+
+    handleGetUrlSuccess = (url) => {
+        this.setState({ src: url, isLoading: false });
     }
 
     renderWithLoading() {

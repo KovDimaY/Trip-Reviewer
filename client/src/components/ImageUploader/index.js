@@ -8,16 +8,20 @@ class ImageUploader extends Component {
     state = {
         isUploading: false,
         progress: 0,
+        error: null
     };
 
     componentWillMount() {
-        firebase.auth().signInAnonymously().catch((error) => {
-            console.log(error);
-        });
+        firebase.auth().signInAnonymously().catch(this.handleAuthError);
     }
 
     componentWillUnmount() {
         firebase.auth().signOut();
+    }
+
+    handleAuthError = (error) => {
+        this.setState({ error });
+        console.log(error);
     }
 
     handleUploadStart = () => {

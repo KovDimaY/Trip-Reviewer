@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import ImageUploader from './../../components/ImageUploader';
 import UserAvatar from './../../components/UserAvatar';
-import { updateUser } from '../../actions';
+import { updateUser } from './../../actions';
 import { firebase } from './../../firebase';
 
 import './styles.css';
@@ -20,9 +20,7 @@ class EditUserProfile extends PureComponent {
             oldPassword: '',
             newPassword: '',
             repeatPassword: ''
-        },
-        currentAvatar: null,
-        savedAvatar: null
+        }
     };
 
     componentWillMount() {
@@ -35,17 +33,6 @@ class EditUserProfile extends PureComponent {
         if (nextProps.result && nextProps.result.success) {
             nextProps.history.push('/user');
         }
-    }
-
-    getAvatarImage = () => {
-        const { currentAvatar, savedAvatar } = this.state;
-
-        if (currentAvatar) {
-            return currentAvatar;
-        } else if (savedAvatar) {
-            return savedAvatar;
-        }
-        return '/images/avatar.png';
     }
 
     submitForm = (event) => {

@@ -4,13 +4,35 @@ exports[`<EditUserProfile /> should render component 1`] = `
 <div
   className="edit-user-profile-container"
 >
-  <div
-    className="avatar"
+  <UserAvatar
+    filename={undefined}
+  />
+  <p
+    className="disclamer"
   >
-    <img
-      alt="avatar"
-      src="/images/avatar.png"
+    * To be sure that your avatar will be updated correctly 
+    <br />
+    press 
+    <b>
+      "Submit changes"
+    </b>
+     button at the bottom of the page
+  </p>
+  <div
+    className="user-avatar-controls"
+  >
+    <ImageUploader
+      className="update-user-avatar"
+      filename="id"
+      onUploadError={undefined}
+      onUploadSuccess={[Function]}
     />
+    <label
+      className="delete-user-avatar"
+      onClick={[Function]}
+    >
+      Delete avatar
+    </label>
   </div>
   <form
     onSubmit={[Function]}
@@ -114,9 +136,6 @@ exports[`<EditUserProfile /> should render component 1`] = `
       </div>
     </div>
     <div
-      className="error"
-    />
-    <div
       className="text-center"
     >
       <button
@@ -144,13 +163,35 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
 <div
   className="edit-user-profile-container"
 >
-  <div
-    className="avatar"
+  <UserAvatar
+    filename={undefined}
+  />
+  <p
+    className="disclamer"
   >
-    <img
-      alt="avatar"
-      src="/images/avatar.png"
+    * To be sure that your avatar will be updated correctly 
+    <br />
+    press 
+    <b>
+      "Submit changes"
+    </b>
+     button at the bottom of the page
+  </p>
+  <div
+    className="user-avatar-controls"
+  >
+    <ImageUploader
+      className="update-user-avatar"
+      filename="id"
+      onUploadError={undefined}
+      onUploadSuccess={[Function]}
     />
+    <label
+      className="delete-user-avatar"
+      onClick={[Function]}
+    >
+      Delete avatar
+    </label>
   </div>
   <form
     onSubmit={[Function]}
