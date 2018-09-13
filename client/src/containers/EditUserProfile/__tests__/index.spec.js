@@ -227,5 +227,75 @@ describe('<EditUserProfile />', () => {
         instance.onUploadSuccess('test');
     
         expect(instance.state.formdata.avatar).toEqual('test');
+        expect(instance.state.isUploading).toEqual(false);
+        expect(instance.state.progress).toEqual(100);
+    });
+
+    it('onUploadStarts should change state correctly', () => {
+        const initialState = {
+            users: {
+                userUpdate: {},
+            }
+        };
+        const props = {
+            users: {
+                login: {
+                    id: 'id',
+                    avatar: 'avatar'
+                }
+            }
+        };
+
+        const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+        instance.onUploadStarts();
+
+        expect(instance.state.isUploading).toEqual(true);
+        expect(instance.state.progress).toEqual(0);
+    });
+
+    it('onUploadProgress should change state correctly', () => {
+        const initialState = {
+            users: {
+                userUpdate: {},
+            }
+        };
+        const props = {
+            users: {
+                login: {
+                    id: 'id',
+                    avatar: 'avatar'
+                }
+            }
+        };
+
+        const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+        instance.onUploadProgress('progress');
+
+        expect(instance.state.progress).toEqual('progress');
+    });
+
+    it('onUploadError should change state correctly', () => {
+        const initialState = {
+            users: {
+                userUpdate: {},
+            }
+        };
+        const props = {
+            users: {
+                login: {
+                    id: 'id',
+                    avatar: 'avatar'
+                }
+            }
+        };
+
+        const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+        instance.onUploadError('error');
+
+        expect(instance.state.uploadError).toEqual('error');
+        expect(instance.state.isUploading).toEqual(false);
     });
 });

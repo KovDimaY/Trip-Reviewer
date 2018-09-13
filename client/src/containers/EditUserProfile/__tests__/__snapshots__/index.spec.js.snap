@@ -24,7 +24,9 @@ exports[`<EditUserProfile /> should render component 1`] = `
     <ImageUploader
       className="update-user-avatar"
       filename="id"
-      onUploadError={undefined}
+      onUploadError={[Function]}
+      onUploadProgress={[Function]}
+      onUploadStarts={[Function]}
       onUploadSuccess={[Function]}
     />
     <label
@@ -183,7 +185,9 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
     <ImageUploader
       className="update-user-avatar"
       filename="id"
-      onUploadError={undefined}
+      onUploadError={[Function]}
+      onUploadProgress={[Function]}
+      onUploadStarts={[Function]}
       onUploadSuccess={[Function]}
     />
     <label

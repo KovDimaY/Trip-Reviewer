@@ -6,8 +6,6 @@ import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadBut
 
 class ImageUploader extends Component {
     state = {
-        isUploading: false,
-        progress: 0,
         error: null
     };
 
@@ -25,24 +23,19 @@ class ImageUploader extends Component {
     }
 
     handleUploadStart = () => {
-        this.setState({ isUploading: true, progress: 0 });
+        this.props.onUploadStarts();
     }
 
     handleUploadError = (error) => {
-        this.setState({ isUploading: false });
         console.log(error);
+        this.props.onUploadError(error);
     }
 
     handleProgress = (progress) => {
-        this.setState({ progress });
+        this.props.onUploadProgress(progress);
     }
 
     handleUploadSuccess = (filename) => {
-        this.setState({
-            progress: 100,
-            isUploading: false
-        });
-
         this.props.onUploadSuccess(filename);
     }
 

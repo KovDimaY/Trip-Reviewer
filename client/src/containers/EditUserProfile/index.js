@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Progress } from 'react-sweet-progress';
 
 import ImageUploader from './../../components/ImageUploader';
 import UserAvatar from './../../components/UserAvatar';
@@ -8,6 +9,8 @@ import { updateUser } from './../../actions';
 import { firebase } from './../../firebase';
 
 import './styles.css';
+import "react-sweet-progress/lib/style.css";
+import { runInThisContext } from 'vm';
 
 class EditUserProfile extends PureComponent {
     state = {
@@ -20,7 +23,10 @@ class EditUserProfile extends PureComponent {
             oldPassword: '',
             newPassword: '',
             repeatPassword: ''
-        }
+        },
+        isUploading: false,
+        progress: 0,
+        uploadError: null
     };
 
     componentWillMount() {
@@ -61,6 +67,18 @@ class EditUserProfile extends PureComponent {
         this.setState({ formdata: newFormdata });
     }
 
+    onUploadStarts = () => {
+        this.setState({
+            isUploading: true,
+            progress: 0,
+            uploadError: null
+        });
+    }
+
+    onUploadProgress = (progress) => {
+        this.setState({ progress });
+    }
+
     onUploadSuccess = (filename) => {
         const newFormdata = {
             ...this.state.formdata
@@ -68,14 +86,33 @@ class EditUserProfile extends PureComponent {
 
         newFormdata.avatar = filename;
 
-        this.setState({ formdata: newFormdata});
+        this.setState({
+            formdata: newFormdata,
+            isUploading: false,
+            progress: 100
+        });
+    }
+
+    onUploadError = (error) => {
+        this.setState({ isUploading: false, uploadError: error });
     }
 
     renderAvatarControls() {
+        const { isUploading, progress } = this.state;
+        
+        if (isUploading) {
+            return (
+                <div className="user-avatar-controls">
+                    <Progress percent={progress} />
+                </div>
+            );
+        }
         return (
             <div className="user-avatar-controls">
                 <ImageUploader
                     filename={this.props.users.login.id}
+                    onUploadStarts={this.onUploadStarts}
+                    onUploadProgress={this.onUploadProgress}
                     onUploadSuccess={this.onUploadSuccess}
                     onUploadError={this.onUploadError}
                     className="update-user-avatar"
@@ -170,6 +207,23 @@ class EditUserProfile extends PureComponent {
         );
     }
 
+    renderDisclaimer() {
+        if (this.state.uploadError) {
+            return (
+                <p className="disclamer-error">
+                    Upload was not successful.<br/>
+                    The avatar image should be smaller than <b>1MB</b>.
+                </p>
+            );
+        }
+        return (
+            <p className="disclamer">
+                * To be sure that your avatar will be updated correctly <br/>
+                press <b>"Submit changes"</b> button at the bottom of the page
+            </p>
+        )
+    }
+
     renderError() {
         const { result } = this.props;
 
@@ -189,10 +243,7 @@ class EditUserProfile extends PureComponent {
             <div className="edit-user-profile-container">
                 <UserAvatar filename={avatar} />
 
-                <p className="disclamer">
-                    * To be sure that your avatar will be updated correctly <br/>
-                    press <b>"Submit changes"</b> button at the bottom of the page
-                </p>
+                { this.renderDisclaimer() }
                 { this.renderAvatarControls() }
 
                 <form onSubmit={this.submitForm}>

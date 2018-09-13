@@ -34,28 +34,33 @@ describe('<ImageUploader />', () => {
     });
 
     it('should change state when handleUploadStart is called', () => {
-        const instance = shallow(mockComponent({})).instance();
-    
+        const onUploadStarts = jest.fn();
+        const props = { onUploadStarts };
+        const instance = shallow(mockComponent(props)).instance();
+
         instance.handleUploadStart();
-    
-        expect(instance.state.isUploading).toEqual(true);
-        expect(instance.state.progress).toEqual(0);
+
+        expect(onUploadStarts).toHaveBeenCalled();
     });
 
     it('should change state when handleUploadError is called', () => {
-        const instance = shallow(mockComponent({})).instance();
-    
-        instance.handleUploadError('error');
-    
-        expect(instance.state.isUploading).toEqual(false);
+        const onUploadError = jest.fn();
+        const props = { onUploadError };
+        const instance = shallow(mockComponent(props)).instance();
+
+        instance.handleUploadError();
+
+        expect(onUploadError).toHaveBeenCalled();
     });
 
     it('should change state when handleProgress is called', () => {
-        const instance = shallow(mockComponent({})).instance();
-    
-        instance.handleProgress('progress');
-    
-        expect(instance.state.progress).toEqual('progress');
+        const onUploadProgress = jest.fn();
+        const props = { onUploadProgress };
+        const instance = shallow(mockComponent(props)).instance();
+
+        instance.handleProgress(20);
+
+        expect(onUploadProgress).toHaveBeenCalledWith(20);
     });
 
     it('should change state when handleAuthError is called', () => {
@@ -72,9 +77,7 @@ describe('<ImageUploader />', () => {
         const instance = shallow(mockComponent(props)).instance();
     
         instance.handleUploadSuccess('filename');
-    
-        expect(instance.state.isUploading).toEqual(false);
-        expect(instance.state.progress).toEqual(100);
+
         expect(onUploadSuccess).toHaveBeenCalledWith('filename');
     });
 
