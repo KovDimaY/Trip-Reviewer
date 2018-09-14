@@ -1,0 +1,19 @@
+.user-avatar-container .user-avatar-spinner {
+    line-height: 100px;
+    margin-top: 30px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.user-avatar-container .avatar-picture {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.user-avatar-container .avatar-picture img {
+    width: 100%;
+    max-width: 200px;
+    box-shadow: 1px 3px 15px black;
+    border: 1px solid;
+}

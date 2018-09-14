@@ -38,6 +38,20 @@
     margin-bottom: 10px;
 }
 
+.edit-user-profile-container .disclamer {
+    color: darkgray;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: -5px;
+}
+
+.edit-user-profile-container .disclamer-error {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: -5px;
+}
+
 .edit-user-profile-container .text-center {
     margin-bottom: 30px;
 }
@@ -53,6 +67,30 @@
     margin: 5px 0;
     padding-left: 10px;
     font-size: 16px;
+}
+
+.edit-user-profile-container .user-avatar-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.edit-user-profile-container .user-avatar-controls .avatar-button {
+    text-align: center;
+    display: block;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    width: 35%;
+}
+
+.edit-user-profile-container .user-avatar-controls .update-user-avatar {
+    background-color: #02bcd4;
+}
+
+.edit-user-profile-container .user-avatar-controls .delete-user-avatar {
+    background-color: orange;
 }
 
 .edit-user-profile-container .button-link {

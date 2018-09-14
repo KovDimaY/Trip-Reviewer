@@ -42,7 +42,8 @@ app.get('/api/auth', auth, (req, res) => {
         id: req.user._id,
         email: req.user.email,
         name: req.user.name,
-        lastname: req.user.lastname
+        lastname: req.user.lastname,
+        avatar: req.user.avatar
     });
 });
 
@@ -186,12 +187,13 @@ app.post('/api/tripUpdate', (req, res) => {
 
 app.post('/api/userUpdate', (req, res) => {
     const {
-        _id, name, lastname, email,
+        _id, name, lastname, email, avatar,
         oldPassword, newPassword, repeatPassword,
     } = req.body;
     const fieldsToUpdate = {
         name,
-        lastname
+        lastname,
+        avatar
     };
 
     User.findById(_id, (err1, user) => {
@@ -218,7 +220,7 @@ app.post('/api/userUpdate', (req, res) => {
                             fieldsToUpdate.password = encrypted;
 
                             updateModelAndSendEmail(User, _id, fieldsToUpdate, res, transporter,
-                                { adminMail, mailTo: user.email, name, lastname, email, newPassword });
+                                { adminMail, mailTo: user.email, name, lastname, avatar, email, newPassword });
                         });
                     } else {
                         return res.json({
@@ -230,7 +232,7 @@ app.post('/api/userUpdate', (req, res) => {
                     fieldsToUpdate.email = email;
 
                     updateModelAndSendEmail(User, _id, fieldsToUpdate, res, transporter,
-                        { adminMail, mailTo: user.email, name, lastname, email, newPassword: null });
+                        { adminMail, mailTo: user.email, name, lastname, avatar, email, newPassword: null });
                 }
             });
         } else {
