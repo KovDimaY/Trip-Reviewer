@@ -10,7 +10,6 @@ import { firebase } from './../../firebase';
 
 import './styles.css';
 import "react-sweet-progress/lib/style.css";
-import { runInThisContext } from 'vm';
 
 class EditUserProfile extends PureComponent {
     state = {

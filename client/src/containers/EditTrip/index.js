@@ -21,18 +21,23 @@ class EditTrip extends PureComponent {
     }
 
     componentWillReceiveProps(nextProps) {
-        const trip = nextProps.trips.trip;
-        this.setState({
-            formdata: {
-                _id: trip._id,
-                title: trip.title,
-                author: trip.author,
-                review: trip.review,
-                duration: trip.duration,
-                rating: trip.rating,
-                price: trip.price
-            }
-        });
+        const { trip, updateTrip } = nextProps.trips
+
+        if (updateTrip) {
+            nextProps.history.push(`/trips/${trip._id}`);
+        } else {
+            this.setState({
+                formdata: {
+                    _id: trip._id,
+                    title: trip.title,
+                    author: trip.author,
+                    review: trip.review,
+                    duration: trip.duration,
+                    rating: trip.rating,
+                    price: trip.price
+                }
+            });
+        }
     }
 
     componentWillUnmount() {
@@ -71,17 +76,9 @@ class EditTrip extends PureComponent {
 
     render() {
         const { trips } = this.props;
+
         return (
             <div className="rl_container article">
-                {
-                    trips.updateTrip 
-                    ? <div className="edit_confirm">
-                            Post updated, <Link to={`/trips/${trips.trip._id}`}>
-                                Click here to see your post
-                            </Link>
-                        </div>
-                    : null
-                }
                 {
                     trips.postDeleted 
                     ? <div className="red_tag">

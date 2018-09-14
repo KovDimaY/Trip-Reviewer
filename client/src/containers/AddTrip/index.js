@@ -16,6 +16,7 @@ class AddTrip extends Component {
 
     componentWillReceiveProps(newProps) {
         const { newtrip } = newProps.trips;
+
         if (newtrip) {
             newProps.history.push(`/trips/${newtrip.tripId}`);
         }
