@@ -76,24 +76,21 @@
     padding: 20px;
 }
 
-.edit-user-profile-container .user-avatar-controls .update-user-avatar {
+.edit-user-profile-container .user-avatar-controls .avatar-button {
     text-align: center;
     display: block;
-    background-color: #02bcd4;
     color: white;
     padding: 10px;
     border-radius: 4px;
     width: 35%;
 }
 
+.edit-user-profile-container .user-avatar-controls .update-user-avatar {
+    background-color: #02bcd4;
+}
+
 .edit-user-profile-container .user-avatar-controls .delete-user-avatar {
-    text-align: center;
-    display: block;
     background-color: orange;
-    color: white;
-    padding: 10px;
-    border-radius: 4px;
-    width: 35%;
 }
 
 .edit-user-profile-container .button-link {

@@ -115,9 +115,9 @@ class EditUserProfile extends PureComponent {
                     onUploadProgress={this.onUploadProgress}
                     onUploadSuccess={this.onUploadSuccess}
                     onUploadError={this.onUploadError}
-                    className="update-user-avatar"
+                    className="avatar-button update-user-avatar"
                 />
-                <label className="delete-user-avatar" onClick={this.handleDeleteAvatar}>Delete avatar</label>
+                <label className="avatar-button delete-user-avatar" onClick={this.handleDeleteAvatar}>Delete avatar</label>
             </div>
         );
     }
@@ -230,7 +230,7 @@ class EditUserProfile extends PureComponent {
         if (result && result.message) {
             return (
                 <div className="error">
-                    <div>{ this.props.result.message }</div>
+                    { this.props.result.message }
                 </div>
             );
         }

@@ -12,7 +12,8 @@
 }
 
 .user-avatar-container .avatar-picture img {
-    width: 200px;
+    width: 100%;
+    max-width: 200px;
     box-shadow: 1px 3px 15px black;
-    border: solid 1px;
+    border: 1px solid;
 }
