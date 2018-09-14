@@ -122,6 +122,39 @@ describe('<EditTrip />', () => {
         expect(instance.state.formdata).toEqual(nextProps.trips.trip);
     });
 
+    it('should redirect when componentWillReceiveProps is called with updateTrip', () => {
+        const push = jest.fn();
+        const tripId = 'test';
+        const path = `/trips/${tripId}`;
+        const initialState = {
+            trips: {}
+        };
+        const props = {
+            match: {
+                params: {
+                    id: 'id'
+                }
+            }
+        };
+        const nextProps = {
+            trips: {
+                trip: {
+                    _id: tripId
+                },
+                updateTrip: true
+            },
+            history: {
+                push
+            }
+        };
+
+        const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+        instance.componentWillReceiveProps(nextProps);
+
+        expect(push).toHaveBeenCalledWith(path);
+    });
+
     it('should dispatch clearTrip when componentWillUnmount is called', () => {
         const initialState = {
             trips: {}
@@ -166,7 +199,7 @@ describe('<EditTrip />', () => {
 
         const instance = shallow(mockComponent(initialState, props)).dive().instance();
         instance.setState({ formdata: state });
-    
+
         instance.submitForm(event);
 
         expect(preventDefault).toHaveBeenCalled();    
@@ -186,7 +219,7 @@ describe('<EditTrip />', () => {
         };
 
         const instance = shallow(mockComponent(initialState, props)).dive().instance();
-    
+
         instance.deletePost();
 
         expect(deleteTrip).toHaveBeenCalledWith('id');
@@ -235,9 +268,9 @@ describe('<EditTrip />', () => {
         };
 
         const instance = shallow(mockComponent(initialState, props)).dive().instance();
-    
+
         instance.goToReviews();
-    
+
         expect(push).toHaveBeenCalledWith(path);
     });
 

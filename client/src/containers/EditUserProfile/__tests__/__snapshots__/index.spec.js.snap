@@ -22,7 +22,7 @@ exports[`<EditUserProfile /> should render component 1`] = `
     className="user-avatar-controls"
   >
     <ImageUploader
-      className="update-user-avatar"
+      className="avatar-button update-user-avatar"
       filename="id"
       onUploadError={[Function]}
       onUploadProgress={[Function]}
@@ -30,7 +30,7 @@ exports[`<EditUserProfile /> should render component 1`] = `
       onUploadSuccess={[Function]}
     />
     <label
-      className="delete-user-avatar"
+      className="avatar-button delete-user-avatar"
       onClick={[Function]}
     >
       Delete avatar
@@ -183,7 +183,7 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
     className="user-avatar-controls"
   >
     <ImageUploader
-      className="update-user-avatar"
+      className="avatar-button update-user-avatar"
       filename="id"
       onUploadError={[Function]}
       onUploadProgress={[Function]}
@@ -191,7 +191,7 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
       onUploadSuccess={[Function]}
     />
     <label
-      className="delete-user-avatar"
+      className="avatar-button delete-user-avatar"
       onClick={[Function]}
     >
       Delete avatar
@@ -301,9 +301,7 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
     <div
       className="error"
     >
-      <div>
-        test
-      </div>
+      test
     </div>
     <div
       className="text-center"
