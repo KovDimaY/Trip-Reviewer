@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+import StarsRating from './../../components/StarsRating';
 import { addTrip, clearNewTrip } from '../../actions';
 
 class AddTrip extends Component {
@@ -9,7 +11,7 @@ class AddTrip extends Component {
             author: '',
             review: '',
             duration: '',
-            rating: '1',
+            rating: 0,
             price: ''
         }
     };
@@ -29,6 +31,18 @@ class AddTrip extends Component {
         const { value, name } = event.target;
 
         newFormdata[name] = value;
+
+        this.setState({
+            formdata: newFormdata
+        });
+    }
+
+    handleRating = (rating) => {
+        const newFormdata = {
+            ...this.state.formdata
+        };
+
+        newFormdata.rating = rating;
 
         this.setState({
             formdata: newFormdata
@@ -95,17 +109,7 @@ class AddTrip extends Component {
                     </div>
 
                     <div className="form_element">
-                        <select
-                            value={rating}
-                            name='rating'
-                            onChange={this.handleInput}
-                        >
-                            <option val="1">1</option>
-                            <option val="2">2</option>
-                            <option val="3">3</option>
-                            <option val="4">4</option>
-                            <option val="5">5</option>
-                        </select>
+                        <StarsRating rating={rating} onChange={this.handleRating} />
                     </div>
 
                     <div className="form_element">
