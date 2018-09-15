@@ -235,16 +235,6 @@ exports[`<EditTrip /> should render component with updateTrip 1`] = `
 <div
   className="rl_container article"
 >
-  <div
-    className="edit_confirm"
-  >
-    Post updated, 
-    <Link
-      to="/trips/_id"
-    >
-      Click here to see your post
-    </Link>
-  </div>
   <form
     onSubmit={[Function]}
   >
