@@ -70,6 +70,7 @@ class Login extends Component {
     render() {
         const { error } = this.props.users.login;
         const { email, password } = this.state.formData;
+        const disableButton = !(email || password);
 
         return (
             <div className="login-container">
@@ -100,7 +101,7 @@ class Login extends Component {
                     </div>
                     { this.renderError('password') }
 
-                    <button type="submit">Log in</button><br/>
+                    <button type="submit" disabled={disableButton}>Log in</button><br/>
 
                     {
                         error && error.message && <a href="reset-password" className="reset-password">Forgot my password</a>

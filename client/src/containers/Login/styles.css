@@ -31,6 +31,11 @@
     width: 260px;
 }
 
+.login-container button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .login-container .error {
     color: #FF5722;
     margin-top: 10px;
@@ -50,5 +55,6 @@
     color: gold;
     display: block;
     margin-top: 20px;
+    font-weight: bold;
     font-size: 18px;
 }
