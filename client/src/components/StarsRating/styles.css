@@ -1,0 +1,22 @@
+.stars-rating-container .star-empty {
+    color: black;
+}
+
+.stars-rating-container .star-empty:before {
+    font-size: 39px;
+}
+
+.stars-rating-container .star-full {
+    color: gold;
+    margin-top: 6px;
+}
+
+.stars-rating-container .star-full:before {
+    font-size: 27px;
+}
+
+.stars-rating-container .rating-label {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 5px;
+}

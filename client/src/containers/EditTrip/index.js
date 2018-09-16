@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+
+import StarsRating from './../../components/StarsRating';
 import { getTrip, updateTrip, clearTrip, deleteTrip } from '../../actions';
 
 class EditTrip extends PureComponent {
@@ -11,7 +12,7 @@ class EditTrip extends PureComponent {
             author: '',
             review: '',
             duration: '',
-            rating: '',
+            rating: 0,
             price: ''
         }
     };
@@ -57,6 +58,18 @@ class EditTrip extends PureComponent {
         });
     }
 
+    handleRating = (rating) => {
+        const newFormdata = {
+            ...this.state.formdata
+        };
+
+        newFormdata.rating = rating;
+
+        this.setState({
+            formdata: newFormdata
+        });
+    }
+
     submitForm = (event) => {
         event.preventDefault();
         this.props.dispatch(updateTrip(this.state.formdata));
@@ -75,6 +88,10 @@ class EditTrip extends PureComponent {
     }
 
     render() {
+        const {
+            title, author, review,
+            duration, rating, price
+        } = this.state.formdata;
         const { trips } = this.props;
 
         return (
@@ -95,7 +112,7 @@ class EditTrip extends PureComponent {
                             type="text"
                             name="title"
                             placeholder="Enter title"
-                            value={this.state.formdata.title}
+                            value={title}
                             onChange={this.handleInput}
                         />
                     </div>
@@ -105,13 +122,13 @@ class EditTrip extends PureComponent {
                             type="text"
                             name="author"
                             placeholder="Enter author"
-                            value={this.state.formdata.author}
+                            value={author}
                             onChange={this.handleInput}
                         />
                     </div>
 
                     <textarea
-                        value={this.state.formdata.review}
+                        value={review}
                         name="review"
                         onChange={this.handleInput}
                     />
@@ -121,23 +138,13 @@ class EditTrip extends PureComponent {
                             type="number"
                             name="duration"
                             placeholder="Enter duration"
-                            value={this.state.formdata.duration}
+                            value={duration}
                             onChange={this.handleInput}
                         />
                     </div>
 
                     <div className="form_element">
-                        <select
-                            value={this.state.formdata.rating}
-                            name="rating"
-                            onChange={this.handleInput}
-                        >
-                            <option val="1">1</option>
-                            <option val="2">2</option>
-                            <option val="3">3</option>
-                            <option val="4">4</option>
-                            <option val="5">5</option>
-                        </select>
+                        <StarsRating rating={rating} onChange={this.handleRating} />
                     </div>
 
                     <div className="form_element">
@@ -145,7 +152,7 @@ class EditTrip extends PureComponent {
                             type="number"
                             name="price"
                             placeholder="Enter Price"
-                            value={this.state.formdata.price}
+                            value={price}
                             onChange={this.handleInput}
                         />
                     </div>

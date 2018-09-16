@@ -51,37 +51,10 @@ exports[`<EditTrip /> should render component 1`] = `
     <div
       className="form_element"
     >
-      <select
-        name="rating"
+      <StarsRating
         onChange={[Function]}
-        value=""
-      >
-        <option
-          val="1"
-        >
-          1
-        </option>
-        <option
-          val="2"
-        >
-          2
-        </option>
-        <option
-          val="3"
-        >
-          3
-        </option>
-        <option
-          val="4"
-        >
-          4
-        </option>
-        <option
-          val="5"
-        >
-          5
-        </option>
-      </select>
+        rating={0}
+      />
     </div>
     <div
       className="form_element"
@@ -169,37 +142,10 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
     <div
       className="form_element"
     >
-      <select
-        name="rating"
+      <StarsRating
         onChange={[Function]}
-        value=""
-      >
-        <option
-          val="1"
-        >
-          1
-        </option>
-        <option
-          val="2"
-        >
-          2
-        </option>
-        <option
-          val="3"
-        >
-          3
-        </option>
-        <option
-          val="4"
-        >
-          4
-        </option>
-        <option
-          val="5"
-        >
-          5
-        </option>
-      </select>
+        rating={0}
+      />
     </div>
     <div
       className="form_element"
@@ -282,37 +228,10 @@ exports[`<EditTrip /> should render component with updateTrip 1`] = `
     <div
       className="form_element"
     >
-      <select
-        name="rating"
+      <StarsRating
         onChange={[Function]}
-        value=""
-      >
-        <option
-          val="1"
-        >
-          1
-        </option>
-        <option
-          val="2"
-        >
-          2
-        </option>
-        <option
-          val="3"
-        >
-          3
-        </option>
-        <option
-          val="4"
-        >
-          4
-        </option>
-        <option
-          val="5"
-        >
-          5
-        </option>
-      </select>
+        rating={0}
+      />
     </div>
     <div
       className="form_element"

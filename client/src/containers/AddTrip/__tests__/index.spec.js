@@ -6,6 +6,7 @@ import { shallow } from 'enzyme';
 import AddTrip from './../../AddTrip';
 import { addTrip, clearNewTrip } from './../../../actions';
 
+jest.mock('./../../../components/StarsRating', () => 'StarsRating');
 jest.mock('./../../../actions', () => ({ 
     addTrip: jest.fn(() => ({
         type: 'test'
@@ -31,7 +32,7 @@ describe('<AddTrip />', () => {
             trips: {}
         };
         const tree = create(mockComponent(initialState)).toJSON();
-        
+
         expect(tree).toMatchSnapshot();
     });
 
@@ -45,7 +46,7 @@ describe('<AddTrip />', () => {
             }
         };
         const tree = create(mockComponent(initialState)).toJSON();
-        
+
         expect(tree).toMatchSnapshot();
     });
 
@@ -56,7 +57,7 @@ describe('<AddTrip />', () => {
             }
         };
         const tree = create(mockComponent(initialState)).toJSON();
-        
+
         expect(tree).toMatchSnapshot();
     });
 
@@ -132,10 +133,23 @@ describe('<AddTrip />', () => {
         };
 
         const instance = shallow(mockComponent(initialState)).dive().instance();
-    
+
         instance.handleInput(event);
-    
+
         expect(instance.state.formdata.title).toEqual('test');
+    });
+
+    it('handleRating should change state correctly', () => {
+        const initialState = {
+            trips: {}
+        };
+        const rating = 3;
+
+        const instance = shallow(mockComponent(initialState)).dive().instance();
+
+        instance.handleRating(rating);
+
+        expect(instance.state.formdata.rating).toEqual(rating);
     });
 
     it('should dispatch addTrip when submitForm is called', () => {
@@ -163,7 +177,7 @@ describe('<AddTrip />', () => {
 
         const instance = shallow(mockComponent(initialState, props)).dive().instance();
         instance.setState({ formdata: state });
-    
+
         instance.submitForm(event);
 
         expect(preventDefault).toHaveBeenCalled();    
@@ -176,7 +190,7 @@ describe('<AddTrip />', () => {
         };
 
         const instance = shallow(mockComponent(initialState)).dive().instance();
-    
+
         instance.componentWillUnmount();
 
         expect(clearNewTrip).toHaveBeenCalled();
