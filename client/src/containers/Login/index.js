@@ -1,34 +1,75 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { loginUser } from '../../actions';
+
+import './styles.css';
 
 class Login extends Component {
     state = {
-        email: '',
-        password: ''
-    }
+        formData: {
+            email: '',
+            password: ''
+        },
+        hideError: {
+            email: false,
+            password: false
+        }
+    };
 
-    handleInputEmail = (event) => {
-        this.setState({ email: event.target.value });
-    }
+    handleInput = (event) => {
+        const newFormData = { ...this.state.formData };
+        const newHideError = { ...this.state.hideError };
+        const { value, name } = event.target;
 
-    handleInputPassword = (event) => {
-        this.setState({ password: event.target.value });
+        newFormData[name] = value;
+        newHideError[name] = true;
+
+        this.setState({
+            formData: newFormData,
+            hideError: newHideError
+        });
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.users.login.isAuth) {
             this.props.history.push('/user');
         }
+        this.setState({
+            hideError: {
+                email: false,
+                password: false
+            }
+        });
     }
 
     submitForm = (event) => {
         event.preventDefault();
-        this.props.dispatch(loginUser(this.state));
+        this.props.dispatch(loginUser(this.state.formData));
+    }
+
+    getErrorClass(param) {
+        const { error } = this.props.users.login;
+        const { hideError } = this.state;
+
+        if (error && error.field === param && !hideError[param]) {
+            return 'field-error';
+        }
+        return '';
+    }
+
+    renderError(param) {
+        const { error } = this.props.users.login;
+        const { hideError } = this.state;
+
+        if (error && error.field === param && !hideError[param]) {
+            return <div className="error">{error.message}</div>;
+        }
     }
 
     render() {
-        const { users } = this.props;
+        const { error } = this.props.users.login;
+        const { email, password } = this.state.formData;
 
         return (
             <div className="rl_container">
@@ -38,34 +79,32 @@ class Login extends Component {
                     <div className="form_element">
                         <input 
                             type="email"
+                            name="email"
+                            className={this.getErrorClass('email')}
                             placeholder="Enter your mail"
-                            value={this.state.email}
-                            onChange={this.handleInputEmail}
+                            value={email}
+                            onChange={this.handleInput}
                         />
                     </div>
+                    { this.renderError('email') }
 
                     <div className="form_element">
                         <input 
                             type="password"
+                            name="password"
+                            className={this.getErrorClass('password')}
                             placeholder="Enter your password"
-                            value={this.state.password}
-                            onChange={this.handleInputPassword}
+                            value={password}
+                            onChange={this.handleInput}
                         />
                     </div>
+                    { this.renderError('password') }
 
                     <button type="submit">Log in</button><br/>
 
                     {
-                        users.login && users.login.message && <a href="reset-password" className="reset-password">Forgot my password</a>
+                        error && error.message && <a href="reset-password" className="reset-password">Forgot my password</a>
                     }
-
-                    <div className="error">
-                    {
-                        users.login 
-                            ? <div>{users.login.message}</div>
-                            : null
-                    }
-                    </div>
 
                 </form>
             </div>

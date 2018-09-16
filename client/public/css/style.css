@@ -98,7 +98,8 @@ header .open_nav {
 .reset-password {
     color: gold !important;
     display: block;
-    margin-top: 10px;
+    margin-top: 20px;
+    font-size: 18px;
 }
 
 /*=============================
