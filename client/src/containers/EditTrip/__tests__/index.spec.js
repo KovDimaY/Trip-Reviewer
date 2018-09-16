@@ -8,6 +8,7 @@ import { GET_TRIP } from './../../../constants/action-names';
 import { updateTrip, clearTrip, deleteTrip } from './../../../actions';
 
 jest.mock('react-router-dom', () => ({ Link: 'Link' }));
+jest.mock('./../../../components/StarsRating', () => 'StarsRating');
 jest.mock('./../../../actions', () => ({ 
     getTrip: jest.fn(() => ({
         type: GET_TRIP,

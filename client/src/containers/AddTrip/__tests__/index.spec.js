@@ -6,6 +6,7 @@ import { shallow } from 'enzyme';
 import AddTrip from './../../AddTrip';
 import { addTrip, clearNewTrip } from './../../../actions';
 
+jest.mock('./../../../components/StarsRating', () => 'StarsRating');
 jest.mock('./../../../actions', () => ({ 
     addTrip: jest.fn(() => ({
         type: 'test'

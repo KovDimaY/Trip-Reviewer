@@ -4,8 +4,7 @@ import { mount } from 'enzyme';
 
 import StarsRating from './../../StarsRating';
 
-jest.mock('./../../Sidenav/index', () => 'Nav');
-jest.mock('react-router-dom', () => ({ Link: 'Link' }));
+jest.mock('react-rating', () => ('Rating'));
 
 const mockComponent = props => {
     return (
