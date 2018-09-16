@@ -250,6 +250,26 @@ describe('<EditTrip />', () => {
         expect(instance.state.formdata.title).toEqual('test');
     });
 
+    it('handleRating should change state correctly', () => {
+        const initialState = {
+            trips: {}
+        };
+        const props = {
+            match: {
+                params: {
+                    id: 'id'
+                }
+            }
+        };
+        const rating = 3;
+
+        const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+        instance.handleRating(rating);
+
+        expect(instance.state.formdata.rating).toEqual(rating);
+    });
+
     it('goToReviews should redirect correctly', () => {
         const push = jest.fn();
         const path = '/user/user-reviews';
