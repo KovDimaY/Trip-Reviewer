@@ -72,7 +72,7 @@ class Login extends Component {
         const { email, password } = this.state.formData;
 
         return (
-            <div className="rl_container">
+            <div className="login-container">
                 <form onSubmit={this.submitForm}>
                     <h2>Log in here</h2>
 

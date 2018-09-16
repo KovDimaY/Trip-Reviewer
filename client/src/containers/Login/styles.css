@@ -1,4 +1,54 @@
-.rl_container .field-error {
-    border: 2px solid red;
-    color: red;
+.login-container {
+    text-align: center;
+}
+
+.login-container h2 {
+    font-size: 33px;
+    font-weight: 300;
+    color: #02bcd4;
+}
+
+.login-container input {
+    font-size: 20px;
+    border-radius: 3px;
+    border: 1px solid #ebebeb;
+    box-sizing: border-box;
+    padding: 11px 31px;
+    background: #f7f7f7;
+    font-weight: 300;
+    width: 260px;
+}
+
+.login-container button {
+    font-size: 20px;
+    padding: 10px 52px;
+    background: #02bcd4;
+    color: #fff;
+    font-weight: 300;
+    border-radius: 3px;
+    border: none;
+    margin-top: 20px;
+    width: 260px;
+}
+
+.login-container .error {
+    color: #FF5722;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.login-container .field-error {
+    border: 2px solid #FF5722;
+    color: #FF5722;
+}
+
+.login-container .form_element {
+    margin-top: 20px;
+}
+
+.login-container .reset-password {
+    color: gold;
+    display: block;
+    margin-top: 20px;
+    font-size: 18px;
 }
