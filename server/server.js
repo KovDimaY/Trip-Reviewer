@@ -151,17 +151,28 @@ app.post('/api/register', (req, res) => {
 });
 
 app.post('/api/login', (req, res) => {
-    User.findOne({ 'email': req.body.email }, (err, user) => {
-        if (!user) return res.json({ isAuth: false, message: 'Auth failed, email not found'});
+    User.findOne({ 'email': req.body.email }, (err1, user) => {
+        if (err1) return res.status(400).send(err1);
+        if (!user) return res.json({
+            isAuth: false,
+            error: {
+                field: 'email',
+                message: 'Email not found'
+            }
+        });
 
-        user.comparePassword(req.body.password, (err, isMatch) => {
+        user.comparePassword(req.body.password, (err2, isMatch) => {
+            if (err2) return res.status(400).send(err2);
             if (!isMatch) return res.json({
                 isAuth: false,
-                message: 'Wrong password'
+                error: {
+                    field: 'password',
+                    message: 'Wrong password'
+                }
             });
 
-            user.generateToken((err, user) => {
-                if (err) return res.status(400).send(err);
+            user.generateToken((err3, user) => {
+                if (err3) return res.status(400).send(err3);
 
                 res.cookie('auth', user.token).json({
                     isAuth: true,
