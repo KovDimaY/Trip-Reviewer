@@ -25,18 +25,23 @@ const mockComponent = (initialState = {}, props) => {
 describe('<Login />', () => {
     it('should render component', () => {
         const initialState = {
-            users: {}
+            users: {
+                login: {}
+            }
         };
         const tree = create(mockComponent(initialState)).toJSON();
         
         expect(tree).toMatchSnapshot();
     });
 
-    it('should render component with error message', () => {
+    it('should render component with error message for email', () => {
         const initialState = {
             users: {
                 login: {
-                    message: 'test'
+                    error: {
+                        message: 'test email',
+                        field: 'email'
+                    }
                 }
             }
         };
@@ -45,48 +50,55 @@ describe('<Login />', () => {
         expect(tree).toMatchSnapshot();
     });
 
-    it('should change state when handleInputEmail is called', () => {
+    it('should render component with error message for password', () => {
         const initialState = {
-            users: {}
-        };
-        const event = {
-            target: {
-                value: 'test'
+            users: {
+                login: {
+                    error: {
+                        message: 'test password',
+                        field: 'password'
+                    }
+                }
             }
         };
+        const tree = create(mockComponent(initialState)).toJSON();
 
-        const instance = shallow(mockComponent(initialState)).dive().instance();
-    
-        instance.handleInputEmail(event);
-    
-        expect(instance.state.email).toEqual('test');
+        expect(tree).toMatchSnapshot();
     });
 
-    it('should change state when handleInputPassword is called', () => {
+    it('should change state when handleInput is called', () => {
         const initialState = {
-            users: {}
+            users: {
+                login: {}
+            }
         };
         const event = {
             target: {
-                value: 'test'
+                value: 'test',
+                name: 'email'
             }
         };
 
         const instance = shallow(mockComponent(initialState)).dive().instance();
     
-        instance.handleInputPassword(event);
+        instance.handleInput(event);
     
-        expect(instance.state.password).toEqual('test');
+        expect(instance.state.formData.email).toEqual('test');
+        expect(instance.state.hideError.email).toEqual(true);
     });
 
     it('should dispatch loginUser when submitForm is called', () => {
         const preventDefault = jest.fn();
         const state = {
-            email: 'test',
-            password: 'test'
+            formData: {
+                email: 'test',
+                password: 'test'
+            }
         };
         const initialState = {
-            users: {}
+            users: {
+                login: {}
+            }
         };
         const event = { preventDefault };
 
@@ -96,11 +108,16 @@ describe('<Login />', () => {
         instance.submitForm(event);
 
         expect(preventDefault).toHaveBeenCalled();    
-        expect(loginUser).toHaveBeenCalledWith(state);
+        expect(loginUser).toHaveBeenCalledWith(state.formData);
     });
 
     it('should redirect when componentWillReceiveProps is called and authenticated', () => {
         const push = jest.fn();
+        const initialState = {
+            users: {
+                login: {}
+            }
+        };
         const props = {
             history: {
                 push
@@ -113,9 +130,6 @@ describe('<Login />', () => {
                 }
             }
         };
-        const initialState = {
-            users: {}
-        };
 
         const instance = shallow(mockComponent(initialState, props)).dive().instance();
     
@@ -126,6 +140,11 @@ describe('<Login />', () => {
 
     it('should not redirect when componentWillReceiveProps is called and not authenticated', () => {
         const push = jest.fn();
+        const initialState = {
+            users: {
+                login: {}
+            }
+        };
         const props = {
             history: {
                 push
@@ -135,9 +154,6 @@ describe('<Login />', () => {
             users: {
                 login: {}
             }
-        };
-        const initialState = {
-            users: {}
         };
 
         const instance = shallow(mockComponent(initialState, props)).dive().instance();

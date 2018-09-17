@@ -2,7 +2,7 @@
 
 exports[`<Login /> should render component 1`] = `
 <div
-  className="rl_container"
+  className="login-container"
 >
   <form
     onSubmit={[Function]}
@@ -14,6 +14,8 @@ exports[`<Login /> should render component 1`] = `
       className="form_element"
     >
       <input
+        className=""
+        name="email"
         onChange={[Function]}
         placeholder="Enter your mail"
         type="email"
@@ -24,6 +26,8 @@ exports[`<Login /> should render component 1`] = `
       className="form_element"
     >
       <input
+        className=""
+        name="password"
         onChange={[Function]}
         placeholder="Enter your password"
         type="password"
@@ -31,21 +35,19 @@ exports[`<Login /> should render component 1`] = `
       />
     </div>
     <button
+      disabled={true}
       type="submit"
     >
       Log in
     </button>
     <br />
-    <div
-      className="error"
-    />
   </form>
 </div>
 `;
 
-exports[`<Login /> should render component with error message 1`] = `
+exports[`<Login /> should render component with error message for email 1`] = `
 <div
-  className="rl_container"
+  className="login-container"
 >
   <form
     onSubmit={[Function]}
@@ -57,6 +59,8 @@ exports[`<Login /> should render component with error message 1`] = `
       className="form_element"
     >
       <input
+        className="field-error"
+        name="email"
         onChange={[Function]}
         placeholder="Enter your mail"
         type="email"
@@ -64,9 +68,16 @@ exports[`<Login /> should render component with error message 1`] = `
       />
     </div>
     <div
+      className="error"
+    >
+      test email
+    </div>
+    <div
       className="form_element"
     >
       <input
+        className=""
+        name="password"
         onChange={[Function]}
         placeholder="Enter your password"
         type="password"
@@ -74,6 +85,7 @@ exports[`<Login /> should render component with error message 1`] = `
       />
     </div>
     <button
+      disabled={true}
       type="submit"
     >
       Log in
@@ -85,13 +97,62 @@ exports[`<Login /> should render component with error message 1`] = `
     >
       Forgot my password
     </a>
+  </form>
+</div>
+`;
+
+exports[`<Login /> should render component with error message for password 1`] = `
+<div
+  className="login-container"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2>
+      Log in here
+    </h2>
+    <div
+      className="form_element"
+    >
+      <input
+        className=""
+        name="email"
+        onChange={[Function]}
+        placeholder="Enter your mail"
+        type="email"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        className="field-error"
+        name="password"
+        onChange={[Function]}
+        placeholder="Enter your password"
+        type="password"
+        value=""
+      />
+    </div>
     <div
       className="error"
     >
-      <div>
-        test
-      </div>
+      test password
     </div>
+    <button
+      disabled={true}
+      type="submit"
+    >
+      Log in
+    </button>
+    <br />
+    <a
+      className="reset-password"
+      href="reset-password"
+    >
+      Forgot my password
+    </a>
   </form>
 </div>
 `;
