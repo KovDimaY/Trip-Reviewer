@@ -24,7 +24,7 @@ export default function(state = {}, action) {
         case USER_REGISTER:
             return {
                 ...state,
-                register: action.payload.success,
+                register: action.payload,
                 login: { isAuth: action.payload.success }
             };
         default:

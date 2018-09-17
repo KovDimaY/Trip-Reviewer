@@ -1,40 +1,57 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+
 import { getUsers, userRegister } from '../../actions';
 
 class Register extends PureComponent {
     state = {
-        name: '',
-        lastname: '',
-        email: '',
-        password: '',
-        error: ''
-    }
+        formData: {
+            name: '',
+            lastname: '',
+            email: '',
+            password: ''
+        },
+        hideError: {
+            name: false,
+            lastname: false,
+            email: false,
+            password: false
+        }
+    };
 
     componentWillMount() {
         this.props.dispatch(getUsers());
     }
 
-    handleInputEmail = (event) => {
-        this.setState({ email: event.target.value });
-    } 
+    handleInput = (event) => {
+        const newFormData = { ...this.state.formData };
+        const newHideError = { ...this.state.hideError };
+        const { value, name } = event.target;
 
-    handleInputPassword= (event) => {
-        this.setState({ password: event.target.value });
+        newFormData[name] = value;
+        newHideError[name] = true;
+
+        this.setState({
+            formData: newFormData,
+            hideError: newHideError
+        });
     }
 
-    handleInputName = (event) => {
-        this.setState({ name: event.target.value });
-    }
+    renderError(param) {
+        const { register } = this.props.users;
+        const { hideError } = this.state;
+        const errors = register && register.error && register.error.errors;
 
-    handleInputLastname = (event) => {
-        this.setState({ lastname: event.target.value });
-    } 
+        if (errors && errors[param] && !hideError[param]) {
+            return <div className="error">{errors[param].message}</div>;
+        }
+    }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.users.login.isAuth) {
+        const { login, register } = nextProps.users;
+        if (login.isAuth) {
             this.props.history.push('/user');
-        } else if (nextProps.users.register === false) {
+        } else if (register && register.success === false) {
             this.setState({ error: 'Error, try again' });
         } else {
             this.setState({
@@ -48,16 +65,10 @@ class Register extends PureComponent {
 
     submitForm = (event) => {
         event.preventDefault();
-        this.setState({ error: '' });
 
         this.props.dispatch(
-            userRegister({
-                email: this.state.email,
-                password: this.state.password,
-                name: this.state.name,
-                lastname: this.state.lastname
-            })
-        )
+            userRegister(this.state.formData)
+        );
     }
 
     showUsers = ({ users }) => (
@@ -74,6 +85,13 @@ class Register extends PureComponent {
 
     render() {
         const { users } = this.props;
+        const {
+            name, lastname,
+            email, password
+        } = this.state.formData;
+
+        console.log(this.props)
+
         return (
             <div className="rl_container">
                 <form onSubmit={this.submitForm}>
@@ -83,42 +101,47 @@ class Register extends PureComponent {
                         <input
                             type="text"
                             placeholder="Enter name"
-                            value={this.state.name}
-                            onChange={this.handleInputName}
+                            value={name}
+                            name="name"
+                            onChange={this.handleInput}
                          />
                     </div>
+                    { this.renderError('name') }
 
                     <div className="form_element">
                         <input
                             type="text"
                             placeholder="Enter Lastname"
-                            value={this.state.lastname}
-                            onChange={this.handleInputLastname}
+                            value={lastname}
+                            name="lastname"
+                            onChange={this.handleInput}
                          />
                     </div>
+                    { this.renderError('lastname') }
 
                     <div className="form_element">
                         <input
                             type="email"
                             placeholder="Enter Email"
-                            value={this.state.email}
-                            onChange={this.handleInputEmail}
+                            value={email}
+                            name="email"
+                            onChange={this.handleInput}
                          />
                     </div>
+                    { this.renderError('email') }
 
                     <div className="form_element">
                         <input
                             type="password"
                             placeholder="Enter Password"
-                            value={this.state.password}
-                            onChange={this.handleInputPassword}
+                            value={password}
+                            name="password"
+                            onChange={this.handleInput}
                          />
                     </div>
+                    { this.renderError('password') }
 
                     <button type="submit">Sign Up</button>
-                    <div className="error">
-                        {this.state.error}
-                    </div>
 
                 </form>
                 <div className="current_users">

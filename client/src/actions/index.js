@@ -229,13 +229,9 @@ export function userRegister(user) {
 
     return (dispatch) => {
         return request.then(({ data }) => {
-            const response = {
-                success: data.success
-            };
-
             dispatch({
                 type: USER_REGISTER,
-                payload: response
+                payload: data
             });
         })
     }
