@@ -64,6 +64,7 @@ userSchema.pre('save', function(next) {
 userSchema.post('save', function(error, doc, next) {
     if (error.code === 11000) {
         const customError = new Error();
+
         customError.errors = {
             email: {
                 message: 'This email already exists',
@@ -72,6 +73,7 @@ userSchema.post('save', function(error, doc, next) {
                 kind: 'unique'
             }
         };
+        
         next(customError);
     } else {
         next(error);

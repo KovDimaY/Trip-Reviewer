@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { getUsers, userRegister } from '../../actions';
 
+import './styles.css';
+
 class Register extends PureComponent {
     state = {
         formData: {
@@ -92,7 +94,7 @@ class Register extends PureComponent {
         console.log(this.props)
 
         return (
-            <div className="rl_container">
+            <div className="register-container">
                 <form onSubmit={this.submitForm}>
                     <h2>Sing Up</h2>
                     
@@ -144,7 +146,7 @@ class Register extends PureComponent {
 
                 </form>
                 <div className="current_users">
-                    <h4>Current users:</h4>
+                    <h3>Current users:</h3>
                     <table>
                         <thead>
                             <tr>
