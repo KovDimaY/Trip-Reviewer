@@ -39,16 +39,6 @@ class Register extends PureComponent {
         });
     }
 
-    renderError(param) {
-        const { register } = this.props.users;
-        const { hideError } = this.state;
-        const errors = register && register.error && register.error.errors;
-
-        if (errors && errors[param] && !hideError[param]) {
-            return <div className="error">{errors[param].message}</div>;
-        }
-    }
-
     componentWillReceiveProps(nextProps) {
         const { login } = nextProps.users;
         if (login.isAuth) {
@@ -72,7 +62,28 @@ class Register extends PureComponent {
         );
     }
 
-    showUsers = ({ users }) => (
+    getErrorClass(param) {
+        const { register } = this.props.users;
+        const { hideError } = this.state;
+        const errors = register && register.error && register.error.errors;
+
+        if (errors && errors[param] && !hideError[param]) {
+            return 'field-error';
+        }
+        return '';
+    }
+
+    renderError(param) {
+        const { register } = this.props.users;
+        const { hideError } = this.state;
+        const errors = register && register.error && register.error.errors;
+
+        if (errors && errors[param] && !hideError[param]) {
+            return <div className="error">{errors[param].message}</div>;
+        }
+    }
+
+    renderUsersTable = ({ users }) => (
         users 
         ? users.map(item => 
             (
@@ -101,6 +112,7 @@ class Register extends PureComponent {
                     <div className="form_element">
                         <input
                             type="text"
+                            className={this.getErrorClass('name')}
                             placeholder="Enter name"
                             value={name}
                             name="name"
@@ -112,6 +124,7 @@ class Register extends PureComponent {
                     <div className="form_element">
                         <input
                             type="text"
+                            className={this.getErrorClass('lastname')}
                             placeholder="Enter Lastname"
                             value={lastname}
                             name="lastname"
@@ -123,6 +136,7 @@ class Register extends PureComponent {
                     <div className="form_element">
                         <input
                             type="email"
+                            className={this.getErrorClass('email')}
                             placeholder="Enter Email"
                             value={email}
                             name="email"
@@ -134,6 +148,7 @@ class Register extends PureComponent {
                     <div className="form_element">
                         <input
                             type="password"
+                            className={this.getErrorClass('password')}
                             placeholder="Enter Password"
                             value={password}
                             name="password"
@@ -155,7 +170,7 @@ class Register extends PureComponent {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.showUsers(users)}
+                            {this.renderUsersTable(users)}
                         </tbody>
                     </table>
                 </div>
