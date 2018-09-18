@@ -106,7 +106,7 @@ describe('users reducer', () => {
             }
         };
         const expected = {
-            register: 'success',
+            register: { success: 'success' },
             login: { isAuth: 'success' }
         };
 
