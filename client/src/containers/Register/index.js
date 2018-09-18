@@ -48,19 +48,18 @@ class Register extends PureComponent {
     }
 
     componentWillReceiveProps(nextProps) {
-        const { login, register } = nextProps.users;
+        const { login } = nextProps.users;
         if (login.isAuth) {
             this.props.history.push('/user');
-        } else if (register && register.success === false) {
-            this.setState({ error: 'Error, try again' });
-        } else {
-            this.setState({
-                name: '',
-                lastname: '',
-                email: '',
-                password: ''
-            });
         }
+        this.setState({
+            hideError: {
+                name: false,
+                lastname: false,
+                email: false,
+                password: false
+            }
+        });
     }
 
     submitForm = (event) => {

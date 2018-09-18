@@ -8,22 +8,28 @@ const auth = require('./../constants/auth');
 const userSchema = mongoose.Schema({
     email: {
         type: String,
-        required: true,
         trim: true,
+        required: [ true, 'Email is required'],
         unique: 1
     },
     password: {
         type: String,
-        required: true,
-        minlength: 6
+        required: [ true, 'Password is required'],
+        minlength: [ 6, 'Should be at least 6 chars']
     },
     name: {
         type: String,
-        maxlength: 100
+        trim: true,
+        required: [ true, 'Name is required'],
+        minlength: [ 3, 'Should be at least 3 chars'],
+        maxlength: [ 100, 'Should be 100 chars at most']
     },
     lastname: {
         type: String,
-        maxlength: 100
+        trim: true,
+        required: [ true, 'Last name is required'],
+        minlength: [ 3, 'Should be at least 3 chars'],
+        maxlength: [ 100, 'Should be 100 chars at most']
     },
     avatar: {
         type: String,
@@ -52,6 +58,23 @@ userSchema.pre('save', function(next) {
         });
     } else {
         next();
+    }
+});
+
+userSchema.post('save', function(error, doc, next) {
+    if (error.code === 11000) {
+        const customError = new Error();
+        customError.errors = {
+            email: {
+                message: 'This email already exists',
+                path: 'email',
+                name: 'PostSaveError',
+                kind: 'unique'
+            }
+        };
+        next(customError);
+    } else {
+        next(error);
     }
 });
 
