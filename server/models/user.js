@@ -21,15 +21,27 @@ const userSchema = mongoose.Schema({
         type: String,
         trim: true,
         required: [ true, 'Name is required'],
-        minlength: [ 3, 'Should be at least 3 chars'],
-        maxlength: [ 100, 'Should be 100 chars at most']
+        minlength: [ 2, 'Should be at least 2 chars'],
+        maxlength: [ 100, 'Should be 100 chars at most'],
+        validate: {
+            validator: function(v) {
+              return /^([^0-9]*)$/.test(v);
+            },
+            message: 'Digits are not allowed'
+        }
     },
     lastname: {
         type: String,
         trim: true,
         required: [ true, 'Last name is required'],
-        minlength: [ 3, 'Should be at least 3 chars'],
-        maxlength: [ 100, 'Should be 100 chars at most']
+        minlength: [ 2, 'Should be at least 2 chars'],
+        maxlength: [ 100, 'Should be 100 chars at most'],
+        validate: {
+            validator: function(v) {
+              return /^([^0-9]*)$/.test(v);
+            },
+            message: 'Digits are not allowed'
+        }
     },
     avatar: {
         type: String,

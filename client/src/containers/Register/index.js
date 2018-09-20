@@ -63,24 +63,23 @@ class Register extends PureComponent {
         );
     }
 
-    getErrorClass(param) {
+    formFieldHasError(fieldName) {
         const { register } = this.props.users;
         const { hideError } = this.state;
         const errors = register && register.error && register.error.errors;
 
-        if (errors && errors[param] && !hideError[param]) {
-            return 'field-error';
-        }
-        return '';
+        return errors && errors[fieldName] && !hideError[fieldName];
     }
 
-    renderError(param) {
-        const { register } = this.props.users;
-        const { hideError } = this.state;
-        const errors = register && register.error && register.error.errors;
+    getErrorClass(fieldName) {
+        return this.formFieldHasError(fieldName) ? 'field-error' : '';
+    }
 
-        if (errors && errors[param] && !hideError[param]) {
-            return <div className="error">{errors[param].message}</div>;
+    renderError(fieldName) {
+        if (this.formFieldHasError(fieldName)) {
+            const error = this.props.users.register.error.errors[fieldName];
+
+            return <div className="error">{error.message}</div>;
         }
     }
 
@@ -102,8 +101,6 @@ class Register extends PureComponent {
             name, lastname,
             email, password
         } = this.state.formData;
-
-        console.log(this.props)
 
         return (
             <div className="register-container">

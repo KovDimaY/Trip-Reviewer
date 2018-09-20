@@ -37,8 +37,7 @@
 
 .register-container .error {
     color: #FF5722;
-    margin-top: 10px;
-    font-weight: 600;
+    margin-top: 5px;
 }
 
 .register-container .field-error {
@@ -59,7 +58,8 @@
     color: orange;
 }
 
-.register-container .current_users th, td {
+.register-container .current_users th,
+.register-container .current_users td {
     text-align: center;
 }
 
