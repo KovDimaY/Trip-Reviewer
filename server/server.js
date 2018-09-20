@@ -136,11 +136,11 @@ app.post('/api/trip', (req, res) => {
 app.post('/api/register', (req, res) => {
     const user = new User(req.body);
 
-    user.save((err, doc) => {
-        if (err) return res.json({ success: false, err });
+    user.save((err1, doc) => {
+        if (err1) return res.json({ success: false, error: err1 });
         
-        user.generateToken((err, user) => {
-            if (err) return res.status(400).send(err);
+        user.generateToken((err2, user) => {
+            if (err2) return res.status(400).send(err2);
 
             res.cookie('auth', user.token).json({
                 success: true,

@@ -2,7 +2,7 @@
 
 exports[`<Register /> should render component 1`] = `
 <div
-  className="rl_container"
+  className="register-container"
 >
   <form
     onSubmit={[Function]}
@@ -14,6 +14,8 @@ exports[`<Register /> should render component 1`] = `
       className="form_element"
     >
       <input
+        className=""
+        name="name"
         onChange={[Function]}
         placeholder="Enter name"
         type="text"
@@ -24,6 +26,8 @@ exports[`<Register /> should render component 1`] = `
       className="form_element"
     >
       <input
+        className=""
+        name="lastname"
         onChange={[Function]}
         placeholder="Enter Lastname"
         type="text"
@@ -34,6 +38,8 @@ exports[`<Register /> should render component 1`] = `
       className="form_element"
     >
       <input
+        className=""
+        name="email"
         onChange={[Function]}
         placeholder="Enter Email"
         type="email"
@@ -44,6 +50,8 @@ exports[`<Register /> should render component 1`] = `
       className="form_element"
     >
       <input
+        className=""
+        name="password"
         onChange={[Function]}
         placeholder="Enter Password"
         type="password"
@@ -55,18 +63,120 @@ exports[`<Register /> should render component 1`] = `
     >
       Sign Up
     </button>
-    <div
-      className="error"
-    >
-      
-    </div>
   </form>
   <div
     className="current_users"
   >
-    <h4>
+    <h3>
       Current users:
-    </h4>
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Lastname
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
+</div>
+`;
+
+exports[`<Register /> should render component with errors 1`] = `
+<div
+  className="register-container"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2>
+      Sing Up
+    </h2>
+    <div
+      className="form_element"
+    >
+      <input
+        className="field-error"
+        name="name"
+        onChange={[Function]}
+        placeholder="Enter name"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="error"
+    >
+      Test name
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        className="field-error"
+        name="lastname"
+        onChange={[Function]}
+        placeholder="Enter Lastname"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="error"
+    >
+      Test lastname
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        className="field-error"
+        name="email"
+        onChange={[Function]}
+        placeholder="Enter Email"
+        type="email"
+        value=""
+      />
+    </div>
+    <div
+      className="error"
+    >
+      Test email
+    </div>
+    <div
+      className="form_element"
+    >
+      <input
+        className="field-error"
+        name="password"
+        onChange={[Function]}
+        placeholder="Enter Password"
+        type="password"
+        value=""
+      />
+    </div>
+    <div
+      className="error"
+    >
+      Test password
+    </div>
+    <button
+      type="submit"
+    >
+      Sign Up
+    </button>
+  </form>
+  <div
+    className="current_users"
+  >
+    <h3>
+      Current users:
+    </h3>
     <table>
       <thead>
         <tr>
@@ -86,7 +196,7 @@ exports[`<Register /> should render component 1`] = `
 
 exports[`<Register /> should render component with users 1`] = `
 <div
-  className="rl_container"
+  className="register-container"
 >
   <form
     onSubmit={[Function]}
@@ -98,6 +208,8 @@ exports[`<Register /> should render component with users 1`] = `
       className="form_element"
     >
       <input
+        className=""
+        name="name"
         onChange={[Function]}
         placeholder="Enter name"
         type="text"
@@ -108,6 +220,8 @@ exports[`<Register /> should render component with users 1`] = `
       className="form_element"
     >
       <input
+        className=""
+        name="lastname"
         onChange={[Function]}
         placeholder="Enter Lastname"
         type="text"
@@ -118,6 +232,8 @@ exports[`<Register /> should render component with users 1`] = `
       className="form_element"
     >
       <input
+        className=""
+        name="email"
         onChange={[Function]}
         placeholder="Enter Email"
         type="email"
@@ -128,6 +244,8 @@ exports[`<Register /> should render component with users 1`] = `
       className="form_element"
     >
       <input
+        className=""
+        name="password"
         onChange={[Function]}
         placeholder="Enter Password"
         type="password"
@@ -139,18 +257,13 @@ exports[`<Register /> should render component with users 1`] = `
     >
       Sign Up
     </button>
-    <div
-      className="error"
-    >
-      
-    </div>
   </form>
   <div
     className="current_users"
   >
-    <h4>
+    <h3>
       Current users:
-    </h4>
+    </h3>
     <table>
       <thead>
         <tr>
