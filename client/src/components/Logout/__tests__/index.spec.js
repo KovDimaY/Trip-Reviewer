@@ -1,7 +1,6 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { mount } from 'enzyme';
-import moxios from 'moxios';
  
 import Logout from './../../Logout';
 
@@ -12,16 +11,7 @@ const mockComponent = props => {
 };
 
 describe('<Logout />', () => {
-    let originalTimeout;
-
-    beforeEach(() => {
-        originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
-    });
-
-    afterEach(() => {
-      jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
-    });
+    jest.useFakeTimers();
 
     it('should render component', () => {
         const tree = create(mockComponent()).toJSON();
@@ -29,24 +19,24 @@ describe('<Logout />', () => {
         expect(tree).toMatchSnapshot();
     });
 
-    it('should redirect to home after some time', (done) => {
-        moxios.install();
-        moxios.stubRequest('/api/logout', {
-            status: 200,
-            response: {}
-        });
-
+    it('should redirect to home after some time', () => {
         const props = {
             history: {
                 push: jest.fn()
             }
         };
-        const instance = mount(mockComponent(props));
+        const instance = mount(mockComponent(props)).instance();
 
-        setTimeout(() => {
-            expect(props.history.push).toHaveBeenCalledWith('/');
-            moxios.uninstall();
-            done();
-        }, 3000);
+        instance.redirectToHome();
+
+        expect(props.history.push).toHaveBeenCalledWith('/');
+    });
+
+    it('should handle request correctly', () => {
+        const instance = mount(mockComponent({})).instance();
+
+        instance.handleResponce();
+
+        expect(setTimeout).toHaveBeenCalledWith(instance.redirectToHome, 2000);
     });
 });
