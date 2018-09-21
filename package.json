@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/KovDimaY/Trip-Reviewer#readme",
   "dependencies": {
-    "bcrypt": "1.0.3",
+    "bcrypt": "3.0.0",
     "body-parser": "1.18.2",
     "colors": "1.3.0",
     "concurrently": "3.5.1",
