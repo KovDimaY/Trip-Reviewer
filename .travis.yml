@@ -1,10 +1,16 @@
 language: node_js
 node_js:
   - "stable"
-  - "lts/*"
 
 cache:
   directories:
     - node_modules
+  
+install:
+  - npm install
+  - cd client
+  - npm install
+  - cd ..
+  - npm install -g jest
 
 sudo: false
