@@ -6,7 +6,7 @@ import {
     GET_USER_REVIEWS,
     USER_REGISTER,
     RESET_PASSWORD
-} from '../constants/action-names';
+} from './../constants/action-names';
 
 export default function(state = {}, action) {
     switch (action.type) {

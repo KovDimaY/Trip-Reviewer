@@ -17,7 +17,7 @@ import {
     CLEAR_NEW_TRIP,
     CLEAR_TRIP,
     GET_USER_REVIEWS
-} from '../constants/action-names';
+} from './../constants/action-names';
 
 export function getTrips(
     limit = 10,

@@ -6,6 +6,7 @@ import { shallow } from 'enzyme';
 import EditUserProfile from './../../EditUserProfile';
 import { UPDATE_USER } from './../../../constants/action-names';
 import { updateUser } from './../../../actions';
+import { USER_PROFILE } from './../../../constants/routes';
 
 jest.mock('react-router-dom', () => ({ Link: 'Link' }));
 jest.mock('./../../../components/ImageUploader', () => ('ImageUploader'));
@@ -67,7 +68,7 @@ describe('<EditUserProfile />', () => {
 
     it('should redirect when componentWillReceiveProps is called with success true', () => {
         const push = jest.fn();
-        const path = '/user';
+        const path = USER_PROFILE;
         const initialState = {
             users: {
                 userUpdate: {},
@@ -98,7 +99,7 @@ describe('<EditUserProfile />', () => {
 
     it('should not redirect when componentWillReceiveProps is called with success false', () => {
         const push = jest.fn();
-        const path = '/user';
+        const path = USER_PROFILE;
         const initialState = {
             users: {
                 userUpdate: {},

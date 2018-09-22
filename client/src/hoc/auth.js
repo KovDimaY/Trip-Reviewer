@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { auth } from '../actions'
 import { connect } from 'react-redux';
+
+import { auth } from './../actions';
+import * as routes from './../constants/routes';
 
 export default function(ComposedClass, reload) {
     class AuthenticationCheck extends Component {
@@ -17,11 +19,11 @@ export default function(ComposedClass, reload) {
 
             if (!nextProps.users.login.isAuth) {
                 if (reload) {
-                    this.props.history.push('/login');
+                    this.props.history.push(routes.LOGIN);
                 }
             } else {
                 if (reload === false) {
-                    this.props.history.push('/user');
+                    this.props.history.push(routes.USER_PROFILE);
                 }
             }
         }

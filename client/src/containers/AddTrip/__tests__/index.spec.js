@@ -5,6 +5,7 @@ import { shallow } from 'enzyme';
  
 import AddTrip from './../../AddTrip';
 import { addTrip, clearNewTrip } from './../../../actions';
+import { TRIPS } from './../../../constants/routes';
 
 jest.mock('./../../../components/StarsRating', () => 'StarsRating');
 jest.mock('./../../../actions', () => ({ 
@@ -64,7 +65,7 @@ describe('<AddTrip />', () => {
     it('componentWillReceiveProps should redirect when newtrip exists', () => {
         const push = jest.fn();
         const tripId = 'test';
-        const path = `/trips/${tripId}`;
+        const path = `${TRIPS}/${tripId}`;
         const initialState = {
             trips: {}
         };

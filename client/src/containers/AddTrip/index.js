@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import StarsRating from './../../components/StarsRating';
-import { addTrip, clearNewTrip } from '../../actions';
+import { addTrip, clearNewTrip } from './../../actions';
+import { TRIPS } from './../../constants/routes';
 
 class AddTrip extends Component {
     state = {
@@ -20,7 +21,7 @@ class AddTrip extends Component {
         const { newtrip } = newProps.trips;
 
         if (newtrip) {
-            newProps.history.push(`/trips/${newtrip.tripId}`);
+            newProps.history.push(`${TRIPS}/${newtrip.tripId}`);
         }
     }
 

@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import StarsRating from './../../components/StarsRating';
-import { getTrip, updateTrip, clearTrip, deleteTrip } from '../../actions';
+import { getTrip, updateTrip, clearTrip, deleteTrip } from './../../actions';
+import * as routes from './../../constants/routes';
 
 class EditTrip extends PureComponent {
     state = {
@@ -25,7 +26,7 @@ class EditTrip extends PureComponent {
         const { trip, updateTrip } = nextProps.trips
 
         if (updateTrip) {
-            nextProps.history.push(`/trips/${trip._id}`);
+            nextProps.history.push(`${routes.TRIPS}/${trip._id}`);
         } else {
             this.setState({
                 formdata: {
@@ -80,7 +81,7 @@ class EditTrip extends PureComponent {
     }
 
     goToReviews = () => {
-        this.props.history.push('/user/user-reviews');
+        this.props.history.push(routes.USER_REVIEWS);
     }
 
     redirectUser = () => {

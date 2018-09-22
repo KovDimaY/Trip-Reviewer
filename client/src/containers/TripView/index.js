@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { getTripWithReviewer, clearTripWithReviewer } from '../../actions';
 import { connect } from 'react-redux';
+
+import { getTripWithReviewer, clearTripWithReviewer } from './../../actions';
 
 class TripView extends Component {
     componentWillMount(){

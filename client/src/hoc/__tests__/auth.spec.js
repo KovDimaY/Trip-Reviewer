@@ -4,6 +4,7 @@ import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
  
 import withAuth from './../auth';
+import * as routes from './../../constants/routes';
 
 const mockStore = configureStore();
 
@@ -73,7 +74,7 @@ describe('<Auth />', () => {
     
         instance.componentWillReceiveProps(newProps);
     
-        expect(push).not.toHaveBeenCalledWith('/login');
+        expect(push).not.toHaveBeenCalledWith(routes.LOGIN);
     });
 
     it('should redirect when componentWillReceiveProps is called with auth and no reload', () => {
@@ -99,7 +100,7 @@ describe('<Auth />', () => {
     
         instance.componentWillReceiveProps(newProps);
     
-        expect(push).toHaveBeenCalledWith('/user');
+        expect(push).toHaveBeenCalledWith(routes.USER_PROFILE);
     });
 
     it('should redirect when componentWillReceiveProps is called with no auth and reload', () => {
@@ -125,7 +126,7 @@ describe('<Auth />', () => {
     
         instance.componentWillReceiveProps(newProps);
     
-        expect(push).toHaveBeenCalledWith('/login');
+        expect(push).toHaveBeenCalledWith(routes.LOGIN);
     });
 
     it('should not redirect when componentWillReceiveProps is called with auth and reload', () => {
@@ -151,6 +152,6 @@ describe('<Auth />', () => {
     
         instance.componentWillReceiveProps(newProps);
     
-        expect(push).not.toHaveBeenCalledWith('/user');
+        expect(push).not.toHaveBeenCalledWith(routes.USER_PROFILE);
     });
 });

@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import UserAvatar from './../UserAvatar';
+import { EDIT_PROFILE } from './../../constants/routes';
 
 import './styles.css';
 
 const User = (props) => {
     const user = props.users.login;
-    const redirect = `/user/edit-profile/${user.id}`;
+    const redirect = `${EDIT_PROFILE}/${user.id}`;
 
     return (
         <div className="user_container">

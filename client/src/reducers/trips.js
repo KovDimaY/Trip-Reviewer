@@ -8,7 +8,7 @@ import {
     DELETE_TRIP,
     CLEAR_TRIP,
     CLEAR_NEW_TRIP
-} from '../constants/action-names';
+} from './../constants/action-names';
 
 export default function(state = {}, action) {
     switch (action.type) {

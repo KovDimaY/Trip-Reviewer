@@ -36,12 +36,12 @@ exports[`<Routes /> should render component 1`] = `
     <Route
       component={[Function]}
       exact={true}
-      path="/user/edit-profile/:id"
+      path="/user/user-reviews"
     />
     <Route
       component={[Function]}
       exact={true}
-      path="/user/user-reviews"
+      path="/user/edit-profile/:id"
     />
     <Route
       component={[Function]}
