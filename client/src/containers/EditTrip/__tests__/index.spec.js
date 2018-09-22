@@ -6,6 +6,7 @@ import { shallow } from 'enzyme';
 import EditTrip from './../../EditTrip';
 import { GET_TRIP } from './../../../constants/action-names';
 import { updateTrip, clearTrip, deleteTrip } from './../../../actions';
+import * as routes from './../../../constants/routes';
 
 jest.mock('react-router-dom', () => ({ Link: 'Link' }));
 jest.mock('./../../../components/StarsRating', () => 'StarsRating');
@@ -126,7 +127,7 @@ describe('<EditTrip />', () => {
     it('should redirect when componentWillReceiveProps is called with updateTrip', () => {
         const push = jest.fn();
         const tripId = 'test';
-        const path = `/trips/${tripId}`;
+        const path = `${routes.TRIPS}/${tripId}`;
         const initialState = {
             trips: {}
         };
@@ -273,7 +274,7 @@ describe('<EditTrip />', () => {
 
     it('goToReviews should redirect correctly', () => {
         const push = jest.fn();
-        const path = '/user/user-reviews';
+        const path = routes.USER_REVIEWS;
         const initialState = {
             trips: {}
         };

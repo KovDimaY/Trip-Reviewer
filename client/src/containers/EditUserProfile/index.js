@@ -7,6 +7,7 @@ import ImageUploader from './../../components/ImageUploader';
 import UserAvatar from './../../components/UserAvatar';
 import { updateUser } from './../../actions';
 import { firebase } from './../../firebase';
+import { USER_PROFILE } from './../../constants/routes';
 
 import './styles.css';
 import "react-sweet-progress/lib/style.css";
@@ -36,7 +37,7 @@ class EditUserProfile extends PureComponent {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.result && nextProps.result.success) {
-            nextProps.history.push('/user');
+            nextProps.history.push(USER_PROFILE);
         }
     }
 
@@ -260,7 +261,7 @@ class EditUserProfile extends PureComponent {
                     </div>
                 </form>
                 <div className="text-center">
-                    <Link to="/user" className="button-link calcel">Cancel</Link>
+                    <Link to={USER_PROFILE} className="button-link calcel">Cancel</Link>
                 </div>
             </div>
         );

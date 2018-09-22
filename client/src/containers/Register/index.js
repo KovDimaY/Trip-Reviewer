@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import { getUsers, userRegister } from '../../actions';
+import { getUsers, userRegister } from './../../actions';
+import { USER_PROFILE } from './../../constants/routes';
 
 import './styles.css';
 
@@ -42,7 +43,7 @@ class Register extends PureComponent {
     componentWillReceiveProps(nextProps) {
         const { login } = nextProps.users;
         if (login.isAuth) {
-            this.props.history.push('/user');
+            this.props.history.push(USER_PROFILE);
         } else {
             this.setState({
                 hideError: {

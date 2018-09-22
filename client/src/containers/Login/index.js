@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { loginUser } from '../../actions';
+import { loginUser } from './../../actions';
+import { USER_PROFILE } from './../../constants/routes';
 
 import './styles.css';
 
@@ -33,7 +34,7 @@ class Login extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.users.login.isAuth) {
-            this.props.history.push('/user');
+            this.props.history.push(USER_PROFILE);
         }
         this.setState({
             hideError: {

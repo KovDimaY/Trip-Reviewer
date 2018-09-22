@@ -5,6 +5,7 @@ import { shallow } from 'enzyme';
  
 import Login from './../../Login';
 import { loginUser } from './../../../actions';
+import { USER_PROFILE } from './../../../constants/routes';
 
 const mockStore = configureStore();
 
@@ -135,7 +136,7 @@ describe('<Login />', () => {
     
         instance.componentWillReceiveProps(nextProps);
 
-        expect(push).toHaveBeenCalledWith('/user');
+        expect(push).toHaveBeenCalledWith(USER_PROFILE);
     });
 
     it('should not redirect when componentWillReceiveProps is called and not authenticated', () => {
@@ -160,6 +161,6 @@ describe('<Login />', () => {
     
         instance.componentWillReceiveProps(nextProps);
 
-        expect(push).not.toHaveBeenCalledWith('/user');
+        expect(push).not.toHaveBeenCalledWith(USER_PROFILE);
     });
 });

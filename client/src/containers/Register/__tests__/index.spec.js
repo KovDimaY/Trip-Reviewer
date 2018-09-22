@@ -5,6 +5,7 @@ import { shallow } from 'enzyme';
  
 import Register from './../../Register';
 import { userRegister } from './../../../actions';
+import { USER_PROFILE } from './../../../constants/routes';
 
 jest.mock('./../../../actions', () => ({ 
     getUsers: jest.fn(() => ({
@@ -137,7 +138,7 @@ describe('<Register />', () => {
     
         instance.componentWillReceiveProps(nextProps);
 
-        expect(push).toHaveBeenCalledWith('/user');
+        expect(push).toHaveBeenCalledWith(USER_PROFILE);
     });
 
     it('should not redirect and should set state when componentWillReceiveProps is called and not authenticated', () => {
@@ -171,7 +172,7 @@ describe('<Register />', () => {
     
         instance.componentWillReceiveProps(nextProps);
 
-        expect(push).not.toHaveBeenCalledWith('/user');
+        expect(push).not.toHaveBeenCalledWith(USER_PROFILE);
         expect(instance.state.hideError.name).toEqual(false);
         expect(instance.state.hideError.lastname).toEqual(false);
         expect(instance.state.hideError.email).toEqual(false);

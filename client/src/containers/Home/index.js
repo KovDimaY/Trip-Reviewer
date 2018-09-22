@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import TripItem from '../../components/TripItem/index';
-import { getTrips } from '../../actions';
+import TripItem from './../../components/TripItem/index';
+import { getTrips } from './../../actions';
 
 class HomeContainer extends Component {
     componentWillMount() {

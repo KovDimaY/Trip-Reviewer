@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUserReviews } from '../../actions';
-import moment from 'moment-js';
 import { Link } from 'react-router-dom';
+import moment from 'moment-js';
+
+import { getUserReviews } from './../../actions';
+import { EDIT_POST } from './../../constants/routes';
 
 class UserPosts extends Component {
     componentWillMount() {
@@ -16,11 +18,11 @@ class UserPosts extends Component {
         userPosts 
         ? userPosts.map(item => (
                 <tr key={item._id}>
-                    <td><Link to={
-                        `/user/edit-post/${item._id}`
-                    }>
-                        {item.title}
-                    </Link></td>
+                    <td>
+                        <Link to={`${EDIT_POST}/${item._id}`}>
+                            {item.title}
+                        </Link>
+                    </td>
                     <td>{item.author}</td>
                     <td>
                         {moment(item.createAt).format("MM/DD/YY")}

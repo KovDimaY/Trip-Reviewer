@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { TRIPS } from './../../constants/routes';
+
 const TripItem = (item) => {
     return (
-        <Link to={`/trips/${item._id}`} className="book_item">
+        <Link to={`${TRIPS}/${item._id}`} className="book_item">
             <div className="book_header">
                 <h2>{item.title}</h2>
             </div>

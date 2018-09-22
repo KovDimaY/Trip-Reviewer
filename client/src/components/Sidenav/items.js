@@ -1,23 +1,25 @@
+import * as routes from './../../constants/routes';
+
 export const items = [
     {
         type: 'navItem',
         icon: 'home',
         text: 'Home',
-        link: '/',
+        link: routes.HOME,
         restricted: false
     },
     {
         type: 'navItem',
         icon: 'user',
         text: 'My Profile',
-        link: '/user',
+        link: routes.USER_PROFILE,
         restricted: true
     },
     {
         type: 'navItem',
         icon: 'user-plus',
         text: 'Register',
-        link: '/user/register',
+        link: routes.REGISTER,
         restricted: false,
         exclude: true
     },
@@ -25,7 +27,7 @@ export const items = [
         type: 'navItem',
         icon: 'sign-in-alt',
         text: 'Login',
-        link: '/login',
+        link: routes.LOGIN,
         restricted: false,
         exclude: true
     },
@@ -33,21 +35,21 @@ export const items = [
         type: 'navItem',
         icon: 'file-alt',
         text: 'My reviews',
-        link: '/user/user-reviews',
+        link: routes.USER_REVIEWS,
         restricted: true
     },
     {
         type: 'navItem',
         icon: 'edit',
         text: 'Add reviews',
-        link: '/trip/add',
+        link: routes.ADD_TRIP,
         restricted: true
     },
     {
         type: 'navItem',
         icon: 'sign-out-alt',
         text: 'Logout',
-        link: '/user/logout',
+        link: routes.LOGOUT,
         restricted: true
     }
 ];
