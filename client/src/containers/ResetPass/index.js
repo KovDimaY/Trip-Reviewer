@@ -1,59 +1,67 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { resetPassword } from './../../actions';
+import { resetPassword } from '../../actions';
 
 class ResetPass extends Component {
     state = {
-        email: ''
+      email: '',
     }
 
     handleInputEmail = (event) => {
-        this.setState({ email: event.target.value });
+      this.setState({ email: event.target.value });
     }
 
     submitForm = (event) => {
-        event.preventDefault();
-        this.props.dispatch(resetPassword(this.state));
+      event.preventDefault();
+      this.props.dispatch(resetPassword(this.state));
     }
 
     render() {
-        const { users } = this.props;
+      const { users } = this.props;
 
-        return (
-            <div className="rl_container">
-                <form onSubmit={this.submitForm}>
-                    <h2>Reset Password</h2>
+      return (
+        <div className="rl_container">
+          <form onSubmit={this.submitForm}>
+            <h2>
+Reset Password
+            </h2>
 
-                    <div className="form_element">
-                        <input 
-                            type="email"
-                            placeholder="Enter your mail"
-                            value={this.state.email}
-                            onChange={this.handleInputEmail}
-                        />
-                    </div>
-
-                    <button type="submit">Reset</button>
-
-                    <div className="error">
-                    {
-                        users.reset 
-                            ? <div>{users.reset.message}</div>
-                            : null
-                    }
-                    </div>
-
-                </form>
+            <div className="form_element">
+              <input
+                type="email"
+                placeholder="Enter your mail"
+                value={this.state.email}
+                onChange={this.handleInputEmail}
+              />
             </div>
-        );
+
+            <button type="submit">
+Reset
+            </button>
+
+            <div className="error">
+              {
+                        users.reset
+                          ? (
+                            <div>
+                              {users.reset.message}
+                            </div>
+                          )
+                          : null
+                    }
+            </div>
+
+          </form>
+        </div>
+      );
     }
 }
 
 function mapStateToProps(state) {
-    return {
-        users: state.users
-    };
+  return {
+    users: state.users,
+  };
 }
 
 export default connect(mapStateToProps)(ResetPass);

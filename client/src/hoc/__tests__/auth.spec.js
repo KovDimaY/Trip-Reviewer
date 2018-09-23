@@ -25,14 +25,22 @@ const mockComponent = (Component, reload = false, initialState = {}, props) => {
 
 describe('<Auth />', () => {
   it('should render component', () => {
-    const Component = <div>test</div>;
+    const Component = (
+      <div>
+        test
+      </div>
+    );
     const tree = create(mockComponent(Component, false)).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should change state correctly when componentWillReceiveProps is called', () => {
-    const Component = <div>test</div>;
+    const Component = (
+      <div>
+        test
+      </div>
+    );
     const initialState = {
       users: {},
     };
@@ -53,7 +61,11 @@ describe('<Auth />', () => {
 
   it('should not redirect when componentWillReceiveProps is called with no auth and no reload', () => {
     const push = jest.fn();
-    const Component = <div>test</div>;
+    const Component = (
+      <div>
+        test
+      </div>
+    );
     const initialState = {
       users: {},
     };
@@ -70,7 +82,9 @@ describe('<Auth />', () => {
       },
     };
 
-    const instance = shallow(mockComponent(Component, false, initialState, props)).dive().instance();
+    const instance = shallow(mockComponent(Component, false, initialState, props))
+      .dive()
+      .instance();
 
     instance.componentWillReceiveProps(newProps);
 
@@ -79,7 +93,11 @@ describe('<Auth />', () => {
 
   it('should redirect when componentWillReceiveProps is called with auth and no reload', () => {
     const push = jest.fn();
-    const Component = <div>test</div>;
+    const Component = (
+      <div>
+        test
+      </div>
+    );
     const initialState = {
       users: {},
     };
@@ -96,7 +114,9 @@ describe('<Auth />', () => {
       },
     };
 
-    const instance = shallow(mockComponent(Component, false, initialState, props)).dive().instance();
+    const instance = shallow(mockComponent(Component, false, initialState, props))
+      .dive()
+      .instance();
 
     instance.componentWillReceiveProps(newProps);
 
@@ -105,7 +125,11 @@ describe('<Auth />', () => {
 
   it('should redirect when componentWillReceiveProps is called with no auth and reload', () => {
     const push = jest.fn();
-    const Component = <div>test</div>;
+    const Component = (
+      <div>
+        test
+      </div>
+    );
     const initialState = {
       users: {},
     };
@@ -131,7 +155,11 @@ describe('<Auth />', () => {
 
   it('should not redirect when componentWillReceiveProps is called with auth and reload', () => {
     const push = jest.fn();
-    const Component = <div>test</div>;
+    const Component = (
+      <div>
+        test
+      </div>
+    );
     const initialState = {
       users: {},
     };

@@ -2,7 +2,6 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 
 import Routes from '../routes';
-import llas from '../hoc/layout';
 
 jest.mock('./../hoc/layout', () => 'Layout');
 jest.mock('react-router-dom', () => ({

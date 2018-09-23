@@ -6,20 +6,28 @@ import { TRIPS } from '../../constants/routes';
 const TripItem = item => (
   <Link to={`${TRIPS}/${item._id}`} className="book_item">
     <div className="book_header">
-      <h2>{item.title}</h2>
+      <h2>
+        {item.title}
+      </h2>
     </div>
     <div className="book_items">
-      <div className="book_author">{item.author}</div>
+      <div className="book_author">
+        {item.author}
+      </div>
 
       <div className="book_bubble">
-        <strong>Price</strong>
+        <strong>
+Price
+        </strong>
         {' '}
 $
         {item.price}
       </div>
 
       <div className="book_bubble">
-        <strong>Duration</strong>
+        <strong>
+Duration
+        </strong>
         {' '}
         {item.duration}
         {' '}
@@ -27,7 +35,9 @@ days
       </div>
 
       <div className="book_bubble rating">
-        <strong>Rating</strong>
+        <strong>
+Rating
+        </strong>
         {' '}
         {item.rating}
         {' '}

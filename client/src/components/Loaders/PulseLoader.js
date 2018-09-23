@@ -21,24 +21,24 @@ const keyframes = {
 const animationName = insertKeyframesRule(keyframes);
 
 class PulseLoader extends PureComponent {
-  getBallStyle() {
-    return {
-      backgroundColor: this.props.color || 'grey',
-      width: this.props.size || '15px',
-      height: this.props.size || '15px',
-      margin: this.props.margin || '2px',
-      borderRadius: '100%',
-      verticalAlign: this.props.verticalAlign,
-    };
-  }
-
-  getAnimationStyle(param) {
+  static getAnimationStyle(param) {
     const animation = [animationName, '0.75s', `${param * 0.12}s`, 'infinite', 'cubic-bezier(.2,.68,.18,1.08)'].join(' ');
     const animationFillMode = 'both';
 
     return {
       animation,
       animationFillMode,
+    };
+  }
+
+  getBallStyle() {
+    return {
+      backgroundColor: this.props.color || 'grey',
+      width: this.props.size || '15px',
+      height: this.props.size || '15px',
+      margin: this.props.margin || '2px',
+      borderRadius: '100%',
+      verticalAlign: this.props.verticalAlign,
     };
   }
 

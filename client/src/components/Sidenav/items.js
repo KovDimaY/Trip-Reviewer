@@ -2,6 +2,7 @@ import * as routes from '../../constants/routes';
 
 export const items = [
   {
+    id: 1,
     type: 'navItem',
     icon: 'home',
     text: 'Home',
@@ -9,6 +10,7 @@ export const items = [
     restricted: false,
   },
   {
+    id: 2,
     type: 'navItem',
     icon: 'user',
     text: 'My Profile',
@@ -16,6 +18,7 @@ export const items = [
     restricted: true,
   },
   {
+    id: 3,
     type: 'navItem',
     icon: 'user-plus',
     text: 'Register',
@@ -24,6 +27,7 @@ export const items = [
     exclude: true,
   },
   {
+    id: 4,
     type: 'navItem',
     icon: 'sign-in-alt',
     text: 'Login',
@@ -32,6 +36,7 @@ export const items = [
     exclude: true,
   },
   {
+    id: 5,
     type: 'navItem',
     icon: 'file-alt',
     text: 'My reviews',
@@ -39,6 +44,7 @@ export const items = [
     restricted: true,
   },
   {
+    id: 6,
     type: 'navItem',
     icon: 'edit',
     text: 'Add reviews',
@@ -46,6 +52,7 @@ export const items = [
     restricted: true,
   },
   {
+    id: 7,
     type: 'navItem',
     icon: 'sign-out-alt',
     text: 'Logout',

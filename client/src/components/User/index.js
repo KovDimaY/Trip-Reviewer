@@ -15,23 +15,31 @@ const User = (props) => {
       <UserAvatar filename={user.avatar} />
       <div className="data">
         <div>
-          <span>Name:</span>
+          <span>
+Name:
+          </span>
           {' '}
           {user.name}
         </div>
         <div>
-          <span>Lastname:</span>
+          <span>
+Lastname:
+          </span>
           {' '}
           {user.lastname}
         </div>
         <div>
-          <span>Email:</span>
+          <span>
+Email:
+          </span>
           {' '}
           {user.email}
         </div>
       </div>
       <div className="text-center">
-        <Link to={redirect} className="button-link">Edit Profile</Link>
+        <Link to={redirect} className="button-link">
+Edit Profile
+        </Link>
       </div>
     </div>
   );

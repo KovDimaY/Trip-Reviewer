@@ -16,7 +16,7 @@
     "babel-polyfill": "6.5.0",
     "domkit": "0.0.1",
     "firebase": "4.8.1",
-    "moment": "2.19.3",
+    "moment-js": "1.1.15",
     "raf": "3.4.0",
     "react": "16.2.0",
     "react-dom": "16.2.0",
@@ -46,6 +46,7 @@
     "jest-cli": "20.0.4",
     "moxios": "0.4.0",
     "react-hot-loader": "4.0.0",
+    "react-test-renderer": "^16.5.2",
     "redux-mock-store": "1.5.3"
   },
   "reactGenerate": {

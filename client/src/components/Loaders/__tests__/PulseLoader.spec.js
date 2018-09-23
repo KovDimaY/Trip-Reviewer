@@ -1,7 +1,7 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 
-import PulseLoader from '../PulseLoader.js';
+import PulseLoader from '../PulseLoader';
 
 jest.mock('domkit/insertKeyframesRule', () => jest.fn(() => 'animation'));
 

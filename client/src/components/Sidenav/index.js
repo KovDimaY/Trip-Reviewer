@@ -14,12 +14,12 @@ const Sidenav = props => (
     }}
   >
     {
-                items.map((item, i) => (
-                  <div key={i} onClick={props.onHideNav}>
-                    <SidenavItem item={item} />
-                  </div>
-                ))
-            }
+      items.map(item => (
+        <div key={item.id} onClick={props.onHideNav}>
+          <SidenavItem item={item} />
+        </div>
+      ))
+    }
   </ReactSideNav>
 );
 

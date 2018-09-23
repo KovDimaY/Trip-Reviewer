@@ -39,15 +39,15 @@ export function getTrips(
 export function getTripWithReviewer(id) {
   const request = axios.get(`/api/getTrip?id=${id}`);
 
-  return dispatch => request.then(({ data }) => {
-    const trip = data;
+  return dispatch => request.then(({ data: tripData }) => {
+    const trip = tripData;
 
     return axios
       .get(`/api/getReviewer?id=${trip.ownerId}`)
-      .then(({ data }) => {
+      .then(({ data: reviewerData }) => {
         const response = {
           trip,
-          reviewer: data,
+          reviewer: reviewerData,
         };
 
         dispatch({
