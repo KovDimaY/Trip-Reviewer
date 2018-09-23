@@ -8,11 +8,11 @@ class Logout extends Component {
       .then(this.handleResponce);
   }
 
-  handleResponce() {
+  handleResponce = () => {
     setTimeout(this.redirectToHome, 2000);
   }
 
-  redirectToHome() {
+  redirectToHome = () => {
     this.props.history.push('/');
   }
 

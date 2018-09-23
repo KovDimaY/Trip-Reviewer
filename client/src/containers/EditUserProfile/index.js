@@ -32,7 +32,7 @@ class EditUserProfile extends PureComponent {
 
     componentWillMount() {
       firebase.auth().signInAnonymously().catch((error) => {
-        console.log(error);
+        console.log(error); // eslint-disable-line no-console
       });
     }
 

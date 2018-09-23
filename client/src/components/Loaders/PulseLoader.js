@@ -45,7 +45,7 @@ class PulseLoader extends PureComponent {
   getStyle(param) {
     return assign(
       this.getBallStyle(param),
-      this.getAnimationStyle(param),
+      PulseLoader.getAnimationStyle(param),
       {
         display: 'inline-block',
       },

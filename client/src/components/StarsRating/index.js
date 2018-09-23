@@ -39,7 +39,7 @@ class StarsRating extends PureComponent {
     return (
       <div className="stars-rating-container">
         <label className="rating-label">
-          {this.getLabel(hower || rating)}
+          {StarsRating.getLabel(hower || rating)}
         </label>
         <Rating
           initialRating={rating}

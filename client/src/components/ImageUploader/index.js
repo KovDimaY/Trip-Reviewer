@@ -13,7 +13,7 @@ class ImageUploader extends Component {
   }
 
   handleAuthError = (error) => {
-    console.log(error);
+    console.log(error); // eslint-disable-line no-console
   }
 
   handleUploadStart = () => {
@@ -21,7 +21,7 @@ class ImageUploader extends Component {
   }
 
   handleUploadError = (error) => {
-    console.log(error);
+    console.log(error); // eslint-disable-line no-console
     this.props.onUploadError(error);
   }
 
