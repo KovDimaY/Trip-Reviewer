@@ -1,16 +1,14 @@
 import React from 'react';
 
-import Header from './../components/Header/index';
+import Header from '../components/Header/index';
 
-const Layout = (props) => {
-    return (
-        <div>
-            <Header/>
-            <div>
-                {props.children}
-            </div>
-        </div>
-    );
-};
+const Layout = props => (
+  <div>
+    <Header />
+    <div>
+      {props.children}
+    </div>
+  </div>
+);
 
 export default Layout;

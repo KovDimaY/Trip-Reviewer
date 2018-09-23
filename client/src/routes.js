@@ -18,24 +18,22 @@ import Auth from './hoc/auth';
 
 import * as routes from './constants/routes';
 
-const Routes = () => {
-    return (
-        <Layout>
-            <Switch>
-                <Route path={routes.HOME} exact component={Auth(Home, null)}/>
-                <Route path={routes.LOGIN} exact component={Auth(Login, false)}/>
-                <Route path={routes.RESET} exact component={Auth(ResetPass, false)}/>
-                <Route path={routes.LOGOUT} exact component={Auth(Logout, true)}/>
-                <Route path={routes.REGISTER} exact component={Auth(Register, false)}/>
-                <Route path={routes.USER_PROFILE} exact component={Auth(User, true)}/>
-                <Route path={routes.USER_REVIEWS} exact component={Auth(UserReviews, true)}/>
-                <Route path={`${routes.EDIT_PROFILE}/:id`} exact component={Auth(EditUserProfile, true)}/>
-                <Route path={`${routes.EDIT_POST}/:id`} exact component={Auth(EditTrip, true)}/>
-                <Route path={routes.ADD_TRIP} exact component={Auth(AddTrip, true)}/>
-                <Route path={`${routes.TRIPS}/:id`} exact component={Auth(TripView, null)}/>
-            </Switch>
-        </Layout>
-    );
-};
+const Routes = () => (
+  <Layout>
+    <Switch>
+      <Route path={routes.HOME} exact component={Auth(Home, null)} />
+      <Route path={routes.LOGIN} exact component={Auth(Login, false)} />
+      <Route path={routes.RESET} exact component={Auth(ResetPass, false)} />
+      <Route path={routes.LOGOUT} exact component={Auth(Logout, true)} />
+      <Route path={routes.REGISTER} exact component={Auth(Register, false)} />
+      <Route path={routes.USER_PROFILE} exact component={Auth(User, true)} />
+      <Route path={routes.USER_REVIEWS} exact component={Auth(UserReviews, true)} />
+      <Route path={`${routes.EDIT_PROFILE}/:id`} exact component={Auth(EditUserProfile, true)} />
+      <Route path={`${routes.EDIT_POST}/:id`} exact component={Auth(EditTrip, true)} />
+      <Route path={routes.ADD_TRIP} exact component={Auth(AddTrip, true)} />
+      <Route path={`${routes.TRIPS}/:id`} exact component={Auth(TripView, null)} />
+    </Switch>
+  </Layout>
+);
 
 export default Routes;
