@@ -39,14 +39,12 @@ describe('<StarsRating />', () => {
   });
 
   it('should return correct value when getLabel is called', () => {
-    const instance = mount(mockComponent()).instance();
-
-    const one = instance.getLabel(1);
-    const two = instance.getLabel(2);
-    const three = instance.getLabel(3);
-    const four = instance.getLabel(4);
-    const five = instance.getLabel(5);
-    const others = instance.getLabel(100);
+    const one = StarsRating.getLabel(1);
+    const two = StarsRating.getLabel(2);
+    const three = StarsRating.getLabel(3);
+    const four = StarsRating.getLabel(4);
+    const five = StarsRating.getLabel(5);
+    const others = StarsRating.getLabel(100);
 
     expect(one).toEqual('Hated it!');
     expect(two).toEqual('Disliked it!');

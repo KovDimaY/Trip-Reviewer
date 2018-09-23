@@ -24,7 +24,8 @@ exports[`<TripItem /> should render component 1`] = `
       <strong>
         Price
       </strong>
-       $ 
+       
+      $
       price
     </div>
     <div
@@ -33,9 +34,10 @@ exports[`<TripItem /> should render component 1`] = `
       <strong>
         Duration
       </strong>
-        
+       
       duration
-       days
+       
+      days
     </div>
     <div
       className="book_bubble rating"
@@ -43,9 +45,10 @@ exports[`<TripItem /> should render component 1`] = `
       <strong>
         Rating
       </strong>
-        
+       
       rating
-       / 5
+       
+      / 5
     </div>
   </div>
 </Link >

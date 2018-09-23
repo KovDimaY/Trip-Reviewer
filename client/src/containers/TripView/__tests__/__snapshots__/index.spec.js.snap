@@ -43,7 +43,8 @@ exports[`<TripView /> should render component with current trip 1`] = `
           </span>
            
           duration
-           days
+           
+          days
         </div>
         <div>
           <span>
