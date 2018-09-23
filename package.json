@@ -4,6 +4,7 @@
   "description": "This is a project for learning purpose",
   "main": "index.js",
   "scripts": {
+    "lint": "./node_modules/.bin/eslint client/src --ext .js && ./node_modules/.bin/eslint server --ext .js",
     "test": "npm run test-jest --prefix client",
     "test:coverage": "npm run test:coverage --prefix client",
     "test:update": "npm run test:update --prefix client",
