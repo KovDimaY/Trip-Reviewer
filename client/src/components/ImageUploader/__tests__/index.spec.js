@@ -1,91 +1,88 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
- 
-import ImageUploader from './../../ImageUploader';
-import { firebase } from './../../../firebase';
+
+import ImageUploader from '..';
+import { firebase } from '../../../firebase';
 
 jest.mock('react-firebase-file-uploader/lib/CustomUploadButton', () => ('CustomUploadButton'));
 jest.mock('./../../../firebase', () => ({
-    firebase: {
-        auth: jest.fn(() => ({
-            signInAnonymously: jest.fn(() => ({
-                catch: jest.fn(),
-            })),
-            signOut: jest.fn()
-        })),
-        storage: jest.fn(() => ({
-            ref: jest.fn()
-        }))
-    }
+  firebase: {
+    auth: jest.fn(() => ({
+      signInAnonymously: jest.fn(() => ({
+        catch: jest.fn(),
+      })),
+      signOut: jest.fn(),
+    })),
+    storage: jest.fn(() => ({
+      ref: jest.fn(),
+    })),
+  },
 }));
 
-const mockComponent = (props) => {
-    return (
-        <ImageUploader {...props} />
-    );
-};
- 
+const mockComponent = props => (
+  <ImageUploader {...props} />
+);
+
 describe('<ImageUploader />', () => {
-    it('should render component', () => {
-        const tree = create(mockComponent({})).toJSON();
-        
-        expect(tree).toMatchSnapshot();
-    });
+  it('should render component', () => {
+    const tree = create(mockComponent({})).toJSON();
 
-    it('should change state when handleUploadStart is called', () => {
-        const onUploadStarts = jest.fn();
-        const props = { onUploadStarts };
-        const instance = shallow(mockComponent(props)).instance();
+    expect(tree).toMatchSnapshot();
+  });
 
-        instance.handleUploadStart();
+  it('should change state when handleUploadStart is called', () => {
+    const onUploadStarts = jest.fn();
+    const props = { onUploadStarts };
+    const instance = shallow(mockComponent(props)).instance();
 
-        expect(onUploadStarts).toHaveBeenCalled();
-    });
+    instance.handleUploadStart();
 
-    it('should change state when handleUploadError is called', () => {
-        const onUploadError = jest.fn();
-        const props = { onUploadError };
-        const instance = shallow(mockComponent(props)).instance();
+    expect(onUploadStarts).toHaveBeenCalled();
+  });
 
-        instance.handleUploadError();
+  it('should change state when handleUploadError is called', () => {
+    const onUploadError = jest.fn();
+    const props = { onUploadError };
+    const instance = shallow(mockComponent(props)).instance();
 
-        expect(onUploadError).toHaveBeenCalled();
-    });
+    instance.handleUploadError();
 
-    it('should change state when handleProgress is called', () => {
-        const onUploadProgress = jest.fn();
-        const props = { onUploadProgress };
-        const instance = shallow(mockComponent(props)).instance();
+    expect(onUploadError).toHaveBeenCalled();
+  });
 
-        instance.handleProgress(20);
+  it('should change state when handleProgress is called', () => {
+    const onUploadProgress = jest.fn();
+    const props = { onUploadProgress };
+    const instance = shallow(mockComponent(props)).instance();
 
-        expect(onUploadProgress).toHaveBeenCalledWith(20);
-    });
+    instance.handleProgress(20);
 
-    it('should change state when handleAuthError is called', () => {
-        const instance = shallow(mockComponent({})).instance();
-    
-        instance.handleAuthError('error');
-    
-        expect(instance.state.error).toEqual('error');
-    });
+    expect(onUploadProgress).toHaveBeenCalledWith(20);
+  });
 
-    it('should change state when handleUploadSuccess and call onUploadSuccess is called', () => {
-        const onUploadSuccess = jest.fn();
-        const props = { onUploadSuccess };
-        const instance = shallow(mockComponent(props)).instance();
-    
-        instance.handleUploadSuccess('filename');
+  it('should change state when handleAuthError is called', () => {
+    const instance = shallow(mockComponent({})).instance();
 
-        expect(onUploadSuccess).toHaveBeenCalledWith('filename');
-    });
+    instance.handleAuthError('error');
+    // TODO: there is nothing except the console.log there at the moment...
+  });
 
-    it('should call firebase.signOut() when componentWillUnmount is called', () => {
-        const instance = shallow(mockComponent()).instance();
-    
-        instance.componentWillUnmount();
+  it('should change state when handleUploadSuccess and call onUploadSuccess is called', () => {
+    const onUploadSuccess = jest.fn();
+    const props = { onUploadSuccess };
+    const instance = shallow(mockComponent(props)).instance();
 
-        expect(firebase.auth).toHaveBeenCalled();
-    });
+    instance.handleUploadSuccess('filename');
+
+    expect(onUploadSuccess).toHaveBeenCalledWith('filename');
+  });
+
+  it('should call firebase.signOut() when componentWillUnmount is called', () => {
+    const instance = shallow(mockComponent()).instance();
+
+    instance.componentWillUnmount();
+
+    expect(firebase.auth).toHaveBeenCalled();
+  });
 });

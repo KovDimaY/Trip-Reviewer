@@ -1,32 +1,30 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
- 
-import PulseLoader from './../PulseLoader.js';
 
-jest.mock('domkit/insertKeyframesRule', () => jest.fn(() => 'animation' ));
+import PulseLoader from '../PulseLoader';
 
-const mockComponent = (props) => {
-    return (
-        <PulseLoader {...props} />
-    );
-};
- 
+jest.mock('domkit/insertKeyframesRule', () => jest.fn(() => 'animation'));
+
+const mockComponent = props => (
+  <PulseLoader {...props} />
+);
+
 describe('<PulseLoader />', () => {
-    it('should render component with default props', () => {
-        const props = {};
-        const tree = create(mockComponent(props)).toJSON();
-        
-        expect(tree).toMatchSnapshot();
-    });
+  it('should render component with default props', () => {
+    const props = {};
+    const tree = create(mockComponent(props)).toJSON();
 
-    it('should render component with custom props', () => {
-        const props = {
-            color: 'color',
-            size: 'size',
-            margin: 'margin'
-        };
-        const tree = create(mockComponent(props)).toJSON();
-        
-        expect(tree).toMatchSnapshot();
-    });
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should render component with custom props', () => {
+    const props = {
+      color: 'color',
+      size: 'size',
+      margin: 'margin',
+    };
+    const tree = create(mockComponent(props)).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
 });

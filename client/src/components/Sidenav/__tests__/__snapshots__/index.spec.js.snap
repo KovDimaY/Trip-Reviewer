@@ -18,6 +18,7 @@ exports[`<Sidenav /> should render component 1`] = `
       item={
         Object {
           "icon": "home",
+          "id": 1,
           "link": "/",
           "restricted": false,
           "text": "Home",
@@ -33,6 +34,7 @@ exports[`<Sidenav /> should render component 1`] = `
       item={
         Object {
           "icon": "user",
+          "id": 2,
           "link": "/user",
           "restricted": true,
           "text": "My Profile",
@@ -49,6 +51,7 @@ exports[`<Sidenav /> should render component 1`] = `
         Object {
           "exclude": true,
           "icon": "user-plus",
+          "id": 3,
           "link": "/user/register",
           "restricted": false,
           "text": "Register",
@@ -65,6 +68,7 @@ exports[`<Sidenav /> should render component 1`] = `
         Object {
           "exclude": true,
           "icon": "sign-in-alt",
+          "id": 4,
           "link": "/login",
           "restricted": false,
           "text": "Login",
@@ -80,6 +84,7 @@ exports[`<Sidenav /> should render component 1`] = `
       item={
         Object {
           "icon": "file-alt",
+          "id": 5,
           "link": "/user/user-reviews",
           "restricted": true,
           "text": "My reviews",
@@ -95,6 +100,7 @@ exports[`<Sidenav /> should render component 1`] = `
       item={
         Object {
           "icon": "edit",
+          "id": 6,
           "link": "/trip/add",
           "restricted": true,
           "text": "Add reviews",
@@ -110,6 +116,7 @@ exports[`<Sidenav /> should render component 1`] = `
       item={
         Object {
           "icon": "sign-out-alt",
+          "id": 7,
           "link": "/user/logout",
           "restricted": true,
           "text": "Logout",

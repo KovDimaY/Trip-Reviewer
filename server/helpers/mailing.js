@@ -1,46 +1,49 @@
-const setUpdateProfileEmailOptions = function(adminMail, emailTo, name, lastname, email, newPassword) {
-    let text = `The data of your profile just was changed.
+const setUpdateProfileEmailOptions = (adminMail, emailTo, name, lastname, email, newPassword) => {
+  let text = `The data of your profile just was changed.
         \nYour new data is the next:
         \nName: ${name}
         \nLastname: ${lastname}
         \nEmail: ${email}`;
-    if (newPassword) {
-        text += `\nPassword: ${newPassword}`;
-    }
-    text += `\n\nWarning! If you change your email, new notification will not arive to this email anymore.`;
+  if (newPassword) {
+    text += `\nPassword: ${newPassword}`;
+  }
+  text += '\n\nWarning! If you change your email, new notification will not arive to this email anymore.';
 
-    return {
-        from: `"Admin TripReview" <${adminMail}>`,
-        to: emailTo,
-        subject: 'Update Profile',
-        text
-    };
-}
-
-const updateProfileSendEmail = function(transporter, mailOptions, res) {
-    transporter.sendMail(mailOptions, function(error, info) {
-        if (error) {
-            console.log(error);
-            return res.json({ success: true, error, message: "Your data is updated, but the email failed to be sent" });
-        } else {
-            console.log('Email sent: ' + info.response);
-            return res.json({ success: true, info: info.response, message: 'Your profile was successfully updated' });
-        }
-    });
+  return {
+    from: `"Admin TripReview" <${adminMail}>`,
+    to: emailTo,
+    subject: 'Update Profile',
+    text,
+  };
 };
 
-const updateModelAndSendEmail = function(Model, _id, fieldsToUpdate, res, transporter, data) {
-    const { adminMail, mailTo, name, lastname, email, newPassword } = data;
+const updateProfileSendEmail = (transporter, mailOptions, res) => {
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error); // eslint-disable-line no-console
+      return res.json({ success: true, error, message: 'Your data is updated, but the email failed to be sent' });
+    }
+    console.log(`Email sent: ${info.response}`); // eslint-disable-line no-console
+    return res.json({ success: true, info: info.response, message: 'Your profile was successfully updated' });
+  });
+};
 
-    Model.findByIdAndUpdate(_id, fieldsToUpdate, { new: true }, (err) => {
-        if (err) return res.json({ success: false, message: err });
+const updateModelAndSendEmail = (Model, _id, fieldsToUpdate, res, transporter, data) => {
+  const {
+    adminMail, mailTo, name, lastname, email, newPassword,
+  } = data;
 
-        const mailOptions = setUpdateProfileEmailOptions(adminMail, mailTo, name, lastname, email, newPassword);
+  Model.findByIdAndUpdate(_id, fieldsToUpdate, { new: true }, (err) => {
+    if (err) return res.json({ success: false, message: err });
 
-        updateProfileSendEmail(transporter, mailOptions, res);
-    });
-}
+    const mailOptions = setUpdateProfileEmailOptions(
+      adminMail, mailTo, name, lastname, email, newPassword,
+    );
+
+    return updateProfileSendEmail(transporter, mailOptions, res);
+  });
+};
 
 module.exports = {
-    updateModelAndSendEmail: updateModelAndSendEmail
-}
+  updateModelAndSendEmail,
+};

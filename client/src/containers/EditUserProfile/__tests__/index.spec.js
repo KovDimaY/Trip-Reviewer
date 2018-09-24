@@ -2,301 +2,301 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
- 
-import EditUserProfile from './../../EditUserProfile';
-import { UPDATE_USER } from './../../../constants/action-names';
-import { updateUser } from './../../../actions';
-import { USER_PROFILE } from './../../../constants/routes';
+
+import EditUserProfile from '..';
+import { UPDATE_USER } from '../../../constants/action-names';
+import { updateUser } from '../../../actions';
+import { USER_PROFILE } from '../../../constants/routes';
 
 jest.mock('react-router-dom', () => ({ Link: 'Link' }));
 jest.mock('./../../../components/ImageUploader', () => ('ImageUploader'));
 jest.mock('./../../../components/UserAvatar', () => ('UserAvatar'));
-jest.mock('./../../../actions', () => ({ 
-    updateUser: jest.fn(() => ({
-        type: UPDATE_USER,
-        payload: {}
-    })),
+jest.mock('./../../../actions', () => ({
+  updateUser: jest.fn(() => ({
+    type: UPDATE_USER,
+    payload: {},
+  })),
 }));
 
 const mockStore = configureStore();
 
 const mockComponent = (initialState = {}, props) => {
-    const store = mockStore(initialState);
+  const store = mockStore(initialState);
 
-    return (
-        <EditUserProfile {...props} store={store} />
-    );
+  return (
+    <EditUserProfile {...props} store={store} />
+  );
 };
- 
+
 describe('<EditUserProfile />', () => {
-    it('should render component', () => {
-        const initialState = {
-            users: {}
-        };
-        const props = {
-            users: {
-                login: {
-                    id: 'id'
-                }
-            }
-        };
-        const tree = create(mockComponent(initialState, props)).toJSON();
-        
-        expect(tree).toMatchSnapshot();
-    });
+  it('should render component', () => {
+    const initialState = {
+      users: {},
+    };
+    const props = {
+      users: {
+        login: {
+          id: 'id',
+        },
+      },
+    };
+    const tree = create(mockComponent(initialState, props)).toJSON();
 
-    it('should render component with error', () => {
-        const initialState = {
-            users: {
-                userUpdate: {
-                    success: false,
-                    message: 'test'
-                },
-            }
-        };
-        const props = {
-            users: {
-                login: {
-                    id: 'id'
-                }
-            }
-        };
-        const tree = create(mockComponent(initialState, props)).toJSON();
-        
-        expect(tree).toMatchSnapshot();
-    });
+    expect(tree).toMatchSnapshot();
+  });
 
-    it('should redirect when componentWillReceiveProps is called with success true', () => {
-        const push = jest.fn();
-        const path = USER_PROFILE;
-        const initialState = {
-            users: {
-                userUpdate: {},
-            }
-        };
-        const props = {
-            users: {
-                login: {
-                    id: 'id'
-                }
-            }
-        };
-        const nextProps = {
-            result: {
-                success: true
-            },
-            history: {
-                push
-            }
-        };
+  it('should render component with error', () => {
+    const initialState = {
+      users: {
+        userUpdate: {
+          success: false,
+          message: 'test',
+        },
+      },
+    };
+    const props = {
+      users: {
+        login: {
+          id: 'id',
+        },
+      },
+    };
+    const tree = create(mockComponent(initialState, props)).toJSON();
 
-        const instance = shallow(mockComponent(initialState, props)).dive().instance();
+    expect(tree).toMatchSnapshot();
+  });
 
-        instance.componentWillReceiveProps(nextProps);
+  it('should redirect when componentWillReceiveProps is called with success true', () => {
+    const push = jest.fn();
+    const path = USER_PROFILE;
+    const initialState = {
+      users: {
+        userUpdate: {},
+      },
+    };
+    const props = {
+      users: {
+        login: {
+          id: 'id',
+        },
+      },
+    };
+    const nextProps = {
+      result: {
+        success: true,
+      },
+      history: {
+        push,
+      },
+    };
 
-        expect(push).toHaveBeenCalledWith(path);
-    });
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
 
-    it('should not redirect when componentWillReceiveProps is called with success false', () => {
-        const push = jest.fn();
-        const path = USER_PROFILE;
-        const initialState = {
-            users: {
-                userUpdate: {},
-            }
-        };
-        const props = {
-            users: {
-                login: {
-                    id: 'id'
-                }
-            }
-        };
-        const nextProps = {
-            result: {
-                success: false,
-                message: 'test'
-            },
-            history: {
-                push
-            }
-        };
+    instance.componentWillReceiveProps(nextProps);
 
-        const instance = shallow(mockComponent(initialState, props)).dive().instance();
+    expect(push).toHaveBeenCalledWith(path);
+  });
 
-        instance.componentWillReceiveProps(nextProps);
+  it('should not redirect when componentWillReceiveProps is called with success false', () => {
+    const push = jest.fn();
+    const path = USER_PROFILE;
+    const initialState = {
+      users: {
+        userUpdate: {},
+      },
+    };
+    const props = {
+      users: {
+        login: {
+          id: 'id',
+        },
+      },
+    };
+    const nextProps = {
+      result: {
+        success: false,
+        message: 'test',
+      },
+      history: {
+        push,
+      },
+    };
 
-        expect(push).not.toHaveBeenCalledWith(path);
-    });
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
 
-    it('should dispatch updateUser when submitForm is called', () => {
-        const preventDefault = jest.fn();
-        const initialState = {
-            users: {
-                userUpdate: {},
-            }
-        };
-        const props = {
-            users: {
-                login: {
-                    id: 'id'
-                }
-            }
-        };
-        const state = {
-            name: "name",
-            lastname: "lastname",
-            email: "email"
-        };
-        const event = { preventDefault };
+    instance.componentWillReceiveProps(nextProps);
 
-        const instance = shallow(mockComponent(initialState, props)).dive().instance();
-        instance.setState({ formdata: state });
-    
-        instance.submitForm(event);
+    expect(push).not.toHaveBeenCalledWith(path);
+  });
 
-        expect(preventDefault).toHaveBeenCalled();    
-        expect(updateUser).toHaveBeenCalledWith(state);
-    });
+  it('should dispatch updateUser when submitForm is called', () => {
+    const preventDefault = jest.fn();
+    const initialState = {
+      users: {
+        userUpdate: {},
+      },
+    };
+    const props = {
+      users: {
+        login: {
+          id: 'id',
+        },
+      },
+    };
+    const state = {
+      name: 'name',
+      lastname: 'lastname',
+      email: 'email',
+    };
+    const event = { preventDefault };
 
-    it('handleInput should change state correctly', () => {
-        const initialState = {
-            users: {
-                userUpdate: {},
-            }
-        };
-        const props = {
-            users: {
-                login: {
-                    id: 'id'
-                }
-            }
-        };
-        const event = {
-            target: {
-                value: 'test',
-                name: 'title'
-            }
-        };
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+    instance.setState({ formdata: state });
 
-        const instance = shallow(mockComponent(initialState, props)).dive().instance();
-    
-        instance.handleInput(event);
-    
-        expect(instance.state.formdata.title).toEqual('test');
-    });
+    instance.submitForm(event);
 
-    it('handleDeleteAvatar should change state correctly', () => {
-        const initialState = {
-            users: {
-                userUpdate: {},
-            }
-        };
-        const props = {
-            users: {
-                login: {
-                    id: 'id',
-                    avatar: 'avatar'
-                }
-            }
-        };
+    expect(preventDefault).toHaveBeenCalled();
+    expect(updateUser).toHaveBeenCalledWith(state);
+  });
 
-        const instance = shallow(mockComponent(initialState, props)).dive().instance();
-    
-        instance.handleDeleteAvatar();
-    
-        expect(instance.state.formdata.avatar).toEqual(null);
-    });
+  it('handleInput should change state correctly', () => {
+    const initialState = {
+      users: {
+        userUpdate: {},
+      },
+    };
+    const props = {
+      users: {
+        login: {
+          id: 'id',
+        },
+      },
+    };
+    const event = {
+      target: {
+        value: 'test',
+        name: 'title',
+      },
+    };
 
-    it('onUploadSuccess should change state correctly', () => {
-        const initialState = {
-            users: {
-                userUpdate: {},
-            }
-        };
-        const props = {
-            users: {
-                login: {
-                    id: 'id',
-                    avatar: 'avatar'
-                }
-            }
-        };
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
 
-        const instance = shallow(mockComponent(initialState, props)).dive().instance();
-    
-        instance.onUploadSuccess('test');
-    
-        expect(instance.state.formdata.avatar).toEqual('test');
-        expect(instance.state.isUploading).toEqual(false);
-        expect(instance.state.progress).toEqual(100);
-    });
+    instance.handleInput(event);
 
-    it('onUploadStarts should change state correctly', () => {
-        const initialState = {
-            users: {
-                userUpdate: {},
-            }
-        };
-        const props = {
-            users: {
-                login: {
-                    id: 'id',
-                    avatar: 'avatar'
-                }
-            }
-        };
+    expect(instance.state.formdata.title).toEqual('test');
+  });
 
-        const instance = shallow(mockComponent(initialState, props)).dive().instance();
+  it('handleDeleteAvatar should change state correctly', () => {
+    const initialState = {
+      users: {
+        userUpdate: {},
+      },
+    };
+    const props = {
+      users: {
+        login: {
+          id: 'id',
+          avatar: 'avatar',
+        },
+      },
+    };
 
-        instance.onUploadStarts();
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
 
-        expect(instance.state.isUploading).toEqual(true);
-        expect(instance.state.progress).toEqual(0);
-    });
+    instance.handleDeleteAvatar();
 
-    it('onUploadProgress should change state correctly', () => {
-        const initialState = {
-            users: {
-                userUpdate: {},
-            }
-        };
-        const props = {
-            users: {
-                login: {
-                    id: 'id',
-                    avatar: 'avatar'
-                }
-            }
-        };
+    expect(instance.state.formdata.avatar).toEqual(null);
+  });
 
-        const instance = shallow(mockComponent(initialState, props)).dive().instance();
+  it('onUploadSuccess should change state correctly', () => {
+    const initialState = {
+      users: {
+        userUpdate: {},
+      },
+    };
+    const props = {
+      users: {
+        login: {
+          id: 'id',
+          avatar: 'avatar',
+        },
+      },
+    };
 
-        instance.onUploadProgress('progress');
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
 
-        expect(instance.state.progress).toEqual('progress');
-    });
+    instance.onUploadSuccess('test');
 
-    it('onUploadError should change state correctly', () => {
-        const initialState = {
-            users: {
-                userUpdate: {},
-            }
-        };
-        const props = {
-            users: {
-                login: {
-                    id: 'id',
-                    avatar: 'avatar'
-                }
-            }
-        };
+    expect(instance.state.formdata.avatar).toEqual('test');
+    expect(instance.state.isUploading).toEqual(false);
+    expect(instance.state.progress).toEqual(100);
+  });
 
-        const instance = shallow(mockComponent(initialState, props)).dive().instance();
+  it('onUploadStarts should change state correctly', () => {
+    const initialState = {
+      users: {
+        userUpdate: {},
+      },
+    };
+    const props = {
+      users: {
+        login: {
+          id: 'id',
+          avatar: 'avatar',
+        },
+      },
+    };
 
-        instance.onUploadError('error');
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
 
-        expect(instance.state.uploadError).toEqual('error');
-        expect(instance.state.isUploading).toEqual(false);
-    });
+    instance.onUploadStarts();
+
+    expect(instance.state.isUploading).toEqual(true);
+    expect(instance.state.progress).toEqual(0);
+  });
+
+  it('onUploadProgress should change state correctly', () => {
+    const initialState = {
+      users: {
+        userUpdate: {},
+      },
+    };
+    const props = {
+      users: {
+        login: {
+          id: 'id',
+          avatar: 'avatar',
+        },
+      },
+    };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+    instance.onUploadProgress('progress');
+
+    expect(instance.state.progress).toEqual('progress');
+  });
+
+  it('onUploadError should change state correctly', () => {
+    const initialState = {
+      users: {
+        userUpdate: {},
+      },
+    };
+    const props = {
+      users: {
+        login: {
+          id: 'id',
+          avatar: 'avatar',
+        },
+      },
+    };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+    instance.onUploadError('error');
+
+    expect(instance.state.uploadError).toEqual('error');
+    expect(instance.state.isUploading).toEqual(false);
+  });
 });
