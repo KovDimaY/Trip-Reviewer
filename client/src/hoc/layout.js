@@ -11,4 +11,8 @@ const Layout = props => (
   </div>
 );
 
+Layout.propTypes = {
+  children: React.PropTypes.object.isRequired,
+};
+
 export default Layout;

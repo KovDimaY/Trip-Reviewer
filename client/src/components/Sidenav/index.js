@@ -23,4 +23,9 @@ const Sidenav = props => (
   </ReactSideNav>
 );
 
+Sidenav.propTypes = {
+  showNav: React.PropTypes.bool.isRequired,
+  onHideNav: React.PropTypes.func.isRequired,
+};
+
 export default Sidenav;

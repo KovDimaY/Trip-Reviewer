@@ -47,10 +47,19 @@ class ImageUploader extends Component {
         onProgress={this.handleProgress}
         className={this.props.className}
       >
-              Update avatar
+        Update avatar
       </CustomUploadButton>
     );
   }
 }
+
+ImageUploader.propTypes = {
+  filename: React.PropTypes.string.isRequired,
+  className: React.PropTypes.string.isRequired,
+  onUploadStarts: React.PropTypes.func.isRequired,
+  onUploadError: React.PropTypes.func.isRequired,
+  onUploadProgress: React.PropTypes.func.isRequired,
+  onUploadSuccess: React.PropTypes.func.isRequired,
+};
 
 export default ImageUploader;

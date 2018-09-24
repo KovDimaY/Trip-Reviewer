@@ -194,6 +194,12 @@ class Register extends PureComponent {
     }
 }
 
+Register.propTypes = {
+  users: React.PropTypes.object.isRequired,
+  history: React.PropTypes.func.isRequired,
+  dispatch: React.PropTypes.func.isRequired,
+};
+
 function mapStateToProps(state) {
   return {
     users: state.users,

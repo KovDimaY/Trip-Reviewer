@@ -41,6 +41,11 @@ class HomeContainer extends Component {
   }
 }
 
+HomeContainer.propTypes = {
+  trips: React.PropTypes.object.isRequired,
+  dispatch: React.PropTypes.func.isRequired,
+};
+
 function mapStateToProps(state) {
   return {
     trips: state.trips,

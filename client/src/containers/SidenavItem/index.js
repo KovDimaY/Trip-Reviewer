@@ -34,6 +34,11 @@ const SidenavItem = ({ item, users }) => {
   );
 };
 
+SidenavItem.propTypes = {
+  users: React.PropTypes.object.isRequired,
+  item: React.PropTypes.object.isRequired,
+};
+
 function mapStateToProps(state) {
   return {
     users: state.users,

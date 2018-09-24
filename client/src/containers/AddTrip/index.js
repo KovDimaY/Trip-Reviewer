@@ -6,133 +6,138 @@ import { addTrip, clearNewTrip } from '../../actions';
 import { TRIPS } from '../../constants/routes';
 
 class AddTrip extends Component {
-    state = {
-      formdata: {
-        title: '',
-        author: '',
-        review: '',
-        duration: '',
-        rating: 0,
-        price: '',
-      },
+  state = {
+    formdata: {
+      title: '',
+      author: '',
+      review: '',
+      duration: '',
+      rating: 0,
+      price: '',
+    },
+  };
+
+  componentWillReceiveProps(newProps) {
+    const { newtrip } = newProps.trips;
+
+    if (newtrip) {
+      newProps.history.push(`${TRIPS}/${newtrip.tripId}`);
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.dispatch(clearNewTrip());
+  }
+
+  handleInput = (event) => {
+    const newFormdata = {
+      ...this.state.formdata,
+    };
+    const { value, name } = event.target;
+
+    newFormdata[name] = value;
+
+    this.setState({
+      formdata: newFormdata,
+    });
+  }
+
+  handleRating = (rating) => {
+    const newFormdata = {
+      ...this.state.formdata,
     };
 
-    componentWillReceiveProps(newProps) {
-      const { newtrip } = newProps.trips;
+    newFormdata.rating = rating;
 
-      if (newtrip) {
-        newProps.history.push(`${TRIPS}/${newtrip.tripId}`);
-      }
-    }
+    this.setState({
+      formdata: newFormdata,
+    });
+  }
 
-    componentWillUnmount() {
-      this.props.dispatch(clearNewTrip());
-    }
+  submitForm = (event) => {
+    event.preventDefault();
+    this.props.dispatch(addTrip({
+      ...this.state.formdata,
+      ownerId: this.props.users.login.id,
+    }));
+  }
 
-    handleInput = (event) => {
-      const newFormdata = {
-        ...this.state.formdata,
-      };
-      const { value, name } = event.target;
+  render() {
+    const {
+      title, author, review,
+      duration, rating, price,
+    } = this.state.formdata;
 
-      newFormdata[name] = value;
+    return (
+      <div className="rl_container article">
+        <form onSubmit={this.submitForm}>
+          <h2>
+            Add a review
+          </h2>
 
-      this.setState({
-        formdata: newFormdata,
-      });
-    }
-
-    handleRating = (rating) => {
-      const newFormdata = {
-        ...this.state.formdata,
-      };
-
-      newFormdata.rating = rating;
-
-      this.setState({
-        formdata: newFormdata,
-      });
-    }
-
-    submitForm = (event) => {
-      event.preventDefault();
-      this.props.dispatch(addTrip({
-        ...this.state.formdata,
-        ownerId: this.props.users.login.id,
-      }));
-    }
-
-    render() {
-      const {
-        title, author, review,
-        duration, rating, price,
-      } = this.state.formdata;
-
-      return (
-        <div className="rl_container article">
-          <form onSubmit={this.submitForm}>
-            <h2>
-              Add a review
-            </h2>
-
-            <div className="form_element">
-              <input
-                type="text"
-                name="title"
-                placeholder="Enter title"
-                value={title}
-                onChange={this.handleInput}
-              />
-            </div>
-
-            <div className="form_element">
-              <input
-                type="text"
-                name="author"
-                placeholder="Enter author"
-                value={author}
-                onChange={this.handleInput}
-              />
-            </div>
-
-            <textarea
-              value={review}
-              name="review"
+          <div className="form_element">
+            <input
+              type="text"
+              name="title"
+              placeholder="Enter title"
+              value={title}
               onChange={this.handleInput}
             />
+          </div>
 
-            <div className="form_element">
-              <input
-                type="number"
-                name="duration"
-                placeholder="Enter duration"
-                value={duration}
-                onChange={this.handleInput}
-              />
-            </div>
+          <div className="form_element">
+            <input
+              type="text"
+              name="author"
+              placeholder="Enter author"
+              value={author}
+              onChange={this.handleInput}
+            />
+          </div>
 
-            <div className="form_element">
-              <StarsRating rating={rating} onChange={this.handleRating} />
-            </div>
+          <textarea
+            value={review}
+            name="review"
+            onChange={this.handleInput}
+          />
 
-            <div className="form_element">
-              <input
-                type="number"
-                name="price"
-                placeholder="Enter Price"
-                value={price}
-                onChange={this.handleInput}
-              />
-            </div>
+          <div className="form_element">
+            <input
+              type="number"
+              name="duration"
+              placeholder="Enter duration"
+              value={duration}
+              onChange={this.handleInput}
+            />
+          </div>
 
-            <button type="submit">
-              Add review
-            </button>
-          </form>
-        </div>
-      );
-    }
+          <div className="form_element">
+            <StarsRating rating={rating} onChange={this.handleRating} />
+          </div>
+
+          <div className="form_element">
+            <input
+              type="number"
+              name="price"
+              placeholder="Enter Price"
+              value={price}
+              onChange={this.handleInput}
+            />
+          </div>
+
+          <button type="submit">
+            Add review
+          </button>
+        </form>
+      </div>
+    );
+  }
 }
+
+AddTrip.propTypes = {
+  dispatch: React.PropTypes.func.isRequired,
+  users: React.PropTypes.object.isRequired,
+};
 
 function mapStateToProps(state) {
   return {

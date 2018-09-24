@@ -17,31 +17,31 @@ const TripItem = item => (
 
       <div className="book_bubble">
         <strong>
-Price
+          Price
         </strong>
         {' '}
-$
+        $
         {item.price}
       </div>
 
       <div className="book_bubble">
         <strong>
-Duration
+          Duration
         </strong>
         {' '}
         {item.duration}
         {' '}
-days
+        days
       </div>
 
       <div className="book_bubble rating">
         <strong>
-Rating
+          Rating
         </strong>
         {' '}
         {item.rating}
         {' '}
-/ 5
+        / 5
       </div>
 
     </div>

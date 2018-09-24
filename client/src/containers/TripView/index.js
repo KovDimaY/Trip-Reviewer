@@ -25,7 +25,7 @@ class TripView extends Component {
               </h5>
               <div className="br_reviewer">
                 <span>
-Review by:
+                  Review by:
                 </span>
                 {' '}
                 {trips.reviewer.name}
@@ -40,16 +40,16 @@ Review by:
               <div className="left">
                 <div>
                   <span>
-Duration:
+                    Duration:
                   </span>
                   {' '}
                   {trips.current.duration}
                   {' '}
-days
+                  days
                 </div>
                 <div>
                   <span>
-Price:
+                    Price:
                   </span>
                   {' '}
                   {trips.current.price}
@@ -57,11 +57,11 @@ Price:
               </div>
               <div className="right">
                 <span>
-Rating
+                  Rating
                 </span>
                 <div>
                   {trips.current.rating}
-/5
+                  /5
                 </div>
               </div>
             </div>
@@ -79,6 +79,12 @@ Rating
       );
     }
 }
+
+TripView.propTypes = {
+  trips: React.PropTypes.object.isRequired,
+  match: React.PropTypes.object.isRequired,
+  dispatch: React.PropTypes.func.isRequired,
+};
 
 function mapStateToProps(state) {
   return {

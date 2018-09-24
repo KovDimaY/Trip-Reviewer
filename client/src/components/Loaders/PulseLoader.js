@@ -63,4 +63,13 @@ class PulseLoader extends PureComponent {
   }
 }
 
+PulseLoader.propTypes = {
+  id: React.PropTypes.string.isRequired,
+  className: React.PropTypes.string.isRequired,
+  color: React.PropTypes.string.isRequired,
+  size: React.PropTypes.string.isRequired,
+  margin: React.PropTypes.string.isRequired,
+  verticalAlign: React.PropTypes.string.isRequired,
+};
+
 export default PulseLoader;

@@ -16,21 +16,21 @@ const User = (props) => {
       <div className="data">
         <div>
           <span>
-Name:
+            Name:
           </span>
           {' '}
           {user.name}
         </div>
         <div>
           <span>
-Lastname:
+            Lastname:
           </span>
           {' '}
           {user.lastname}
         </div>
         <div>
           <span>
-Email:
+            Email:
           </span>
           {' '}
           {user.email}
@@ -38,11 +38,15 @@ Email:
       </div>
       <div className="text-center">
         <Link to={redirect} className="button-link">
-Edit Profile
+          Edit Profile
         </Link>
       </div>
     </div>
   );
+};
+
+User.propTypes = {
+  users: React.PropTypes.object.isRequired,
 };
 
 export default User;

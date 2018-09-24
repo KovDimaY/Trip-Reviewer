@@ -3,7 +3,6 @@ import Rating from 'react-rating';
 
 import './styles.css';
 
-
 class StarsRating extends PureComponent {
   static getLabel(rating) {
     switch (rating) {
@@ -52,5 +51,10 @@ class StarsRating extends PureComponent {
     );
   }
 }
+
+StarsRating.propTypes = {
+  rating: React.PropTypes.number.isRequired,
+  onChange: React.PropTypes.func.isRequired,
+};
 
 export default StarsRating;

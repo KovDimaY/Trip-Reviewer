@@ -14,56 +14,61 @@ class UserPosts extends Component {
     }
   }
 
-    showUserPosts = ({ userPosts }) => (
-      userPosts
-        ? userPosts.map(item => (
-          <tr key={item._id}>
-            <td>
-              <Link to={`${EDIT_POST}/${item._id}`}>
-                {item.title}
-              </Link>
-            </td>
-            <td>
-              {item.author}
-            </td>
-            <td>
-              {moment(item.createAt).format('MM/DD/YY')}
-            </td>
-          </tr>
-        ))
-        : null
-    )
+  showUserPosts = ({ userPosts }) => (
+    userPosts
+      ? userPosts.map(item => (
+        <tr key={item._id}>
+          <td>
+            <Link to={`${EDIT_POST}/${item._id}`}>
+              {item.title}
+            </Link>
+          </td>
+          <td>
+            {item.author}
+          </td>
+          <td>
+            {moment(item.createAt).format('MM/DD/YY')}
+          </td>
+        </tr>
+      ))
+      : null
+  )
 
-    render() {
-      const { users } = this.props;
+  render() {
+    const { users } = this.props;
 
-      return (
-        <div className="user_posts">
-          <h4>
-Your reviews:
-          </h4>
-          <table>
-            <thead>
-              <tr>
-                <th>
-Title
-                </th>
-                <th>
-Author
-                </th>
-                <th>
-Date
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.showUserPosts(users)}
-            </tbody>
-          </table>
-        </div>
-      );
-    }
+    return (
+      <div className="user_posts">
+        <h4>
+          Your reviews:
+        </h4>
+        <table>
+          <thead>
+            <tr>
+              <th>
+                Title
+              </th>
+              <th>
+                Author
+              </th>
+              <th>
+                Date
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.showUserPosts(users)}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
 }
+
+UserPosts.propTypes = {
+  users: React.PropTypes.object.isRequired,
+  dispatch: React.PropTypes.func.isRequired,
+};
 
 function mapStateToProps(state) {
   return {

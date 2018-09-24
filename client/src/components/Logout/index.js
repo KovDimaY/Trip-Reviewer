@@ -20,11 +20,15 @@ class Logout extends Component {
     return (
       <div className="logout_container">
         <h1>
-                    Sorry to see you go :(
+          Sorry to see you go :(
         </h1>
       </div>
     );
   }
 }
+
+Logout.propTypes = {
+  history: React.PropTypes.object.isRequired,
+};
 
 export default Logout;
