@@ -17,6 +17,7 @@
     "domkit": "0.0.1",
     "firebase": "4.8.1",
     "moment-js": "1.1.15",
+    "prop-types": "15.6.2",
     "raf": "3.4.0",
     "react": "16.2.0",
     "react-dom": "16.2.0",

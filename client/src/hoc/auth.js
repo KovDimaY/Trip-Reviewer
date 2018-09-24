@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { auth } from '../actions';
@@ -39,9 +40,9 @@ export default function (ComposedClass, reload) {
   }
 
   AuthenticationCheck.propTypes = {
-    users: React.PropTypes.object.isRequired,
-    history: React.PropTypes.func.isRequired,
-    dispatch: React.PropTypes.func.isRequired,
+    users: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
+    dispatch: PropTypes.func.isRequired,
   };
 
   function mapStateToProps(state) {

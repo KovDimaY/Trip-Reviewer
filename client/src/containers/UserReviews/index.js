@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment-js';
@@ -66,8 +67,8 @@ class UserPosts extends Component {
 }
 
 UserPosts.propTypes = {
-  users: React.PropTypes.object.isRequired,
-  dispatch: React.PropTypes.func.isRequired,
+  users: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {

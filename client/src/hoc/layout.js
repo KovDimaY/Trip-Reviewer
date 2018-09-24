@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Header from '../components/Header/index';
 
@@ -12,7 +13,7 @@ const Layout = props => (
 );
 
 Layout.propTypes = {
-  children: React.PropTypes.object.isRequired,
+  children: PropTypes.object.isRequired,
 };
 
 export default Layout;

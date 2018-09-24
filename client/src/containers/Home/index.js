@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import TripItem from '../../components/TripItem/index';
@@ -42,8 +43,8 @@ class HomeContainer extends Component {
 }
 
 HomeContainer.propTypes = {
-  trips: React.PropTypes.object.isRequired,
-  dispatch: React.PropTypes.func.isRequired,
+  trips: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { resetPassword } from '../../actions';
@@ -59,8 +60,8 @@ class ResetPass extends Component {
 }
 
 ResetPass.propTypes = {
-  users: React.PropTypes.object.isRequired,
-  dispatch: React.PropTypes.func.isRequired,
+  users: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {

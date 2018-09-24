@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import StarsRating from '../../components/StarsRating';
@@ -135,8 +136,8 @@ class AddTrip extends Component {
 }
 
 AddTrip.propTypes = {
-  dispatch: React.PropTypes.func.isRequired,
-  users: React.PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  users: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {

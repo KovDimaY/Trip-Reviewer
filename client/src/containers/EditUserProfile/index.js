@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Progress } from 'react-sweet-progress';
@@ -292,10 +293,10 @@ class EditUserProfile extends PureComponent {
 }
 
 EditUserProfile.propTypes = {
-  users: React.PropTypes.object.isRequired,
-  result: React.PropTypes.object.isRequired,
-  history: React.PropTypes.func.isRequired,
-  dispatch: React.PropTypes.func.isRequired,
+  users: PropTypes.object.isRequired,
+  result: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {

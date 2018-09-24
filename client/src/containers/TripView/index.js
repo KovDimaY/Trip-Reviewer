@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { getTripWithReviewer, clearTripWithReviewer } from '../../actions';
@@ -81,9 +82,9 @@ class TripView extends Component {
 }
 
 TripView.propTypes = {
-  trips: React.PropTypes.object.isRequired,
-  match: React.PropTypes.object.isRequired,
-  dispatch: React.PropTypes.func.isRequired,
+  trips: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {

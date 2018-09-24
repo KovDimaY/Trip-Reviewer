@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import UserAvatar from '../UserAvatar';
@@ -46,7 +47,7 @@ const User = (props) => {
 };
 
 User.propTypes = {
-  users: React.PropTypes.object.isRequired,
+  users: PropTypes.object.isRequired,
 };
 
 export default User;

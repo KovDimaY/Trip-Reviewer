@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import FontAwesome from 'react-fontawesome';
 import { connect } from 'react-redux';
@@ -35,8 +36,8 @@ const SidenavItem = ({ item, users }) => {
 };
 
 SidenavItem.propTypes = {
-  users: React.PropTypes.object.isRequired,
-  item: React.PropTypes.object.isRequired,
+  users: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {

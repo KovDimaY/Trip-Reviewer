@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactSideNav from 'react-simple-sidenav';
 
 import { items } from './items';
@@ -24,8 +25,8 @@ const Sidenav = props => (
 );
 
 Sidenav.propTypes = {
-  showNav: React.PropTypes.bool.isRequired,
-  onHideNav: React.PropTypes.func.isRequired,
+  showNav: PropTypes.bool.isRequired,
+  onHideNav: PropTypes.func.isRequired,
 };
 
 export default Sidenav;

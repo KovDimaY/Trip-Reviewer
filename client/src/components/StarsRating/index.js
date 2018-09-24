@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import Rating from 'react-rating';
 
 import './styles.css';
@@ -53,8 +54,8 @@ class StarsRating extends PureComponent {
 }
 
 StarsRating.propTypes = {
-  rating: React.PropTypes.number.isRequired,
-  onChange: React.PropTypes.func.isRequired,
+  rating: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default StarsRating;

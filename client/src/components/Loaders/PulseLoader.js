@@ -1,5 +1,6 @@
 
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import assign from 'domkit/appendVendorPrefix';
 import insertKeyframesRule from 'domkit/insertKeyframesRule';
 
@@ -64,12 +65,12 @@ class PulseLoader extends PureComponent {
 }
 
 PulseLoader.propTypes = {
-  id: React.PropTypes.string.isRequired,
-  className: React.PropTypes.string.isRequired,
-  color: React.PropTypes.string.isRequired,
-  size: React.PropTypes.string.isRequired,
-  margin: React.PropTypes.string.isRequired,
-  verticalAlign: React.PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  size: PropTypes.string.isRequired,
+  margin: PropTypes.string.isRequired,
+  verticalAlign: PropTypes.string.isRequired,
 };
 
 export default PulseLoader;

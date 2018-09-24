@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 class Logout extends Component {
@@ -28,7 +29,7 @@ class Logout extends Component {
 }
 
 Logout.propTypes = {
-  history: React.PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export default Logout;

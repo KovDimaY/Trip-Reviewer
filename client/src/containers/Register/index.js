@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { getUsers, userRegister } from '../../actions';
@@ -195,9 +196,9 @@ class Register extends PureComponent {
 }
 
 Register.propTypes = {
-  users: React.PropTypes.object.isRequired,
-  history: React.PropTypes.func.isRequired,
-  dispatch: React.PropTypes.func.isRequired,
+  users: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {

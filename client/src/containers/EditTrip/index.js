@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import StarsRating from '../../components/StarsRating';
@@ -182,10 +183,10 @@ class EditTrip extends PureComponent {
 }
 
 EditTrip.propTypes = {
-  dispatch: React.PropTypes.func.isRequired,
-  match: React.PropTypes.object.isRequired,
-  history: React.PropTypes.object.isRequired,
-  trips: React.PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  trips: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {

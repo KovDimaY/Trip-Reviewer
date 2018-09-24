@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
 import { firebase } from '../../firebase';
 
@@ -54,12 +55,12 @@ class ImageUploader extends Component {
 }
 
 ImageUploader.propTypes = {
-  filename: React.PropTypes.string.isRequired,
-  className: React.PropTypes.string.isRequired,
-  onUploadStarts: React.PropTypes.func.isRequired,
-  onUploadError: React.PropTypes.func.isRequired,
-  onUploadProgress: React.PropTypes.func.isRequired,
-  onUploadSuccess: React.PropTypes.func.isRequired,
+  filename: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+  onUploadStarts: PropTypes.func.isRequired,
+  onUploadError: PropTypes.func.isRequired,
+  onUploadProgress: PropTypes.func.isRequired,
+  onUploadSuccess: PropTypes.func.isRequired,
 };
 
 export default ImageUploader;
