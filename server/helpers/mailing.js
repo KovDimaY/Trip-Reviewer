@@ -33,8 +33,8 @@ const updateModelAndSendEmail = (Model, _id, fieldsToUpdate, res, transporter, d
     adminMail, mailTo, name, lastname, email, newPassword,
   } = data;
 
-  Model.findByIdAndUpdate(_id, fieldsToUpdate, { new: true }, (err) => {
-    if (err) return res.json({ success: false, message: err });
+  Model.findByIdAndUpdate(_id, fieldsToUpdate, { new: true, runValidators: true }, (err) => {
+    if (err) return res.json({ success: false, error: err });
 
     const mailOptions = setUpdateProfileEmailOptions(
       adminMail, mailTo, name, lastname, email, newPassword,

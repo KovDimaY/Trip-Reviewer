@@ -15,7 +15,7 @@ import './styles.css';
 
 class EditUserProfile extends PureComponent {
   state = {
-    formdata: {
+    formData: {
       _id: this.props.users.login.id,
       name: this.props.users.login.name,
       lastname: this.props.users.login.lastname,
@@ -24,6 +24,15 @@ class EditUserProfile extends PureComponent {
       oldPassword: '',
       newPassword: '',
       repeatPassword: '',
+    },
+    hideError: {
+      name: false,
+      lastname: false,
+      email: false,
+      avatar: false,
+      oldPassword: false,
+      newPassword: false,
+      repeatPassword: false,
     },
     isUploading: false,
     progress: 0,
@@ -39,6 +48,18 @@ class EditUserProfile extends PureComponent {
   componentWillReceiveProps(nextProps) {
     if (nextProps.result && nextProps.result.success) {
       nextProps.history.push(USER_PROFILE);
+    } else {
+      this.setState({
+        hideError: {
+          name: false,
+          lastname: false,
+          email: false,
+          avatar: false,
+          oldPassword: false,
+          newPassword: false,
+          repeatPassword: false,
+        },
+      });
     }
   }
 
@@ -55,14 +76,14 @@ class EditUserProfile extends PureComponent {
   }
 
   onUploadSuccess = (filename) => {
-    const newFormdata = {
-      ...this.state.formdata,
+    const newFormData = {
+      ...this.state.formData,
     };
 
-    newFormdata.avatar = filename;
+    newFormData.avatar = filename;
 
     this.setState({
-      formdata: newFormdata,
+      formData: newFormData,
       isUploading: false,
       progress: 100,
     });
@@ -73,29 +94,53 @@ class EditUserProfile extends PureComponent {
   }
 
   handleDeleteAvatar = () => {
-    const newFormdata = {
-      ...this.state.formdata,
+    const newFormData = {
+      ...this.state.formData,
     };
 
-    newFormdata.avatar = null;
+    newFormData.avatar = null;
 
-    this.setState({ formdata: newFormdata });
+    this.setState({ formData: newFormData });
   }
 
   handleInput = (event) => {
-    const newFormdata = {
-      ...this.state.formdata,
-    };
+    const newFormData = { ...this.state.formData };
+    const newHideError = { ...this.state.hideError };
     const { value, name } = event.target;
 
-    newFormdata[name] = value;
+    newFormData[name] = value;
+    newHideError[name] = true;
 
-    this.setState({ formdata: newFormdata });
+    this.setState({
+      formData: newFormData,
+      hideError: newHideError,
+    });
   }
 
   submitForm = (event) => {
     event.preventDefault();
-    this.props.dispatch(updateUser(this.state.formdata));
+    this.props.dispatch(updateUser(this.state.formData));
+  }
+
+  formFieldHasError(fieldName) {
+    const { result } = this.props;
+    const { hideError } = this.state;
+    const errors = result && result.error && result.error.errors;
+
+    return errors && errors[fieldName] && !hideError[fieldName];
+  }
+
+  renderError(fieldName) {
+    if (this.formFieldHasError(fieldName)) {
+      const error = this.props.result.error.errors[fieldName];
+
+      return (
+        <div className="error">
+          {error.message}
+        </div>
+      );
+    }
+    return null;
   }
 
   renderAvatarControls() {
@@ -126,7 +171,7 @@ class EditUserProfile extends PureComponent {
   }
 
   renderSoftInfoInputs() {
-    const { name, lastname } = this.state.formdata;
+    const { name, lastname } = this.state.formData;
 
     return (
       <div className="info">
@@ -142,6 +187,7 @@ class EditUserProfile extends PureComponent {
             onChange={this.handleInput}
           />
         </div>
+        { this.renderError('name') }
 
         <div className="form_element">
           <span>
@@ -155,6 +201,7 @@ class EditUserProfile extends PureComponent {
             onChange={this.handleInput}
           />
         </div>
+        { this.renderError('lastname') }
       </div>
     );
   }
@@ -163,7 +210,7 @@ class EditUserProfile extends PureComponent {
     const {
       oldPassword, newPassword,
       repeatPassword, email,
-    } = this.state.formdata;
+    } = this.state.formData;
 
     return (
       <div className="info danger">
@@ -179,6 +226,7 @@ class EditUserProfile extends PureComponent {
             onChange={this.handleInput}
           />
         </div>
+        { this.renderError('oldPassword') }
 
         <div className="form_element">
           <span>
@@ -192,6 +240,7 @@ class EditUserProfile extends PureComponent {
             onChange={this.handleInput}
           />
         </div>
+        { this.renderError('newPassword') }
 
         <div className="form_element">
           <span>
@@ -205,6 +254,7 @@ class EditUserProfile extends PureComponent {
             onChange={this.handleInput}
           />
         </div>
+        { this.renderError('repeatPassword') }
 
         <div className="form_element">
           <span>
@@ -218,6 +268,7 @@ class EditUserProfile extends PureComponent {
             onChange={this.handleInput}
           />
         </div>
+        { this.renderError('email') }
       </div>
     );
   }
@@ -241,21 +292,9 @@ class EditUserProfile extends PureComponent {
     );
   }
 
-  renderError() {
-    const { result } = this.props;
-
-    if (result && result.message) {
-      return (
-        <div className="error">
-          { this.props.result.message }
-        </div>
-      );
-    }
-    return null;
-  }
-
   render() {
-    const { avatar } = this.state.formdata;
+    const { avatar } = this.state.formData;
+    console.log(this.props)
 
     return (
       <div className="edit-user-profile-container">
@@ -294,9 +333,13 @@ class EditUserProfile extends PureComponent {
 
 EditUserProfile.propTypes = {
   users: PropTypes.object.isRequired,
-  result: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
+  result: PropTypes.object,
+};
+
+EditUserProfile.defaultProps = {
+  result: undefined,
 };
 
 function mapStateToProps(state) {
