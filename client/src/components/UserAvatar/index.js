@@ -14,8 +14,16 @@ class UserAvatar extends PureComponent {
       this.updateImage(this.props);
     }
 
+    componentDidMount() {
+      this._isMounted = true;
+    }
+
     componentWillReceiveProps(nextProps) {
       this.updateImage(nextProps);
+    }
+
+    componentWillUnmount() {
+      this._isMounted = false;
     }
 
     updateImage(props) {
@@ -31,7 +39,9 @@ class UserAvatar extends PureComponent {
     }
 
     handleGetUrlSuccess = (url) => {
-      this.setState({ src: url, isLoading: false });
+      if (this._isMounted) {
+        this.setState({ src: url, isLoading: false });
+      }
     }
 
     renderWithLoading() {

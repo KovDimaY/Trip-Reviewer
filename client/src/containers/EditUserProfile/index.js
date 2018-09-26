@@ -130,6 +130,10 @@ class EditUserProfile extends PureComponent {
     return errors && errors[fieldName] && !hideError[fieldName];
   }
 
+  getErrorClass(fieldName) {
+    return this.formFieldHasError(fieldName) ? 'field-error' : '';
+  }
+
   renderError(fieldName) {
     if (this.formFieldHasError(fieldName)) {
       const error = this.props.result.error.errors[fieldName];
@@ -181,6 +185,7 @@ class EditUserProfile extends PureComponent {
           </span>
           <input
             type="text"
+            className={this.getErrorClass('name')}
             name="name"
             placeholder="Enter name"
             value={name}
@@ -195,6 +200,7 @@ class EditUserProfile extends PureComponent {
           </span>
           <input
             type="text"
+            className={this.getErrorClass('lastname')}
             name="lastname"
             placeholder="Enter lastname"
             value={lastname}
@@ -214,12 +220,13 @@ class EditUserProfile extends PureComponent {
 
     return (
       <div className="info danger">
-        <div className="form_element current-password">
+        <div className="form_element">
           <span>
             Current Password:
           </span>
           <input
             type="password"
+            className={this.getErrorClass('oldPassword')}
             name="oldPassword"
             placeholder="Enter your current password"
             value={oldPassword}
@@ -228,12 +235,13 @@ class EditUserProfile extends PureComponent {
         </div>
         { this.renderError('oldPassword') }
 
-        <div className="form_element">
+        <div className="form_element margin-top">
           <span>
             New Password:
           </span>
           <input
             type="password"
+            className={this.getErrorClass('newPassword')}
             name="newPassword"
             placeholder="Enter your new password"
             value={newPassword}
@@ -248,6 +256,7 @@ class EditUserProfile extends PureComponent {
           </span>
           <input
             type="password"
+            className={this.getErrorClass('repeatPassword')}
             name="repeatPassword"
             placeholder="Repeat your new password"
             value={repeatPassword}
@@ -262,6 +271,7 @@ class EditUserProfile extends PureComponent {
           </span>
           <input
             type="email"
+            className={this.getErrorClass('email')}
             name="email"
             placeholder="Enter new email"
             value={email}
