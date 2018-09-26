@@ -52,6 +52,15 @@ describe('<UserAvatar />', () => {
     expect(instance.state.isLoading).toEqual(false);
   });
 
+  it('should not change state when handleGetUrlSuccess is called for unmounted', () => {
+    const instance = shallow(mockComponent({})).instance();
+
+    instance.componentWillUnmount();
+    instance.handleGetUrlSuccess('url');
+
+    expect(instance.state.src).not.toEqual('url');
+  });
+
   it('should call updateImage when componentWillReceiveProps is called', () => {
     const updateImage = jest.fn();
     const instance = shallow(mockComponent({})).instance();
@@ -60,5 +69,13 @@ describe('<UserAvatar />', () => {
     instance.componentWillReceiveProps('test');
 
     expect(updateImage).toHaveBeenCalledWith('test');
+  });
+
+  it('should reset this._isMounted when componentWillUnmount is called', () => {
+    const instance = shallow(mockComponent({})).instance();
+
+    instance.componentWillUnmount();
+
+    expect(instance._isMounted).toEqual(false);
   });
 });

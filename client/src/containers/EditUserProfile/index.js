@@ -93,6 +93,10 @@ class EditUserProfile extends PureComponent {
     this.setState({ isUploading: false, uploadError: error });
   }
 
+  getErrorClass(fieldName) {
+    return this.formFieldHasError(fieldName) ? 'field-error' : '';
+  }
+
   handleDeleteAvatar = () => {
     const newFormData = {
       ...this.state.formData,
@@ -128,10 +132,6 @@ class EditUserProfile extends PureComponent {
     const errors = result && result.error && result.error.errors;
 
     return errors && errors[fieldName] && !hideError[fieldName];
-  }
-
-  getErrorClass(fieldName) {
-    return this.formFieldHasError(fieldName) ? 'field-error' : '';
   }
 
   renderError(fieldName) {
@@ -304,7 +304,6 @@ class EditUserProfile extends PureComponent {
 
   render() {
     const { avatar } = this.state.formData;
-    console.log(this.props)
 
     return (
       <div className="edit-user-profile-container">

@@ -54,6 +54,7 @@ exports[`<EditUserProfile /> should render component 1`] = `
           Name:
         </span>
         <input
+          className=""
           name="name"
           onChange={[Function]}
           placeholder="Enter name"
@@ -68,6 +69,7 @@ exports[`<EditUserProfile /> should render component 1`] = `
           Lastname:
         </span>
         <input
+          className=""
           name="lastname"
           onChange={[Function]}
           placeholder="Enter lastname"
@@ -86,12 +88,13 @@ exports[`<EditUserProfile /> should render component 1`] = `
       className="info danger"
     >
       <div
-        className="form_element current-password"
+        className="form_element"
       >
         <span>
           Current Password:
         </span>
         <input
+          className=""
           name="oldPassword"
           onChange={[Function]}
           placeholder="Enter your current password"
@@ -100,12 +103,13 @@ exports[`<EditUserProfile /> should render component 1`] = `
         />
       </div>
       <div
-        className="form_element"
+        className="form_element margin-top"
       >
         <span>
           New Password:
         </span>
         <input
+          className=""
           name="newPassword"
           onChange={[Function]}
           placeholder="Enter your new password"
@@ -120,6 +124,7 @@ exports[`<EditUserProfile /> should render component 1`] = `
           Repeat New Password:
         </span>
         <input
+          className=""
           name="repeatPassword"
           onChange={[Function]}
           placeholder="Repeat your new password"
@@ -134,6 +139,7 @@ exports[`<EditUserProfile /> should render component 1`] = `
           Email:
         </span>
         <input
+          className=""
           name="email"
           onChange={[Function]}
           placeholder="Enter new email"
@@ -220,6 +226,7 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
           Name:
         </span>
         <input
+          className="field-error"
           name="name"
           onChange={[Function]}
           placeholder="Enter name"
@@ -228,18 +235,29 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
         />
       </div>
       <div
+        className="error"
+      >
+        test
+      </div>
+      <div
         className="form_element"
       >
         <span>
           Lastname:
         </span>
         <input
+          className="field-error"
           name="lastname"
           onChange={[Function]}
           placeholder="Enter lastname"
           type="text"
           value={undefined}
         />
+      </div>
+      <div
+        className="error"
+      >
+        test
       </div>
     </div>
     <hr />
@@ -252,12 +270,13 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
       className="info danger"
     >
       <div
-        className="form_element current-password"
+        className="form_element"
       >
         <span>
           Current Password:
         </span>
         <input
+          className="field-error"
           name="oldPassword"
           onChange={[Function]}
           placeholder="Enter your current password"
@@ -266,12 +285,18 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
         />
       </div>
       <div
-        className="form_element"
+        className="error"
+      >
+        test
+      </div>
+      <div
+        className="form_element margin-top"
       >
         <span>
           New Password:
         </span>
         <input
+          className="field-error"
           name="newPassword"
           onChange={[Function]}
           placeholder="Enter your new password"
@@ -280,12 +305,18 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
         />
       </div>
       <div
+        className="error"
+      >
+        test
+      </div>
+      <div
         className="form_element"
       >
         <span>
           Repeat New Password:
         </span>
         <input
+          className="field-error"
           name="repeatPassword"
           onChange={[Function]}
           placeholder="Repeat your new password"
@@ -294,12 +325,18 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
         />
       </div>
       <div
+        className="error"
+      >
+        test
+      </div>
+      <div
         className="form_element"
       >
         <span>
           Email:
         </span>
         <input
+          className="field-error"
           name="email"
           onChange={[Function]}
           placeholder="Enter new email"
@@ -307,11 +344,11 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
           value={undefined}
         />
       </div>
-    </div>
-    <div
-      className="error"
-    >
-      test
+      <div
+        className="error"
+      >
+        test
+      </div>
     </div>
     <div
       className="text-center"

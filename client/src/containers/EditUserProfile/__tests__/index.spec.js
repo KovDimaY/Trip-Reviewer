@@ -50,7 +50,16 @@ describe('<EditUserProfile />', () => {
       users: {
         userUpdate: {
           success: false,
-          message: 'test',
+          error: {
+            errors: {
+              name: { message: 'test' },
+              lastname: { message: 'test' },
+              email: { message: 'test' },
+              oldPassword: { message: 'test' },
+              newPassword: { message: 'test' },
+              repeatPassword: { message: 'test' },
+            },
+          },
         },
       },
     };
@@ -151,7 +160,7 @@ describe('<EditUserProfile />', () => {
     const event = { preventDefault };
 
     const instance = shallow(mockComponent(initialState, props)).dive().instance();
-    instance.setState({ formdata: state });
+    instance.setState({ formData: state });
 
     instance.submitForm(event);
 
@@ -183,7 +192,7 @@ describe('<EditUserProfile />', () => {
 
     instance.handleInput(event);
 
-    expect(instance.state.formdata.title).toEqual('test');
+    expect(instance.state.formData.title).toEqual('test');
   });
 
   it('handleDeleteAvatar should change state correctly', () => {
@@ -205,7 +214,7 @@ describe('<EditUserProfile />', () => {
 
     instance.handleDeleteAvatar();
 
-    expect(instance.state.formdata.avatar).toEqual(null);
+    expect(instance.state.formData.avatar).toEqual(null);
   });
 
   it('onUploadSuccess should change state correctly', () => {
@@ -227,7 +236,7 @@ describe('<EditUserProfile />', () => {
 
     instance.onUploadSuccess('test');
 
-    expect(instance.state.formdata.avatar).toEqual('test');
+    expect(instance.state.formData.avatar).toEqual('test');
     expect(instance.state.isUploading).toEqual(false);
     expect(instance.state.progress).toEqual(100);
   });
