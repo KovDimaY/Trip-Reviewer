@@ -223,7 +223,13 @@ app.post('/api/userUpdate', (req, res) => {
         if (!isMatch) {
           return res.json({
             success: false,
-            message: 'Wrong current password',
+            error: {
+              errors: {
+                oldPassword: {
+                  message: 'Wrong current password',
+                },
+              },
+            },
           });
         }
 
@@ -231,7 +237,7 @@ app.post('/api/userUpdate', (req, res) => {
           const newPassCorrect = newPassword === repeatPassword && newPassword.length > 5;
           if (newPassCorrect) {
             encryptPassword(newPassword, (err3, encrypted) => {
-              if (err3) return res.json({ success: false, message: err3 });
+              if (err3) return res.status(400).send(err3);
 
               fieldsToUpdate.email = email;
               fieldsToUpdate.password = encrypted;
@@ -244,9 +250,21 @@ app.post('/api/userUpdate', (req, res) => {
               );
             });
           } else {
+            const errors = {};
+            if (newPassword.length < 6) {
+              errors.newPassword = {
+                message: 'New password should be at least 6 characters',
+              };
+            } else {
+              errors.repeatPassword = {
+                message: 'Passwords are not the same',
+              };
+            }
             return res.json({
               success: false,
-              message: 'New passwords are incorrect, check them and try again',
+              error: {
+                errors,
+              },
             });
           }
         } else {
@@ -261,8 +279,8 @@ app.post('/api/userUpdate', (req, res) => {
         }
       });
     } else {
-      User.findByIdAndUpdate(_id, fieldsToUpdate, { new: true }, (err4) => {
-        if (err4) return res.status(400).send(err4);
+      User.findByIdAndUpdate(_id, fieldsToUpdate, { new: true, runValidators: true }, (err4) => {
+        if (err4) return res.json({ success: false, error: err4 });
 
         return res.json({
           success: true,

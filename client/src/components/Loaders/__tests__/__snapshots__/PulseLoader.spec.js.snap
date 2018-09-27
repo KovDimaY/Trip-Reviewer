@@ -2,8 +2,8 @@
 
 exports[`<PulseLoader /> should render component with custom props 1`] = `
 <div
-  className={undefined}
-  id={undefined}
+  className=""
+  id=""
 >
   <div
     style={
@@ -55,8 +55,8 @@ exports[`<PulseLoader /> should render component with custom props 1`] = `
 
 exports[`<PulseLoader /> should render component with default props 1`] = `
 <div
-  className={undefined}
-  id={undefined}
+  className=""
+  id=""
 >
   <div
     style={

@@ -15,7 +15,7 @@
 .edit-user-profile-container .info .form_element {
     font-size: 23px;
     font-weight: 300;
-    margin-bottom: 10px;
+    margin-top: 10px;
     color: #a4a4a4;
 }
 
@@ -35,7 +35,7 @@
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 
 .edit-user-profile-container .disclamer {
@@ -56,8 +56,8 @@
     margin-bottom: 30px;
 }
 
-.edit-user-profile-container .info .current-password {
-    margin-bottom: 50px;
+.edit-user-profile-container .info .margin-top {
+    margin-top: 50px;
 }
 
 .edit-user-profile-container input {
@@ -110,7 +110,12 @@
 }
 
 .edit-user-profile-container .error {
+    color: #FF5722;
+    margin-top: 5px;
     text-align: center;
-    font-size: 24px;
-    color: red;
+}
+
+.edit-user-profile-container .field-error {
+    border: 2px solid #FF5722;
+    color: #FF5722;
 }

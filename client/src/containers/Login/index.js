@@ -31,14 +31,15 @@ class Login extends Component {
     });
   }
 
-  getErrorClass(param) {
+  getErrorClass(fieldName) {
+    return this.formFieldHasError(fieldName) ? 'field-error' : '';
+  }
+
+  formFieldHasError(fieldName) {
     const { error } = this.props.users.login;
     const { hideError } = this.state;
 
-    if (error && error.field === param && !hideError[param]) {
-      return 'field-error';
-    }
-    return '';
+    return error && error.field === fieldName && !hideError[fieldName];
   }
 
   submitForm = (event) => {
@@ -60,11 +61,10 @@ class Login extends Component {
     });
   }
 
-  renderError(param) {
-    const { error } = this.props.users.login;
-    const { hideError } = this.state;
+  renderError(fieldName) {
+    if (this.formFieldHasError(fieldName)) {
+      const { error } = this.props.users.login;
 
-    if (error && error.field === param && !hideError[param]) {
       return (
         <div className="error">
           {error.message}
