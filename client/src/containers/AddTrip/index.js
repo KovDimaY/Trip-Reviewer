@@ -67,12 +67,12 @@ class AddTrip extends Component {
 
   render() {
     const {
-      title, author, review,
-      duration, rating, price,
+      title, country, description,
+      duration, rating, expences,
     } = this.state.formdata;
 
     return (
-      <div className="add-review-container article">
+      <div className="add-review-container">
         <form onSubmit={this.submitForm}>
           <h2>
             Add a review
@@ -99,7 +99,7 @@ class AddTrip extends Component {
               type="text"
               name="country"
               placeholder="Enter country"
-              value={author}
+              value={country}
               onChange={this.handleInput}
             />
           </div>
@@ -109,7 +109,7 @@ class AddTrip extends Component {
               Desctiption:
             </span>
             <textarea
-              value={review}
+              value={description}
               name="description"
               placeholder="Enter description"
               onChange={this.handleInput}
@@ -137,7 +137,7 @@ class AddTrip extends Component {
               type="number"
               name="expences"
               placeholder="Enter expences"
-              value={price}
+              value={expences}
               onChange={this.handleInput}
             />
           </div>

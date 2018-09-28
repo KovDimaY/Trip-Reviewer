@@ -8,16 +8,18 @@ import {
 } from '../../actions';
 import * as routes from '../../constants/routes';
 
+import './styles.css';
+
 class EditTrip extends PureComponent {
   state = {
     formdata: {
       _id: this.props.match.params.id,
       title: '',
-      author: '',
-      review: '',
+      country: '',
+      description: '',
       duration: '',
       rating: 0,
-      price: '',
+      expences: '',
     },
   };
 
@@ -35,11 +37,11 @@ class EditTrip extends PureComponent {
         formdata: {
           _id: trip._id,
           title: trip.title,
-          author: trip.author,
-          review: trip.review,
+          country: trip.country,
+          description: trip.description,
           duration: trip.duration,
           rating: trip.rating,
-          price: trip.price,
+          expences: trip.expences,
         },
       });
     }
@@ -93,13 +95,13 @@ class EditTrip extends PureComponent {
 
   render() {
     const {
-      title, author, review,
-      duration, rating, price,
+      title, country, description,
+      duration, rating, expences,
     } = this.state.formdata;
     const { trips } = this.props;
 
     return (
-      <div className="rl_container article">
+      <div className="edit-review-container">
         {
           trips.postDeleted
             ? (
@@ -116,6 +118,9 @@ class EditTrip extends PureComponent {
           </h2>
 
           <div className="form_element">
+            <span className="label">
+              Title:
+            </span>
             <input
               type="text"
               name="title"
@@ -126,22 +131,34 @@ class EditTrip extends PureComponent {
           </div>
 
           <div className="form_element">
+            <span className="label">
+              Country:
+            </span>
             <input
               type="text"
-              name="author"
-              placeholder="Enter author"
-              value={author}
+              name="country"
+              placeholder="Enter country"
+              value={country}
               onChange={this.handleInput}
             />
           </div>
 
-          <textarea
-            value={review}
-            name="review"
-            onChange={this.handleInput}
-          />
+          <div className="form_element">
+            <span className="label">
+              Desctiption:
+            </span>
+            <textarea
+              value={description}
+              name="description"
+              placeholder="Enter description"
+              onChange={this.handleInput}
+            />
+          </div>
 
           <div className="form_element">
+            <span className="label">
+              Duration:
+            </span>
             <input
               type="number"
               name="duration"
@@ -156,11 +173,14 @@ class EditTrip extends PureComponent {
           </div>
 
           <div className="form_element">
+            <span className="label">
+              Expences:
+            </span>
             <input
               type="number"
-              name="price"
+              name="expences"
               placeholder="Enter Price"
-              value={price}
+              value={expences}
               onChange={this.handleInput}
             />
           </div>
