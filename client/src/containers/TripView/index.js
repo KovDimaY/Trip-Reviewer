@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import { getTripWithReviewer, clearTripWithReviewer } from '../../actions';
 
+import './styles.css';
+
 class TripView extends Component {
   componentWillMount() {
     this.props.dispatch(getTripWithReviewer(this.props.match.params.id));
@@ -13,72 +15,65 @@ class TripView extends Component {
     this.props.dispatch(clearTripWithReviewer());
   }
 
-    renderTrip = trips => (
-      trips.current
-        ? (
-          <div className="br_container">
-            <div className="br_header">
-              <h2>
-                {trips.current.title}
-              </h2>
-              <h5>
-                {trips.current.author}
-              </h5>
-              <div className="br_reviewer">
+  renderTrip = (trips) => {
+    if (trips && trips.current) {
+      const {
+        title, country, description,
+        duration, rating, expences,
+      } = trips.current;
+      const { name, lastname } = trips.reviewer;
+
+      return (
+        <div className="trip-view-container">
+          <div className="trip-view-header">
+            <h2>{title}</h2>
+            <h5>{country}</h5>
+            <div className="reviewer">
+              <span>Author:</span>
+              {` ${name} ${lastname}`}
+            </div>
+          </div>
+          <div className="trip-view-description">
+            {description}
+          </div>
+          <div className="trip-view-box">
+            <div className="left">
+              <div>
                 <span>
-                  Review by:
+                  Duration:
                 </span>
-                {' '}
-                {trips.reviewer.name}
-                {' '}
-                {trips.reviewer.lastname}
+                {duration === 1 ? ` ${duration} day` : ` ${duration} days`}
+              </div>
+              <div>
+                <span>
+                  Expences:
+                </span>
+                {` $${expences} `}
               </div>
             </div>
-            <div className="br_review">
-              {trips.current.review}
-            </div>
-            <div className="br_box">
-              <div className="left">
-                <div>
-                  <span>
-                    Duration:
-                  </span>
-                  {' '}
-                  {trips.current.duration}
-                  {' '}
-                  days
-                </div>
-                <div>
-                  <span>
-                    Price:
-                  </span>
-                  {' '}
-                  {trips.current.price}
-                </div>
-              </div>
-              <div className="right">
-                <span>
-                  Rating
-                </span>
-                <div>
-                  {trips.current.rating}
-                  /5
-                </div>
+            <div className="right">
+              <span>
+                Rating
+              </span>
+              <div>
+                {rating}/5
               </div>
             </div>
           </div>
-        )
-        : null
-    )
-
-    render() {
-      const { trips } = this.props;
-      return (
-        <div>
-          {this.renderTrip(trips)}
         </div>
       );
     }
+    return null;
+  }
+
+  render() {
+    const { trips } = this.props;
+    return (
+      <div>
+        {this.renderTrip(trips)}
+      </div>
+    );
+  }
 }
 
 TripView.propTypes = {

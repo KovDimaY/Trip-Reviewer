@@ -212,108 +212,30 @@ header .open_nav {
 /*=============================
             USER
 ===============================*/
-    .user_posts {
-        padding:10px;
-        box-sizing: border-box;
-    }
-
-    .edit_confirm {
-        background: #8BC34A;
-        color: #fff;
-        padding: 10px 0px;
-    }
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-
-    tr:nth-child(even) {
-        background-color: #dddddd;
-    }
-
-/*=============================
-            POST
-===============================*/
-
-.br_container {
+.user_posts {
+    padding:10px;
     box-sizing: border-box;
-    padding:20px;
 }
 
-.br_container .br_header {
-    border-bottom: 1px solid #e1e1e1;
-    margin-bottom: 20px;
-}
-
-.br_container .br_header h2{
-    font-weight: 300;
-    font-size: 38px;
-    margin: 0px;
-}
-.br_container .br_header h5{
-    margin: 5px 0px;
-    font-size: 31px;
-    color: #02bcd4;
-}
-
-.br_container .br_header .br_reviewer {
-    font-size: 12px;
-    margin-bottom: 10px;
-}
-.br_container .br_header .br_reviewer span {
-    font-weight: 500;
-}
-
-.br_container .br_review {
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 27px;
-}
-
-.br_container .br_box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.br_container .br_box .left {
-    min-width: 50%;
-    background: #E91E63;
+.edit_confirm {
+    background: #8BC34A;
     color: #fff;
-    box-sizing: border-box;
-    padding: 15px;
-    font-weight: 300;
-    font-size: 20px;
+    padding: 10px 0px;
 }
-.br_container .br_box .left div {
-    padding: 7px;
-    box-sizing: border-box;
-}
-.br_container .br_box .left div span { 
-    font-weight: 700
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
 
-.br_container .br_box .right {
-    flex-grow: 1;
-    height: 106px;
-    background: #3c3c3c;
-    color: #fff;
-    font-weight: 700;
-    padding: 21px 15px;
-    box-sizing: border-box;
-    text-align: center;
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
 }
-.br_container .br_box .right div {
-    font-size: 40px;
-    font-weight: 300;
+
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
 
 .logout_container h1{
