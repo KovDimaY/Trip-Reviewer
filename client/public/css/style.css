@@ -38,53 +38,6 @@ header .open_nav {
     left:0px;
 }
 
-.book_item {
-    border-bottom: 4px solid #f1f1f1;
-    box-sizing: border-box;
-    padding: 10px 20px;
-    display: block;
-    background: #f5f5f578;
-}
-
-.book_item .book_header h2 {
-    font-size: 20px;
-    color: #686868;
-    margin: 4px 0px 0px 0px;
-    font-weight: 300;
-}
-
-
-.book_item .book_bubble {
-    background: #E91E63;
-    display: inline-block;
-    padding: 3px 5px;
-    border-radius: 3px;
-    font-size: 11px;
-    margin-right: 5px;
-    color: #fff;
-}
-
-.book_item .book_bubble.rating {
-    background: #5f5f5f;
-}
-
-.book_item .book_author {
-    font-size: 15px;
-    color: #5f5f5f;
-    font-weight: 700;
-}
-
-.book_item .book_items {
-    font-size:13px;
-}
-
-.book_item .book_items strong { 
-    color: #ffffff;
-}
-.book_item .book_items div {
-    margin-bottom: 8px;
-}
-
 .loadmore {
     background: #dbdbdb;
     text-align: center;

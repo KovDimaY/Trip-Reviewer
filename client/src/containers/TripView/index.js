@@ -39,25 +39,17 @@ class TripView extends Component {
           <div className="trip-view-box">
             <div className="left">
               <div>
-                <span>
-                  Duration:
-                </span>
-                {duration === 1 ? ` ${duration} day` : ` ${duration} days`}
+                <span>Duration:</span>
+                {duration === 1 ? ' 1 day' : ` ${duration} days`}
               </div>
               <div>
-                <span>
-                  Expences:
-                </span>
+                <span>Expences:</span>
                 {` $${expences} `}
               </div>
             </div>
             <div className="right">
-              <span>
-                Rating
-              </span>
-              <div>
-                {rating}/5
-              </div>
+              <span>Rating</span>
+              <div>{rating}/5</div>
             </div>
           </div>
         </div>

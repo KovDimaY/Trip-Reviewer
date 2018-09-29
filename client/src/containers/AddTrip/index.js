@@ -118,7 +118,7 @@ class AddTrip extends Component {
 
           <div className="form_element">
             <span className="label">
-              Duration:
+              Duration (days):
             </span>
             <input
               type="number"
@@ -131,7 +131,7 @@ class AddTrip extends Component {
 
           <div className="form_element">
             <span className="label">
-              Expences:
+              Expences ($):
             </span>
             <input
               type="number"

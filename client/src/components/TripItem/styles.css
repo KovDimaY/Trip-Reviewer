@@ -1,0 +1,37 @@
+.trip-item-container {
+    border-bottom: 4px solid #f1f1f1;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    display: block;
+    background: #f5f5f578;
+}
+.trip-item-container .header h2 {
+    font-size: 20px;
+    color: #686868;
+    margin: 4px 0px 0px 0px;
+    font-weight: 300;
+}
+.trip-item-container .items {
+    font-size:13px;
+}
+.trip-item-container .items strong { 
+    color: #ffffff;
+}
+.trip-item-container .items div {
+    margin-bottom: 8px;
+}
+.trip-item-container .country {
+    margin-top: 5px;
+    font-size: 15px;
+    color: #5f5f5f;
+    font-weight: 700;
+}
+.trip-item-container .bubble {
+    background: #E91E63;
+    display: inline-block;
+    padding: 3px 5px;
+    border-radius: 3px;
+    font-size: 11px;
+    margin-right: 5px;
+    color: #fff;
+}
