@@ -43,15 +43,44 @@ describe('<TripView />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should render component with current trip', () => {
+  it('should render component with current trip of 1 day', () => {
     const initialState = {
       trips: {
         current: {
           title: 'title',
-          author: 'author',
-          review: 'review',
-          duration: 'duration',
-          price: 'price',
+          country: 'country',
+          description: 'description',
+          duration: 1,
+          expences: 'expences',
+          rating: 'rating',
+        },
+        reviewer: {
+          name: 'name',
+          lastname: 'lastname',
+        },
+      },
+    };
+    const props = {
+      match: {
+        params: {
+          id: 'id',
+        },
+      },
+    };
+    const tree = create(mockComponent(initialState, props)).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should render component with current trip of 10 day', () => {
+    const initialState = {
+      trips: {
+        current: {
+          title: 'title',
+          country: 'country',
+          description: 'description',
+          duration: 10,
+          expences: 'expences',
           rating: 'rating',
         },
         reviewer: {

@@ -163,12 +163,12 @@ describe('<AddTrip />', () => {
       },
     };
     const state = {
-      author: 'author',
+      country: 'country',
       duration: 'duration',
       ownerId: 'id',
-      price: 'price',
+      expences: 'expences',
       rating: 'rating',
-      review: 'review',
+      description: 'description',
       title: 'title',
     };
     const initialState = {

@@ -2,7 +2,7 @@
 
 exports[`<EditTrip /> should render component 1`] = `
 <div
-  className="rl_container article"
+  className="edit-review-container"
 >
   <form
     onSubmit={[Function]}
@@ -13,6 +13,11 @@ exports[`<EditTrip /> should render component 1`] = `
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Title:
+      </span>
       <input
         name="title"
         onChange={[Function]}
@@ -24,22 +29,42 @@ exports[`<EditTrip /> should render component 1`] = `
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Country:
+      </span>
       <input
-        name="author"
+        name="country"
         onChange={[Function]}
-        placeholder="Enter author"
+        placeholder="Enter country"
         type="text"
         value=""
       />
     </div>
-    <textarea
-      name="review"
-      onChange={[Function]}
-      value=""
-    />
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Desctiption:
+      </span>
+      <textarea
+        name="description"
+        onChange={[Function]}
+        placeholder="Enter description"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <span
+        className="label"
+      >
+        Duration (days):
+      </span>
       <input
         name="duration"
         onChange={[Function]}
@@ -59,8 +84,13 @@ exports[`<EditTrip /> should render component 1`] = `
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Expences ($):
+      </span>
       <input
-        name="price"
+        name="expences"
         onChange={[Function]}
         placeholder="Enter Price"
         type="number"
@@ -88,7 +118,7 @@ exports[`<EditTrip /> should render component 1`] = `
 
 exports[`<EditTrip /> should render component with postDeleted 1`] = `
 <div
-  className="rl_container article"
+  className="edit-review-container"
 >
   <div
     className="red_tag"
@@ -104,6 +134,11 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Title:
+      </span>
       <input
         name="title"
         onChange={[Function]}
@@ -115,22 +150,42 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Country:
+      </span>
       <input
-        name="author"
+        name="country"
         onChange={[Function]}
-        placeholder="Enter author"
+        placeholder="Enter country"
         type="text"
         value=""
       />
     </div>
-    <textarea
-      name="review"
-      onChange={[Function]}
-      value=""
-    />
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Desctiption:
+      </span>
+      <textarea
+        name="description"
+        onChange={[Function]}
+        placeholder="Enter description"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <span
+        className="label"
+      >
+        Duration (days):
+      </span>
       <input
         name="duration"
         onChange={[Function]}
@@ -150,8 +205,13 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Expences ($):
+      </span>
       <input
-        name="price"
+        name="expences"
         onChange={[Function]}
         placeholder="Enter Price"
         type="number"
@@ -179,7 +239,7 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
 
 exports[`<EditTrip /> should render component with updateTrip 1`] = `
 <div
-  className="rl_container article"
+  className="edit-review-container"
 >
   <form
     onSubmit={[Function]}
@@ -190,6 +250,11 @@ exports[`<EditTrip /> should render component with updateTrip 1`] = `
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Title:
+      </span>
       <input
         name="title"
         onChange={[Function]}
@@ -201,22 +266,42 @@ exports[`<EditTrip /> should render component with updateTrip 1`] = `
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Country:
+      </span>
       <input
-        name="author"
+        name="country"
         onChange={[Function]}
-        placeholder="Enter author"
+        placeholder="Enter country"
         type="text"
         value=""
       />
     </div>
-    <textarea
-      name="review"
-      onChange={[Function]}
-      value=""
-    />
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Desctiption:
+      </span>
+      <textarea
+        name="description"
+        onChange={[Function]}
+        placeholder="Enter description"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <span
+        className="label"
+      >
+        Duration (days):
+      </span>
       <input
         name="duration"
         onChange={[Function]}
@@ -236,8 +321,13 @@ exports[`<EditTrip /> should render component with updateTrip 1`] = `
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Expences ($):
+      </span>
       <input
-        name="price"
+        name="expences"
         onChange={[Function]}
         placeholder="Enter Price"
         type="number"
