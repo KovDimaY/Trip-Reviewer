@@ -68,3 +68,9 @@
     text-align: center;
     margin-top: 20px;
 }
+.add-review-container .editor-wrapper {
+    width: 80%;
+    margin-left: 10%;
+    border: 1px solid #ebebeb;
+    background-color: #f7f7f7;
+}

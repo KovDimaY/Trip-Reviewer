@@ -11,9 +11,18 @@ const tripSchema = mongoose.Schema({
     required: [true, 'Country is required'],
   },
   description: {
-    type: String,
+    type: mongoose.Schema.Types.Mixed,
+    validate: {
+      validator: (value) => {
+        let count = 0;
+        value.blocks.forEach(({ text }) => {
+          count += text.length;
+        });
+        return count > 100;
+      },
+      message: 'Description should be at least 100 chars long',
+    },
     required: [true, 'Description is required'],
-    minlength: [100, 'Should be at least 100 chars'],
   },
   duration: {
     type: Number,
