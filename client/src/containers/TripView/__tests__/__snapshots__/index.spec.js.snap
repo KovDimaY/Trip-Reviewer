@@ -1,38 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TripView /> should render component with current trip 1`] = `
+exports[`<TripView /> should render component with current trip of 1 day 1`] = `
 <div>
   <div
-    className="br_container"
+    className="trip-view-container"
   >
     <div
-      className="br_header"
+      className="trip-view-header"
     >
       <h2>
         title
       </h2>
       <h5>
-        author
+        country
       </h5>
       <div
-        className="br_reviewer"
+        className="reviewer"
       >
         <span>
-          Review by:
+          Author:
         </span>
-         
-        name
-         
-        lastname
+         name lastname
       </div>
     </div>
     <div
-      className="br_review"
+      className="trip-view-description"
     >
-      review
+      description
     </div>
     <div
-      className="br_box"
+      className="trip-view-box"
     >
       <div
         className="left"
@@ -41,17 +38,76 @@ exports[`<TripView /> should render component with current trip 1`] = `
           <span>
             Duration:
           </span>
-           
-          duration
-           
-          days
+           1 day
         </div>
         <div>
           <span>
-            Price:
+            Expences:
           </span>
-           
-          price
+           $expences 
+        </div>
+      </div>
+      <div
+        className="right"
+      >
+        <span>
+          Rating
+        </span>
+        <div>
+          rating
+          /5
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<TripView /> should render component with current trip of 10 day 1`] = `
+<div>
+  <div
+    className="trip-view-container"
+  >
+    <div
+      className="trip-view-header"
+    >
+      <h2>
+        title
+      </h2>
+      <h5>
+        country
+      </h5>
+      <div
+        className="reviewer"
+      >
+        <span>
+          Author:
+        </span>
+         name lastname
+      </div>
+    </div>
+    <div
+      className="trip-view-description"
+    >
+      description
+    </div>
+    <div
+      className="trip-view-box"
+    >
+      <div
+        className="left"
+      >
+        <div>
+          <span>
+            Duration:
+          </span>
+           10 days
+        </div>
+        <div>
+          <span>
+            Expences:
+          </span>
+           $expences 
         </div>
       </div>
       <div

@@ -6,15 +6,17 @@ import StarsRating from '../../components/StarsRating';
 import { addTrip, clearNewTrip } from '../../actions';
 import { TRIPS } from '../../constants/routes';
 
+import './styles.css';
+
 class AddTrip extends Component {
   state = {
     formdata: {
       title: '',
-      author: '',
-      review: '',
+      country: '',
+      description: '',
       duration: '',
       rating: 0,
-      price: '',
+      expences: '',
     },
   };
 
@@ -65,18 +67,21 @@ class AddTrip extends Component {
 
   render() {
     const {
-      title, author, review,
-      duration, rating, price,
+      title, country, description,
+      duration, rating, expences,
     } = this.state.formdata;
 
     return (
-      <div className="rl_container article">
+      <div className="add-review-container">
         <form onSubmit={this.submitForm}>
           <h2>
             Add a review
           </h2>
 
           <div className="form_element">
+            <span className="label">
+              Title:
+            </span>
             <input
               type="text"
               name="title"
@@ -87,22 +92,34 @@ class AddTrip extends Component {
           </div>
 
           <div className="form_element">
+            <span className="label">
+              Trip to:
+            </span>
             <input
               type="text"
-              name="author"
-              placeholder="Enter author"
-              value={author}
+              name="country"
+              placeholder="Enter country"
+              value={country}
               onChange={this.handleInput}
             />
           </div>
 
-          <textarea
-            value={review}
-            name="review"
-            onChange={this.handleInput}
-          />
+          <div className="form_element">
+            <span className="label">
+              Desctiption:
+            </span>
+            <textarea
+              value={description}
+              name="description"
+              placeholder="Enter description"
+              onChange={this.handleInput}
+            />
+          </div>
 
           <div className="form_element">
+            <span className="label">
+              Duration (days):
+            </span>
             <input
               type="number"
               name="duration"
@@ -113,17 +130,20 @@ class AddTrip extends Component {
           </div>
 
           <div className="form_element">
-            <StarsRating rating={rating} onChange={this.handleRating} />
+            <span className="label">
+              Expences ($):
+            </span>
+            <input
+              type="number"
+              name="expences"
+              placeholder="Enter expences"
+              value={expences}
+              onChange={this.handleInput}
+            />
           </div>
 
           <div className="form_element">
-            <input
-              type="number"
-              name="price"
-              placeholder="Enter Price"
-              value={price}
-              onChange={this.handleInput}
-            />
+            <StarsRating rating={rating} onChange={this.handleRating} />
           </div>
 
           <button type="submit">

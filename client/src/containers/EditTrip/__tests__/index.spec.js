@@ -108,11 +108,11 @@ describe('<EditTrip />', () => {
         trip: {
           _id: 'trip._id',
           title: 'trip.title',
-          author: 'trip.author',
-          review: 'trip.review',
+          country: 'trip.country',
+          description: 'trip.description',
           duration: 'trip.duration',
           rating: 'trip.rating',
-          price: 'trip.price',
+          expences: 'trip.expences',
         },
       },
     };
@@ -186,12 +186,12 @@ describe('<EditTrip />', () => {
       },
     };
     const state = {
-      author: 'author',
+      country: 'country',
       duration: 'duration',
       ownerId: 'id',
-      price: 'price',
+      expences: 'expences',
       rating: 'rating',
-      review: 'review',
+      description: 'description',
       title: 'title',
     };
     const initialState = {

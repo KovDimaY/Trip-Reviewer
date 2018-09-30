@@ -10,12 +10,25 @@ const mockComponent = props => (
 );
 
 describe('<TripItem />', () => {
-  it('should render component', () => {
+  it('should render component with duration 1', () => {
     const props = {
       _id: '_id',
-      author: 'author',
-      price: 'price',
-      duration: 'duration',
+      country: 'country',
+      expences: 'expences',
+      duration: 1,
+      rating: 'rating',
+    };
+    const tree = create(mockComponent(props)).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should render component with duration 10', () => {
+    const props = {
+      _id: '_id',
+      country: 'country',
+      expences: 'expences',
+      duration: 10,
       rating: 'rating',
     };
     const tree = create(mockComponent(props)).toJSON();

@@ -8,6 +8,7 @@
     "test": "npm run test-jest --prefix client",
     "test:coverage": "npm run test:coverage --prefix client",
     "test:update": "npm run test:update --prefix client",
+    "coverage:report": "open client/coverage/jest/lcov-report/index.html",
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
     "client": "npm run start --prefix client",
