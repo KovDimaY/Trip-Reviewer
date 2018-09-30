@@ -80,3 +80,9 @@
     display: inline-block;
     margin-bottom: 50px;
 }
+.edit-review-container .editor-wrapper {
+    width: 80%;
+    margin-left: 10%;
+    border: 1px solid #ebebeb;
+    background-color: #f7f7f7;
+}

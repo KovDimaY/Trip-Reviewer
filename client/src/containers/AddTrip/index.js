@@ -8,7 +8,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import StarsRating from '../../components/StarsRating';
 import { addTrip, clearNewTrip } from '../../actions';
 import { TRIPS } from '../../constants/routes';
-import toolbar from './toolbar';
+import toolbar from '../../constants/toolbar';
 
 import './styles.css';
 
@@ -42,7 +42,7 @@ class AddTrip extends Component {
     const contentState = editorState.getCurrentContent();
     const rawState = convertToRaw(contentState);
 
-    newFormdata.description = rawState;
+    newFormdata.description = JSON.stringify(rawState);
 
     this.setState({ editorState, formdata: newFormdata });
   }
@@ -121,7 +121,7 @@ class AddTrip extends Component {
 
           <div className="form_element">
             <span className="label">
-              Desctiption:
+              Description:
             </span>
             <Editor
               editorState={this.state.editorState}
