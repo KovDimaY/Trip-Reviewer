@@ -239,7 +239,124 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
 </div>
 `;
 
-exports[`<EditTrip /> should render component with updateTrip 1`] = `
+exports[`<EditTrip /> should render component with updateTrip and correct description 1`] = `
+<div
+  className="edit-review-container"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2>
+      Edit review
+    </h2>
+    <div
+      className="form_element"
+    >
+      <span
+        className="label"
+      >
+        Title:
+      </span>
+      <input
+        name="title"
+        onChange={[Function]}
+        placeholder="Enter title"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <span
+        className="label"
+      >
+        Trip to:
+      </span>
+      <input
+        name="country"
+        onChange={[Function]}
+        placeholder="Enter country"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <span
+        className="label"
+      >
+        Description:
+      </span>
+      <Editor
+        editorClassName="editor-self"
+        editorState={Object {}}
+        onEditorStateChange={[Function]}
+        toolbar={Object {}}
+        wrapperClassName="editor-wrapper"
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <span
+        className="label"
+      >
+        Duration (days):
+      </span>
+      <input
+        name="duration"
+        onChange={[Function]}
+        placeholder="Enter duration"
+        type="number"
+        value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <StarsRating
+        onChange={[Function]}
+        rating={0}
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <span
+        className="label"
+      >
+        Expences ($):
+      </span>
+      <input
+        name="expences"
+        onChange={[Function]}
+        placeholder="Enter Price"
+        type="number"
+        value=""
+      />
+    </div>
+    <button
+      type="submit"
+    >
+      Edit review
+    </button>
+    <div
+      className="delete_post"
+    >
+      <div
+        className="button"
+        onClick={[Function]}
+      >
+        Delete review
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`<EditTrip /> should render component with updateTrip and wrong description 1`] = `
 <div
   className="edit-review-container"
 >

@@ -11,7 +11,12 @@ import * as routes from '../../../constants/routes';
 jest.mock('react-router-dom', () => ({ Link: 'Link' }));
 jest.mock('react-draft-wysiwyg', () => ({ Editor: 'Editor' }));
 jest.mock('draft-js', () => ({
-  EditorState: { createEmpty: () => ({}) },
+  EditorState: {
+    createEmpty: () => ({}),
+    createWithContent: () => ({}),
+  },
+  convertFromRaw: () => ({}),
+  convertToRaw: () => ({}),
 }));
 jest.mock('../../../constants/toolbar', () => ({}));
 jest.mock('./../../../components/StarsRating', () => 'StarsRating');
@@ -58,7 +63,28 @@ describe('<EditTrip />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should render component with updateTrip', () => {
+  it('should render component with updateTrip and correct description', () => {
+    const initialState = {
+      trips: {
+        updateTrip: true,
+        trip: {
+          _id: '_id',
+        },
+      },
+    };
+    const props = {
+      match: {
+        params: {
+          id: 'id',
+        },
+      },
+    };
+    const tree = create(mockComponent(initialState, props)).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should render component with updateTrip and wrong description', () => {
     const initialState = {
       trips: {
         updateTrip: true,
@@ -97,7 +123,7 @@ describe('<EditTrip />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should change state when componentWillReceiveProps is called', () => {
+  it('should change state when componentWillReceiveProps is called with a correct description', () => {
     const initialState = {
       trips: {},
     };
@@ -114,7 +140,7 @@ describe('<EditTrip />', () => {
           _id: 'trip._id',
           title: 'trip.title',
           country: 'trip.country',
-          description: 'trip.description',
+          description: '{"test":"test"}',
           duration: 'trip.duration',
           rating: 'trip.rating',
           expences: 'trip.expences',
@@ -127,6 +153,60 @@ describe('<EditTrip />', () => {
     instance.componentWillReceiveProps(nextProps);
 
     expect(instance.state.formdata).toEqual(nextProps.trips.trip);
+  });
+
+  it('should change state when componentWillReceiveProps is called with a wrong description', () => {
+    const initialState = {
+      trips: {},
+    };
+    const props = {
+      match: {
+        params: {
+          id: 'id',
+        },
+      },
+    };
+    const nextProps = {
+      trips: {
+        trip: {
+          _id: 'trip._id',
+          title: 'trip.title',
+          country: 'trip.country',
+          description: 'trip.descripton',
+          duration: 'trip.duration',
+          rating: 'trip.rating',
+          expences: 'trip.expences',
+        },
+      },
+    };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+    instance.componentWillReceiveProps(nextProps);
+
+    expect(instance.state.formdata).toEqual(nextProps.trips.trip);
+  });
+
+  it('should not change state when componentWillReceiveProps is called with no trip', () => {
+    const initialState = {
+      trips: {},
+    };
+    const props = {
+      match: {
+        params: {
+          id: 'id',
+        },
+      },
+    };
+    const nextProps = {
+      trips: {},
+    };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+    instance.componentWillReceiveProps(nextProps);
+
+    expect(instance.state.formdata).not.toEqual(nextProps.trips.trip);
   });
 
   it('should redirect when componentWillReceiveProps is called with updateTrip', () => {
@@ -255,6 +335,30 @@ describe('<EditTrip />', () => {
     instance.handleInput(event);
 
     expect(instance.state.formdata.title).toEqual('test');
+  });
+
+  it('onEditorStateChange should change state correctly', () => {
+    const initialState = {
+      trips: {},
+    };
+    const props = {
+      match: {
+        params: {
+          id: 'id',
+        },
+      },
+    };
+    const editorState = {
+      getCurrentContent: () => ({}),
+      test: 'test',
+    };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+    instance.onEditorStateChange(editorState);
+
+    expect(instance.state.editorState).toEqual(editorState);
+    expect(instance.state.formdata.description).toEqual('{}');
   });
 
   it('handleRating should change state correctly', () => {

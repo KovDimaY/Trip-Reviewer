@@ -71,7 +71,7 @@ class EditTrip extends PureComponent {
     const contentState = editorState.getCurrentContent();
     const rawState = convertToRaw(contentState);
 
-    newFormdata.description = rawState;
+    newFormdata.description = JSON.stringify(rawState);
 
     this.setState({ editorState, formdata: newFormdata });
   }
