@@ -157,7 +157,7 @@ class EditTrip extends PureComponent {
 
           <div className="form_element">
             <span className="label">
-              Country:
+              Trip to:
             </span>
             <input
               type="text"
