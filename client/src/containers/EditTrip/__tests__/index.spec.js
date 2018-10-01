@@ -9,6 +9,11 @@ import { updateTrip, clearTrip, deleteTrip } from '../../../actions';
 import * as routes from '../../../constants/routes';
 
 jest.mock('react-router-dom', () => ({ Link: 'Link' }));
+jest.mock('react-draft-wysiwyg', () => ({ Editor: 'Editor' }));
+jest.mock('draft-js', () => ({
+  EditorState: { createEmpty: () => ({}) },
+}));
+jest.mock('../../../constants/toolbar', () => ({}));
 jest.mock('./../../../components/StarsRating', () => 'StarsRating');
 jest.mock('./../../../actions', () => ({
   getTrip: jest.fn(() => ({

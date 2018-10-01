@@ -26,7 +26,14 @@ exports[`<TripView /> should render component with current trip of 1 day 1`] = `
     <div
       className="trip-view-description"
     >
-      description
+      <Editor
+        editorClassName="editor-self"
+        editorState={Object {}}
+        readOnly={true}
+        toolbarClassName="editor-toolbar"
+        toolbarHidden={true}
+        wrapperClassName="editor-wrapper"
+      />
     </div>
     <div
       className="trip-view-box"
@@ -89,7 +96,14 @@ exports[`<TripView /> should render component with current trip of 10 day 1`] = 
     <div
       className="trip-view-description"
     >
-      description
+      <Editor
+        editorClassName="editor-self"
+        editorState={Object {}}
+        readOnly={true}
+        toolbarClassName="editor-toolbar"
+        toolbarHidden={true}
+        wrapperClassName="editor-wrapper"
+      />
     </div>
     <div
       className="trip-view-box"

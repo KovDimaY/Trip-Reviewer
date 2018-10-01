@@ -32,7 +32,7 @@ exports[`<EditTrip /> should render component 1`] = `
       <span
         className="label"
       >
-        Country:
+        Trip to:
       </span>
       <input
         name="country"
@@ -48,13 +48,14 @@ exports[`<EditTrip /> should render component 1`] = `
       <span
         className="label"
       >
-        Desctiption:
+        Description:
       </span>
-      <textarea
-        name="description"
-        onChange={[Function]}
-        placeholder="Enter description"
-        value=""
+      <Editor
+        editorClassName="editor-self"
+        editorState={Object {}}
+        onEditorStateChange={[Function]}
+        toolbar={Object {}}
+        wrapperClassName="editor-wrapper"
       />
     </div>
     <div
@@ -153,7 +154,7 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
       <span
         className="label"
       >
-        Country:
+        Trip to:
       </span>
       <input
         name="country"
@@ -169,13 +170,14 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
       <span
         className="label"
       >
-        Desctiption:
+        Description:
       </span>
-      <textarea
-        name="description"
-        onChange={[Function]}
-        placeholder="Enter description"
-        value=""
+      <Editor
+        editorClassName="editor-self"
+        editorState={Object {}}
+        onEditorStateChange={[Function]}
+        toolbar={Object {}}
+        wrapperClassName="editor-wrapper"
       />
     </div>
     <div
@@ -269,7 +271,7 @@ exports[`<EditTrip /> should render component with updateTrip 1`] = `
       <span
         className="label"
       >
-        Country:
+        Trip to:
       </span>
       <input
         name="country"
@@ -285,13 +287,14 @@ exports[`<EditTrip /> should render component with updateTrip 1`] = `
       <span
         className="label"
       >
-        Desctiption:
+        Description:
       </span>
-      <textarea
-        name="description"
-        onChange={[Function]}
-        placeholder="Enter description"
-        value=""
+      <Editor
+        editorClassName="editor-self"
+        editorState={Object {}}
+        onEditorStateChange={[Function]}
+        toolbar={Object {}}
+        wrapperClassName="editor-wrapper"
       />
     </div>
     <div

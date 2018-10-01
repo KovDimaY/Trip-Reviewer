@@ -7,7 +7,12 @@ import AddTrip from '..';
 import { addTrip, clearNewTrip } from '../../../actions';
 import { TRIPS } from '../../../constants/routes';
 
+jest.mock('react-draft-wysiwyg', () => ({ Editor: 'Editor' }));
+jest.mock('draft-js', () => ({
+  EditorState: { createEmpty: () => ({}) },
+}));
 jest.mock('./../../../components/StarsRating', () => 'StarsRating');
+jest.mock('../../../constants/toolbar', () => ({}));
 jest.mock('./../../../actions', () => ({
   addTrip: jest.fn(() => ({
     type: 'test',

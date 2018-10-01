@@ -48,13 +48,14 @@ exports[`<AddTrip /> should render component 1`] = `
       <span
         className="label"
       >
-        Desctiption:
+        Description:
       </span>
-      <textarea
-        name="description"
-        onChange={[Function]}
-        placeholder="Enter description"
-        value=""
+      <Editor
+        editorClassName="editor-self"
+        editorState={Object {}}
+        onEditorStateChange={[Function]}
+        toolbar={Object {}}
+        wrapperClassName="editor-wrapper"
       />
     </div>
     <div
@@ -154,13 +155,14 @@ exports[`<AddTrip /> should render component with newTrip and post 1`] = `
       <span
         className="label"
       >
-        Desctiption:
+        Description:
       </span>
-      <textarea
-        name="description"
-        onChange={[Function]}
-        placeholder="Enter description"
-        value=""
+      <Editor
+        editorClassName="editor-self"
+        editorState={Object {}}
+        onEditorStateChange={[Function]}
+        toolbar={Object {}}
+        wrapperClassName="editor-wrapper"
       />
     </div>
     <div
@@ -260,13 +262,14 @@ exports[`<AddTrip /> should render component with newTrip but no post 1`] = `
       <span
         className="label"
       >
-        Desctiption:
+        Description:
       </span>
-      <textarea
-        name="description"
-        onChange={[Function]}
-        placeholder="Enter description"
-        value=""
+      <Editor
+        editorClassName="editor-self"
+        editorState={Object {}}
+        onEditorStateChange={[Function]}
+        toolbar={Object {}}
+        wrapperClassName="editor-wrapper"
       />
     </div>
     <div

@@ -6,6 +6,10 @@ import { shallow } from 'enzyme';
 import TripView from '..';
 import { clearTripWithReviewer } from '../../../actions';
 
+jest.mock('react-draft-wysiwyg', () => ({ Editor: 'Editor' }));
+jest.mock('draft-js', () => ({
+  EditorState: { createEmpty: () => ({}) },
+}));
 jest.mock('./../../../actions', () => ({
   getTripWithReviewer: jest.fn(() => ({
     type: 'getTripWithReviewer',
