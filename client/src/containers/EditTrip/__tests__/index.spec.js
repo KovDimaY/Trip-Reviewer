@@ -172,7 +172,7 @@ describe('<EditTrip />', () => {
           _id: 'trip._id',
           title: 'trip.title',
           country: 'trip.country',
-          description: 'trip.descripton',
+          description: 'trip.description',
           duration: 'trip.duration',
           rating: 'trip.rating',
           expences: 'trip.expences',

@@ -86,3 +86,7 @@
     border: 1px solid #ebebeb;
     background-color: #f7f7f7;
 }
+.edit-review-container .editor-self {
+    padding-left: 10px;
+    padding-right: 10px; 
+}
