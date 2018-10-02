@@ -7,7 +7,15 @@ import AddTrip from '..';
 import { addTrip, clearNewTrip } from '../../../actions';
 import { TRIPS } from '../../../constants/routes';
 
+jest.mock('react-draft-wysiwyg', () => ({ Editor: 'Editor' }));
+jest.mock('draft-js', () => ({
+  EditorState: {
+    createEmpty: () => ({}),
+  },
+  convertToRaw: () => ({}),
+}));
 jest.mock('./../../../components/StarsRating', () => 'StarsRating');
+jest.mock('../../../constants/toolbar', () => ({}));
 jest.mock('./../../../actions', () => ({
   addTrip: jest.fn(() => ({
     type: 'test',
@@ -138,6 +146,30 @@ describe('<AddTrip />', () => {
     instance.handleInput(event);
 
     expect(instance.state.formdata.title).toEqual('test');
+  });
+
+  it('onEditorStateChange should change state correctly', () => {
+    const initialState = {
+      trips: {},
+    };
+    const props = {
+      match: {
+        params: {
+          id: 'id',
+        },
+      },
+    };
+    const editorState = {
+      getCurrentContent: () => ({}),
+      test: 'test',
+    };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+    instance.onEditorStateChange(editorState);
+
+    expect(instance.state.editorState).toEqual(editorState);
+    expect(instance.state.formdata.description).toEqual('{}');
   });
 
   it('handleRating should change state correctly', () => {

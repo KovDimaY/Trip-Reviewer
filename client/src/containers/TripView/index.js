@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Editor } from 'react-draft-wysiwyg';
+import { EditorState, convertFromRaw } from 'draft-js';
 
 import { getTripWithReviewer, clearTripWithReviewer } from '../../actions';
 
@@ -13,6 +15,21 @@ class TripView extends Component {
 
   componentWillUnmount() {
     this.props.dispatch(clearTripWithReviewer());
+  }
+
+  getEditorState = (state) => {
+    let editorState = EditorState.createEmpty();
+
+    try {
+      const parsedDescription = JSON.parse(state);
+      const contentState = convertFromRaw(parsedDescription);
+      editorState = EditorState.createWithContent(contentState);
+    } catch (e) {
+      console.log('Parsing description error: ', e); // eslint-disable-line no-console
+      console.log('Object: ', state); // eslint-disable-line no-console
+    }
+
+    return editorState;
   }
 
   renderTrip = (trips) => {
@@ -34,7 +51,14 @@ class TripView extends Component {
             </div>
           </div>
           <div className="trip-view-description">
-            {description}
+            <Editor
+              editorState={this.getEditorState(description)}
+              wrapperClassName="editor-wrapper"
+              toolbarClassName="editor-toolbar"
+              editorClassName="editor-self"
+              toolbarHidden
+              readOnly
+            />
           </div>
           <div className="trip-view-box">
             <div className="left">

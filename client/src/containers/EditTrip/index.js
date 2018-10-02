@@ -1,17 +1,21 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Editor } from 'react-draft-wysiwyg';
+import { EditorState, convertToRaw, convertFromRaw } from 'draft-js';
 
 import StarsRating from '../../components/StarsRating';
 import {
   getTrip, updateTrip, clearTrip, deleteTrip,
 } from '../../actions';
 import * as routes from '../../constants/routes';
+import toolbar from '../../constants/toolbar';
 
 import './styles.css';
 
 class EditTrip extends PureComponent {
   state = {
+    editorState: EditorState.createEmpty(),
     formdata: {
       _id: this.props.match.params.id,
       title: '',
@@ -32,8 +36,19 @@ class EditTrip extends PureComponent {
 
     if (updateResult) {
       nextProps.history.push(`${routes.TRIPS}/${trip._id}`);
-    } else {
+    } else if (trip) {
+      let editorState = EditorState.createEmpty();
+      try {
+        const parsedDescription = JSON.parse(trip.description);
+        const contantState = convertFromRaw(parsedDescription);
+        editorState = EditorState.createWithContent(contantState);
+      } catch (e) {
+        console.log('Parsing description error: ', e); // eslint-disable-line no-console
+        console.log('Object: ', trip.description); // eslint-disable-line no-console
+      }
+
       this.setState({
+        editorState,
         formdata: {
           _id: trip._id,
           title: trip.title,
@@ -49,6 +64,16 @@ class EditTrip extends PureComponent {
 
   componentWillUnmount() {
     this.props.dispatch(clearTrip());
+  }
+
+  onEditorStateChange = (editorState) => {
+    const newFormdata = { ...this.state.formdata };
+    const contentState = editorState.getCurrentContent();
+    const rawState = convertToRaw(contentState);
+
+    newFormdata.description = JSON.stringify(rawState);
+
+    this.setState({ editorState, formdata: newFormdata });
   }
 
   handleInput = (event) => {
@@ -95,7 +120,7 @@ class EditTrip extends PureComponent {
 
   render() {
     const {
-      title, country, description,
+      title, country,
       duration, rating, expences,
     } = this.state.formdata;
     const { trips } = this.props;
@@ -132,7 +157,7 @@ class EditTrip extends PureComponent {
 
           <div className="form_element">
             <span className="label">
-              Country:
+              Trip to:
             </span>
             <input
               type="text"
@@ -145,13 +170,14 @@ class EditTrip extends PureComponent {
 
           <div className="form_element">
             <span className="label">
-              Desctiption:
+              Description:
             </span>
-            <textarea
-              value={description}
-              name="description"
-              placeholder="Enter description"
-              onChange={this.handleInput}
+            <Editor
+              editorState={this.state.editorState}
+              wrapperClassName="editor-wrapper"
+              editorClassName="editor-self"
+              onEditorStateChange={this.onEditorStateChange}
+              toolbar={toolbar}
             />
           </div>
 

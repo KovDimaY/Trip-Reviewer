@@ -65,3 +65,7 @@
     font-weight: 300;
 }
 
+.trip-view-container .editor-toolbar {
+    display: none;
+}
+

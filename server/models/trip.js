@@ -12,8 +12,31 @@ const tripSchema = mongoose.Schema({
   },
   description: {
     type: String,
+    validate: [
+      {
+        validator: (rawValue) => {
+          try {
+            JSON.parse(rawValue);
+            return true;
+          } catch (e) { return false; }
+        },
+        msg: 'Description has incorrect format',
+      },
+      {
+        validator: (rawValue) => {
+          try {
+            const value = JSON.parse(rawValue);
+            let count = 0;
+            value.blocks.forEach(({ text }) => {
+              count += text.length;
+            });
+            return count > 100;
+          } catch (e) { return false; }
+        },
+        msg: 'Description should have at least 100 chars',
+      },
+    ],
     required: [true, 'Description is required'],
-    minlength: [100, 'Should be at least 100 chars'],
   },
   duration: {
     type: Number,

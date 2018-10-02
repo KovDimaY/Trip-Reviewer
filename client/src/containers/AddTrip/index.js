@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Editor } from 'react-draft-wysiwyg';
+import { EditorState, convertToRaw } from 'draft-js';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 import StarsRating from '../../components/StarsRating';
 import { addTrip, clearNewTrip } from '../../actions';
 import { TRIPS } from '../../constants/routes';
+import toolbar from '../../constants/toolbar';
 
 import './styles.css';
 
 class AddTrip extends Component {
   state = {
+    editorState: EditorState.createEmpty(),
     formdata: {
       title: '',
       country: '',
@@ -30,6 +35,16 @@ class AddTrip extends Component {
 
   componentWillUnmount() {
     this.props.dispatch(clearNewTrip());
+  }
+
+  onEditorStateChange = (editorState) => {
+    const newFormdata = { ...this.state.formdata };
+    const contentState = editorState.getCurrentContent();
+    const rawState = convertToRaw(contentState);
+
+    newFormdata.description = JSON.stringify(rawState);
+
+    this.setState({ editorState, formdata: newFormdata });
   }
 
   handleInput = (event) => {
@@ -67,7 +82,7 @@ class AddTrip extends Component {
 
   render() {
     const {
-      title, country, description,
+      title, country,
       duration, rating, expences,
     } = this.state.formdata;
 
@@ -106,13 +121,14 @@ class AddTrip extends Component {
 
           <div className="form_element">
             <span className="label">
-              Desctiption:
+              Description:
             </span>
-            <textarea
-              value={description}
-              name="description"
-              placeholder="Enter description"
-              onChange={this.handleInput}
+            <Editor
+              editorState={this.state.editorState}
+              wrapperClassName="editor-wrapper"
+              editorClassName="editor-self"
+              onEditorStateChange={this.onEditorStateChange}
+              toolbar={toolbar}
             />
           </div>
 

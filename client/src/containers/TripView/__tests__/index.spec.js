@@ -6,6 +6,14 @@ import { shallow } from 'enzyme';
 import TripView from '..';
 import { clearTripWithReviewer } from '../../../actions';
 
+jest.mock('react-draft-wysiwyg', () => ({ Editor: 'Editor' }));
+jest.mock('draft-js', () => ({
+  EditorState: {
+    createEmpty: () => ({}),
+    createWithContent: () => ({}),
+  },
+  convertFromRaw: () => ({}),
+}));
 jest.mock('./../../../actions', () => ({
   getTripWithReviewer: jest.fn(() => ({
     type: 'getTripWithReviewer',
@@ -43,13 +51,13 @@ describe('<TripView />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should render component with current trip of 1 day', () => {
+  it('should render component with current trip of 1 day and correct description', () => {
     const initialState = {
       trips: {
         current: {
           title: 'title',
           country: 'country',
-          description: 'description',
+          description: '{"test":"test"}',
           duration: 1,
           expences: 'expences',
           rating: 'rating',
@@ -72,7 +80,7 @@ describe('<TripView />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should render component with current trip of 10 day', () => {
+  it('should render component with current trip of 10 days and wrong', () => {
     const initialState = {
       trips: {
         current: {
