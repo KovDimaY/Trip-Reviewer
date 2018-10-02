@@ -41,6 +41,7 @@ class ImageUploader extends Component {
         accept="image/*"
         name="avatar"
         filename={this.props.filename}
+        metadata={{ cacheControl: 'max-age=3600' }}
         storageRef={firebase.storage().ref('avatars')}
         onUploadStart={this.handleUploadStart}
         onUploadError={this.handleUploadError}
