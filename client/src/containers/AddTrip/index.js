@@ -6,6 +6,7 @@ import { EditorState, convertToRaw } from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 import StarsRating from '../../components/StarsRating';
+import CountrySelector from '../../components/CountrySelector';
 import { addTrip, clearNewTrip } from '../../actions';
 import { TRIPS } from '../../constants/routes';
 import toolbar from '../../constants/toolbar';
@@ -110,6 +111,13 @@ class AddTrip extends Component {
             <span className="label">
               Trip to:
             </span>
+            <CountrySelector
+              defaultCountry="Georgia" // First priority
+              // defaultISOALPHA2Code="KZ" // Second priority
+              // defaultISOALPHA3Code="KEN" // Third priority
+              // defaultISONumericalCode={410} // Fourth priority
+              getSelectedCountry={coutryObject => console.log(coutryObject)}
+            />
             <input
               type="text"
               name="country"
