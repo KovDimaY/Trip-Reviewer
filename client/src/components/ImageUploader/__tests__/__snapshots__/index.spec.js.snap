@@ -8,7 +8,7 @@ exports[`<ImageUploader /> should render component 1`] = `
   hidden={true}
   metadata={
     Object {
-      "cacheControl": "max-age=3600",
+      "cacheControl": "max-age=86400",
     }
   }
   name="avatar"

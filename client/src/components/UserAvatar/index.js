@@ -30,15 +30,13 @@ class UserAvatar extends PureComponent {
     updateImage(props) {
       const { filename } = props;
 
-      if (filename) {
-        if (this.oldFilename !== filename) {
-          firebase.storage().ref('avatars')
-            .child(filename).getDownloadURL()
-            .then(this.handleGetUrlSuccess);
+      if (filename && filename !== this.oldFilename) {
+        firebase.storage().ref('avatars')
+          .child(filename).getDownloadURL()
+          .then(this.handleGetUrlSuccess);
 
-          this.oldFilename = filename;
-        }
-      } else {
+        this.oldFilename = filename;
+      } else if (!filename) {
         this.setState({ src: '/images/avatar.png', isLoading: false });
       }
     }
