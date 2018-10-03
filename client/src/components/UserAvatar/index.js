@@ -11,6 +11,7 @@ class UserAvatar extends PureComponent {
     };
 
     componentWillMount() {
+      this.oldFilename = '';
       this.updateImage(this.props);
     }
 
@@ -29,11 +30,13 @@ class UserAvatar extends PureComponent {
     updateImage(props) {
       const { filename } = props;
 
-      if (filename) {
+      if (filename && filename !== this.oldFilename) {
         firebase.storage().ref('avatars')
           .child(filename).getDownloadURL()
           .then(this.handleGetUrlSuccess);
-      } else {
+
+        this.oldFilename = filename;
+      } else if (!filename) {
         this.setState({ src: '/images/avatar.png', isLoading: false });
       }
     }

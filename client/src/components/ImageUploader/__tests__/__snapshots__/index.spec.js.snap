@@ -6,6 +6,11 @@ exports[`<ImageUploader /> should render component 1`] = `
   className={undefined}
   filename={undefined}
   hidden={true}
+  metadata={
+    Object {
+      "cacheControl": "max-age=86400",
+    }
+  }
   name="avatar"
   onProgress={[Function]}
   onUploadError={[Function]}

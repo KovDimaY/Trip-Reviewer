@@ -3,6 +3,7 @@ import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
 
 import UserAvatar from '..';
+import { firebase } from '../../../firebase';
 
 jest.mock('./../../Loaders/PulseLoader', () => ('Loader'));
 jest.mock('./../../../firebase', () => ({
@@ -69,6 +70,16 @@ describe('<UserAvatar />', () => {
     instance.componentWillReceiveProps('test');
 
     expect(updateImage).toHaveBeenCalledWith('test');
+  });
+
+  it('should not call firebase.storage when updateImage is called with the same filename', () => {
+    const filename = 'filename';
+    const instance = shallow(mockComponent({})).instance();
+
+    instance.oldFilename = filename;
+    instance.updateImage({ filename });
+
+    expect(firebase.storage).toHaveBeenCalledTimes(1);
   });
 
   it('should reset this._isMounted when componentWillUnmount is called', () => {
