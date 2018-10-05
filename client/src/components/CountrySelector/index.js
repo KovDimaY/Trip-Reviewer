@@ -114,16 +114,16 @@ class CountrySelector extends React.Component {
     } = this.state;
 
     return (
-      <div className="form-group">
+      <div className="country-selector-container">
         <div className="dropdown">
           <div className="btn dropdown-toggle c-select" onClick={this.show}>
             <span>
               <div
                 alt="flag"
                 className={
-                    ISOALPHA2Code
-                        ? `flag ${ISOALPHA2Code.toLowerCase()} fnone c-dropdown-flag`
-                        : 'c-dropdown-flag'
+                  ISOALPHA2Code
+                      ? `flag ${ISOALPHA2Code.toLowerCase()} fnone c-dropdown-flag`
+                      : 'c-dropdown-flag'
                 }
               />{currentCountry}
             </span>
