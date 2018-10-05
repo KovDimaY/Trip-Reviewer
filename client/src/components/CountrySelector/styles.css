@@ -51,6 +51,8 @@
   max-height: 220px;
   overflow: hidden;
   overflow-y: auto;
+  border-radius: 3px;
+  border: 1px solid #ebebeb;
 }
 
 .country-selector-container .dropdown-item.active, 

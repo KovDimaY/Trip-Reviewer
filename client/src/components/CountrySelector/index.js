@@ -9,21 +9,7 @@ class CountrySelector extends React.Component {
   constructor(props) {
     super(props);
 
-    let defaultCountry = {};
-
-    if (this.props.defaultCountry) {
-      defaultCountry = COUNTRIES
-        .find(item => item.countryName === this.props.defaultCountry);
-    } else if (this.props.defaultISOALPHA2Code) {
-      defaultCountry = COUNTRIES
-        .find(item => item.ISOALPHA2Code === this.props.defaultISOALPHA2Code);
-    } else if (this.props.defaultISOALPHA3Code) {
-      defaultCountry = COUNTRIES
-        .find(item => item.ISOALPHA3Code === this.props.defaultISOALPHA3Code);
-    } else if (this.props.defaultISONumericalCode) {
-      defaultCountry = COUNTRIES
-        .find(item => item.ISONumericalCode === this.props.defaultISONumericalCode);
-    }
+    const defaultCountry = this.getCountry(props);
 
     this.state = {
       defaultPropsCountry: defaultCountry,
@@ -31,43 +17,52 @@ class CountrySelector extends React.Component {
       isListVisible: false,
       isFirst: true,
       currentCountry: Object.keys(defaultCountry).length
-        ? defaultCountry.countryName
-        : 'United States of America',
-      ISOALPHA2Code: Object.keys(defaultCountry).length
-        ? defaultCountry.ISOALPHA2Code
-        : 'US',
-      ISOALPHA3Code: Object.keys(defaultCountry).length
-        ? defaultCountry.ISOALPHA3Code
-        : 'USA',
-      ISONumericalCode: Object.keys(defaultCountry).length
-        ? defaultCountry.ISONumericalCode
-        : 840,
+        ? defaultCountry
+        : COUNTRIES[0],
     };
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    if (this.state.currentCountry !== nextState.currentCountry &&
-            this.state.ISOALPHA2Code !== nextState.ISOALPHA2Code &&
-            this.state.ISOALPHA3Code !== nextState.ISOALPHA3Code &&
-            this.state.ISONumericalCode !== nextState.ISONumericalCode) {
-      this.props.getSelectedCountry(
-        {
-          countryName: nextState.currentCountry,
-          ISOALPHA2Code: nextState.ISOALPHA2Code,
-          ISOALPHA3Code: nextState.ISOALPHA3Code,
-          ISONumericalCode: nextState.ISONumericalCode,
-        },
-      );
+  componentWillReceiveProps(nextProps) {
+    const newCountry = this.getCountry(nextProps);
+    const { currentCountry } = this.state;
+
+    if (newCountry.countryName !== currentCountry.countryName) {
+      this.setState({ currentCountry: newCountry });
     }
   }
 
-  handleSelectCountry = (countryName, ISOALPHA2Code, ISOALPHA3Code, ISONumericalCode) => {
+  componentWillUpdate(nextProps, nextState) {
+    const { currentCountry } = this.state;
+    const { currentCountry: newCountry } = nextState;
+
+    if (currentCountry.countryName !== newCountry.countryName) {
+      this.props.getSelectedCountry(newCountry);
+    }
+  }
+
+  getCountry = (props) => {
+    let country = {};
+
+    if (props.defaultCountry) {
+      country = COUNTRIES
+        .find(item => item.countryName === props.defaultCountry);
+    } else if (props.defaultISOALPHA2Code) {
+      country = COUNTRIES
+        .find(item => item.ISOALPHA2Code === props.defaultISOALPHA2Code);
+    } else if (props.defaultISOALPHA3Code) {
+      country = COUNTRIES
+        .find(item => item.ISOALPHA3Code === props.defaultISOALPHA3Code);
+    } else if (props.defaultISONumericalCode) {
+      country = COUNTRIES
+        .find(item => item.ISONumericalCode === props.defaultISONumericalCode);
+    }
+
+    return country;
+  }
+
+  handleSelectCountry = (country) => {
     this.setState({
-      ...this.state,
-      currentCountry: countryName,
-      ISOALPHA2Code,
-      ISOALPHA3Code,
-      ISONumericalCode,
+      currentCountry: country,
     });
   }
 
@@ -109,8 +104,9 @@ class CountrySelector extends React.Component {
 
   render() {
     const {
-      currentCountry, isListVisible,
-      ISOALPHA2Code, displayedCountries,
+      currentCountry,
+      isListVisible,
+      displayedCountries,
     } = this.state;
 
     return (
@@ -121,11 +117,11 @@ class CountrySelector extends React.Component {
               <div
                 alt="flag"
                 className={
-                  ISOALPHA2Code
-                      ? `flag ${ISOALPHA2Code.toLowerCase()} fnone c-dropdown-flag`
+                  currentCountry.ISOALPHA2Code
+                      ? `flag ${currentCountry.ISOALPHA2Code.toLowerCase()} fnone c-dropdown-flag`
                       : 'c-dropdown-flag'
                 }
-              />{currentCountry}
+              />{currentCountry.countryName}
             </span>
           </div>
           <div
@@ -147,14 +143,7 @@ class CountrySelector extends React.Component {
                         tabIndex={index}
                         className="dropdown-item c-dropdown-item"
                         key={item.ISOALPHA2Code}
-                        onClick={() =>
-                          this.handleSelectCountry(
-                            item.countryName,
-                            item.ISOALPHA2Code,
-                            item.ISOALPHA3Code,
-                            item.ISONumericalCode,
-                          )
-                        }
+                        onClick={() => this.handleSelectCountry(item)}
                       >
                         <div data-option={`${item.ISOALPHA2Code}`}>
                           <div className={`flag ${flag} fnone c-dropdown-flag`} /> {item.countryName}
@@ -173,10 +162,10 @@ class CountrySelector extends React.Component {
 }
 
 CountrySelector.propTypes = {
-  defaultCountry: PropTypes.string,
-  defaultISOALPHA2Code: PropTypes.string,
-  defaultISOALPHA3Code: PropTypes.string,
-  defaultISONumericalCode: PropTypes.number,
+  defaultCountry: PropTypes.string, // eslint-disable-line react/no-unused-prop-types, max-len, - it is a bug of eslint
+  defaultISOALPHA2Code: PropTypes.string, // eslint-disable-line react/no-unused-prop-types, max-len, - it is a bug of eslint
+  defaultISOALPHA3Code: PropTypes.string, // eslint-disable-line react/no-unused-prop-types, max-len, - it is a bug of eslint
+  defaultISONumericalCode: PropTypes.number, // eslint-disable-line react/no-unused-prop-types, max-len, - it is a bug of eslint
   getSelectedCountry: PropTypes.func,
 };
 

@@ -18,7 +18,7 @@ class AddTrip extends Component {
     editorState: EditorState.createEmpty(),
     formdata: {
       title: '',
-      country: '',
+      country: 'Spain',
       description: '',
       duration: '',
       rating: 0,
@@ -55,6 +55,18 @@ class AddTrip extends Component {
     const { value, name } = event.target;
 
     newFormdata[name] = value;
+
+    this.setState({
+      formdata: newFormdata,
+    });
+  }
+
+  handleCountrychange = (coutryObject) => {
+    const newFormdata = {
+      ...this.state.formdata,
+    };
+
+    newFormdata.country = coutryObject.countryName;
 
     this.setState({
       formdata: newFormdata,
@@ -112,18 +124,8 @@ class AddTrip extends Component {
               Trip to:
             </span>
             <CountrySelector
-              defaultCountry="Georgia" // First priority
-              // defaultISOALPHA2Code="KZ" // Second priority
-              // defaultISOALPHA3Code="KEN" // Third priority
-              // defaultISONumericalCode={410} // Fourth priority
-              getSelectedCountry={coutryObject => console.log(coutryObject)}
-            />
-            <input
-              type="text"
-              name="country"
-              placeholder="Enter country"
-              value={country}
-              onChange={this.handleInput}
+              defaultCountry={country}
+              getSelectedCountry={this.handleCountrychange}
             />
           </div>
 

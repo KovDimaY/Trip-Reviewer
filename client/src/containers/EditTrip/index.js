@@ -5,6 +5,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import { EditorState, convertToRaw, convertFromRaw } from 'draft-js';
 
 import StarsRating from '../../components/StarsRating';
+import CountrySelector from '../../components/CountrySelector';
 import {
   getTrip, updateTrip, clearTrip, deleteTrip,
 } from '../../actions';
@@ -89,6 +90,18 @@ class EditTrip extends PureComponent {
     });
   }
 
+  handleCountrychange = (coutryObject) => {
+    const newFormdata = {
+      ...this.state.formdata,
+    };
+
+    newFormdata.country = coutryObject.countryName;
+
+    this.setState({
+      formdata: newFormdata,
+    });
+  }
+
   handleRating = (rating) => {
     const newFormdata = {
       ...this.state.formdata,
@@ -159,12 +172,9 @@ class EditTrip extends PureComponent {
             <span className="label">
               Trip to:
             </span>
-            <input
-              type="text"
-              name="country"
-              placeholder="Enter country"
-              value={country}
-              onChange={this.handleInput}
+            <CountrySelector
+              defaultCountry={country}
+              getSelectedCountry={this.handleCountrychange}
             />
           </div>
 
