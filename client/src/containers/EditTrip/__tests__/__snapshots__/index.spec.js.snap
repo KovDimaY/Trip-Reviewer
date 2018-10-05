@@ -34,12 +34,9 @@ exports[`<EditTrip /> should render component 1`] = `
       >
         Trip to:
       </span>
-      <input
-        name="country"
-        onChange={[Function]}
-        placeholder="Enter country"
-        type="text"
-        value=""
+      <CountrySelector
+        defaultCountry=""
+        getSelectedCountry={[Function]}
       />
     </div>
     <div
@@ -156,12 +153,9 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
       >
         Trip to:
       </span>
-      <input
-        name="country"
-        onChange={[Function]}
-        placeholder="Enter country"
-        type="text"
-        value=""
+      <CountrySelector
+        defaultCountry=""
+        getSelectedCountry={[Function]}
       />
     </div>
     <div
@@ -273,12 +267,9 @@ exports[`<EditTrip /> should render component with updateTrip and correct descri
       >
         Trip to:
       </span>
-      <input
-        name="country"
-        onChange={[Function]}
-        placeholder="Enter country"
-        type="text"
-        value=""
+      <CountrySelector
+        defaultCountry=""
+        getSelectedCountry={[Function]}
       />
     </div>
     <div
@@ -390,12 +381,9 @@ exports[`<EditTrip /> should render component with updateTrip and wrong descript
       >
         Trip to:
       </span>
-      <input
-        name="country"
-        onChange={[Function]}
-        placeholder="Enter country"
-        type="text"
-        value=""
+      <CountrySelector
+        defaultCountry=""
+        getSelectedCountry={[Function]}
       />
     </div>
     <div

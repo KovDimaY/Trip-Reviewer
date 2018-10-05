@@ -34,12 +34,9 @@ exports[`<AddTrip /> should render component 1`] = `
       >
         Trip to:
       </span>
-      <input
-        name="country"
-        onChange={[Function]}
-        placeholder="Enter country"
-        type="text"
-        value=""
+      <CountrySelector
+        defaultCountry="Spain"
+        getSelectedCountry={[Function]}
       />
     </div>
     <div
@@ -141,12 +138,9 @@ exports[`<AddTrip /> should render component with newTrip and post 1`] = `
       >
         Trip to:
       </span>
-      <input
-        name="country"
-        onChange={[Function]}
-        placeholder="Enter country"
-        type="text"
-        value=""
+      <CountrySelector
+        defaultCountry="Spain"
+        getSelectedCountry={[Function]}
       />
     </div>
     <div
@@ -248,12 +242,9 @@ exports[`<AddTrip /> should render component with newTrip but no post 1`] = `
       >
         Trip to:
       </span>
-      <input
-        name="country"
-        onChange={[Function]}
-        placeholder="Enter country"
-        type="text"
-        value=""
+      <CountrySelector
+        defaultCountry="Spain"
+        getSelectedCountry={[Function]}
       />
     </div>
     <div

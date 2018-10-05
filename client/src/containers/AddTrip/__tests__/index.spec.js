@@ -15,6 +15,7 @@ jest.mock('draft-js', () => ({
   convertToRaw: () => ({}),
 }));
 jest.mock('./../../../components/StarsRating', () => 'StarsRating');
+jest.mock('./../../../components/CountrySelector', () => 'CountrySelector');
 jest.mock('../../../constants/toolbar', () => ({}));
 jest.mock('./../../../actions', () => ({
   addTrip: jest.fn(() => ({
@@ -183,6 +184,20 @@ describe('<AddTrip />', () => {
     instance.handleRating(rating);
 
     expect(instance.state.formdata.rating).toEqual(rating);
+  });
+
+  it('handleCountrychange should change state correctly', () => {
+    const initialState = {
+      trips: {},
+    };
+    const countryName = 'countryName';
+    const coutryObject = { countryName };
+
+    const instance = shallow(mockComponent(initialState)).dive().instance();
+
+    instance.handleCountrychange(coutryObject);
+
+    expect(instance.state.formdata.country).toEqual(countryName);
   });
 
   it('should dispatch addTrip when submitForm is called', () => {

@@ -20,6 +20,7 @@ jest.mock('draft-js', () => ({
 }));
 jest.mock('../../../constants/toolbar', () => ({}));
 jest.mock('./../../../components/StarsRating', () => 'StarsRating');
+jest.mock('./../../../components/CountrySelector', () => 'CountrySelector');
 jest.mock('./../../../actions', () => ({
   getTrip: jest.fn(() => ({
     type: GET_TRIP,
@@ -379,6 +380,27 @@ describe('<EditTrip />', () => {
     instance.handleRating(rating);
 
     expect(instance.state.formdata.rating).toEqual(rating);
+  });
+
+  it('handleCountrychange should change state correctly', () => {
+    const initialState = {
+      trips: {},
+    };
+    const props = {
+      match: {
+        params: {
+          id: 'id',
+        },
+      },
+    };
+    const countryName = 'countryName';
+    const coutryObject = { countryName };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+    instance.handleCountrychange(coutryObject);
+
+    expect(instance.state.formdata.country).toEqual(countryName);
   });
 
   it('goToReviews should redirect correctly', () => {
