@@ -12,10 +12,8 @@ class CountrySelector extends React.Component {
     const defaultCountry = this.getCountry(props);
 
     this.state = {
-      defaultPropsCountry: defaultCountry,
       displayedCountries: COUNTRIES,
       isListVisible: false,
-      isFirst: true,
       currentCountry: Object.keys(defaultCountry).length
         ? defaultCountry
         : COUNTRIES[0],
@@ -61,9 +59,7 @@ class CountrySelector extends React.Component {
   }
 
   handleSelectCountry = (country) => {
-    this.setState({
-      currentCountry: country,
-    });
+    this.setState({ currentCountry: country });
   }
 
   handleChangeCountry = (e) => {
@@ -82,10 +78,7 @@ class CountrySelector extends React.Component {
   }
 
   show = (e) => {
-    this.setState({
-      ...this.state,
-      isListVisible: true,
-    });
+    this.setState({ isListVisible: true });
 
     if (typeof window !== 'undefined' && e.target.tagName.toUpperCase() !== 'INPUT') {
       document.addEventListener('click', this.hide);
@@ -94,10 +87,7 @@ class CountrySelector extends React.Component {
 
   hide = (e) => {
     if (typeof window !== 'undefined' && e.target.tagName.toUpperCase() !== 'INPUT') {
-      this.setState({
-        ...this.state,
-        isListVisible: false,
-      });
+      this.setState({ isListVisible: false });
       document.removeEventListener('click', this.hide);
     }
   }
@@ -142,6 +132,7 @@ class CountrySelector extends React.Component {
                       <li
                         tabIndex={index}
                         className="dropdown-item c-dropdown-item"
+                        data-country={item.ISOALPHA2Code}
                         key={item.ISOALPHA2Code}
                         onClick={() => this.handleSelectCountry(item)}
                       >
@@ -166,7 +157,7 @@ CountrySelector.propTypes = {
   defaultISOALPHA2Code: PropTypes.string, // eslint-disable-line react/no-unused-prop-types, max-len, - it is a bug of eslint
   defaultISOALPHA3Code: PropTypes.string, // eslint-disable-line react/no-unused-prop-types, max-len, - it is a bug of eslint
   defaultISONumericalCode: PropTypes.number, // eslint-disable-line react/no-unused-prop-types, max-len, - it is a bug of eslint
-  getSelectedCountry: PropTypes.func,
+  getSelectedCountry: PropTypes.func.isRequired,
 };
 
 CountrySelector.defaultProps = {
@@ -174,7 +165,6 @@ CountrySelector.defaultProps = {
   defaultISOALPHA2Code: '',
   defaultISOALPHA3Code: '',
   defaultISONumericalCode: null,
-  getSelectedCountry: () => {},
 };
 
 export default CountrySelector;
