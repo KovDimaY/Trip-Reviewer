@@ -90,12 +90,11 @@ class EditTrip extends PureComponent {
     });
   }
 
-  handleCountrychange = (coutryObject) => {
+  handleCountrychange = (countryObject) => {
     const newFormdata = {
       ...this.state.formdata,
+      country: countryObject.countryName,
     };
-
-    newFormdata.country = coutryObject.countryName;
 
     this.setState({
       formdata: newFormdata,
@@ -105,9 +104,8 @@ class EditTrip extends PureComponent {
   handleRating = (rating) => {
     const newFormdata = {
       ...this.state.formdata,
+      rating,
     };
-
-    newFormdata.rating = rating;
 
     this.setState({
       formdata: newFormdata,

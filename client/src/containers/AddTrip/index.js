@@ -61,12 +61,11 @@ class AddTrip extends Component {
     });
   }
 
-  handleCountrychange = (coutryObject) => {
+  handleCountrychange = (countryObject) => {
     const newFormdata = {
       ...this.state.formdata,
+      country: countryObject.countryName,
     };
-
-    newFormdata.country = coutryObject.countryName;
 
     this.setState({
       formdata: newFormdata,
@@ -76,9 +75,8 @@ class AddTrip extends Component {
   handleRating = (rating) => {
     const newFormdata = {
       ...this.state.formdata,
+      rating,
     };
-
-    newFormdata.rating = rating;
 
     this.setState({
       formdata: newFormdata,
