@@ -6,6 +6,7 @@ import { EditorState, convertToRaw } from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 import StarsRating from '../../components/StarsRating';
+import CountrySelector from '../../components/CountrySelector';
 import { addTrip, clearNewTrip } from '../../actions';
 import { TRIPS } from '../../constants/routes';
 import toolbar from '../../constants/toolbar';
@@ -17,7 +18,7 @@ class AddTrip extends Component {
     editorState: EditorState.createEmpty(),
     formdata: {
       title: '',
-      country: '',
+      country: 'Spain',
       description: '',
       duration: '',
       rating: 0,
@@ -60,12 +61,22 @@ class AddTrip extends Component {
     });
   }
 
+  handleCountrychange = (countryObject) => {
+    const newFormdata = {
+      ...this.state.formdata,
+      country: countryObject.countryName,
+    };
+
+    this.setState({
+      formdata: newFormdata,
+    });
+  }
+
   handleRating = (rating) => {
     const newFormdata = {
       ...this.state.formdata,
+      rating,
     };
-
-    newFormdata.rating = rating;
 
     this.setState({
       formdata: newFormdata,
@@ -110,12 +121,9 @@ class AddTrip extends Component {
             <span className="label">
               Trip to:
             </span>
-            <input
-              type="text"
-              name="country"
-              placeholder="Enter country"
-              value={country}
-              onChange={this.handleInput}
+            <CountrySelector
+              defaultCountry={country}
+              getSelectedCountry={this.handleCountrychange}
             />
           </div>
 
