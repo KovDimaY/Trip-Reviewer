@@ -61,8 +61,11 @@
 }
 .add-review-container .error {
     color: #FF5722;
-    margin-top: 10px;
-    font-weight: 600;
+    margin-top: 5px;
+}
+.add-review-container .field-error {
+    border: 2px solid #FF5722;
+    color: #FF5722;
 }
 .add-review-container .delete_post {
     text-align: center;
