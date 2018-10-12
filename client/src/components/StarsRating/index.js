@@ -18,11 +18,7 @@ class StarsRating extends PureComponent {
 
   state = {
     hower: null,
-  }
-
-  emptySymbol = <i className="far fa-star star-empty" />;
-
-  fullSymbol = <i className="fas fa-star star-full" />;
+  };
 
   handleRating = (rating) => {
     this.props.onChange(rating);
@@ -34,17 +30,20 @@ class StarsRating extends PureComponent {
 
   render() {
     const { hower } = this.state;
-    const { rating } = this.props;
+    const { rating, error } = this.props;
+
+    const emptySymbol = <i className={`far fa-star star-empty ${error && !hower ? 'error-empty' : ''}`} />;
+    const fullSymbol = <i className={`fas fa-star star-full ${error && !hower ? 'error-full' : ''}`} />;
 
     return (
       <div className="stars-rating-container">
-        <label className="rating-label">
+        <label className={`rating-label ${error && !hower ? 'error-label' : ''}`}>
           {StarsRating.getLabel(hower || rating)}
         </label>
         <Rating
           initialRating={rating}
-          emptySymbol={this.emptySymbol}
-          fullSymbol={this.fullSymbol}
+          emptySymbol={emptySymbol}
+          fullSymbol={fullSymbol}
           onChange={this.handleRating}
           onHover={this.handleHower}
         />
@@ -56,6 +55,15 @@ class StarsRating extends PureComponent {
 StarsRating.propTypes = {
   rating: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
+  error: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+  ]),
+};
+
+StarsRating.defaultProps = {
+  error: false,
 };
 
 export default StarsRating;

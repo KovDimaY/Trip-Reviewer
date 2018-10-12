@@ -35,7 +35,6 @@ class AddTrip extends Component {
   };
 
   componentWillReceiveProps(newProps) {
-    console.log(newProps)
     const { newtrip } = newProps.trips;
 
     if (newtrip && newtrip.success) {
@@ -60,12 +59,16 @@ class AddTrip extends Component {
 
   onEditorStateChange = (editorState) => {
     const newFormdata = { ...this.state.formdata };
+    const newHideError = {
+      ...this.state.hideError,
+      description: true,
+    };
     const contentState = editorState.getCurrentContent();
     const rawState = convertToRaw(contentState);
 
     newFormdata.description = JSON.stringify(rawState);
 
-    this.setState({ editorState, formdata: newFormdata });
+    this.setState({ editorState, formdata: newFormdata, hideError: newHideError });
   }
 
   getErrorClass(fieldName) {
@@ -110,9 +113,14 @@ class AddTrip extends Component {
       ...this.state.formdata,
       rating,
     };
+    const newHideError = {
+      ...this.state.hideError,
+      rating: true,
+    };
 
     this.setState({
       formdata: newFormdata,
+      hideError: newHideError,
     });
   }
 
@@ -181,7 +189,7 @@ class AddTrip extends Component {
             </span>
             <Editor
               editorState={this.state.editorState}
-              wrapperClassName={`editor-wrapper ${this.getErrorClass('title')}`}
+              wrapperClassName={`editor-wrapper ${this.getErrorClass('description')}`}
               editorClassName="editor-self"
               onEditorStateChange={this.onEditorStateChange}
               toolbar={toolbar}

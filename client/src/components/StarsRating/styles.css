@@ -2,6 +2,11 @@
     color: black;
 }
 
+.stars-rating-container .error-empty,
+.stars-rating-container .error-label {
+    color: red;
+}
+
 .stars-rating-container .star-empty:before {
     font-size: 39px;
 }
