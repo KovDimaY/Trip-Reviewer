@@ -73,6 +73,33 @@ describe('<CountrySelector />', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should render component with a wrong defaultCountry provided', () => {
+    const props = {
+      defaultCountry: 'This is a test',
+    };
+    const tree = create(mockComponent(props)).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('getCountry should return correct value for the wrong input', () => {
+    const props = {
+      getSelectedCountry: () => {},
+    };
+    const param = 'THIS IS WRONG';
+    const expected = {
+      countryName: 'Afghanistan',
+      ISOALPHA2Code: 'AF',
+      ISOALPHA3Code: 'AFG',
+      ISONumericalCode: 4,
+    };
+    const instance = shallow(mockComponent(props)).instance();
+
+    const result = instance.getCountry(param);
+
+    expect(result).toEqual(expected);
+  });
+
   it('should set state correctly when componentWillReceiveProps is called whith new props', () => {
     const props = {
       defaultCountry: 'Afghanistan',

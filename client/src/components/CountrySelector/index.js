@@ -9,14 +9,10 @@ class CountrySelector extends React.Component {
   constructor(props) {
     super(props);
 
-    const defaultCountry = this.getCountry(props);
-
     this.state = {
       displayedCountries: COUNTRIES,
       isListVisible: false,
-      currentCountry: Object.keys(defaultCountry).length
-        ? defaultCountry
-        : COUNTRIES[0],
+      currentCountry: this.getCountry(props),
     };
   }
 
@@ -55,7 +51,7 @@ class CountrySelector extends React.Component {
         .find(item => item.ISONumericalCode === props.defaultISONumericalCode);
     }
 
-    return country;
+    return country && Object.keys(country).length ? country : COUNTRIES[0];
   }
 
   handleSelectCountry = (country) => {
