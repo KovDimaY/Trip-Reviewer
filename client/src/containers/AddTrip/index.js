@@ -68,7 +68,11 @@ class AddTrip extends Component {
 
     newFormdata.description = JSON.stringify(rawState);
 
-    this.setState({ editorState, formdata: newFormdata, hideError: newHideError });
+    this.setState({
+      editorState,
+      formdata: newFormdata,
+      hideError: newHideError,
+    });
   }
 
   getErrorClass(fieldName) {

@@ -26,6 +26,14 @@ class EditTrip extends PureComponent {
       rating: 0,
       expences: '',
     },
+    hideError: {
+      title: false,
+      country: false,
+      description: false,
+      duration: false,
+      rating: false,
+      expences: false,
+    },
   };
 
   componentWillMount() {
@@ -33,10 +41,21 @@ class EditTrip extends PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { trip, updateTrip: updateResult } = nextProps.trips;
+    const { trip, updatedTrip } = nextProps.trips;
 
-    if (updateResult) {
+    if (updatedTrip && updatedTrip.success) {
       nextProps.history.push(`${routes.TRIPS}/${trip._id}`);
+    } else if (updatedTrip) {
+      this.setState({
+        hideError: {
+          title: false,
+          country: false,
+          description: false,
+          duration: false,
+          rating: false,
+          expences: false,
+        },
+      });
     } else if (trip) {
       let editorState = EditorState.createEmpty();
       try {
@@ -69,24 +88,45 @@ class EditTrip extends PureComponent {
 
   onEditorStateChange = (editorState) => {
     const newFormdata = { ...this.state.formdata };
+    const newHideError = {
+      ...this.state.hideError,
+      description: true,
+    };
     const contentState = editorState.getCurrentContent();
     const rawState = convertToRaw(contentState);
 
     newFormdata.description = JSON.stringify(rawState);
 
-    this.setState({ editorState, formdata: newFormdata });
+    this.setState({
+      editorState,
+      formdata: newFormdata,
+      hideError: newHideError,
+    });
+  }
+
+  getErrorClass(fieldName) {
+    return this.formFieldHasError(fieldName) ? 'field-error' : '';
+  }
+
+  formFieldHasError(fieldName) {
+    const { updatedTrip } = this.props.trips;
+    const { hideError } = this.state;
+    const errors = updatedTrip && updatedTrip.error && updatedTrip.error.errors;
+
+    return errors && errors[fieldName] && !hideError[fieldName];
   }
 
   handleInput = (event) => {
-    const newFormdata = {
-      ...this.state.formdata,
-    };
+    const newFormdata = { ...this.state.formdata };
+    const newHideError = { ...this.state.hideError };
     const { value, name } = event.target;
 
     newFormdata[name] = value;
+    newHideError[name] = true;
 
     this.setState({
       formdata: newFormdata,
+      hideError: newHideError,
     });
   }
 
@@ -106,9 +146,14 @@ class EditTrip extends PureComponent {
       ...this.state.formdata,
       rating,
     };
+    const newHideError = {
+      ...this.state.hideError,
+      rating: true,
+    };
 
     this.setState({
       formdata: newFormdata,
+      hideError: newHideError,
     });
   }
 
@@ -127,6 +172,19 @@ class EditTrip extends PureComponent {
 
   redirectUser = () => {
     setTimeout(this.goToReviews, 1000);
+  }
+
+  renderError(fieldName) {
+    if (this.formFieldHasError(fieldName)) {
+      const error = this.props.trips.updatedTrip.error.errors[fieldName];
+
+      return (
+        <div className="error">
+          {error.message}
+        </div>
+      );
+    }
+    return null;
   }
 
   render() {
@@ -160,11 +218,13 @@ class EditTrip extends PureComponent {
             <input
               type="text"
               name="title"
+              className={this.getErrorClass('title')}
               placeholder="Enter title"
               value={title}
               onChange={this.handleInput}
             />
           </div>
+          { this.renderError('title') }
 
           <div className="form_element">
             <span className="label">
@@ -182,12 +242,13 @@ class EditTrip extends PureComponent {
             </span>
             <Editor
               editorState={this.state.editorState}
-              wrapperClassName="editor-wrapper"
+              wrapperClassName={`editor-wrapper ${this.getErrorClass('description')}`}
               editorClassName="editor-self"
               onEditorStateChange={this.onEditorStateChange}
               toolbar={toolbar}
             />
           </div>
+          { this.renderError('description') }
 
           <div className="form_element">
             <span className="label">
@@ -196,15 +257,13 @@ class EditTrip extends PureComponent {
             <input
               type="number"
               name="duration"
+              className={this.getErrorClass('duration')}
               placeholder="Enter duration"
               value={duration}
               onChange={this.handleInput}
             />
           </div>
-
-          <div className="form_element">
-            <StarsRating rating={rating} onChange={this.handleRating} />
-          </div>
+          { this.renderError('duration') }
 
           <div className="form_element">
             <span className="label">
@@ -213,11 +272,18 @@ class EditTrip extends PureComponent {
             <input
               type="number"
               name="expences"
+              className={this.getErrorClass('expences')}
               placeholder="Enter Price"
               value={expences}
               onChange={this.handleInput}
             />
           </div>
+          { this.renderError('expences') }
+
+          <div className="form_element">
+            <StarsRating rating={rating} error={this.getErrorClass('rating')} onChange={this.handleRating} />
+          </div>
+          { this.renderError('rating') }
 
           <button type="submit">
             Edit review

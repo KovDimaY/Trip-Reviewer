@@ -197,8 +197,13 @@ app.post('/api/login', (req, res) => {
 
 // UPDATE //
 app.post('/api/tripUpdate', (req, res) => {
-  Trip.findByIdAndUpdate(req.body._id, req.body, { new: true }, (err, doc) => {
-    if (err) return res.status(400).send(err);
+  Trip.findByIdAndUpdate(req.body._id, req.body, { new: true, runValidators: true }, (err, doc) => {
+    if (err) {
+      return res.status(200).json({
+        success: false,
+        error: err,
+      });
+    }
 
     return res.json({
       success: true,

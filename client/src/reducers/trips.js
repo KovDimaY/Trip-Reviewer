@@ -19,8 +19,7 @@ export default function (state = {}, action) {
     case UPDATE_TRIP:
       return {
         ...state,
-        updateTrip: action.payload.success,
-        trip: action.payload.doc,
+        updatedTrip: action.payload,
       };
     case DELETE_TRIP:
       return {
@@ -30,7 +29,7 @@ export default function (state = {}, action) {
     case CLEAR_TRIP:
       return {
         ...state,
-        updateTrip: action.payload.updateTrip,
+        updatedTrip: action.payload.updateTrip,
         trip: action.payload.trip,
         postDeleted: action.payload.postDeleted,
       };
