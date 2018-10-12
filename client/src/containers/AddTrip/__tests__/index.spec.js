@@ -46,11 +46,11 @@ describe('<AddTrip />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should render component with newTrip and post', () => {
+  it('should render component with newTrip and success true', () => {
     const initialState = {
       trips: {
         newtrip: {
-          post: true,
+          success: true,
           tripId: 'test',
         },
       },
@@ -60,10 +60,21 @@ describe('<AddTrip />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should render component with newTrip but no post', () => {
+  it('should render component with newTrip and errors', () => {
     const initialState = {
       trips: {
-        newtrip: {},
+        newtrip: {
+          success: false,
+          error: {
+            errors: {
+              title: { message: 'title error' },
+              description: { message: 'description error' },
+              duration: { message: 'duration error' },
+              rating: { message: 'rating error' },
+              expences: { message: 'expences error' },
+            },
+          },
+        },
       },
     };
     const tree = create(mockComponent(initialState)).toJSON();
@@ -88,6 +99,7 @@ describe('<AddTrip />', () => {
     const newProps = {
       trips: {
         newtrip: {
+          success: true,
           tripId,
         },
       },

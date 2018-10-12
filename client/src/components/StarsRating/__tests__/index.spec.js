@@ -17,6 +17,13 @@ describe('<StarsRating />', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should render component with error', () => {
+    const props = { error: true };
+    const tree = create(mockComponent(props)).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('should change state correctly when handleHower is called', () => {
     const instance = mount(mockComponent()).instance();
     const hower = 3;

@@ -19,6 +19,7 @@ exports[`<AddTrip /> should render component 1`] = `
         Title:
       </span>
       <input
+        className=""
         name="title"
         onChange={[Function]}
         placeholder="Enter title"
@@ -52,7 +53,7 @@ exports[`<AddTrip /> should render component 1`] = `
         editorState={Object {}}
         onEditorStateChange={[Function]}
         toolbar={Object {}}
-        wrapperClassName="editor-wrapper"
+        wrapperClassName="editor-wrapper "
       />
     </div>
     <div
@@ -64,6 +65,7 @@ exports[`<AddTrip /> should render component 1`] = `
         Duration (days):
       </span>
       <input
+        className=""
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
@@ -80,6 +82,7 @@ exports[`<AddTrip /> should render component 1`] = `
         Expences ($):
       </span>
       <input
+        className=""
         name="expences"
         onChange={[Function]}
         placeholder="Enter expences"
@@ -91,6 +94,7 @@ exports[`<AddTrip /> should render component 1`] = `
       className="form_element"
     >
       <StarsRating
+        error=""
         onChange={[Function]}
         rating={0}
       />
@@ -104,7 +108,7 @@ exports[`<AddTrip /> should render component 1`] = `
 </div>
 `;
 
-exports[`<AddTrip /> should render component with newTrip and post 1`] = `
+exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
 <div
   className="add-review-container"
 >
@@ -123,12 +127,18 @@ exports[`<AddTrip /> should render component with newTrip and post 1`] = `
         Title:
       </span>
       <input
+        className="field-error"
         name="title"
         onChange={[Function]}
         placeholder="Enter title"
         type="text"
         value=""
       />
+    </div>
+    <div
+      className="error"
+    >
+      title error
     </div>
     <div
       className="form_element"
@@ -156,8 +166,13 @@ exports[`<AddTrip /> should render component with newTrip and post 1`] = `
         editorState={Object {}}
         onEditorStateChange={[Function]}
         toolbar={Object {}}
-        wrapperClassName="editor-wrapper"
+        wrapperClassName="editor-wrapper field-error"
       />
+    </div>
+    <div
+      className="error"
+    >
+      description error
     </div>
     <div
       className="form_element"
@@ -168,12 +183,18 @@ exports[`<AddTrip /> should render component with newTrip and post 1`] = `
         Duration (days):
       </span>
       <input
+        className="field-error"
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
         type="number"
         value=""
       />
+    </div>
+    <div
+      className="error"
+    >
+      duration error
     </div>
     <div
       className="form_element"
@@ -184,6 +205,7 @@ exports[`<AddTrip /> should render component with newTrip and post 1`] = `
         Expences ($):
       </span>
       <input
+        className="field-error"
         name="expences"
         onChange={[Function]}
         placeholder="Enter expences"
@@ -192,12 +214,23 @@ exports[`<AddTrip /> should render component with newTrip and post 1`] = `
       />
     </div>
     <div
+      className="error"
+    >
+      expences error
+    </div>
+    <div
       className="form_element"
     >
       <StarsRating
+        error="field-error"
         onChange={[Function]}
         rating={0}
       />
+    </div>
+    <div
+      className="error"
+    >
+      rating error
     </div>
     <button
       type="submit"
@@ -208,7 +241,7 @@ exports[`<AddTrip /> should render component with newTrip and post 1`] = `
 </div>
 `;
 
-exports[`<AddTrip /> should render component with newTrip but no post 1`] = `
+exports[`<AddTrip /> should render component with newTrip and success true 1`] = `
 <div
   className="add-review-container"
 >
@@ -227,6 +260,7 @@ exports[`<AddTrip /> should render component with newTrip but no post 1`] = `
         Title:
       </span>
       <input
+        className=""
         name="title"
         onChange={[Function]}
         placeholder="Enter title"
@@ -260,7 +294,7 @@ exports[`<AddTrip /> should render component with newTrip but no post 1`] = `
         editorState={Object {}}
         onEditorStateChange={[Function]}
         toolbar={Object {}}
-        wrapperClassName="editor-wrapper"
+        wrapperClassName="editor-wrapper "
       />
     </div>
     <div
@@ -272,6 +306,7 @@ exports[`<AddTrip /> should render component with newTrip but no post 1`] = `
         Duration (days):
       </span>
       <input
+        className=""
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
@@ -288,6 +323,7 @@ exports[`<AddTrip /> should render component with newTrip but no post 1`] = `
         Expences ($):
       </span>
       <input
+        className=""
         name="expences"
         onChange={[Function]}
         placeholder="Enter expences"
@@ -299,6 +335,7 @@ exports[`<AddTrip /> should render component with newTrip but no post 1`] = `
       className="form_element"
     >
       <StarsRating
+        error=""
         onChange={[Function]}
         rating={0}
       />

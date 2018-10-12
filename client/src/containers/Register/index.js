@@ -29,6 +29,7 @@ class Register extends PureComponent {
 
     componentWillReceiveProps(nextProps) {
       const { login } = nextProps.users;
+
       if (login.isAuth) {
         this.props.history.push(USER_PROFILE);
       } else {

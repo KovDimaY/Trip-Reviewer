@@ -26,3 +26,30 @@ exports[`<StarsRating /> should render component 1`] = `
   />
 </div>
 `;
+
+exports[`<StarsRating /> should render component with error 1`] = `
+<div
+  className="stars-rating-container"
+>
+  <label
+    className="rating-label error-label"
+  >
+    Rate your trip:
+  </label>
+  <Rating
+    emptySymbol={
+      <i
+        className="far fa-star star-empty error-empty"
+      />
+    }
+    fullSymbol={
+      <i
+        className="fas fa-star star-full error-full"
+      />
+    }
+    initialRating={undefined}
+    onChange={[Function]}
+    onHover={[Function]}
+  />
+</div>
+`;

@@ -126,10 +126,15 @@ app.post('/api/trip', (req, res) => {
   const trip = new Trip(req.body);
 
   trip.save((err, doc) => {
-    if (err) return res.status(400).send(err);
+    if (err) {
+      return res.status(200).json({
+        success: false,
+        error: err,
+      });
+    }
 
     return res.status(200).json({
-      post: true,
+      success: true,
       tripId: doc._id,
     });
   });

@@ -33,7 +33,7 @@ const tripSchema = mongoose.Schema({
             return count > 100;
           } catch (e) { return false; }
         },
-        msg: 'Description should have at least 100 chars',
+        msg: 'Should have at least 100 chars',
       },
     ],
     required: [true, 'Description is required'],
@@ -47,8 +47,8 @@ const tripSchema = mongoose.Schema({
   rating: {
     type: Number,
     required: [true, 'Rating is required'],
-    min: [1, 'Should be at least 1'],
-    max: [5, 'Should be less than 6'],
+    min: [1, 'Rating is required'],
+    max: [5, 'Incorrect value is provided'],
   },
   expences: {
     type: Number,
