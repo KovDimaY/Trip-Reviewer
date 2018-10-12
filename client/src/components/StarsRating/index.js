@@ -32,12 +32,12 @@ class StarsRating extends PureComponent {
     const { hower } = this.state;
     const { rating, error } = this.props;
 
-    const emptySymbol = <i className={`far fa-star star-empty ${error && !hower ? 'error-empty' : ''}`} />;
-    const fullSymbol = <i className={`fas fa-star star-full ${error && !hower ? 'error-full' : ''}`} />;
+    const emptySymbol = <i className={`far fa-star star-empty${error && !hower ? ' error-empty' : ''}`} />;
+    const fullSymbol = <i className={`fas fa-star star-full${error && !hower ? ' error-full' : ''}`} />;
 
     return (
       <div className="stars-rating-container">
-        <label className={`rating-label ${error && !hower ? 'error-label' : ''}`}>
+        <label className={`rating-label${error && !hower ? ' error-label' : ''}`}>
           {StarsRating.getLabel(hower || rating)}
         </label>
         <Rating

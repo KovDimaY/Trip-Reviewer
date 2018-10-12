@@ -5,19 +5,19 @@ exports[`<StarsRating /> should render component 1`] = `
   className="stars-rating-container"
 >
   <label
-    className="rating-label "
+    className="rating-label"
   >
     Rate your trip:
   </label>
   <Rating
     emptySymbol={
       <i
-        className="far fa-star star-empty "
+        className="far fa-star star-empty"
       />
     }
     fullSymbol={
       <i
-        className="fas fa-star star-full "
+        className="fas fa-star star-full"
       />
     }
     initialRating={undefined}
