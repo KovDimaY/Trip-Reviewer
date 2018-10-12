@@ -414,7 +414,7 @@ describe('Testing simple actions', () => {
       const action = clearTrip();
       const expected = {
         trip: null,
-        updateTrip: false,
+        updatedTrip: false,
         postDeleted: false,
       };
 

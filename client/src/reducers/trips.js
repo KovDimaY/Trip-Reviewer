@@ -29,7 +29,7 @@ export default function (state = {}, action) {
     case CLEAR_TRIP:
       return {
         ...state,
-        updatedTrip: action.payload.updateTrip,
+        updatedTrip: action.payload.updatedTrip,
         trip: action.payload.trip,
         postDeleted: action.payload.postDeleted,
       };
