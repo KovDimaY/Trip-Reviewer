@@ -57,16 +57,16 @@ describe('trips reducer', () => {
 
   it('handles actions of type UPDATE_TRIP', () => {
     const initialState = {};
+    const payload = {
+      success: true,
+      doc: 'test',
+    };
     const action = {
       type: UPDATE_TRIP,
-      payload: {
-        success: true,
-        doc: 'test',
-      },
+      payload,
     };
     const expected = {
-      updateTrip: true,
-      trip: 'test',
+      updatedTrip: payload,
     };
 
     const newState = reducer(initialState, action);
@@ -91,23 +91,19 @@ describe('trips reducer', () => {
 
   it('handles actions of type CLEAR_TRIP', () => {
     const initialState = {};
-    const action = {
-      type: CLEAR_TRIP,
-      payload: {
-        updateTrip: 'updateTrip',
-        trip: 'trip',
-        postDeleted: 'postDeleted',
-      },
-    };
-    const expected = {
-      updateTrip: 'updateTrip',
+    const payload = {
+      updatedTrip: 'updateTrip',
       trip: 'trip',
       postDeleted: 'postDeleted',
+    };
+    const action = {
+      type: CLEAR_TRIP,
+      payload,
     };
 
     const newState = reducer(initialState, action);
 
-    expect(newState).toEqual(expected);
+    expect(newState).toEqual(payload);
   });
 
   it('handles actions of type GET_TRIP_W_REVIEWER', () => {

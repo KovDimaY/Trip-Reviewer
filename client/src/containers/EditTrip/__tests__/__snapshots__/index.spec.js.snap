@@ -19,6 +19,7 @@ exports[`<EditTrip /> should render component 1`] = `
         Title:
       </span>
       <input
+        className=""
         name="title"
         onChange={[Function]}
         placeholder="Enter title"
@@ -52,7 +53,7 @@ exports[`<EditTrip /> should render component 1`] = `
         editorState={Object {}}
         onEditorStateChange={[Function]}
         toolbar={Object {}}
-        wrapperClassName="editor-wrapper"
+        wrapperClassName="editor-wrapper "
       />
     </div>
     <div
@@ -64,19 +65,12 @@ exports[`<EditTrip /> should render component 1`] = `
         Duration (days):
       </span>
       <input
+        className=""
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
         type="number"
         value=""
-      />
-    </div>
-    <div
-      className="form_element"
-    >
-      <StarsRating
-        onChange={[Function]}
-        rating={0}
       />
     </div>
     <div
@@ -88,11 +82,21 @@ exports[`<EditTrip /> should render component 1`] = `
         Expences ($):
       </span>
       <input
+        className=""
         name="expences"
         onChange={[Function]}
         placeholder="Enter Price"
         type="number"
         value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <StarsRating
+        error=""
+        onChange={[Function]}
+        rating={0}
       />
     </div>
     <button
@@ -138,6 +142,7 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
         Title:
       </span>
       <input
+        className=""
         name="title"
         onChange={[Function]}
         placeholder="Enter title"
@@ -171,7 +176,7 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
         editorState={Object {}}
         onEditorStateChange={[Function]}
         toolbar={Object {}}
-        wrapperClassName="editor-wrapper"
+        wrapperClassName="editor-wrapper "
       />
     </div>
     <div
@@ -183,19 +188,12 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
         Duration (days):
       </span>
       <input
+        className=""
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
         type="number"
         value=""
-      />
-    </div>
-    <div
-      className="form_element"
-    >
-      <StarsRating
-        onChange={[Function]}
-        rating={0}
       />
     </div>
     <div
@@ -207,11 +205,21 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
         Expences ($):
       </span>
       <input
+        className=""
         name="expences"
         onChange={[Function]}
         placeholder="Enter Price"
         type="number"
         value=""
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <StarsRating
+        error=""
+        onChange={[Function]}
+        rating={0}
       />
     </div>
     <button
@@ -233,7 +241,7 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
 </div>
 `;
 
-exports[`<EditTrip /> should render component with updateTrip and correct description 1`] = `
+exports[`<EditTrip /> should render component with updatedTrip and errors 1`] = `
 <div
   className="edit-review-container"
 >
@@ -252,12 +260,18 @@ exports[`<EditTrip /> should render component with updateTrip and correct descri
         Title:
       </span>
       <input
+        className="field-error"
         name="title"
         onChange={[Function]}
         placeholder="Enter title"
         type="text"
         value=""
       />
+    </div>
+    <div
+      className="error"
+    >
+      title error
     </div>
     <div
       className="form_element"
@@ -285,8 +299,13 @@ exports[`<EditTrip /> should render component with updateTrip and correct descri
         editorState={Object {}}
         onEditorStateChange={[Function]}
         toolbar={Object {}}
-        wrapperClassName="editor-wrapper"
+        wrapperClassName="editor-wrapper field-error"
       />
+    </div>
+    <div
+      className="error"
+    >
+      description error
     </div>
     <div
       className="form_element"
@@ -297,6 +316,7 @@ exports[`<EditTrip /> should render component with updateTrip and correct descri
         Duration (days):
       </span>
       <input
+        className="field-error"
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
@@ -305,12 +325,9 @@ exports[`<EditTrip /> should render component with updateTrip and correct descri
       />
     </div>
     <div
-      className="form_element"
+      className="error"
     >
-      <StarsRating
-        onChange={[Function]}
-        rating={0}
-      />
+      duration error
     </div>
     <div
       className="form_element"
@@ -321,6 +338,7 @@ exports[`<EditTrip /> should render component with updateTrip and correct descri
         Expences ($):
       </span>
       <input
+        className="field-error"
         name="expences"
         onChange={[Function]}
         placeholder="Enter Price"
@@ -328,119 +346,24 @@ exports[`<EditTrip /> should render component with updateTrip and correct descri
         value=""
       />
     </div>
-    <button
-      type="submit"
-    >
-      Edit review
-    </button>
     <div
-      className="delete_post"
+      className="error"
     >
-      <div
-        className="button"
-        onClick={[Function]}
-      >
-        Delete review
-      </div>
-    </div>
-  </form>
-</div>
-`;
-
-exports[`<EditTrip /> should render component with updateTrip and wrong description 1`] = `
-<div
-  className="edit-review-container"
->
-  <form
-    onSubmit={[Function]}
-  >
-    <h2>
-      Edit review
-    </h2>
-    <div
-      className="form_element"
-    >
-      <span
-        className="label"
-      >
-        Title:
-      </span>
-      <input
-        name="title"
-        onChange={[Function]}
-        placeholder="Enter title"
-        type="text"
-        value=""
-      />
-    </div>
-    <div
-      className="form_element"
-    >
-      <span
-        className="label"
-      >
-        Trip to:
-      </span>
-      <CountrySelector
-        defaultCountry=""
-        getSelectedCountry={[Function]}
-      />
-    </div>
-    <div
-      className="form_element"
-    >
-      <span
-        className="label"
-      >
-        Description:
-      </span>
-      <Editor
-        editorClassName="editor-self"
-        editorState={Object {}}
-        onEditorStateChange={[Function]}
-        toolbar={Object {}}
-        wrapperClassName="editor-wrapper"
-      />
-    </div>
-    <div
-      className="form_element"
-    >
-      <span
-        className="label"
-      >
-        Duration (days):
-      </span>
-      <input
-        name="duration"
-        onChange={[Function]}
-        placeholder="Enter duration"
-        type="number"
-        value=""
-      />
+      expences error
     </div>
     <div
       className="form_element"
     >
       <StarsRating
+        error="field-error"
         onChange={[Function]}
         rating={0}
       />
     </div>
     <div
-      className="form_element"
+      className="error"
     >
-      <span
-        className="label"
-      >
-        Expences ($):
-      </span>
-      <input
-        name="expences"
-        onChange={[Function]}
-        placeholder="Enter Price"
-        type="number"
-        value=""
-      />
+      rating error
     </div>
     <button
       type="submit"

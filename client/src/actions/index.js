@@ -120,7 +120,7 @@ export function clearTrip() {
     type: CLEAR_TRIP,
     payload: {
       trip: null,
-      updateTrip: false,
+      updatedTrip: false,
       postDeleted: false,
     },
   };

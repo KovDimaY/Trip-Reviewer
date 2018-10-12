@@ -64,31 +64,21 @@ describe('<EditTrip />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should render component with updateTrip and correct description', () => {
+  it('should render component with updatedTrip and errors', () => {
     const initialState = {
       trips: {
-        updateTrip: true,
-        trip: {
-          _id: '_id',
+        updatedTrip: {
+          success: false,
+          error: {
+            errors: {
+              title: { message: 'title error' },
+              description: { message: 'description error' },
+              duration: { message: 'duration error' },
+              rating: { message: 'rating error' },
+              expences: { message: 'expences error' },
+            },
+          },
         },
-      },
-    };
-    const props = {
-      match: {
-        params: {
-          id: 'id',
-        },
-      },
-    };
-    const tree = create(mockComponent(initialState, props)).toJSON();
-
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('should render component with updateTrip and wrong description', () => {
-    const initialState = {
-      trips: {
-        updateTrip: true,
         trip: {
           _id: '_id',
         },
@@ -210,7 +200,7 @@ describe('<EditTrip />', () => {
     expect(instance.state.formdata).not.toEqual(nextProps.trips.trip);
   });
 
-  it('should redirect when componentWillReceiveProps is called with updateTrip', () => {
+  it('should redirect when componentWillReceiveProps is called with updatedTrip success', () => {
     const push = jest.fn();
     const tripId = 'test';
     const path = `${routes.TRIPS}/${tripId}`;
@@ -229,7 +219,9 @@ describe('<EditTrip />', () => {
         trip: {
           _id: tripId,
         },
-        updateTrip: true,
+        updatedTrip: {
+          success: true,
+        },
       },
       history: {
         push,
@@ -241,6 +233,54 @@ describe('<EditTrip />', () => {
     instance.componentWillReceiveProps(nextProps);
 
     expect(push).toHaveBeenCalledWith(path);
+  });
+
+  it('should not redirect when componentWillReceiveProps is called with updatedTrip success false', () => {
+    const push = jest.fn();
+    const setState = jest.fn();
+    const tripId = 'test';
+    const path = `${routes.TRIPS}/${tripId}`;
+    const initialState = {
+      trips: {},
+    };
+    const props = {
+      match: {
+        params: {
+          id: 'id',
+        },
+      },
+    };
+    const nextProps = {
+      trips: {
+        trip: {
+          _id: tripId,
+        },
+        updatedTrip: {
+          success: false,
+        },
+      },
+      history: {
+        push,
+      },
+    };
+    const expected = {
+      hideError: {
+        title: false,
+        country: false,
+        description: false,
+        duration: false,
+        rating: false,
+        expences: false,
+      },
+    };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+    instance.setState = setState;
+
+    instance.componentWillReceiveProps(nextProps);
+
+    expect(push).not.toHaveBeenCalledWith(path);
+    expect(setState).toHaveBeenCalledWith(expected);
   });
 
   it('should dispatch clearTrip when componentWillUnmount is called', () => {
