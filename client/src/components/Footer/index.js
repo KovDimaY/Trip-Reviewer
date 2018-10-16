@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './styles.css';
+
 const Footer = () => {
   const renderIcon = (url, type) => (
     <a
@@ -8,12 +10,12 @@ const Footer = () => {
       href={url}
       className={`footer-${type}`}
     >
-      <i className={`fa fa-${type}`} />
+      <i className={`fab fa-${type}`} />
     </a>
   );
 
   return (
-    <footer>
+    <footer className="footer-wrapper">
       <div className="footer-content">
         <div className="social-media-icons">
           {renderIcon('https://github.com/KovDimaY/Trip-Reviewer', 'github')}
