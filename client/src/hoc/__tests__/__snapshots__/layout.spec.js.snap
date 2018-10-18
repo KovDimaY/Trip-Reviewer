@@ -3,10 +3,17 @@
 exports[`<Layout /> should render component 1`] = `
 <div>
   <Header />
-  <div>
+  <div
+    style={
+      Object {
+        "minHeight": "95vh",
+      }
+    }
+  >
     <div>
       test
     </div>
   </div>
+  <Footer />
 </div>
 `;

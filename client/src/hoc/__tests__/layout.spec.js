@@ -4,6 +4,7 @@ import { create } from 'react-test-renderer';
 import Layout from '../layout';
 
 jest.mock('./../../components/Header/index', () => 'Header');
+jest.mock('./../../components/Footer/index', () => 'Footer');
 
 const mockComponent = props => (
   <Layout {...props} />
