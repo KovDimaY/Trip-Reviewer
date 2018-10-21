@@ -1,0 +1,61 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  place-content: center;
+  padding-bottom: 100px;
+}
+
+.not-found-container .picture {
+  height: 500px;
+  background-image: url("./image.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.not-found-container .text {
+  font-size: 42px;
+  margin: 0;
+  font-family: fantasy;
+}
+
+.not-found-container .title {
+  font-size: 225px;
+  margin: 0;
+  margin-bottom: -225px;
+  font-family: fantasy;
+}
+
+.not-found-container .button {
+  font-size: 20px;
+  padding: 10px 52px;
+  background: #02bcd4;
+  color: #fff;
+  font-weight: 300;
+  border-radius: 3px;
+  border: none;
+  margin-top: 20px;
+  width: 260px;
+  align-self: center;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .not-found-container {
+    padding-bottom: 50px;
+  }
+
+  .not-found-container .picture {
+    height: 350px;
+  }
+
+  .not-found-container .title {
+    font-size: 135px;
+    margin-bottom: -135px;
+  }
+
+  .not-found-container .text {
+    font-size: 24px;
+  }
+}
