@@ -7,9 +7,12 @@ import moment from 'moment-js';
 import { getUserReviews } from '../../actions';
 import { EDIT_POST } from '../../constants/routes';
 
+import './styles.css';
+
 class UserPosts extends Component {
   componentWillMount() {
     const { login } = this.props.users;
+
     if (login && login.id) {
       this.props.dispatch(getUserReviews(login.id));
     }
@@ -19,17 +22,13 @@ class UserPosts extends Component {
     userPosts
       ? userPosts.map(item => (
         <tr key={item._id}>
-          <td>
+          <td className="post-title">
             <Link to={`${EDIT_POST}/${item._id}`}>
               {item.title}
             </Link>
           </td>
-          <td>
-            {item.author}
-          </td>
-          <td>
-            {moment(item.createAt).format('MM/DD/YY')}
-          </td>
+          <td className="only-wide-screen">{item.country}</td>
+          <td>{moment(item.createAt).format('MM/DD/YY')}</td>
         </tr>
       ))
       : null
@@ -39,22 +38,14 @@ class UserPosts extends Component {
     const { users } = this.props;
 
     return (
-      <div className="user_posts">
-        <h4>
-          Your reviews:
-        </h4>
-        <table>
+      <div className="user-posts-container">
+        <h2>Your reviews</h2>
+        <table className="reviews-table">
           <thead>
             <tr>
-              <th>
-                Title
-              </th>
-              <th>
-                Author
-              </th>
-              <th>
-                Date
-              </th>
+              <th>Title</th>
+              <th className="only-wide-screen">Country</th>
+              <th>Date</th>
             </tr>
           </thead>
           <tbody>
