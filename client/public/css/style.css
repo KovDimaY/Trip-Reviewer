@@ -165,16 +165,6 @@ header .open_nav {
 /*=============================
             USER
 ===============================*/
-.user_posts {
-    padding:10px;
-    box-sizing: border-box;
-}
-
-.edit_confirm {
-    background: #8BC34A;
-    color: #fff;
-    padding: 10px 0px;
-}
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;

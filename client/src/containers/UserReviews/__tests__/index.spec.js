@@ -31,8 +31,8 @@ describe('<UserPosts />', () => {
         userPosts: [{
           _id: 'id',
           title: 'title',
-          author: 'author',
-          createAt: 'createAt',
+          country: 'country',
+          createdAt: 'createdAt',
         }],
       },
     };

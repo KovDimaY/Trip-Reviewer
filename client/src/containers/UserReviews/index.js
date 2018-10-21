@@ -28,7 +28,7 @@ class UserPosts extends Component {
             </Link>
           </td>
           <td className="only-wide-screen">{item.country}</td>
-          <td>{moment(item.createAt).format('MM/DD/YY')}</td>
+          <td>{moment(item.createdAt).format('MM/DD/YY')}</td>
         </tr>
       ))
       : null
