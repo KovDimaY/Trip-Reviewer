@@ -13,7 +13,10 @@ const User = (props) => {
 
   return (
     <div className="user_container">
-      <UserAvatar filename={user.avatar} />
+      <div className="avatar">
+        <UserAvatar filename={user.avatar} />
+      </div>
+
       <div className="data">
         <div>
           <span>Name:</span>{' '}{user.name}

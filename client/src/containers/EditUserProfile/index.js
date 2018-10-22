@@ -307,7 +307,9 @@ class EditUserProfile extends PureComponent {
 
     return (
       <div className="edit-user-profile-container">
-        <UserAvatar filename={avatar} />
+        <div className="avatar">
+          <UserAvatar filename={avatar} />
+        </div>
 
         { this.renderDisclaimer() }
         { this.renderAvatarControls() }

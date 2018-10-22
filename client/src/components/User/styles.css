@@ -1,3 +1,12 @@
+
+.user_container {
+    margin-bottom: 75px;
+}
+.user_container .avatar {
+    width: 200px;
+    height: 200px;
+    margin: 50px auto 25px auto;
+}
 .user_container .data {
     box-sizing: border-box;
     padding: 20px;
