@@ -4,9 +4,13 @@ exports[`<EditUserProfile /> should render component 1`] = `
 <div
   className="edit-user-profile-container"
 >
-  <UserAvatar
-    filename={undefined}
-  />
+  <div
+    className="avatar"
+  >
+    <UserAvatar
+      filename={undefined}
+    />
+  </div>
   <p
     className="disclamer"
   >
@@ -176,9 +180,13 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
 <div
   className="edit-user-profile-container"
 >
-  <UserAvatar
-    filename={undefined}
-  />
+  <div
+    className="avatar"
+  >
+    <UserAvatar
+      filename={undefined}
+    />
+  </div>
   <p
     className="disclamer"
   >

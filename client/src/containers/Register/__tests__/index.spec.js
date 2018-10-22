@@ -7,6 +7,7 @@ import Register from '..';
 import { userRegister } from '../../../actions';
 import { USER_PROFILE } from '../../../constants/routes';
 
+jest.mock('../../../components/UserAvatar', () => 'UserAvatar');
 jest.mock('./../../../actions', () => ({
   getUsers: jest.fn(() => ({
     type: 'getUsers',

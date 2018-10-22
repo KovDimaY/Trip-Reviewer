@@ -7,7 +7,9 @@ exports[`<Register /> should render component 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <h2>
+    <h2
+      className="form-title"
+    >
       Sing Up
     </h2>
     <div
@@ -64,26 +66,6 @@ exports[`<Register /> should render component 1`] = `
       Sign Up
     </button>
   </form>
-  <div
-    className="current_users"
-  >
-    <h3>
-      Current users:
-    </h3>
-    <table>
-      <thead>
-        <tr>
-          <th>
-            Name
-          </th>
-          <th>
-            Lastname
-          </th>
-        </tr>
-      </thead>
-      <tbody />
-    </table>
-  </div>
 </div>
 `;
 
@@ -94,7 +76,9 @@ exports[`<Register /> should render component with errors 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <h2>
+    <h2
+      className="form-title"
+    >
       Sing Up
     </h2>
     <div
@@ -171,26 +155,6 @@ exports[`<Register /> should render component with errors 1`] = `
       Sign Up
     </button>
   </form>
-  <div
-    className="current_users"
-  >
-    <h3>
-      Current users:
-    </h3>
-    <table>
-      <thead>
-        <tr>
-          <th>
-            Name
-          </th>
-          <th>
-            Lastname
-          </th>
-        </tr>
-      </thead>
-      <tbody />
-    </table>
-  </div>
 </div>
 `;
 
@@ -201,7 +165,9 @@ exports[`<Register /> should render component with users 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <h2>
+    <h2
+      className="form-title"
+    >
       Sing Up
     </h2>
     <div
@@ -258,34 +224,39 @@ exports[`<Register /> should render component with users 1`] = `
       Sign Up
     </button>
   </form>
-  <div
-    className="current_users"
+  <h2
+    className="users-title"
   >
-    <h3>
-      Current users:
-    </h3>
-    <table>
-      <thead>
-        <tr>
-          <th>
-            Name
-          </th>
-          <th>
-            Lastname
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            name
-          </td>
-          <td>
-            lastname
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    Existing Users:
+  </h2>
+  <div
+    className="existing-users"
+  >
+    <div
+      className="user-container"
+    >
+      <div
+        className="user-avatar"
+      >
+        <UserAvatar
+          filename={undefined}
+        />
+      </div>
+      <div
+        className="user-names"
+      >
+        <p
+          title="name"
+        >
+          name
+        </p>
+        <p
+          title="lastname"
+        >
+          lastname
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 `;

@@ -2,7 +2,7 @@
 
 exports[`<UserAvatar /> should render component with filename 1`] = `
 <div
-  className="user-avatar-container"
+  className="user-avatar-container fit-parent"
 >
   <Loader
     className="user-avatar-spinner"
@@ -15,13 +15,14 @@ exports[`<UserAvatar /> should render component with filename 1`] = `
 
 exports[`<UserAvatar /> should render component with no filename 1`] = `
 <div
-  className="user-avatar-container"
+  className="user-avatar-container fit-parent"
 >
   <div
-    className="avatar-picture"
+    className="avatar-picture fit-parent"
   >
     <img
       alt="avatar"
+      className="fit-parent"
       src="/images/avatar.png"
     />
   </div>

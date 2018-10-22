@@ -5,15 +5,20 @@ exports[`<User /> should render component 1`] = `
   className="user_container"
 >
   <div
-    className="user-avatar-container"
+    className="avatar"
   >
     <div
-      className="avatar-picture"
+      className="user-avatar-container fit-parent"
     >
-      <img
-        alt="avatar"
-        src="/images/avatar.png"
-      />
+      <div
+        className="avatar-picture fit-parent"
+      >
+        <img
+          alt="avatar"
+          className="fit-parent"
+          src="/images/avatar.png"
+        />
+      </div>
     </div>
   </div>
   <div

@@ -90,21 +90,6 @@ class Register extends PureComponent {
       return null;
     }
 
-    renderUsersTable = ({ users }) => (
-      users
-        ? users.map(item => (
-          <tr key={item._id}>
-            <td>
-              {item.name}
-            </td>
-            <td>
-              {item.lastname}
-            </td>
-          </tr>
-        ))
-        : null
-    )
-
     renderForm() {
       const {
         name, lastname,
