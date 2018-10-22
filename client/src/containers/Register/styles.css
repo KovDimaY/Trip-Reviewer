@@ -1,17 +1,14 @@
 .register-container {
     text-align: center;
 }
-
 .register-container .form_element {
     margin-top: 20px;
 }
-
-.register-container h2 {
+.register-container .form-title {
     font-size: 33px;
     font-weight: 300;
     color: #02bcd4;
 }
-
 .register-container input {
     font-size: 20px;
     border-radius: 3px;
@@ -22,7 +19,6 @@
     font-weight: 300;
     width: 260px;
 }
-
 .register-container button {
     font-size: 20px;
     padding: 10px 52px;
@@ -34,35 +30,96 @@
     margin-top: 20px;
     width: 260px;
 }
-
 .register-container .error {
     color: #FF5722;
     margin-top: 5px;
 }
-
 .register-container .field-error {
     border: 2px solid #FF5722;
     color: #FF5722;
 }
-
 .register-container .current_users {
     width: 90%;
     max-width: 500px;
     margin: auto;
     margin-top: 50px;
 }
-
 .register-container .current_users h3 {
     font-size: 24px;
     font-weight: 300;
     color: orange;
 }
-
 .register-container .current_users th,
 .register-container .current_users td {
     text-align: center;
 }
-
 .register-container .current_users tr:nth-child(even) {
     background-color: #f2f2f2;
+}
+
+
+.register-container .users-title {
+    font-size: 33px;
+    font-weight: 300;
+    color: orange;
+    margin: 50px auto 10px auto;
+}
+.register-container .existing-users {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-evenly;
+    max-width: 750px;
+    margin: 0 auto 50px auto;
+}
+.register-container .user-container {
+    margin: 25px;
+}
+.register-container .user-avatar {
+    width: 200px;
+    height: 200px;
+}
+.register-container .user-names {
+    width: 200px;
+    margin-top: 20px;
+}
+.register-container .user-names p {
+    color: #404040;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 3px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+    .register-container .users-title {
+        margin: 50px auto 25px auto;
+    }
+    .register-container .existing-users {
+        display: block;
+        padding: 0 10%;
+    }
+    .register-container .user-container {
+        border: 1px solid #ebebeb;
+        background-color: #f7f7f7;
+        display: flex;
+        padding: 15px;
+        margin: 5px 0;
+    }
+    .register-container .user-avatar {
+        width: 50px;
+        height: 50px;
+    }
+    .register-container .user-names {
+        width: calc(100% - 75px);
+        margin: 3px 0 0 25px;
+        text-align: left;
+    }
+    .register-container .user-names p {
+        margin: 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
 }

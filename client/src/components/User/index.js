@@ -16,25 +16,13 @@ const User = (props) => {
       <UserAvatar filename={user.avatar} />
       <div className="data">
         <div>
-          <span>
-            Name:
-          </span>
-          {' '}
-          {user.name}
+          <span>Name:</span>{' '}{user.name}
         </div>
         <div>
-          <span>
-            Lastname:
-          </span>
-          {' '}
-          {user.lastname}
+          <span>Lastname:</span>{' '}{user.lastname}
         </div>
         <div>
-          <span>
-            Email:
-          </span>
-          {' '}
-          {user.email}
+          <span>Email:</span>{' '}{user.email}
         </div>
       </div>
       <div className="text-center">

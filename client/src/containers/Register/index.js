@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import UserAvatar from '../../components/UserAvatar';
 import { getUsers, userRegister } from '../../actions';
 import { USER_PROFILE } from '../../constants/routes';
 
@@ -104,93 +105,101 @@ class Register extends PureComponent {
         : null
     )
 
-    render() {
-      const { users } = this.props;
+    renderForm() {
       const {
         name, lastname,
         email, password,
       } = this.state.formData;
 
       return (
-        <div className="register-container">
-          <form onSubmit={this.submitForm}>
-            <h2>
-              Sing Up
-            </h2>
+        <form onSubmit={this.submitForm}>
+          <h2 className="form-title">Sing Up</h2>
 
-            <div className="form_element">
-              <input
-                type="text"
-                className={this.getErrorClass('name')}
-                placeholder="Enter name"
-                value={name}
-                name="name"
-                onChange={this.handleInput}
-              />
-            </div>
-            { this.renderError('name') }
-
-            <div className="form_element">
-              <input
-                type="text"
-                className={this.getErrorClass('lastname')}
-                placeholder="Enter Lastname"
-                value={lastname}
-                name="lastname"
-                onChange={this.handleInput}
-              />
-            </div>
-            { this.renderError('lastname') }
-
-            <div className="form_element">
-              <input
-                type="email"
-                className={this.getErrorClass('email')}
-                placeholder="Enter Email"
-                value={email}
-                name="email"
-                onChange={this.handleInput}
-              />
-            </div>
-            { this.renderError('email') }
-
-            <div className="form_element">
-              <input
-                type="password"
-                className={this.getErrorClass('password')}
-                placeholder="Enter Password"
-                value={password}
-                name="password"
-                onChange={this.handleInput}
-              />
-            </div>
-            { this.renderError('password') }
-
-            <button type="submit">
-              Sign Up
-            </button>
-
-          </form>
-          <div className="current_users">
-            <h3>
-              Current users:
-            </h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>
-                    Name
-                  </th>
-                  <th>
-                    Lastname
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.renderUsersTable(users)}
-              </tbody>
-            </table>
+          <div className="form_element">
+            <input
+              type="text"
+              className={this.getErrorClass('name')}
+              placeholder="Enter name"
+              value={name}
+              name="name"
+              onChange={this.handleInput}
+            />
           </div>
+          { this.renderError('name') }
+
+          <div className="form_element">
+            <input
+              type="text"
+              className={this.getErrorClass('lastname')}
+              placeholder="Enter Lastname"
+              value={lastname}
+              name="lastname"
+              onChange={this.handleInput}
+            />
+          </div>
+          { this.renderError('lastname') }
+
+          <div className="form_element">
+            <input
+              type="email"
+              className={this.getErrorClass('email')}
+              placeholder="Enter Email"
+              value={email}
+              name="email"
+              onChange={this.handleInput}
+            />
+          </div>
+          { this.renderError('email') }
+
+          <div className="form_element">
+            <input
+              type="password"
+              className={this.getErrorClass('password')}
+              placeholder="Enter Password"
+              value={password}
+              name="password"
+              onChange={this.handleInput}
+            />
+          </div>
+          { this.renderError('password') }
+
+          <button type="submit">Sign Up</button>
+        </form>
+      );
+    }
+
+    renderUsers() {
+      const { users } = this.props.users;
+
+      if (users && users.length) {
+        return (
+          <React.Fragment>
+            <h2 className="users-title">Existing Users:</h2>
+            <div className="existing-users">
+              {users.map(user => (
+                <div key={user._id} className="user-container">
+                  <div className="user-avatar">
+                    <UserAvatar filename={user.avatar} />
+                  </div>
+                  <div className="user-names">
+                    <p title={user.name}>{user.name}</p>
+                    <p title={user.lastname}>{user.lastname}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </React.Fragment>
+        );
+      }
+
+      return null;
+    }
+
+    render() {
+      return (
+        <div className="register-container">
+          { this.renderForm() }
+          { this.renderUsers() }
         </div>
       );
     }
