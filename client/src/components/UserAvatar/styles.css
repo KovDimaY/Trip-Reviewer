@@ -8,8 +8,6 @@
     vertical-align: middle;
 }
 .user-avatar-container .avatar-picture img {
-    max-width: 200px;
-    max-height: 200px;
     box-shadow: 1px 3px 15px black;
     border: 1px solid;
     object-fit: cover;
