@@ -1,0 +1,32 @@
+.user-posts-container {
+  text-align: center;
+  padding: 10px 25px 75px 25px;
+}
+.user-posts-container h2 {
+  font-size: 33px;
+  font-weight: 300;
+  color: #02bcd4;
+}
+.user-posts-container .reviews-table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+.user-posts-container .reviews-table th,
+.user-posts-container .reviews-table td {
+  text-align: center;
+}
+.user-posts-container .reviews-table .post-title {
+  text-align: left;
+}
+.user-posts-container .reviews-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+@media (max-width: 450px) {
+  .user-posts-container .only-wide-screen {
+    display: none;
+  }
+}
