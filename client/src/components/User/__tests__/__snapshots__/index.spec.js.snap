@@ -5,16 +5,11 @@ exports[`<User /> should render component 1`] = `
   className="user_container"
 >
   <div
-    className="user-avatar-container"
+    className="avatar"
   >
-    <div
-      className="avatar-picture"
-    >
-      <img
-        alt="avatar"
-        src="/images/avatar.png"
-      />
-    </div>
+    <UserAvatar
+      filename={undefined}
+    />
   </div>
   <div
     className="data"
@@ -23,21 +18,18 @@ exports[`<User /> should render component 1`] = `
       <span>
         Name:
       </span>
-       
       name
     </div>
     <div>
       <span>
         Lastname:
       </span>
-       
       lastname
     </div>
     <div>
       <span>
         Email:
       </span>
-       
       email
     </div>
   </div>

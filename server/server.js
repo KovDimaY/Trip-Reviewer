@@ -91,6 +91,7 @@ app.get('/api/getReviewer', (req, res) => {
 app.get('/api/users', (req, res) => {
   User.find({}, (err, rawUsers) => {
     if (err) return res.status(400).send(err);
+
     const users = rawUsers.map(user => ({
       _id: user._id,
       lastname: user.lastname,

@@ -54,15 +54,15 @@ class UserAvatar extends PureComponent {
         return <Loader className="user-avatar-spinner" color="grey" size="16px" margin="4px" />;
       }
       return (
-        <div className="avatar-picture">
-          <img alt="avatar" src={src} />
+        <div className="avatar-picture fit-parent">
+          <img className="fit-parent" alt="avatar" src={src} />
         </div>
       );
     }
 
     render() {
       return (
-        <div className="user-avatar-container">
+        <div className="user-avatar-container fit-parent">
           { this.renderWithLoading() }
         </div>
       );
