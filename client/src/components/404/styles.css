@@ -15,21 +15,22 @@
 }
 
 .not-found-container .text {
-  font-size: 42px;
+  font-size: 72px;
+  letter-spacing: 2px;
   margin: 0;
-  font-family: fantasy;
+  font-family: Papyrus;
 }
 
 .not-found-container .title {
-  font-size: 225px;
-  margin: 0;
-  margin-bottom: -225px;
-  font-family: fantasy;
+  font-size: 350px;
+  margin: -25px 0 -210px 0;
+  letter-spacing: 15px;
+  font-family: Papyrus;
 }
 
 .not-found-container .button {
   font-size: 20px;
-  padding: 10px 52px;
+  padding: 10px 15px;
   background: #02bcd4;
   color: #fff;
   font-weight: 300;
@@ -51,11 +52,13 @@
   }
 
   .not-found-container .title {
-    font-size: 135px;
-    margin-bottom: -135px;
+    font-size: 200px;
+    margin-bottom: -125px;
+    letter-spacing: 10px;
   }
 
   .not-found-container .text {
-    font-size: 24px;
+    font-size: 32px;
+    letter-spacing: 1px;
   }
 }
