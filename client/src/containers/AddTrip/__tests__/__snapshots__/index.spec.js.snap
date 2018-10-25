@@ -7,7 +7,9 @@ exports[`<AddTrip /> should render component 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <h2>
+    <h2
+      className="title"
+    >
       Add a review
     </h2>
     <div
@@ -19,7 +21,7 @@ exports[`<AddTrip /> should render component 1`] = `
         Title:
       </span>
       <input
-        className=""
+        className="form-input "
         name="title"
         onChange={[Function]}
         placeholder="Enter title"
@@ -65,7 +67,7 @@ exports[`<AddTrip /> should render component 1`] = `
         Duration (days):
       </span>
       <input
-        className=""
+        className="form-input "
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
@@ -82,7 +84,7 @@ exports[`<AddTrip /> should render component 1`] = `
         Expences ($):
       </span>
       <input
-        className=""
+        className="form-input "
         name="expences"
         onChange={[Function]}
         placeholder="Enter expences"
@@ -100,6 +102,7 @@ exports[`<AddTrip /> should render component 1`] = `
       />
     </div>
     <button
+      className="add-button"
       type="submit"
     >
       Add review
@@ -115,7 +118,9 @@ exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <h2>
+    <h2
+      className="title"
+    >
       Add a review
     </h2>
     <div
@@ -127,7 +132,7 @@ exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
         Title:
       </span>
       <input
-        className="field-error"
+        className="form-input field-error"
         name="title"
         onChange={[Function]}
         placeholder="Enter title"
@@ -183,7 +188,7 @@ exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
         Duration (days):
       </span>
       <input
-        className="field-error"
+        className="form-input field-error"
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
@@ -205,7 +210,7 @@ exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
         Expences ($):
       </span>
       <input
-        className="field-error"
+        className="form-input field-error"
         name="expences"
         onChange={[Function]}
         placeholder="Enter expences"
@@ -233,6 +238,7 @@ exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
       rating error
     </div>
     <button
+      className="add-button"
       type="submit"
     >
       Add review
@@ -248,7 +254,9 @@ exports[`<AddTrip /> should render component with newTrip and success true 1`] =
   <form
     onSubmit={[Function]}
   >
-    <h2>
+    <h2
+      className="title"
+    >
       Add a review
     </h2>
     <div
@@ -260,7 +268,7 @@ exports[`<AddTrip /> should render component with newTrip and success true 1`] =
         Title:
       </span>
       <input
-        className=""
+        className="form-input "
         name="title"
         onChange={[Function]}
         placeholder="Enter title"
@@ -306,7 +314,7 @@ exports[`<AddTrip /> should render component with newTrip and success true 1`] =
         Duration (days):
       </span>
       <input
-        className=""
+        className="form-input "
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
@@ -323,7 +331,7 @@ exports[`<AddTrip /> should render component with newTrip and success true 1`] =
         Expences ($):
       </span>
       <input
-        className=""
+        className="form-input "
         name="expences"
         onChange={[Function]}
         placeholder="Enter expences"
@@ -341,6 +349,7 @@ exports[`<AddTrip /> should render component with newTrip and success true 1`] =
       />
     </div>
     <button
+      className="add-button"
       type="submit"
     >
       Add review

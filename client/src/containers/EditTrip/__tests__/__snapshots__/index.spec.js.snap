@@ -7,7 +7,9 @@ exports[`<EditTrip /> should render component 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <h2>
+    <h2
+      className="title"
+    >
       Edit review
     </h2>
     <div
@@ -19,7 +21,7 @@ exports[`<EditTrip /> should render component 1`] = `
         Title:
       </span>
       <input
-        className=""
+        className="form-input "
         name="title"
         onChange={[Function]}
         placeholder="Enter title"
@@ -65,7 +67,7 @@ exports[`<EditTrip /> should render component 1`] = `
         Duration (days):
       </span>
       <input
-        className=""
+        className="form-input "
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
@@ -82,7 +84,7 @@ exports[`<EditTrip /> should render component 1`] = `
         Expences ($):
       </span>
       <input
-        className=""
+        className="form-input "
         name="expences"
         onChange={[Function]}
         placeholder="Enter Price"
@@ -105,7 +107,7 @@ exports[`<EditTrip /> should render component 1`] = `
       Edit review
     </button>
     <div
-      className="delete_post"
+      className="delete-post"
     >
       <div
         className="button"
@@ -130,7 +132,9 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <h2>
+    <h2
+      className="title"
+    >
       Edit review
     </h2>
     <div
@@ -142,7 +146,7 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
         Title:
       </span>
       <input
-        className=""
+        className="form-input "
         name="title"
         onChange={[Function]}
         placeholder="Enter title"
@@ -188,7 +192,7 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
         Duration (days):
       </span>
       <input
-        className=""
+        className="form-input "
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
@@ -205,7 +209,7 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
         Expences ($):
       </span>
       <input
-        className=""
+        className="form-input "
         name="expences"
         onChange={[Function]}
         placeholder="Enter Price"
@@ -228,7 +232,7 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
       Edit review
     </button>
     <div
-      className="delete_post"
+      className="delete-post"
     >
       <div
         className="button"
@@ -248,7 +252,9 @@ exports[`<EditTrip /> should render component with updatedTrip and errors 1`] = 
   <form
     onSubmit={[Function]}
   >
-    <h2>
+    <h2
+      className="title"
+    >
       Edit review
     </h2>
     <div
@@ -260,7 +266,7 @@ exports[`<EditTrip /> should render component with updatedTrip and errors 1`] = 
         Title:
       </span>
       <input
-        className="field-error"
+        className="form-input field-error"
         name="title"
         onChange={[Function]}
         placeholder="Enter title"
@@ -316,7 +322,7 @@ exports[`<EditTrip /> should render component with updatedTrip and errors 1`] = 
         Duration (days):
       </span>
       <input
-        className="field-error"
+        className="form-input field-error"
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
@@ -338,7 +344,7 @@ exports[`<EditTrip /> should render component with updatedTrip and errors 1`] = 
         Expences ($):
       </span>
       <input
-        className="field-error"
+        className="form-input field-error"
         name="expences"
         onChange={[Function]}
         placeholder="Enter Price"
@@ -371,7 +377,7 @@ exports[`<EditTrip /> should render component with updatedTrip and errors 1`] = 
       Edit review
     </button>
     <div
-      className="delete_post"
+      className="delete-post"
     >
       <div
         className="button"
