@@ -4,12 +4,12 @@
 .add-review-container .form_element {
     margin-top: 20px;
 }
-.add-review-container h2 {
+.add-review-container .title {
     font-size: 33px;
     font-weight: 300;
     color: #02bcd4;
 }
-.add-review-container input {
+.add-review-container .form-input {
     font-size: 20px;
     border-radius: 3px;
     border: 1px solid #ebebeb;
@@ -36,13 +36,7 @@
     box-sizing: border-box;
     font-size: 14px;
 }
-.add-review-container select {
-    width: 80%;
-    background: #f7f7f7;
-    font-size: 20px;
-    border: 1px solid #e1e1e1;
-}
-.add-review-container button {
+.add-review-container .add-button {
     font-size: 20px;
     padding: 10px 52px;
     background: #02bcd4;
@@ -63,15 +57,20 @@
     color: #FF5722;
     margin-top: 5px;
 }
-.add-review-container .delete_post {
-    text-align: center;
-    margin-top: 20px;
-}
 .add-review-container .editor-wrapper {
     width: 80%;
     margin-left: 10%;
     border: 1px solid #ebebeb;
     background-color: #f7f7f7;
+}
+.add-review-container .rdw-emoji-modal {
+    left: -55px;
+}
+.add-review-container .rdw-link-modal {
+    left: -100px;
+}
+.add-review-container .rdw-image-modal {
+    left: -10px;
 }
 .add-review-container .editor-self {
     padding-left: 10px;
