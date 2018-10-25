@@ -207,9 +207,7 @@ class EditTrip extends PureComponent {
             : null
         }
         <form onSubmit={this.submitForm}>
-          <h2>
-            Edit review
-          </h2>
+          <h2 className="title">Edit review</h2>
 
           <div className="form_element">
             <span className="label">
@@ -218,7 +216,7 @@ class EditTrip extends PureComponent {
             <input
               type="text"
               name="title"
-              className={this.getErrorClass('title')}
+              className={`form-input ${this.getErrorClass('title')}`}
               placeholder="Enter title"
               value={title}
               onChange={this.handleInput}
@@ -257,7 +255,7 @@ class EditTrip extends PureComponent {
             <input
               type="number"
               name="duration"
-              className={this.getErrorClass('duration')}
+              className={`form-input ${this.getErrorClass('duration')}`}
               placeholder="Enter duration"
               value={duration}
               onChange={this.handleInput}
@@ -272,7 +270,7 @@ class EditTrip extends PureComponent {
             <input
               type="number"
               name="expences"
-              className={this.getErrorClass('expences')}
+              className={`form-input ${this.getErrorClass('expences')}`}
               placeholder="Enter Price"
               value={expences}
               onChange={this.handleInput}
@@ -288,7 +286,7 @@ class EditTrip extends PureComponent {
           <button type="submit">
             Edit review
           </button>
-          <div className="delete_post">
+          <div className="delete-post">
             <div
               className="button"
               onClick={this.deletePost}
