@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Papyrus;
+    src: url(./fonts/Papyrus.ttf);
+}
+
 body {
     margin:0;
     padding:0;

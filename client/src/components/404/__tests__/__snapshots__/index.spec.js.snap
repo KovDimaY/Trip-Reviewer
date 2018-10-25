@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotFound /> should render component 1`] = `
+<div
+  className="not-found-container"
+>
+  <h1
+    className="title"
+  >
+    404
+  </h1>
+  <div
+    className="picture"
+  />
+  <h2
+    className="text"
+  >
+    It looks like you're lost...
+  </h2>
+  <button
+    className="button"
+    onClick={[Function]}
+  >
+    Go Home
+  </button>
+</div>
+`;

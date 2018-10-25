@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+import NotFound from './components/404';
 import Home from './components/Home';
 import User from './components/User';
 import EditUserProfile from './containers/EditUserProfile';
@@ -32,6 +33,7 @@ const Routes = () => (
       <Route path={`${routes.EDIT_POST}/:id`} exact component={Auth(EditTrip, true)} />
       <Route path={routes.ADD_TRIP} exact component={Auth(AddTrip, true)} />
       <Route path={`${routes.TRIPS}/:id`} exact component={Auth(TripView, null)} />
+      <Route path="*" component={NotFound} />
     </Switch>
   </Layout>
 );
