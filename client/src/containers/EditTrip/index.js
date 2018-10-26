@@ -283,7 +283,7 @@ class EditTrip extends PureComponent {
           </div>
           { this.renderError('rating') }
 
-          <button type="submit">
+          <button type="submit" className="add-button">
             Edit review
           </button>
           <div className="delete-post">

@@ -102,6 +102,7 @@ exports[`<EditTrip /> should render component 1`] = `
       />
     </div>
     <button
+      className="add-button"
       type="submit"
     >
       Edit review
@@ -227,6 +228,7 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
       />
     </div>
     <button
+      className="add-button"
       type="submit"
     >
       Edit review
@@ -372,6 +374,7 @@ exports[`<EditTrip /> should render component with updatedTrip and errors 1`] = 
       rating error
     </div>
     <button
+      className="add-button"
       type="submit"
     >
       Edit review
