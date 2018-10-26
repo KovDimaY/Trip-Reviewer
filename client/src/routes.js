@@ -33,7 +33,7 @@ const Routes = () => (
       <Route path={`${routes.EDIT_POST}/:id`} exact component={Auth(EditTrip, true)} />
       <Route path={routes.ADD_TRIP} exact component={Auth(AddTrip, true)} />
       <Route path={`${routes.TRIPS}/:id`} exact component={Auth(TripView, null)} />
-      <Route path="*" component={NotFound} />
+      <Route path="*" component={Auth(NotFound, null)} />
     </Switch>
   </Layout>
 );
