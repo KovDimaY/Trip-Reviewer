@@ -1,5 +1,5 @@
 const toolbar = {
-  options: ['inline', 'list', 'textAlign', 'link', 'emoji', 'image', 'remove', 'history'],
+  options: ['image', 'emoji', 'link', 'inline', 'list', 'textAlign', 'remove', 'history'],
   inline: {
     inDropdown: false,
     className: undefined,

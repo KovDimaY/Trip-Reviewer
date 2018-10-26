@@ -158,9 +158,7 @@ class AddTrip extends Component {
     return (
       <div className="add-review-container">
         <form onSubmit={this.submitForm}>
-          <h2>
-            Add a review
-          </h2>
+          <h2 className="title">Add a review</h2>
 
           <div className="form_element">
             <span className="label">
@@ -169,7 +167,7 @@ class AddTrip extends Component {
             <input
               type="text"
               name="title"
-              className={this.getErrorClass('title')}
+              className={`form-input ${this.getErrorClass('title')}`}
               placeholder="Enter title"
               value={title}
               onChange={this.handleInput}
@@ -208,7 +206,7 @@ class AddTrip extends Component {
             <input
               type="number"
               name="duration"
-              className={this.getErrorClass('duration')}
+              className={`form-input ${this.getErrorClass('duration')}`}
               placeholder="Enter duration"
               value={duration}
               onChange={this.handleInput}
@@ -223,7 +221,7 @@ class AddTrip extends Component {
             <input
               type="number"
               name="expences"
-              className={this.getErrorClass('expences')}
+              className={`form-input ${this.getErrorClass('expences')}`}
               placeholder="Enter expences"
               value={expences}
               onChange={this.handleInput}
@@ -236,7 +234,7 @@ class AddTrip extends Component {
           </div>
           { this.renderError('rating') }
 
-          <button type="submit">
+          <button type="submit" className="add-button">
             Add review
           </button>
         </form>
