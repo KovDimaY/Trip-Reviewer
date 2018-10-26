@@ -19,7 +19,7 @@
 
 .country-selector-container .c-dropdown-menu {
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   top: 100%;
   width: 100%;
   padding: 0;
