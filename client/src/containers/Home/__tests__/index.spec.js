@@ -55,6 +55,18 @@ describe('<HomeContainer />', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('renderLoadMoreButton should return null if the showLoadmore is false', () => {
+    const initialState = {
+      trips: {},
+    };
+    const instance = shallow(mockComponent(initialState)).dive().instance();
+    instance.state.showLoadmore = false;
+
+    const result = instance.renderLoadMoreButton();
+
+    expect(result).toEqual(null);
+  });
+
   it('should dispatch getTrips when loadmore is called', () => {
     const list = [];
     const newItemsToLoad = 3;
@@ -71,5 +83,43 @@ describe('<HomeContainer />', () => {
     instance.loadmore();
 
     expect(getTrips).toHaveBeenCalledWith(newItemsToLoad, startingFrom, order, list);
+  });
+
+  it('should update state if componentWillReceiveProps is called with small newTripsCount', () => {
+    const setState = jest.fn();
+    const nextProps = {
+      trips: { newTripsCount: 1 },
+    };
+    const initialState = {
+      trips: {
+        list: [],
+      },
+    };
+
+    const instance = shallow(mockComponent(initialState)).dive().instance();
+    instance.setState = setState;
+
+    instance.componentWillReceiveProps(nextProps);
+
+    expect(setState).toHaveBeenCalledWith({ showLoadmore: false });
+  });
+
+  it('should not update state if componentWillReceiveProps is called with big newTripsCount', () => {
+    const setState = jest.fn();
+    const nextProps = {
+      trips: { newTripsCount: 5 },
+    };
+    const initialState = {
+      trips: {
+        list: [],
+      },
+    };
+
+    const instance = shallow(mockComponent(initialState)).dive().instance();
+    instance.setState = setState;
+
+    instance.componentWillReceiveProps(nextProps);
+
+    expect(setState).not.toHaveBeenCalledWith({ showLoadmore: false });
   });
 });
