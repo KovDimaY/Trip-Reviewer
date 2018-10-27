@@ -5,6 +5,9 @@
     display: block;
     background: #f5f5f578;
 }
+.trip-item-container:hover {
+    background: #f5f5f5;
+}
 .trip-item-container .header h2 {
     font-size: 20px;
     color: #686868;

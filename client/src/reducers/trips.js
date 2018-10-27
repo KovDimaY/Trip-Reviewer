@@ -13,7 +13,11 @@ import {
 export default function (state = {}, action) {
   switch (action.type) {
     case GET_TRIPS:
-      return { ...state, list: action.payload };
+      return {
+        ...state,
+        list: action.payload.list,
+        newTripsCount: action.payload.newTripsCount,
+      };
     case GET_TRIP:
       return { ...state, trip: action.payload };
     case UPDATE_TRIP:
