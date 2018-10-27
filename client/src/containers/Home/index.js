@@ -45,7 +45,7 @@ class HomeContainer extends Component {
     if (list.length < 1) {
       return (
         <div className="empty-view">
-          <p>There is no reviews yet.</p>
+          <p>There is no any review yet.</p>
           <p>Be the first who posts one! :D</p>
         </div>
       );
@@ -57,7 +57,7 @@ class HomeContainer extends Component {
   renderLoadMoreButton() {
     if (this.state.showLoadmore) {
       return (
-        <div className="loadmore"onClick={this.loadmore}>
+        <div className="loadmore" onClick={this.loadmore}>
           Load More
         </div>
       );
