@@ -261,6 +261,7 @@ app.post('/api/userUpdate', (req, res) => {
                 {
                   adminMail, mailTo: user.email, name, lastname, avatar, email, newPassword,
                 },
+                user,
               );
             });
           } else {
@@ -289,6 +290,7 @@ app.post('/api/userUpdate', (req, res) => {
             {
               adminMail, mailTo: user.email, name, lastname, avatar, email, newPassword: null,
             },
+            user,
           );
         }
       });
