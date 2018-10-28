@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Header /> should render component 1`] = `
-<header>
+<header
+  className="header-container"
+>
   <div
-    className="open_nav"
+    className="open-nav"
   >
     <span
       aria-hidden={true}

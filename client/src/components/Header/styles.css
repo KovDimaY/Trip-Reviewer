@@ -1,0 +1,20 @@
+.header-container {
+  padding: 5px;
+  background: #00BCD4;
+  position: relative;
+  border-bottom: 6px solid #0495a8;
+}
+
+.header-container .logo {
+  text-align: center;
+  font-size: 30px;
+  font-family: Breathe;
+  letter-spacing: 3px;
+  color: #ffffff;
+  display: block;
+}
+
+.header-container .open-nav {
+  position: absolute;
+  left: 0px;
+}
