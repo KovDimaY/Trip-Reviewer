@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import Nav from '../Sidenav/index';
 
+import './styles.css';
+
 class Header extends Component {
     state = {
       showNav: false,
@@ -19,8 +21,8 @@ class Header extends Component {
 
     render() {
       return (
-        <header>
-          <div className="open_nav">
+        <header className="header-container">
+          <div className="open-nav">
             <FontAwesome
               name="bars"
               onClick={this.handleOpenNav}

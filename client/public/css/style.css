@@ -2,6 +2,10 @@
     font-family: Papyrus;
     src: url(./fonts/Papyrus.ttf);
 }
+@font-face {
+    font-family: Breathe;
+    src: url(./fonts/Breathe.otf);
+}
 
 body {
     margin:0;
@@ -21,26 +25,6 @@ a {
     background: #F44336;
     color: #fff;
     padding: 10px;
-}
-
-header {
-    padding-top: 5px;
-    background: #00BCD4;
-    position: relative;
-}
-
-header .logo {
-    text-align: center;
-    font-size: 30px;
-    font-family: 'Ranga', cursive;
-    color: #ffffff;
-    border-bottom: 6px solid #0495a8;
-    display: block;
-}
-
-header .open_nav {
-    position: absolute;
-    left:0px;
 }
 
 /*=============================
