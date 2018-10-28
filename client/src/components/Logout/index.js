@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
+import './styles.css';
+
 class Logout extends Component {
   componentWillMount() {
     axios
@@ -19,10 +21,8 @@ class Logout extends Component {
 
   render() {
     return (
-      <div className="logout_container">
-        <h1>
-          Sorry to see you go :(
-        </h1>
+      <div className="logout-container">
+        <h1>Sorry to see you go :(</h1>
       </div>
     );
   }

@@ -32,7 +32,9 @@ class TripView extends Component {
     return editorState;
   }
 
-  renderTrip = (trips) => {
+  render() {
+    const { trips } = this.props;
+
     if (trips && trips.current) {
       const {
         title, country, description,
@@ -80,15 +82,6 @@ class TripView extends Component {
       );
     }
     return null;
-  }
-
-  render() {
-    const { trips } = this.props;
-    return (
-      <div>
-        {this.renderTrip(trips)}
-      </div>
-    );
   }
 }
 

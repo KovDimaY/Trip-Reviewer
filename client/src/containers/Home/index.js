@@ -15,7 +15,7 @@ class HomeContainer extends Component {
   };
 
   componentWillMount() {
-    const itemsToLoad = ITEMS_TO_LOAD;
+    const itemsToLoad = 2 * ITEMS_TO_LOAD;
     const startingFrom = 0;
     const order = 'desc';
 
@@ -25,7 +25,7 @@ class HomeContainer extends Component {
   componentWillReceiveProps(nextProps) {
     const { newTripsCount } = nextProps.trips;
 
-    if (newTripsCount < ITEMS_TO_LOAD) {
+    if (newTripsCount < 2 * ITEMS_TO_LOAD) {
       this.setState({ showLoadmore: false });
     }
   }

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import { resetPassword } from '../../actions';
 
+import './styles.css';
+
 class ResetPass extends Component {
   state = {
     email: '',
@@ -22,13 +24,11 @@ class ResetPass extends Component {
     const { users } = this.props;
 
     return (
-      <div className="rl_container">
+      <div className="reset-password-container">
         <form onSubmit={this.submitForm}>
-          <h2>
-            Reset Password
-          </h2>
+          <h2>Reset Password</h2>
 
-          <div className="form_element">
+          <div className="form-element">
             <input
               type="email"
               placeholder="Enter your mail"
@@ -37,22 +37,15 @@ class ResetPass extends Component {
             />
           </div>
 
-          <button type="submit">
-            Reset
-          </button>
+          <button type="submit">Reset</button>
 
           <div className="error">
             {
               users.reset
-                ? (
-                  <div>
-                    {users.reset.message}
-                  </div>
-                )
+                ? <div>{users.reset.message}</div>
                 : null
             }
           </div>
-
         </form>
       </div>
     );
