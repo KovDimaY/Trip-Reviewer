@@ -55,6 +55,30 @@ describe('<HomeContainer />', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('renderItems should return empty view if the list.lenght is small and initialRender - false', () => {
+    const initialState = {
+      trips: {},
+    };
+    const instance = shallow(mockComponent(initialState)).dive().instance();
+    instance.state.initialRender = false;
+
+    const result = instance.renderItems();
+
+    expect(result).toEqual(<div className="empty-view"><p>There is no any review yet.</p><p>Be the first who posts one! :D</p></div>);
+  });
+
+  it('renderLoadMoreButton should not return null if the showLoadmore is true and initialRender - false', () => {
+    const initialState = {
+      trips: {},
+    };
+    const instance = shallow(mockComponent(initialState)).dive().instance();
+    instance.state.initialRender = false;
+
+    const result = instance.renderLoadMoreButton();
+
+    expect(result).not.toEqual(null);
+  });
+
   it('renderLoadMoreButton should return null if the showLoadmore is false', () => {
     const initialState = {
       trips: {},
@@ -104,7 +128,7 @@ describe('<HomeContainer />', () => {
     expect(setState).toHaveBeenCalledWith({ showLoadmore: false });
   });
 
-  it('should not update state if componentWillReceiveProps is called with big newTripsCount', () => {
+  it('should update state if componentWillReceiveProps is called with big newTripsCount', () => {
     const setState = jest.fn();
     const nextProps = {
       trips: { newTripsCount: 5 },
@@ -117,9 +141,10 @@ describe('<HomeContainer />', () => {
 
     const instance = shallow(mockComponent(initialState)).dive().instance();
     instance.setState = setState;
+    instance.state.initialRender = false;
 
     instance.componentWillReceiveProps(nextProps);
 
-    expect(setState).not.toHaveBeenCalledWith({ showLoadmore: false });
+    expect(setState).not.toHaveBeenCalled();
   });
 });

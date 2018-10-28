@@ -3,24 +3,7 @@
 exports[`<HomeContainer /> should render component 1`] = `
 <div
   className="home-container limited-width-shadow"
->
-  <div
-    className="empty-view"
-  >
-    <p>
-      There is no any review yet.
-    </p>
-    <p>
-      Be the first who posts one! :D
-    </p>
-  </div>
-  <div
-    className="loadmore"
-    onClick={[Function]}
-  >
-    Load More
-  </div>
-</div>
+/>
 `;
 
 exports[`<HomeContainer /> should render component with a list of items 1`] = `
@@ -35,11 +18,5 @@ exports[`<HomeContainer /> should render component with a list of items 1`] = `
     rating="rating"
     title="title"
   />
-  <div
-    className="loadmore"
-    onClick={[Function]}
-  >
-    Load More
-  </div>
 </div>
 `;
