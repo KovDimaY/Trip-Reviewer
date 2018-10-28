@@ -2,7 +2,7 @@
 
 exports[`<AddTrip /> should render component 1`] = `
 <div
-  className="add-review-container"
+  className="add-review-container limited-width"
 >
   <form
     onSubmit={[Function]}
@@ -113,7 +113,7 @@ exports[`<AddTrip /> should render component 1`] = `
 
 exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
 <div
-  className="add-review-container"
+  className="add-review-container limited-width"
 >
   <form
     onSubmit={[Function]}
@@ -249,7 +249,7 @@ exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
 
 exports[`<AddTrip /> should render component with newTrip and success true 1`] = `
 <div
-  className="add-review-container"
+  className="add-review-container limited-width"
 >
   <form
     onSubmit={[Function]}

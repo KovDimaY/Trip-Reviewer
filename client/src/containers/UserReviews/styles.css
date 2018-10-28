@@ -1,8 +1,6 @@
 .user-posts-container {
   text-align: center;
   padding: 10px 25px 75px 25px;
-  max-width: 750px;
-  margin: auto;
 }
 .user-posts-container h2 {
   font-size: 33px;

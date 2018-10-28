@@ -2,7 +2,7 @@
 
 exports[`<HomeContainer /> should render component 1`] = `
 <div
-  className="home-container"
+  className="home-container limited-width-shadow"
 >
   <div
     className="empty-view"
@@ -25,7 +25,7 @@ exports[`<HomeContainer /> should render component 1`] = `
 
 exports[`<HomeContainer /> should render component with a list of items 1`] = `
 <div
-  className="home-container"
+  className="home-container limited-width-shadow"
 >
   <TripItem
     _id="_id"

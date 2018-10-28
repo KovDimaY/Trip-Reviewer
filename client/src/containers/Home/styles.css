@@ -1,8 +1,3 @@
-.home-container {
-  max-width: 750px;
-  margin: auto;
-  box-shadow: 1px 1px 60px black;
-}
 .home-container .loadmore {
   background: #ffaf1a;
   text-align: center;

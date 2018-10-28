@@ -2,7 +2,7 @@
 
 exports[`<TripView /> should render component with current trip of 1 day and correct description 1`] = `
 <div
-  className="trip-view-container"
+  className="trip-view-container limited-width-shadow"
 >
   <div
     className="trip-view-header"
@@ -70,7 +70,7 @@ exports[`<TripView /> should render component with current trip of 1 day and cor
 
 exports[`<TripView /> should render component with current trip of 10 days and wrong 1`] = `
 <div
-  className="trip-view-container"
+  className="trip-view-container limited-width-shadow"
 >
   <div
     className="trip-view-header"

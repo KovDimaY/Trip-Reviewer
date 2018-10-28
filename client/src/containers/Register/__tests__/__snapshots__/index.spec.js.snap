@@ -230,7 +230,7 @@ exports[`<Register /> should render component with users 1`] = `
     Existing Users:
   </h2>
   <div
-    className="existing-users"
+    className="existing-users limited-width"
   >
     <div
       className="user-container"

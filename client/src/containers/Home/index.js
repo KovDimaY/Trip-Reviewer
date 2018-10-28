@@ -68,7 +68,7 @@ class HomeContainer extends Component {
 
   render() {
     return (
-      <div className="home-container">
+      <div className="home-container limited-width-shadow">
         {this.renderItems(this.props.trips)}
         {this.renderLoadMoreButton()}
       </div>

@@ -23,7 +23,15 @@ a {
     color: #fff;
     padding: 10px;
 }
-
+.limited-width {
+  max-width: 750px;
+  margin: auto;
+}
+.limited-width-shadow {
+  max-width: 750px;
+  margin: auto;
+  box-shadow: 1px 1px 60px black;
+}
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #d8d8d8;
   }

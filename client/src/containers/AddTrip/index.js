@@ -156,7 +156,7 @@ class AddTrip extends Component {
     } = this.state.formdata;
 
     return (
-      <div className="add-review-container">
+      <div className="add-review-container limited-width">
         <form onSubmit={this.submitForm}>
           <h2 className="title">Add a review</h2>
 
