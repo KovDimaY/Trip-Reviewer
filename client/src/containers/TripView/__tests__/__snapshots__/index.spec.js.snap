@@ -1,69 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<TripView /> should render component with current trip of 1 day and correct description 1`] = `
-<div>
+<div
+  className="trip-view-container"
+>
   <div
-    className="trip-view-container"
+    className="trip-view-header"
+  >
+    <h2>
+      title
+    </h2>
+    <h5>
+      country
+    </h5>
+    <div
+      className="reviewer"
+    >
+      <span>
+        Author:
+      </span>
+       name lastname
+    </div>
+  </div>
+  <div
+    className="trip-view-description"
+  >
+    <Editor
+      editorClassName="editor-self"
+      editorState={Object {}}
+      readOnly={true}
+      toolbarClassName="editor-toolbar"
+      toolbarHidden={true}
+      wrapperClassName="editor-wrapper"
+    />
+  </div>
+  <div
+    className="trip-view-box"
   >
     <div
-      className="trip-view-header"
+      className="left"
     >
-      <h2>
-        title
-      </h2>
-      <h5>
-        country
-      </h5>
-      <div
-        className="reviewer"
-      >
+      <div>
         <span>
-          Author:
+          Duration:
         </span>
-         name lastname
+         1 day
+      </div>
+      <div>
+        <span>
+          Expences:
+        </span>
+         $expences 
       </div>
     </div>
     <div
-      className="trip-view-description"
+      className="right"
     >
-      <Editor
-        editorClassName="editor-self"
-        editorState={Object {}}
-        readOnly={true}
-        toolbarClassName="editor-toolbar"
-        toolbarHidden={true}
-        wrapperClassName="editor-wrapper"
-      />
-    </div>
-    <div
-      className="trip-view-box"
-    >
-      <div
-        className="left"
-      >
-        <div>
-          <span>
-            Duration:
-          </span>
-           1 day
-        </div>
-        <div>
-          <span>
-            Expences:
-          </span>
-           $expences 
-        </div>
-      </div>
-      <div
-        className="right"
-      >
-        <span>
-          Rating
-        </span>
-        <div>
-          rating
-          /5
-        </div>
+      <span>
+        Rating
+      </span>
+      <div>
+        rating
+        /5
       </div>
     </div>
   </div>
@@ -71,73 +69,71 @@ exports[`<TripView /> should render component with current trip of 1 day and cor
 `;
 
 exports[`<TripView /> should render component with current trip of 10 days and wrong 1`] = `
-<div>
+<div
+  className="trip-view-container"
+>
   <div
-    className="trip-view-container"
+    className="trip-view-header"
+  >
+    <h2>
+      title
+    </h2>
+    <h5>
+      country
+    </h5>
+    <div
+      className="reviewer"
+    >
+      <span>
+        Author:
+      </span>
+       name lastname
+    </div>
+  </div>
+  <div
+    className="trip-view-description"
+  >
+    <Editor
+      editorClassName="editor-self"
+      editorState={Object {}}
+      readOnly={true}
+      toolbarClassName="editor-toolbar"
+      toolbarHidden={true}
+      wrapperClassName="editor-wrapper"
+    />
+  </div>
+  <div
+    className="trip-view-box"
   >
     <div
-      className="trip-view-header"
+      className="left"
     >
-      <h2>
-        title
-      </h2>
-      <h5>
-        country
-      </h5>
-      <div
-        className="reviewer"
-      >
+      <div>
         <span>
-          Author:
+          Duration:
         </span>
-         name lastname
+         10 days
+      </div>
+      <div>
+        <span>
+          Expences:
+        </span>
+         $expences 
       </div>
     </div>
     <div
-      className="trip-view-description"
+      className="right"
     >
-      <Editor
-        editorClassName="editor-self"
-        editorState={Object {}}
-        readOnly={true}
-        toolbarClassName="editor-toolbar"
-        toolbarHidden={true}
-        wrapperClassName="editor-wrapper"
-      />
-    </div>
-    <div
-      className="trip-view-box"
-    >
-      <div
-        className="left"
-      >
-        <div>
-          <span>
-            Duration:
-          </span>
-           10 days
-        </div>
-        <div>
-          <span>
-            Expences:
-          </span>
-           $expences 
-        </div>
-      </div>
-      <div
-        className="right"
-      >
-        <span>
-          Rating
-        </span>
-        <div>
-          rating
-          /5
-        </div>
+      <span>
+        Rating
+      </span>
+      <div>
+        rating
+        /5
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`<TripView /> should render component with empty trips 1`] = `<div />`;
+exports[`<TripView /> should render component with empty trips 1`] = `null`;

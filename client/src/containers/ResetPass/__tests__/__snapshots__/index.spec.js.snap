@@ -2,7 +2,7 @@
 
 exports[`<ResetPass /> should render component 1`] = `
 <div
-  className="rl_container"
+  className="reset-password-container"
 >
   <form
     onSubmit={[Function]}
@@ -11,7 +11,7 @@ exports[`<ResetPass /> should render component 1`] = `
       Reset Password
     </h2>
     <div
-      className="form_element"
+      className="form-element"
     >
       <input
         onChange={[Function]}
@@ -34,7 +34,7 @@ exports[`<ResetPass /> should render component 1`] = `
 
 exports[`<ResetPass /> should render component with error message 1`] = `
 <div
-  className="rl_container"
+  className="reset-password-container"
 >
   <form
     onSubmit={[Function]}
@@ -43,7 +43,7 @@ exports[`<ResetPass /> should render component with error message 1`] = `
       Reset Password
     </h2>
     <div
-      className="form_element"
+      className="form-element"
     >
       <input
         onChange={[Function]}

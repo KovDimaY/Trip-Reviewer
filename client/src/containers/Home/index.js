@@ -25,7 +25,7 @@ class HomeContainer extends Component {
   componentWillReceiveProps(nextProps) {
     const { newTripsCount } = nextProps.trips;
 
-    if (newTripsCount < 2 * ITEMS_TO_LOAD) {
+    if (newTripsCount < ITEMS_TO_LOAD) {
       this.setState({ showLoadmore: false });
     }
   }

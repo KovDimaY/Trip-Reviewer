@@ -2,7 +2,7 @@
 
 exports[`<Logout /> should render component 1`] = `
 <div
-  className="logout_container"
+  className="logout-container"
 >
   <h1>
     Sorry to see you go :(

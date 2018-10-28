@@ -52,7 +52,7 @@ exports[`<EditUserProfile /> should render component 1`] = `
       className="info"
     >
       <div
-        className="form_element"
+        className="form-element"
       >
         <span>
           Name:
@@ -67,7 +67,7 @@ exports[`<EditUserProfile /> should render component 1`] = `
         />
       </div>
       <div
-        className="form_element"
+        className="form-element"
       >
         <span>
           Lastname:
@@ -92,7 +92,7 @@ exports[`<EditUserProfile /> should render component 1`] = `
       className="info danger"
     >
       <div
-        className="form_element"
+        className="form-element"
       >
         <span>
           Current Password:
@@ -107,7 +107,7 @@ exports[`<EditUserProfile /> should render component 1`] = `
         />
       </div>
       <div
-        className="form_element margin-top"
+        className="form-element margin-top"
       >
         <span>
           New Password:
@@ -122,7 +122,7 @@ exports[`<EditUserProfile /> should render component 1`] = `
         />
       </div>
       <div
-        className="form_element"
+        className="form-element"
       >
         <span>
           Repeat New Password:
@@ -137,7 +137,7 @@ exports[`<EditUserProfile /> should render component 1`] = `
         />
       </div>
       <div
-        className="form_element"
+        className="form-element"
       >
         <span>
           Email:
@@ -228,7 +228,7 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
       className="info"
     >
       <div
-        className="form_element"
+        className="form-element"
       >
         <span>
           Name:
@@ -248,7 +248,7 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
         test
       </div>
       <div
-        className="form_element"
+        className="form-element"
       >
         <span>
           Lastname:
@@ -278,7 +278,7 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
       className="info danger"
     >
       <div
-        className="form_element"
+        className="form-element"
       >
         <span>
           Current Password:
@@ -298,7 +298,7 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
         test
       </div>
       <div
-        className="form_element margin-top"
+        className="form-element margin-top"
       >
         <span>
           New Password:
@@ -318,7 +318,7 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
         test
       </div>
       <div
-        className="form_element"
+        className="form-element"
       >
         <span>
           Repeat New Password:
@@ -338,7 +338,7 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
         test
       </div>
       <div
-        className="form_element"
+        className="form-element"
       >
         <span>
           Email:
