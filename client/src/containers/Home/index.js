@@ -5,38 +5,72 @@ import { connect } from 'react-redux';
 import TripItem from '../../components/TripItem/index';
 import { getTrips } from '../../actions';
 
+import './styles.css';
+
+const ITEMS_TO_LOAD = 3;
+
 class HomeContainer extends Component {
+  state = {
+    showLoadmore: true,
+  };
+
   componentWillMount() {
-    const itemsToLoad = 3;
+    const itemsToLoad = ITEMS_TO_LOAD;
     const startingFrom = 0;
     const order = 'desc';
+
     this.props.dispatch(getTrips(itemsToLoad, startingFrom, order));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { newTripsCount } = nextProps.trips;
+
+    if (newTripsCount < ITEMS_TO_LOAD) {
+      this.setState({ showLoadmore: false });
+    }
   }
 
   loadmore = () => {
     const { list } = this.props.trips;
-    const newItemsToLoad = 3;
+    const newItemsToLoad = ITEMS_TO_LOAD;
     const startingFrom = list.length;
     const order = 'desc';
+
     this.props.dispatch(getTrips(newItemsToLoad, startingFrom, order, list));
   }
 
-  renderItems = trips => (
-    trips.list
-      ? trips.list.map(item => <TripItem {...item} key={item._id} />)
-      : null
-  )
+  renderItems() {
+    const { list = [] } = this.props.trips;
+
+    if (list.length < 1) {
+      return (
+        <div className="empty-view">
+          <p>There is no any review yet.</p>
+          <p>Be the first who posts one! :D</p>
+        </div>
+      );
+    }
+
+    return list.map(item => <TripItem {...item} key={item._id} />);
+  }
+
+  renderLoadMoreButton() {
+    if (this.state.showLoadmore) {
+      return (
+        <div className="loadmore" onClick={this.loadmore}>
+          Load More
+        </div>
+      );
+    }
+
+    return null;
+  }
 
   render() {
     return (
-      <div>
+      <div className="home-container">
         {this.renderItems(this.props.trips)}
-        <div
-          className="loadmore"
-          onClick={this.loadmore}
-        >
-          Load More
-        </div>
+        {this.renderLoadMoreButton()}
       </div>
     );
   }
@@ -47,10 +81,8 @@ HomeContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-function mapStateToProps(state) {
-  return {
-    trips: state.trips,
-  };
-}
+const mapStateToProps = state => ({
+  trips: state.trips,
+});
 
 export default connect(mapStateToProps)(HomeContainer);

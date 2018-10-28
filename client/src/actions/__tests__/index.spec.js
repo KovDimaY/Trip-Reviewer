@@ -64,7 +64,13 @@ describe('Testing async actions', () => {
       });
 
       const expectedActions = [
-        { type: GET_TRIPS, payload: responceMock },
+        {
+          type: GET_TRIPS,
+          payload: {
+            list: responceMock,
+            newTripsCount: responceMock.length,
+          },
+        },
       ];
 
       const store = mockStore({});
@@ -87,7 +93,13 @@ describe('Testing async actions', () => {
       const expectedPayload = ['1', '2', '3', 'test'];
 
       const expectedActions = [
-        { type: GET_TRIPS, payload: expectedPayload },
+        {
+          type: GET_TRIPS,
+          payload: {
+            list: expectedPayload,
+            newTripsCount: responceMock.length,
+          },
+        },
       ];
 
       const store = mockStore({});

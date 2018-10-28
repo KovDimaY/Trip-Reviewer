@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import NotFound from './components/404';
-import Home from './components/Home';
+import Home from './containers/Home';
 import User from './components/User';
 import EditUserProfile from './containers/EditUserProfile';
 import Logout from './components/Logout';

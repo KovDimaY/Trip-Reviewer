@@ -31,7 +31,10 @@ export function getTrips(
   return dispatch => request.then((response) => {
     dispatch({
       type: GET_TRIPS,
-      payload: [...list, ...response.data],
+      payload: {
+        list: [...list, ...response.data],
+        newTripsCount: response.data.length,
+      },
     });
   });
 }

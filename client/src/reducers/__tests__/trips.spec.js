@@ -29,10 +29,14 @@ describe('trips reducer', () => {
     const initialState = {};
     const action = {
       type: GET_TRIPS,
-      payload: 'test',
+      payload: {
+        list: 'test',
+        newTripsCount: 'newTripsCount',
+      },
     };
     const expected = {
       list: 'test',
+      newTripsCount: 'newTripsCount',
     };
 
     const newState = reducer(initialState, action);
