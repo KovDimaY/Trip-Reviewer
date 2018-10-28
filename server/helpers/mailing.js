@@ -10,7 +10,7 @@ const generateResetPasswordTemplate = (user, password) => `
     >
       Travel Stories
     </div>
-    <div style="padding: 0 50px; max-width: 700px; margin: auto;">
+    <div style="padding: 0 25px; max-width: 700px; margin: auto;">
       <h2 style="text-align: center; color: black;">Password recovery</h2>
 
       <p style="color: black;">Dear <b>${user.name} ${user.lastname}</b>!</p>
@@ -34,8 +34,7 @@ const generateResetPasswordTemplate = (user, password) => `
     <div style="padding: 20px;
       margin-top: 50px;
       background-color: #f2f2f2;
-      -webkit-box-shadow: 0px -5px 0px #bfbfbf;
-      box-shadow: 0px -5px 0px #bfbfbf;
+      border-top: 5px solid #bfbfbf;
       color: #808080;
       text-align: center;"
     >
@@ -56,7 +55,7 @@ const generateProfileUpdateTemplate = (name, lastname, email, newPassword, user)
     >
       Travel Stories
     </div>
-    <div style="padding: 0 50px; max-width: 700px; margin: auto;">
+    <div style="padding: 0 25px; max-width: 700px; margin: auto;">
       <h2 style="text-align: center; color: black;">Profile update</h2>
 
       <p style="color: black;">Dear <b>${user.name} ${user.lastname}</b>!</p>
@@ -73,11 +72,10 @@ const generateProfileUpdateTemplate = (name, lastname, email, newPassword, user)
         If you change your email, new notification will not arive to the current email anymore.
       </p>
       <p style="color: red;
-        font-size: 14px;
         text-align: center;
         font-weight: bold;"
       >
-        If you get this emails but you were not changing you profile - your profile is in danger. 
+        If you get this email but you were not changing you profile - your profile is in danger.
         Change your password ASAP in the settings section of your profile page!
       </p>
 
@@ -98,8 +96,7 @@ const generateProfileUpdateTemplate = (name, lastname, email, newPassword, user)
     <div style="padding: 20px;
       margin-top: 50px;
       background-color: #f2f2f2;
-      -webkit-box-shadow: 0px -5px 0px #bfbfbf;
-      box-shadow: 0px -5px 0px #bfbfbf;
+      border-top: 5px solid #bfbfbf;
       color: #808080;
       text-align: center;"
     >
