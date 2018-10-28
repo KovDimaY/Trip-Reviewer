@@ -32,7 +32,9 @@ class TripView extends Component {
     return editorState;
   }
 
-  renderTrip = (trips) => {
+  render() {
+    const { trips } = this.props;
+
     if (trips && trips.current) {
       const {
         title, country, description,
@@ -41,7 +43,7 @@ class TripView extends Component {
       const { name, lastname } = trips.reviewer;
 
       return (
-        <div className="trip-view-container">
+        <div className="trip-view-container limited-width-shadow">
           <div className="trip-view-header">
             <h2>{title}</h2>
             <h5>{country}</h5>
@@ -80,15 +82,6 @@ class TripView extends Component {
       );
     }
     return null;
-  }
-
-  render() {
-    const { trips } = this.props;
-    return (
-      <div>
-        {this.renderTrip(trips)}
-      </div>
-    );
   }
 }
 

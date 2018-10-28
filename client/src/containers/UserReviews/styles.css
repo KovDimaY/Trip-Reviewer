@@ -14,6 +14,13 @@
   max-width: 800px;
   margin: auto;
 }
+.user-posts-container .reviews-table a {
+  font-size: 18px;
+  color: #02bcd4;
+}
+.user-posts-container .reviews-table a:hover {
+  color: #039aad;
+}
 .user-posts-container .reviews-table th,
 .user-posts-container .reviews-table td {
   text-align: center;

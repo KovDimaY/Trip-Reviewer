@@ -2,7 +2,7 @@
 
 exports[`<UserPosts /> should render component with login 1`] = `
 <div
-  className="user-posts-container"
+  className="user-posts-container limited-width"
 >
   <h2>
     Your reviews
@@ -52,7 +52,7 @@ exports[`<UserPosts /> should render component with login 1`] = `
 
 exports[`<UserPosts /> should render component with no login 1`] = `
 <div
-  className="user-posts-container"
+  className="user-posts-container limited-width"
 >
   <h2>
     Your reviews

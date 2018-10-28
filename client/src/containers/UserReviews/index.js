@@ -38,7 +38,7 @@ class UserPosts extends Component {
     const { users } = this.props;
 
     return (
-      <div className="user-posts-container">
+      <div className="user-posts-container limited-width">
         <h2>Your reviews</h2>
         <table className="reviews-table">
           <thead>

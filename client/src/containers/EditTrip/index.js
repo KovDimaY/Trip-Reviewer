@@ -195,7 +195,7 @@ class EditTrip extends PureComponent {
     const { trips } = this.props;
 
     return (
-      <div className="edit-review-container">
+      <div className="edit-review-container limited-width">
         {
           trips.postDeleted
             ? (

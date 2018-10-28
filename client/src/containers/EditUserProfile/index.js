@@ -179,7 +179,7 @@ class EditUserProfile extends PureComponent {
 
     return (
       <div className="info">
-        <div className="form_element">
+        <div className="form-element">
           <span>
             Name:
           </span>
@@ -194,7 +194,7 @@ class EditUserProfile extends PureComponent {
         </div>
         { this.renderError('name') }
 
-        <div className="form_element">
+        <div className="form-element">
           <span>
             Lastname:
           </span>
@@ -220,7 +220,7 @@ class EditUserProfile extends PureComponent {
 
     return (
       <div className="info danger">
-        <div className="form_element">
+        <div className="form-element">
           <span>
             Current Password:
           </span>
@@ -235,7 +235,7 @@ class EditUserProfile extends PureComponent {
         </div>
         { this.renderError('oldPassword') }
 
-        <div className="form_element margin-top">
+        <div className="form-element margin-top">
           <span>
             New Password:
           </span>
@@ -250,7 +250,7 @@ class EditUserProfile extends PureComponent {
         </div>
         { this.renderError('newPassword') }
 
-        <div className="form_element">
+        <div className="form-element">
           <span>
             Repeat New Password:
           </span>
@@ -265,7 +265,7 @@ class EditUserProfile extends PureComponent {
         </div>
         { this.renderError('repeatPassword') }
 
-        <div className="form_element">
+        <div className="form-element">
           <span>
             Email:
           </span>

@@ -1,16 +1,18 @@
 .edit-user-profile-container {
     max-width: 600px;
-    margin: 0 auto 75px auto;
+    margin: auto;
+    padding: 50px 0;
 }
 .edit-user-profile-container .avatar {
     text-align: center;
-    margin-top: 30px;
 }
 .edit-user-profile-container .info {
     box-sizing: border-box;
-    padding:20px;
+    padding: 20px;
+    max-width: 350px;
+    margin: auto;
 }
-.edit-user-profile-container .info .form_element {
+.edit-user-profile-container .info .form-element {
     font-size: 23px;
     font-weight: 300;
     margin-top: 10px;
@@ -63,6 +65,8 @@
     flex-direction: row;
     justify-content: space-evenly;
     padding: 20px;
+    max-width: 300px;
+    margin: auto;
 }
 .edit-user-profile-container .user-avatar-controls .avatar-button {
     text-align: center;
@@ -104,5 +108,5 @@
 .edit-user-profile-container .avatar {
     width: 200px;
     height: 200px;
-    margin: 50px auto 25px auto;
+    margin: 0 auto 25px auto;
 }

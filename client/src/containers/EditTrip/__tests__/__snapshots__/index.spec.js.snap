@@ -2,7 +2,7 @@
 
 exports[`<EditTrip /> should render component 1`] = `
 <div
-  className="edit-review-container"
+  className="edit-review-container limited-width"
 >
   <form
     onSubmit={[Function]}
@@ -123,7 +123,7 @@ exports[`<EditTrip /> should render component 1`] = `
 
 exports[`<EditTrip /> should render component with postDeleted 1`] = `
 <div
-  className="edit-review-container"
+  className="edit-review-container limited-width"
 >
   <div
     className="red_tag"
@@ -249,7 +249,7 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
 
 exports[`<EditTrip /> should render component with updatedTrip and errors 1`] = `
 <div
-  className="edit-review-container"
+  className="edit-review-container limited-width"
 >
   <form
     onSubmit={[Function]}

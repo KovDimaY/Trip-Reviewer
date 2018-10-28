@@ -15,7 +15,7 @@ class HomeContainer extends Component {
   };
 
   componentWillMount() {
-    const itemsToLoad = ITEMS_TO_LOAD;
+    const itemsToLoad = 2 * ITEMS_TO_LOAD;
     const startingFrom = 0;
     const order = 'desc';
 
@@ -68,7 +68,7 @@ class HomeContainer extends Component {
 
   render() {
     return (
-      <div className="home-container">
+      <div className="home-container limited-width-shadow">
         {this.renderItems(this.props.trips)}
         {this.renderLoadMoreButton()}
       </div>

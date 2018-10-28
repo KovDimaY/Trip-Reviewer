@@ -160,7 +160,7 @@ class Register extends PureComponent {
         return (
           <React.Fragment>
             <h2 className="users-title">Existing Users:</h2>
-            <div className="existing-users">
+            <div className="existing-users limited-width">
               {users.map(user => (
                 <div key={user._id} className="user-container">
                   <div className="user-avatar">
