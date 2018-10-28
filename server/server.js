@@ -4,12 +4,15 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
-const uuid = require('uuid');
+const generator = require('generate-password');
 const path = require('path');
 
 const config = require('./config/config').get(process.env.NODE_ENV);
 const { encryptPassword } = require('./helpers/auth');
-const { updateModelAndSendEmail } = require('./helpers/mailing');
+const {
+  updateModelAndSendEmail,
+  generateResetPasswordTemplate,
+} = require('./helpers/mailing');
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -258,6 +261,7 @@ app.post('/api/userUpdate', (req, res) => {
                 {
                   adminMail, mailTo: user.email, name, lastname, avatar, email, newPassword,
                 },
+                user,
               );
             });
           } else {
@@ -286,6 +290,7 @@ app.post('/api/userUpdate', (req, res) => {
             {
               adminMail, mailTo: user.email, name, lastname, avatar, email, newPassword: null,
             },
+            user,
           );
         }
       });
@@ -302,8 +307,10 @@ app.post('/api/userUpdate', (req, res) => {
 });
 
 app.post('/api/resetPassword', (req, res) => {
-  const newPassword = uuid();
-
+  const newPassword = generator.generate({
+    length: 10,
+    numbers: true,
+  });
   encryptPassword(newPassword, (err1, encrypted) => {
     if (err1) return res.json({ success: false, message: err1 });
 
@@ -318,7 +325,7 @@ app.post('/api/resetPassword', (req, res) => {
           from: `"Admin TripReview" <${adminMail}>`,
           to: req.body.email,
           subject: 'Reset Password',
-          text: `Your new password is ${newPassword}`,
+          html: generateResetPasswordTemplate(user, newPassword),
         };
 
         return transporter.sendMail(mailOptions, (error, info) => {

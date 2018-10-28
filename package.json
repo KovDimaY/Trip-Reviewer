@@ -36,10 +36,10 @@
     "concurrently": "3.5.1",
     "cookie-parser": "1.4.3",
     "express": "4.16.2",
+    "generate-password": "1.4.0",
     "jsonwebtoken": "8.0.1",
     "mongoose": "4.10.8",
-    "nodemailer": "4.6.8",
-    "uuid": "3.3.2"
+    "nodemailer": "4.6.8"
   },
   "devDependencies": {
     "babel-eslint": "8.2.3",
