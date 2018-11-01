@@ -11,7 +11,7 @@ I think you will easily understand the flow, looking at the history of the issue
 We do not write any code if there is no issue describing the problem, which this code is supposed to solve. So before writing any kind of code, the issue should be created first.
 
 ### Solving existing issues: 
-1) go to the last active project and take a look to the "To Do" column 
+1) go to the last active project and take a look at the "To Do" column 
 2) pick up the issue that you like and which is ready to be solved (has DEV-# prefix and has enough description)
 3) please be sure you have read the description and all the comments of the ticket
 4) understand the origin of the problem and describe in the comment how you are going to fix the issue
@@ -24,7 +24,7 @@ We do not write any code if there is no issue describing the problem, which this
 
 ### Creating a pull request: 
 1) please, follow the PR template
-2) IMPORTANT! be sure that all tests are passing and the coverage is still 100%
+2) IMPORTANT! Be sure that all tests are passing and the coverage is still 100%
 3) review your code, making sure all your changes are correct
 4) link the related issue so anyone could read a detailed description of the problem
 5) be sure all the commits are of correct format (DEV-# description of the commit)
@@ -46,7 +46,7 @@ We do not write any code if there is no issue describing the problem, which this
 #### Basically, the general workflow of new issues is the next:
 1) The person creates an issue in the best way one can
 2) The owner of the repo reviews the issue
-3) If the issue makes sense, it will be corrected if needed and added to the current project
+3) If the issue makes sense, it will be corrected if needed and added to the corresponding project
 4) After the previous step, the issue will be ready for development
 
 Thank you one more time and enjoy hacking! :D

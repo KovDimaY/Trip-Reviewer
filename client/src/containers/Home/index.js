@@ -12,6 +12,7 @@ const ITEMS_TO_LOAD = 3;
 class HomeContainer extends Component {
   state = {
     showLoadmore: true,
+    initialRender: true,
   };
 
   componentWillMount() {
@@ -24,7 +25,11 @@ class HomeContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { newTripsCount } = nextProps.trips;
+    const { initialRender } = this.state;
 
+    if (initialRender) {
+      this.setState({ initialRender: false });
+    }
     if (newTripsCount < ITEMS_TO_LOAD) {
       this.setState({ showLoadmore: false });
     }
@@ -41,8 +46,9 @@ class HomeContainer extends Component {
 
   renderItems() {
     const { list = [] } = this.props.trips;
+    const { initialRender } = this.state;
 
-    if (list.length < 1) {
+    if (!initialRender && list.length < 1) {
       return (
         <div className="empty-view">
           <p>There is no any review yet.</p>
@@ -55,7 +61,9 @@ class HomeContainer extends Component {
   }
 
   renderLoadMoreButton() {
-    if (this.state.showLoadmore) {
+    const { initialRender, showLoadmore } = this.state;
+
+    if (!initialRender && showLoadmore) {
       return (
         <div className="loadmore" onClick={this.loadmore}>
           Load More
