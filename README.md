@@ -1,15 +1,31 @@
 # Trip-Reviewer
-This is a simple blog where each user can post his/her review of some trip so other people could know where it is nice to travel and where it is not so good.
-This project was created to practice my full stack skills. It uses Mongo, React and Node with Express. 
-Also it is my first project where it is implemented my own authentication system with cache and jwt.
+[![Build Status](https://travis-ci.com/KovDimaY/Trip-Reviewer.svg?branch=master)](https://travis-ci.com/KovDimaY/Trip-Reviewer)
+[![Coverage Status](https://coveralls.io/repos/github/KovDimaY/Trip-Reviewer/badge.svg?branch=master)](https://coveralls.io/github/KovDimaY/Trip-Reviewer?branch=master)
+[![GitHub version](https://img.shields.io/badge/version-2.0.0-yellow.svg)](https://github.com/KovDimaY/Trip-Reviewer/releases)
+[![GitHub demo](https://img.shields.io/badge/demo-available-green.svg)](https://trip-reviewer.herokuapp.com)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/KovDimaY/Trip-Reviewer/blob/master/LICENSE)
 
-The last deployed version is **Trip-Reviewer v1.1.0**. 
-You can check it live at: https://trip-reviewer.herokuapp.com
+This is a simple blog where each user can post his/her review of some trip so other people could know where it is nice to travel and where it is not so good. Also, it is just a good place to share you interesting stories about traveling.
+
+
+This project was created to practice my full stack skills. It uses Mongo, React and Node with Express. 
+Also it is my first project where it is implemented a custom authentication system with cache and jwt.
+This project has a very strict Git Flow, 100% test coverage and strict linting, CI with Travis, two environments and an Issue-Project-Release system to organise development process. I tried to make this project as organised as possible because I am a very methodological person and I like when everything is structured.
+
+The last deployed production version is [**Trip-Reviewer v2.0.0**](https://github.com/KovDimaY/Trip-Reviewer/releases). 
+<br>
+<br>
+
+### There are two environments with independent databases:
+
+**Production** (MASTER branch): https://trip-reviewer.herokuapp.com
+
+**Pre-production** (DEVEL branch): https://trip-reviewer-pre.herokuapp.com
 
 I will appreciate a lot your feedback and your opinion about the project. Feel free to create an issue or to contact me via LinkedIn, mail or social networks.
 Thank you in advance!
-
-
+<br>
+<br>
 
 ### Screenshots:
 1) Not-authorized Menu:<br>
@@ -95,9 +111,9 @@ npm run test
 npm run test:coverage
 ```
 
-##### After running this command you can find the HTML version of the generated report in the next directory of the project:
+##### To open visual coverage report in browser:
 ```
-.../Trip-Reviewer/client/coverage/jest/lcov-report/index.html
+npm run coverage:report
 ```
 
 ##### To update outdated snapshots:
