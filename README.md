@@ -29,25 +29,31 @@ Thank you in advance!
 
 ### Screenshots:
 1) Not-authorized Menu:<br>
-![screenshot at aug 21 18-36-27](https://user-images.githubusercontent.com/26466644/44415785-8c633700-a571-11e8-9963-a5d7a8344a57.png)
+![image](https://user-images.githubusercontent.com/26466644/47853258-6dd5b380-ddde-11e8-9fdf-45fb987ce6bf.png)
 
 2) Authorized Menu:<br>
-![screenshot at aug 21 18-36-12](https://user-images.githubusercontent.com/26466644/44415822-a6047e80-a571-11e8-90ec-fa9a7cd16405.png)
+![image](https://user-images.githubusercontent.com/26466644/47853576-7084d880-dddf-11e8-9797-43ddef0bbc44.png)
 
 3) Login Page:<br>
-![screenshot at aug 21 18-33-40](https://user-images.githubusercontent.com/26466644/44415666-4c03b900-a571-11e8-92a3-2afc976a8b82.png)
+![image](https://user-images.githubusercontent.com/26466644/47854722-c3ac5a80-dde2-11e8-864f-91d97a4b21ba.png)
 
 4) Registration Page:<br>
-![screenshot at aug 21 18-34-08](https://user-images.githubusercontent.com/26466644/44415741-748bb300-a571-11e8-9979-19f3abc9883f.png)
+![image](https://user-images.githubusercontent.com/26466644/47854831-171ea880-dde3-11e8-8484-91258395541f.png)
+![image](https://user-images.githubusercontent.com/26466644/47854866-374e6780-dde3-11e8-9a78-87c424a643db.png)
 
 5) User Profile Page:<br>
-![screenshot at aug 21 18-35-08](https://user-images.githubusercontent.com/26466644/44415941-ef54ce00-a571-11e8-8d81-3164fb3ac2be.png)
+![image](https://user-images.githubusercontent.com/26466644/47853514-48957500-dddf-11e8-859c-28001aec4640.png)
 
-6) Add Review Page:<br>
-![screenshot at aug 21 18-35-35](https://user-images.githubusercontent.com/26466644/44415899-ccc2b500-a571-11e8-9f90-ece0cc8fc33d.png)
+6) User Reviews Page:<br>
+![image](https://user-images.githubusercontent.com/26466644/47853844-58fa1f80-dde0-11e8-9e13-c2aeaf90dc58.png)
 
-7) Trip Review page:<br>
-![screenshot at aug 21 18-33-21](https://user-images.githubusercontent.com/26466644/44415607-31314480-a571-11e8-9f31-6dd5e1d12acb.png)
+7) Add Review Page:<br>
+![image](https://user-images.githubusercontent.com/26466644/47854613-7d56fb80-dde2-11e8-9edd-a6d1df6d1df3.png)
+![image](https://user-images.githubusercontent.com/26466644/47854649-91026200-dde2-11e8-9502-40d3cacb5d74.png)
+
+8) Trip Review page:<br>
+![image](https://user-images.githubusercontent.com/26466644/47854355-d4100580-dde1-11e8-8a1e-f52084168b82.png)
+![image](https://user-images.githubusercontent.com/26466644/47854559-53053e00-dde2-11e8-8fd6-3e9915680312.png)
 
 <br>
 <br>
