@@ -34,12 +34,12 @@ Thank you in advance!
 2) Authorized Menu:<br>
 ![image](https://user-images.githubusercontent.com/26466644/47853576-7084d880-dddf-11e8-9797-43ddef0bbc44.png)
 
-3) Login Page:<br>
-![image](https://user-images.githubusercontent.com/26466644/47854722-c3ac5a80-dde2-11e8-864f-91d97a4b21ba.png)
-
-4) Registration Page:<br>
+3) Registration Page:<br>
 ![image](https://user-images.githubusercontent.com/26466644/47854831-171ea880-dde3-11e8-8484-91258395541f.png)
 ![image](https://user-images.githubusercontent.com/26466644/47854866-374e6780-dde3-11e8-9a78-87c424a643db.png)
+
+4) Login Page:<br>
+![image](https://user-images.githubusercontent.com/26466644/47854722-c3ac5a80-dde2-11e8-864f-91d97a4b21ba.png)
 
 5) User Profile Page:<br>
 ![image](https://user-images.githubusercontent.com/26466644/47853514-48957500-dddf-11e8-859c-28001aec4640.png)
@@ -54,6 +54,10 @@ Thank you in advance!
 8) Trip Review page:<br>
 ![image](https://user-images.githubusercontent.com/26466644/47854355-d4100580-dde1-11e8-8a1e-f52084168b82.png)
 ![image](https://user-images.githubusercontent.com/26466644/47854559-53053e00-dde2-11e8-8fd6-3e9915680312.png)
+
+
+9) Test Coverage:<br>
+![image](https://user-images.githubusercontent.com/26466644/47857363-b5157180-dde9-11e8-884f-5ce5d3d0f49c.png)
 
 <br>
 <br>
