@@ -65,7 +65,7 @@ Even though it is a simple project that was created to practice some JS programm
 
 To understand better our basic approaches to contributions, please take a look at the following resources: 
 - [Code of Conduct](https://github.com/KovDimaY/Trip-Reviewer/blob/master/CODE_OF_CONDUCT.md)
-- [How to contribute to SimpleChat](https://github.com/KovDimaY/Trip-Reviewer/blob/master/CONTRIBUTING.md)
+- [How to contribute to TripReviewer](https://github.com/KovDimaY/Trip-Reviewer/blob/master/CONTRIBUTING.md)
 - [License](https://github.com/KovDimaY/Trip-Reviewer/blob/master/LICENSE)
 
 <br>
