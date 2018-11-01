@@ -2,6 +2,7 @@ export const GET_TRIPS = 'get-trips';
 export const GET_USERS = 'get-users';
 export const ADD_TRIP = 'add-trip';
 export const UPDATE_TRIP = 'update-trip';
+export const UPDATE_USER = 'update-user';
 export const DELETE_TRIP = 'delete-trip';
 export const GET_TRIP = 'get-trip';
 export const GET_TRIP_W_REVIEWER = 'get-trip-w-reviewer';

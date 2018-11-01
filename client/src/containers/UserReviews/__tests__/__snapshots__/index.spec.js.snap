@@ -2,19 +2,23 @@
 
 exports[`<UserPosts /> should render component with login 1`] = `
 <div
-  className="user_posts"
+  className="user-posts-container limited-width"
 >
-  <h4>
-    Your reviews:
-  </h4>
-  <table>
+  <h2>
+    Your reviews
+  </h2>
+  <table
+    className="reviews-table"
+  >
     <thead>
       <tr>
         <th>
           Title
         </th>
-        <th>
-          Author
+        <th
+          className="only-wide-screen"
+        >
+          Country
         </th>
         <th>
           Date
@@ -23,15 +27,19 @@ exports[`<UserPosts /> should render component with login 1`] = `
     </thead>
     <tbody>
       <tr>
-        <td>
+        <td
+          className="post-title"
+        >
           <Link
             to="/user/edit-post/id"
           >
             title
           </Link>
         </td>
-        <td>
-          author
+        <td
+          className="only-wide-screen"
+        >
+          country
         </td>
         <td>
           Invalid Date
@@ -44,19 +52,23 @@ exports[`<UserPosts /> should render component with login 1`] = `
 
 exports[`<UserPosts /> should render component with no login 1`] = `
 <div
-  className="user_posts"
+  className="user-posts-container limited-width"
 >
-  <h4>
-    Your reviews:
-  </h4>
-  <table>
+  <h2>
+    Your reviews
+  </h2>
+  <table
+    className="reviews-table"
+  >
     <thead>
       <tr>
         <th>
           Title
         </th>
-        <th>
-          Author
+        <th
+          className="only-wide-screen"
+        >
+          Country
         </th>
         <th>
           Date

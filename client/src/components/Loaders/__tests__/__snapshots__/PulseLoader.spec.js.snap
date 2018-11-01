@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PulseLoader /> should render component with custom props 1`] = `
+<div
+  className=""
+  id=""
+>
+  <div
+    style={
+      Object {
+        "animation": "animation 0.75s 0.12s infinite cubic-bezier(.2,.68,.18,1.08)",
+        "animationFillMode": "both",
+        "backgroundColor": "color",
+        "borderRadius": "100%",
+        "display": "inline-block",
+        "height": "size",
+        "margin": "margin",
+        "verticalAlign": undefined,
+        "width": "size",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "animation": "animation 0.75s 0.24s infinite cubic-bezier(.2,.68,.18,1.08)",
+        "animationFillMode": "both",
+        "backgroundColor": "color",
+        "borderRadius": "100%",
+        "display": "inline-block",
+        "height": "size",
+        "margin": "margin",
+        "verticalAlign": undefined,
+        "width": "size",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "animation": "animation 0.75s 0.36s infinite cubic-bezier(.2,.68,.18,1.08)",
+        "animationFillMode": "both",
+        "backgroundColor": "color",
+        "borderRadius": "100%",
+        "display": "inline-block",
+        "height": "size",
+        "margin": "margin",
+        "verticalAlign": undefined,
+        "width": "size",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`<PulseLoader /> should render component with default props 1`] = `
+<div
+  className=""
+  id=""
+>
+  <div
+    style={
+      Object {
+        "animation": "animation 0.75s 0.12s infinite cubic-bezier(.2,.68,.18,1.08)",
+        "animationFillMode": "both",
+        "backgroundColor": "grey",
+        "borderRadius": "100%",
+        "display": "inline-block",
+        "height": "15px",
+        "margin": "2px",
+        "verticalAlign": undefined,
+        "width": "15px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "animation": "animation 0.75s 0.24s infinite cubic-bezier(.2,.68,.18,1.08)",
+        "animationFillMode": "both",
+        "backgroundColor": "grey",
+        "borderRadius": "100%",
+        "display": "inline-block",
+        "height": "15px",
+        "margin": "2px",
+        "verticalAlign": undefined,
+        "width": "15px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "animation": "animation 0.75s 0.36s infinite cubic-bezier(.2,.68,.18,1.08)",
+        "animationFillMode": "both",
+        "backgroundColor": "grey",
+        "borderRadius": "100%",
+        "display": "inline-block",
+        "height": "15px",
+        "margin": "2px",
+        "verticalAlign": undefined,
+        "width": "15px",
+      }
+    }
+  />
+</div>
+`;

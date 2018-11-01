@@ -14,15 +14,24 @@
   "dependencies": {
     "axios": "0.17.1",
     "babel-polyfill": "6.5.0",
-    "moment": "2.19.3",
+    "domkit": "0.0.1",
+    "draft-js": "0.10.4",
+    "draft-js-export-html": "1.2.0",
+    "firebase": "4.8.1",
+    "moment-js": "1.1.15",
+    "prop-types": "15.6.2",
     "raf": "3.4.0",
     "react": "16.2.0",
     "react-dom": "16.2.0",
+    "react-draft-wysiwyg": "1.12.1",
+    "react-firebase-file-uploader": "2.4.1",
     "react-fontawesome": "1.6.1",
+    "react-rating": "1.4.0",
     "react-redux": "5.0.6",
     "react-router-dom": "4.2.2",
     "react-scripts": "1.1.4",
     "react-simple-sidenav": "0.1.6",
+    "react-sweet-progress": "1.1.2",
     "redux": "3.7.2",
     "redux-promise": "0.5.3",
     "redux-thunk": "2.2.0"
@@ -35,11 +44,13 @@
     "babel-preset-env": "1.5.1",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
+    "coveralls": "3.0.2",
     "enzyme": "3.2.0",
     "enzyme-adapter-react-16": "1.1.1",
     "jest-cli": "20.0.4",
     "moxios": "0.4.0",
     "react-hot-loader": "4.0.0",
+    "react-test-renderer": "16.5.2",
     "redux-mock-store": "1.5.3"
   },
   "reactGenerate": {
@@ -63,7 +74,8 @@
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/internals/testing/config.js",
     "moduleNameMapper": {
-      "config$": "<rootDir>/src/config/test.js"
+      "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
     },
     "roots": [
       "src"

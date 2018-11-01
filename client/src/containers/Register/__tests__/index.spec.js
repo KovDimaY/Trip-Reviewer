@@ -2,230 +2,181 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
- 
-import Register from './../../Register';
-import { userRegister } from './../../../actions';
 
-jest.mock('./../../../actions', () => ({ 
-    getUsers: jest.fn(() => ({
-        type: 'getUsers'
-    })),
-    userRegister: jest.fn(() => ({
-        type: 'userRegister'
-    }))
+import Register from '..';
+import { userRegister } from '../../../actions';
+import { USER_PROFILE } from '../../../constants/routes';
+
+jest.mock('../../../components/UserAvatar', () => 'UserAvatar');
+jest.mock('./../../../actions', () => ({
+  getUsers: jest.fn(() => ({
+    type: 'getUsers',
+  })),
+  userRegister: jest.fn(() => ({
+    type: 'userRegister',
+  })),
 }));
 
 const mockStore = configureStore();
 
 const mockComponent = (initialState = {}, props) => {
-    const store = mockStore(initialState);
+  const store = mockStore(initialState);
 
-    return (
-        <Register {...props} store={store} />
-    );
+  return (
+    <Register {...props} store={store} />
+  );
 };
- 
+
 describe('<Register />', () => {
-    it('should render component', () => {
-        const initialState = {
-            users: {}
-        };
-        const tree = create(mockComponent(initialState)).toJSON();
-        
-        expect(tree).toMatchSnapshot();
-    });
+  it('should render component', () => {
+    const initialState = {
+      users: {},
+    };
+    const tree = create(mockComponent(initialState)).toJSON();
 
-    it('should render component with users', () => {
-        const initialState = {
-            users: {
-                users: [
-                    {
-                        _id: '_id',
-                        name: 'name',
-                        lastname: 'lastname'
-                    }
-                ]
-            } 
-        };
-        const tree = create(mockComponent(initialState)).toJSON();
-        
-        expect(tree).toMatchSnapshot();
-    });
+    expect(tree).toMatchSnapshot();
+  });
 
-    it('should change state when handleInputEmail is called', () => {
-        const initialState = {
-            users: {}
-        };
-        const event = {
-            target: {
-                value: 'test'
-            }
-        };
-
-        const instance = shallow(mockComponent(initialState)).dive().instance();
-    
-        instance.handleInputEmail(event);
-    
-        expect(instance.state.email).toEqual('test');
-    });
-
-    it('should change state when handleInputPassword is called', () => {
-        const initialState = {
-            users: {}
-        };
-        const event = {
-            target: {
-                value: 'test'
-            }
-        };
-
-        const instance = shallow(mockComponent(initialState)).dive().instance();
-    
-        instance.handleInputPassword(event);
-    
-        expect(instance.state.password).toEqual('test');
-    });
-
-    it('should change state when handleInputName is called', () => {
-        const initialState = {
-            users: {}
-        };
-        const event = {
-            target: {
-                value: 'test'
-            }
-        };
-
-        const instance = shallow(mockComponent(initialState)).dive().instance();
-    
-        instance.handleInputName(event);
-    
-        expect(instance.state.name).toEqual('test');
-    });
-
-    it('should change state when handleInputLastname is called', () => {
-        const initialState = {
-            users: {}
-        };
-        const event = {
-            target: {
-                value: 'test'
-            }
-        };
-
-        const instance = shallow(mockComponent(initialState)).dive().instance();
-    
-        instance.handleInputLastname(event);
-    
-        expect(instance.state.lastname).toEqual('test');
-    });
-
-    it('should dispatch userRegister when submitForm is called', () => {
-        const preventDefault = jest.fn();
-        const state = {
+  it('should render component with users', () => {
+    const initialState = {
+      users: {
+        users: [
+          {
+            _id: '_id',
             name: 'name',
             lastname: 'lastname',
-            email: 'email',
-            password: 'password',
-        };
-        const initialState = {
-            users: {}
-        };
-        const event = { preventDefault };
+          },
+        ],
+      },
+    };
+    const tree = create(mockComponent(initialState)).toJSON();
 
-        const instance = shallow(mockComponent(initialState)).dive().instance();
-        instance.setState({ ...state, error: 'error' });
-    
-        instance.submitForm(event);
+    expect(tree).toMatchSnapshot();
+  });
 
-        expect(preventDefault).toHaveBeenCalled();
-        expect(instance.state.error).toBe('');
-        expect(userRegister).toHaveBeenCalledWith(state);
-    });
+  it('should render component with errors', () => {
+    const initialState = {
+      users: {
+        register: {
+          error: {
+            errors: {
+              name: { message: 'Test name' },
+              lastname: { message: 'Test lastname' },
+              email: { message: 'Test email' },
+              password: { message: 'Test password' },
+            },
+          },
+        },
+      },
+    };
+    const tree = create(mockComponent(initialState)).toJSON();
 
-    it('should redirect when componentWillReceiveProps is called and authenticated', () => {
-        const push = jest.fn();
-        const props = {
-            history: {
-                push
-            }
-        };
-        const nextProps = {
-            users: {
-                login: {
-                    isAuth: true
-                }
-            }
-        };
-        const initialState = {
-            users: {}
-        };
+    expect(tree).toMatchSnapshot();
+  });
 
-        const instance = shallow(mockComponent(initialState, props)).dive().instance();
-    
-        instance.componentWillReceiveProps(nextProps);
+  it('should change state when handleInput is called', () => {
+    const initialState = {
+      users: {},
+    };
+    const event = {
+      target: {
+        value: 'test',
+        name: 'email',
+      },
+    };
 
-        expect(push).toHaveBeenCalledWith('/user');
-    });
+    const instance = shallow(mockComponent(initialState)).dive().instance();
 
-    it('should change state when componentWillReceiveProps is called with error and not authenticated', () => {
-        const push = jest.fn();
-        const props = {
-            history: {
-                push
-            }
-        };
-        const nextProps = {
-            users: {
-                login: {
-                    isAuth: false
-                },
-                register: false
-            }
-        };
-        const initialState = {
-            users: {}
-        };
+    instance.handleInput(event);
 
-        const instance = shallow(mockComponent(initialState, props)).dive().instance();
-    
-        instance.componentWillReceiveProps(nextProps);
+    expect(instance.state.formData.email).toEqual('test');
+    expect(instance.state.hideError.email).toEqual(true);
+  });
 
-        expect(push).not.toHaveBeenCalled();
-        expect(instance.state.error).toBe('Error, try again');
-    });
+  it('should dispatch userRegister when submitForm is called', () => {
+    const preventDefault = jest.fn();
+    const state = {
+      formData: {
+        name: 'name',
+        lastname: 'lastname',
+        email: 'email',
+        password: 'password',
+      },
+    };
+    const initialState = {
+      users: {},
+    };
+    const event = { preventDefault };
 
-    it('should change state when componentWillReceiveProps is called with no error and not authenticated', () => {
-        const push = jest.fn();
-        const props = {
-            history: {
-                push
-            }
-        };
-        const nextProps = {
-            users: {
-                login: {
-                    isAuth: false
-                },
-                register: true
-            }
-        };
-        const initialState = {
-            users: {}
-        };
-        const expectedState = {
-            name: '',
-            lastname: '',
-            email: '',
-            password: '',
-            error: ''
-        };
+    const instance = shallow(mockComponent(initialState)).dive().instance();
+    instance.setState({ ...state });
 
-        const instance = shallow(mockComponent(initialState, props)).dive().instance();
-    
-        instance.componentWillReceiveProps(nextProps);
+    instance.submitForm(event);
 
-        expect(push).not.toHaveBeenCalled();
-        expect(instance.state).toEqual(expectedState);
-    });
+    expect(preventDefault).toHaveBeenCalled();
+    expect(userRegister).toHaveBeenCalledWith(state.formData);
+  });
+
+  it('should redirect when componentWillReceiveProps is called and authenticated', () => {
+    const push = jest.fn();
+    const props = {
+      history: {
+        push,
+      },
+    };
+    const nextProps = {
+      users: {
+        login: {
+          isAuth: true,
+        },
+      },
+    };
+    const initialState = {
+      users: {},
+    };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+    instance.componentWillReceiveProps(nextProps);
+
+    expect(push).toHaveBeenCalledWith(USER_PROFILE);
+  });
+
+  it('should not redirect and should set state when componentWillReceiveProps is called and not authenticated', () => {
+    const push = jest.fn();
+    const state = {
+      hideError: {
+        name: true,
+        lastname: true,
+        email: true,
+        password: true,
+      },
+    };
+    const props = {
+      history: {
+        push,
+      },
+    };
+    const nextProps = {
+      users: {
+        login: {
+          isAuth: false,
+        },
+      },
+    };
+    const initialState = {
+      users: {},
+    };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+    instance.setState({ ...state });
+
+    instance.componentWillReceiveProps(nextProps);
+
+    expect(push).not.toHaveBeenCalledWith(USER_PROFILE);
+    expect(instance.state.hideError.name).toEqual(false);
+    expect(instance.state.hideError.lastname).toEqual(false);
+    expect(instance.state.hideError.email).toEqual(false);
+    expect(instance.state.hideError.password).toEqual(false);
+  });
 });

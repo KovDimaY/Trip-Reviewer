@@ -1,0 +1,68 @@
+.country-selector-container {
+  position: relative;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.country-selector-container .c-select {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 3px;
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
+  padding: 11px 31px;
+  background: #f7f7f7;
+  font-weight: 300;
+}
+
+.country-selector-container .c-dropdown-menu {
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  box-shadow: 1px 3px 15px black;
+}
+
+.country-selector-container .c-dropdown-input {
+  width: 100%;
+  font-size: 20px;
+  border-radius: 3px;
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
+  padding: 11px 31px;
+  background: #f7f7f7;
+  font-weight: 300;
+}
+
+.country-selector-container .c-dropdown-ul {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.country-selector-container .c-dropdown-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.country-selector-container .c-dropdown-flag {
+  margin: 5px 10px 0 0;
+}
+
+.country-selector-container .c-dropdown-menu-overflow {
+  max-height: 220px;
+  overflow: hidden;
+  overflow-y: auto;
+  border-radius: 3px;
+  border: 1px solid #ebebeb;
+}
+ 
+.country-selector-container .dropdown-item:hover {
+  background-color: #f7f7f7;
+}

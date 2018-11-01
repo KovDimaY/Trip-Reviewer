@@ -1,139 +1,258 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { addTrip, clearNewTrip } from '../../actions'
+import { Editor } from 'react-draft-wysiwyg';
+import { EditorState, convertToRaw } from 'draft-js';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+
+import StarsRating from '../../components/StarsRating';
+import CountrySelector from '../../components/CountrySelector';
+import { addTrip, clearNewTrip } from '../../actions';
+import { TRIPS } from '../../constants/routes';
+import toolbar from '../../constants/toolbar';
+
+import './styles.css';
 
 class AddTrip extends Component {
-    state = {
-        formdata: {
-            title: '',
-            author: '',
-            review: '',
-            duration: '',
-            rating: '',
-            price: ''
-        }
+  state = {
+    editorState: EditorState.createEmpty(),
+    formdata: {
+      title: '',
+      country: 'Spain',
+      description: '',
+      duration: '',
+      rating: 0,
+      expences: '',
+    },
+    hideError: {
+      title: false,
+      country: false,
+      description: false,
+      duration: false,
+      rating: false,
+      expences: false,
+    },
+  };
+
+  componentWillReceiveProps(newProps) {
+    const { newtrip } = newProps.trips;
+
+    if (newtrip && newtrip.success) {
+      newProps.history.push(`${TRIPS}/${newtrip.tripId}`);
+    } else {
+      this.setState({
+        hideError: {
+          title: false,
+          country: false,
+          description: false,
+          duration: false,
+          rating: false,
+          expences: false,
+        },
+      });
     }
+  }
 
+  componentWillUnmount() {
+    this.props.dispatch(clearNewTrip());
+  }
 
-    handleInput = (event) => {
-        const newFormdata = {
-            ...this.state.formdata
-        };
-        const { value, name } = event.target;
+  onEditorStateChange = (editorState) => {
+    const newFormdata = { ...this.state.formdata };
+    const newHideError = {
+      ...this.state.hideError,
+      description: true,
+    };
+    const contentState = editorState.getCurrentContent();
+    const rawState = convertToRaw(contentState);
 
-        newFormdata[name] = value;
+    newFormdata.description = JSON.stringify(rawState);
 
-        this.setState({
-            formdata: newFormdata
-        });
+    this.setState({
+      editorState,
+      formdata: newFormdata,
+      hideError: newHideError,
+    });
+  }
+
+  getErrorClass(fieldName) {
+    return this.formFieldHasError(fieldName) ? 'field-error' : '';
+  }
+
+  formFieldHasError(fieldName) {
+    const { newtrip } = this.props.trips;
+    const { hideError } = this.state;
+    const errors = newtrip && newtrip.error && newtrip.error.errors;
+
+    return errors && errors[fieldName] && !hideError[fieldName];
+  }
+
+  handleInput = (event) => {
+    const newFormdata = { ...this.state.formdata };
+    const newHideError = { ...this.state.hideError };
+    const { value, name } = event.target;
+
+    newFormdata[name] = value;
+    newHideError[name] = true;
+
+    this.setState({
+      formdata: newFormdata,
+      hideError: newHideError,
+    });
+  }
+
+  handleCountrychange = (countryObject) => {
+    const newFormdata = {
+      ...this.state.formdata,
+      country: countryObject.countryName,
+    };
+
+    this.setState({
+      formdata: newFormdata,
+    });
+  }
+
+  handleRating = (rating) => {
+    const newFormdata = {
+      ...this.state.formdata,
+      rating,
+    };
+    const newHideError = {
+      ...this.state.hideError,
+      rating: true,
+    };
+
+    this.setState({
+      formdata: newFormdata,
+      hideError: newHideError,
+    });
+  }
+
+  submitForm = (event) => {
+    event.preventDefault();
+    this.props.dispatch(addTrip({
+      ...this.state.formdata,
+      ownerId: this.props.users.login.id,
+    }));
+  }
+
+  renderError(fieldName) {
+    if (this.formFieldHasError(fieldName)) {
+      const error = this.props.trips.newtrip.error.errors[fieldName];
+
+      return (
+        <div className="error">
+          {error.message}
+        </div>
+      );
     }
+    return null;
+  }
 
-    showNewTrip = (trip) => (
-        trip.post 
-            ? <div className="conf_link">
-                    Cool !! <Link to={`/trips/${trip.tripId}`}>
-                        Click the link to see the post
-                    </Link>
-                </div>
-            : null
-    )
+  render() {
+    const {
+      title, country,
+      duration, rating, expences,
+    } = this.state.formdata;
 
+    return (
+      <div className="add-review-container limited-width">
+        <form onSubmit={this.submitForm}>
+          <h2 className="title">Add a review</h2>
 
-    submitForm = (event) => {
-        event.preventDefault();
-        this.props.dispatch(addTrip({
-            ...this.state.formdata,
-            ownerId:this.props.user.login.id
-        }));
-    }
+          <div className="form_element">
+            <span className="label">
+              Title:
+            </span>
+            <input
+              type="text"
+              name="title"
+              className={`form-input ${this.getErrorClass('title')}`}
+              placeholder="Enter title"
+              value={title}
+              onChange={this.handleInput}
+            />
+          </div>
+          { this.renderError('title') }
 
-    componentWillUnmount() {
-        this.props.dispatch(clearNewTrip());
-    }
+          <div className="form_element">
+            <span className="label">
+              Trip to:
+            </span>
+            <CountrySelector
+              defaultCountry={country}
+              getSelectedCountry={this.handleCountrychange}
+            />
+          </div>
 
-    render() {
-        return (
-            <div className="rl_container article">
-                <form onSubmit={this.submitForm}>
-                    <h2>Add a review</h2>
+          <div className="form_element">
+            <span className="label">
+              Description:
+            </span>
+            <Editor
+              editorState={this.state.editorState}
+              wrapperClassName={`editor-wrapper ${this.getErrorClass('description')}`}
+              editorClassName="editor-self"
+              onEditorStateChange={this.onEditorStateChange}
+              toolbar={toolbar}
+            />
+          </div>
+          { this.renderError('description') }
 
-                    <div className="form_element">
-                        <input
-                            type="text"
-                            name="title"
-                            placeholder="Enter title"
-                            value={this.state.formdata.title}
-                            onChange={this.handleInput}
-                        />
-                    </div>
+          <div className="form_element">
+            <span className="label">
+              Duration (days):
+            </span>
+            <input
+              type="number"
+              name="duration"
+              className={`form-input ${this.getErrorClass('duration')}`}
+              placeholder="Enter duration"
+              value={duration}
+              onChange={this.handleInput}
+            />
+          </div>
+          { this.renderError('duration') }
 
-                    <div className="form_element">
-                        <input
-                            type="text"
-                            name='author'
-                            placeholder="Enter author"
-                            value={this.state.formdata.author}
-                            onChange={this.handleInput}
-                        />
-                    </div>
+          <div className="form_element">
+            <span className="label">
+              Expences ($):
+            </span>
+            <input
+              type="number"
+              name="expences"
+              className={`form-input ${this.getErrorClass('expences')}`}
+              placeholder="Enter expences"
+              value={expences}
+              onChange={this.handleInput}
+            />
+          </div>
+          { this.renderError('expences') }
 
-                    <textarea
-                        value={this.state.formdata.review}
-                        name='review'
-                        onChange={this.handleInput}
-                    />
+          <div className="form_element">
+            <StarsRating rating={rating} error={this.getErrorClass('rating')} onChange={this.handleRating} />
+          </div>
+          { this.renderError('rating') }
 
-                    <div className="form_element">
-                        <input
-                            type="number"
-                            name='duration'
-                            placeholder="Enter duration"
-                            value={this.state.formdata.duration}
-                            onChange={this.handleInput}
-                        />
-                    </div>
-
-                    <div className="form_element">
-                        <select
-                            value={this.state.formdata.rating}
-                            name='rating'
-                            onChange={this.handleInput}
-                        >
-                            <option val="1">1</option>
-                            <option val="2">2</option>
-                            <option val="3">3</option>
-                            <option val="4">4</option>
-                            <option val="5">5</option>
-                        </select>
-                    </div>
-
-                    <div className="form_element">
-                        <input
-                            type="number"
-                            name='price'
-                            placeholder="Enter Price"
-                            value={this.state.formdata.price}
-                            onChange={this.handleInput}
-                        />
-                    </div>
-
-                    <button type="submit">Add review</button>
-                    {
-                        this.props.trips.newtrip 
-                        ? this.showNewTrip(this.props.trips.newtrip)
-                        : null
-                    }
-                </form>
-            </div>
-        );
-    }
+          <button type="submit" className="add-button">
+            Add review
+          </button>
+        </form>
+      </div>
+    );
+  }
 }
 
+AddTrip.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  users: PropTypes.object.isRequired,
+  trips: PropTypes.object.isRequired,
+};
+
 function mapStateToProps(state) {
-    return {
-        trips: state.trips
-    }
+  return {
+    trips: state.trips,
+  };
 }
 
 export default connect(mapStateToProps)(AddTrip);

@@ -1,30 +1,50 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const TripItem = (item) => {
-    return (
-        <Link to={`/trips/${item._id}`} className="book_item">
-            <div className="book_header">
-                <h2>{item.title}</h2>
-            </div>
-            <div className="book_items">
-                <div className="book_author">{item.author}</div>
-               
-                <div className="book_bubble">
-                    <strong>Price</strong> $ {item.price}
-                </div>
+import { TRIPS } from '../../constants/routes';
 
-                <div className="book_bubble">
-                    <strong>Duration</strong>  {item.duration} days
-                </div>
+import './styles.css';
 
-                <div className="book_bubble rating">
-                    <strong>Rating</strong>  {item.rating} / 5
-                </div>
+const TripItem = ({
+  _id, title, country, expences, duration, rating,
+}) => (
+  <Link to={`${TRIPS}/${_id}`} className="trip-item-container">
+    <div className="header">
+      <h2>{title}</h2>
+    </div>
+    <div className="items">
+      <div className="country">
+        {country}
+      </div>
 
-            </div>
-        </Link>
-    );
+      <div className="bubble">
+        <strong>Expences:</strong>
+        {` $${expences}`}
+      </div>
+
+      <div className="bubble">
+        <strong>Duration:</strong>
+        {duration === 1 ? ' 1 day' : ` ${duration} days`}
+      </div>
+
+      <div className="bubble rating">
+        <strong>Rating:</strong>
+        {` ${rating} / 5`}
+      </div>
+
+    </div>
+  </Link>
+);
+
+TripItem.propTypes = {
+  _id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
+  expences: PropTypes.number.isRequired,
+  duration: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired,
+
 };
 
 export default TripItem;

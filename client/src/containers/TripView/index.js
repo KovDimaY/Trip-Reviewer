@@ -1,61 +1,100 @@
 import React, { Component } from 'react';
-import { getTripWithReviewer, clearTripWithReviewer } from '../../actions';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Editor } from 'react-draft-wysiwyg';
+import { EditorState, convertFromRaw } from 'draft-js';
+
+import { getTripWithReviewer, clearTripWithReviewer } from '../../actions';
+
+import './styles.css';
 
 class TripView extends Component {
-    componentWillMount(){
-        this.props.dispatch(getTripWithReviewer(this.props.match.params.id))
+  componentWillMount() {
+    this.props.dispatch(getTripWithReviewer(this.props.match.params.id));
+  }
+
+  componentWillUnmount() {
+    this.props.dispatch(clearTripWithReviewer());
+  }
+
+  getEditorState = (state) => {
+    let editorState = EditorState.createEmpty();
+
+    try {
+      const parsedDescription = JSON.parse(state);
+      const contentState = convertFromRaw(parsedDescription);
+      editorState = EditorState.createWithContent(contentState);
+    } catch (e) {
+      console.log('Parsing description error: ', e); // eslint-disable-line no-console
+      console.log('Object: ', state); // eslint-disable-line no-console
     }
 
-    componentWillUnmount(){
-        this.props.dispatch(clearTripWithReviewer())
-    }
+    return editorState;
+  }
 
-    renderTrip = (trips) => (
-        trips.current 
-            ? <div className="br_container">
-                    <div className="br_header">
-                        <h2>{trips.current.title}</h2>
-                        <h5>{trips.current.author}</h5>
-                        <div className="br_reviewer">
-                            <span>Review by:</span> {trips.reviewer.name} {trips.reviewer.lastname}
-                        </div>
-                    </div>
-                    <div className="br_review">
-                        {trips.current.review}
-                    </div>
-                    <div className="br_box">
-                        <div className="left">
-                            <div>
-                                <span>Duration:</span> {trips.current.duration} days
-                            </div>
-                            <div>
-                                <span>Price:</span> {trips.current.price}
-                            </div>
-                        </div>
-                        <div className="right">
-                            <span>Rating</span>
-                            <div>{trips.current.rating}/5</div>
-                        </div>
-                    </div>
-                </div>
-            :   null
-    )
+  render() {
+    const { trips } = this.props;
 
-    render() {
-        const { trips } = this.props;
-        return (
-            <div>
-                {this.renderTrip(trips)}
+    if (trips && trips.current) {
+      const {
+        title, country, description,
+        duration, rating, expences,
+      } = trips.current;
+      const { name, lastname } = trips.reviewer;
+
+      return (
+        <div className="trip-view-container limited-width-shadow">
+          <div className="trip-view-header">
+            <h2>{title}</h2>
+            <h5>{country}</h5>
+            <div className="reviewer">
+              <span>Author:</span>
+              {` ${name} ${lastname}`}
             </div>
-        );
+          </div>
+          <div className="trip-view-description">
+            <Editor
+              editorState={this.getEditorState(description)}
+              wrapperClassName="editor-wrapper"
+              toolbarClassName="editor-toolbar"
+              editorClassName="editor-self"
+              toolbarHidden
+              readOnly
+            />
+          </div>
+          <div className="trip-view-box">
+            <div className="left">
+              <div>
+                <span>Duration:</span>
+                {duration === 1 ? ' 1 day' : ` ${duration} days`}
+              </div>
+              <div>
+                <span>Expences:</span>
+                {` $${expences} `}
+              </div>
+            </div>
+            <div className="right">
+              <span>Rating</span>
+              <div>{rating}/5</div>
+            </div>
+          </div>
+        </div>
+      );
     }
+    return null;
+  }
 }
 
-function mapStateToProps(state){
-    return {
-        trips: state.trips
-    };
+TripView.propTypes = {
+  trips: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
+
+function mapStateToProps(state) {
+  return {
+    trips: state.trips,
+  };
+}
 
 export default connect(mapStateToProps)(TripView);

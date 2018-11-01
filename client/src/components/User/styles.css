@@ -1,0 +1,39 @@
+
+.user_container {
+    margin-bottom: 75px;
+}
+.user_container .avatar {
+    width: 200px;
+    height: 200px;
+    margin: 50px auto 25px auto;
+}
+.user_container .data {
+    box-sizing: border-box;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+.user_container .data div {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: #a4a4a4;
+}
+.user_container .data div span {
+    display: block;
+    font-weight: 500;
+    font-size: 24px;
+    color: #02bcd4;
+    margin-bottom: 5px;
+}
+.user_container .button-link {
+    font-size: 20px;
+    padding: 10px 52px;
+    background: #02bcd4;
+    color: #fff;
+    font-weight: 300;
+    border-radius: 3px;
+    border: none;
+    margin-top: 20px;
+    width: 260px;
+}

@@ -2,18 +2,26 @@
 
 exports[`<AddTrip /> should render component 1`] = `
 <div
-  className="rl_container article"
+  className="add-review-container limited-width"
 >
   <form
     onSubmit={[Function]}
   >
-    <h2>
+    <h2
+      className="title"
+    >
       Add a review
     </h2>
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Title:
+      </span>
       <input
+        className="form-input "
         name="title"
         onChange={[Function]}
         placeholder="Enter title"
@@ -24,23 +32,42 @@ exports[`<AddTrip /> should render component 1`] = `
     <div
       className="form_element"
     >
-      <input
-        name="author"
-        onChange={[Function]}
-        placeholder="Enter author"
-        type="text"
-        value=""
+      <span
+        className="label"
+      >
+        Trip to:
+      </span>
+      <CountrySelector
+        defaultCountry="Spain"
+        getSelectedCountry={[Function]}
       />
     </div>
-    <textarea
-      name="review"
-      onChange={[Function]}
-      value=""
-    />
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Description:
+      </span>
+      <Editor
+        editorClassName="editor-self"
+        editorState={Object {}}
+        onEditorStateChange={[Function]}
+        toolbar={Object {}}
+        wrapperClassName="editor-wrapper "
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <span
+        className="label"
+      >
+        Duration (days):
+      </span>
       <input
+        className="form-input "
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
@@ -51,50 +78,31 @@ exports[`<AddTrip /> should render component 1`] = `
     <div
       className="form_element"
     >
-      <select
-        name="rating"
-        onChange={[Function]}
-        value=""
+      <span
+        className="label"
       >
-        <option
-          val="1"
-        >
-          1
-        </option>
-        <option
-          val="2"
-        >
-          2
-        </option>
-        <option
-          val="3"
-        >
-          3
-        </option>
-        <option
-          val="4"
-        >
-          4
-        </option>
-        <option
-          val="5"
-        >
-          5
-        </option>
-      </select>
-    </div>
-    <div
-      className="form_element"
-    >
+        Expences ($):
+      </span>
       <input
-        name="price"
+        className="form-input "
+        name="expences"
         onChange={[Function]}
-        placeholder="Enter Price"
+        placeholder="Enter expences"
         type="number"
         value=""
       />
     </div>
+    <div
+      className="form_element"
+    >
+      <StarsRating
+        error=""
+        onChange={[Function]}
+        rating={0}
+      />
+    </div>
     <button
+      className="add-button"
       type="submit"
     >
       Add review
@@ -103,20 +111,28 @@ exports[`<AddTrip /> should render component 1`] = `
 </div>
 `;
 
-exports[`<AddTrip /> should render component with newTrip and post 1`] = `
+exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
 <div
-  className="rl_container article"
+  className="add-review-container limited-width"
 >
   <form
     onSubmit={[Function]}
   >
-    <h2>
+    <h2
+      className="title"
+    >
       Add a review
     </h2>
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Title:
+      </span>
       <input
+        className="form-input field-error"
         name="title"
         onChange={[Function]}
         placeholder="Enter title"
@@ -125,25 +141,54 @@ exports[`<AddTrip /> should render component with newTrip and post 1`] = `
       />
     </div>
     <div
-      className="form_element"
+      className="error"
     >
-      <input
-        name="author"
-        onChange={[Function]}
-        placeholder="Enter author"
-        type="text"
-        value=""
-      />
+      title error
     </div>
-    <textarea
-      name="review"
-      onChange={[Function]}
-      value=""
-    />
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Trip to:
+      </span>
+      <CountrySelector
+        defaultCountry="Spain"
+        getSelectedCountry={[Function]}
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <span
+        className="label"
+      >
+        Description:
+      </span>
+      <Editor
+        editorClassName="editor-self"
+        editorState={Object {}}
+        onEditorStateChange={[Function]}
+        toolbar={Object {}}
+        wrapperClassName="editor-wrapper field-error"
+      />
+    </div>
+    <div
+      className="error"
+    >
+      description error
+    </div>
+    <div
+      className="form_element"
+    >
+      <span
+        className="label"
+      >
+        Duration (days):
+      </span>
       <input
+        className="form-input field-error"
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
@@ -152,84 +197,78 @@ exports[`<AddTrip /> should render component with newTrip and post 1`] = `
       />
     </div>
     <div
-      className="form_element"
+      className="error"
     >
-      <select
-        name="rating"
-        onChange={[Function]}
-        value=""
-      >
-        <option
-          val="1"
-        >
-          1
-        </option>
-        <option
-          val="2"
-        >
-          2
-        </option>
-        <option
-          val="3"
-        >
-          3
-        </option>
-        <option
-          val="4"
-        >
-          4
-        </option>
-        <option
-          val="5"
-        >
-          5
-        </option>
-      </select>
+      duration error
     </div>
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Expences ($):
+      </span>
       <input
-        name="price"
+        className="form-input field-error"
+        name="expences"
         onChange={[Function]}
-        placeholder="Enter Price"
+        placeholder="Enter expences"
         type="number"
         value=""
       />
     </div>
+    <div
+      className="error"
+    >
+      expences error
+    </div>
+    <div
+      className="form_element"
+    >
+      <StarsRating
+        error="field-error"
+        onChange={[Function]}
+        rating={0}
+      />
+    </div>
+    <div
+      className="error"
+    >
+      rating error
+    </div>
     <button
+      className="add-button"
       type="submit"
     >
       Add review
     </button>
-    <div
-      className="conf_link"
-    >
-      Cool !! 
-      <Link
-        to="/trips/test"
-      >
-        Click the link to see the post
-      </Link>
-    </div>
   </form>
 </div>
 `;
 
-exports[`<AddTrip /> should render component with newTrip but no post 1`] = `
+exports[`<AddTrip /> should render component with newTrip and success true 1`] = `
 <div
-  className="rl_container article"
+  className="add-review-container limited-width"
 >
   <form
     onSubmit={[Function]}
   >
-    <h2>
+    <h2
+      className="title"
+    >
       Add a review
     </h2>
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Title:
+      </span>
       <input
+        className="form-input "
         name="title"
         onChange={[Function]}
         placeholder="Enter title"
@@ -240,23 +279,42 @@ exports[`<AddTrip /> should render component with newTrip but no post 1`] = `
     <div
       className="form_element"
     >
-      <input
-        name="author"
-        onChange={[Function]}
-        placeholder="Enter author"
-        type="text"
-        value=""
+      <span
+        className="label"
+      >
+        Trip to:
+      </span>
+      <CountrySelector
+        defaultCountry="Spain"
+        getSelectedCountry={[Function]}
       />
     </div>
-    <textarea
-      name="review"
-      onChange={[Function]}
-      value=""
-    />
     <div
       className="form_element"
     >
+      <span
+        className="label"
+      >
+        Description:
+      </span>
+      <Editor
+        editorClassName="editor-self"
+        editorState={Object {}}
+        onEditorStateChange={[Function]}
+        toolbar={Object {}}
+        wrapperClassName="editor-wrapper "
+      />
+    </div>
+    <div
+      className="form_element"
+    >
+      <span
+        className="label"
+      >
+        Duration (days):
+      </span>
       <input
+        className="form-input "
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
@@ -267,50 +325,31 @@ exports[`<AddTrip /> should render component with newTrip but no post 1`] = `
     <div
       className="form_element"
     >
-      <select
-        name="rating"
-        onChange={[Function]}
-        value=""
+      <span
+        className="label"
       >
-        <option
-          val="1"
-        >
-          1
-        </option>
-        <option
-          val="2"
-        >
-          2
-        </option>
-        <option
-          val="3"
-        >
-          3
-        </option>
-        <option
-          val="4"
-        >
-          4
-        </option>
-        <option
-          val="5"
-        >
-          5
-        </option>
-      </select>
-    </div>
-    <div
-      className="form_element"
-    >
+        Expences ($):
+      </span>
       <input
-        name="price"
+        className="form-input "
+        name="expences"
         onChange={[Function]}
-        placeholder="Enter Price"
+        placeholder="Enter expences"
         type="number"
         value=""
       />
     </div>
+    <div
+      className="form_element"
+    >
+      <StarsRating
+        error=""
+        onChange={[Function]}
+        rating={0}
+      />
+    </div>
     <button
+      className="add-button"
       type="submit"
     >
       Add review

@@ -7,35 +7,41 @@ exports[`<User /> should render component 1`] = `
   <div
     className="avatar"
   >
-    <img
-      alt="avatar"
-      src="/images/avatar.png"
+    <UserAvatar
+      filename={undefined}
     />
   </div>
   <div
-    className="nfo"
+    className="data"
   >
     <div>
       <span>
         Name:
       </span>
-       
       name
     </div>
     <div>
       <span>
         Lastname:
       </span>
-       
       lastname
     </div>
     <div>
       <span>
         Email:
       </span>
-       
       email
     </div>
+  </div>
+  <div
+    className="text-center"
+  >
+    <Link
+      className="button-link"
+      to="/user/edit-profile/undefined"
+    >
+      Edit Profile
+    </Link>
   </div>
 </div>
 `;

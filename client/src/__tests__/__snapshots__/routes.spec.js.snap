@@ -41,6 +41,11 @@ exports[`<Routes /> should render component 1`] = `
     <Route
       component={[Function]}
       exact={true}
+      path="/user/edit-profile/:id"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
       path="/user/edit-post/:id"
     />
     <Route
@@ -52,6 +57,10 @@ exports[`<Routes /> should render component 1`] = `
       component={[Function]}
       exact={true}
       path="/trips/:id"
+    />
+    <Route
+      component={[Function]}
+      path="*"
     />
   </Switch>
 </Layout>

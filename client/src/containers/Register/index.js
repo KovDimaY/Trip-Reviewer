@@ -1,149 +1,205 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
+import UserAvatar from '../../components/UserAvatar';
 import { getUsers, userRegister } from '../../actions';
+import { USER_PROFILE } from '../../constants/routes';
+
+import './styles.css';
 
 class Register extends PureComponent {
     state = {
+      formData: {
         name: '',
         lastname: '',
         email: '',
         password: '',
-        error: ''
-    }
+      },
+      hideError: {
+        name: false,
+        lastname: false,
+        email: false,
+        password: false,
+      },
+    };
 
     componentWillMount() {
-        this.props.dispatch(getUsers());
+      this.props.dispatch(getUsers());
     }
-
-    handleInputEmail = (event) => {
-        this.setState({ email: event.target.value });
-    } 
-
-    handleInputPassword= (event) => {
-        this.setState({ password: event.target.value });
-    }
-
-    handleInputName = (event) => {
-        this.setState({ name: event.target.value });
-    }
-
-    handleInputLastname = (event) => {
-        this.setState({ lastname: event.target.value });
-    } 
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.users.login.isAuth) {
-            this.props.history.push('/user');
-        } else if (nextProps.users.register === false) {
-            this.setState({ error: 'Error, try again' });
-        } else {
-            this.setState({
-                name: '',
-                lastname: '',
-                email: '',
-                password: ''
-            });
-        }
+      const { login } = nextProps.users;
+
+      if (login.isAuth) {
+        this.props.history.push(USER_PROFILE);
+      } else {
+        this.setState({
+          hideError: {
+            name: false,
+            lastname: false,
+            email: false,
+            password: false,
+          },
+        });
+      }
+    }
+
+    getErrorClass(fieldName) {
+      return this.formFieldHasError(fieldName) ? 'field-error' : '';
+    }
+
+    handleInput = (event) => {
+      const newFormData = { ...this.state.formData };
+      const newHideError = { ...this.state.hideError };
+      const { value, name } = event.target;
+
+      newFormData[name] = value;
+      newHideError[name] = true;
+
+      this.setState({
+        formData: newFormData,
+        hideError: newHideError,
+      });
     }
 
     submitForm = (event) => {
-        event.preventDefault();
-        this.setState({ error: '' });
+      event.preventDefault();
 
-        this.props.dispatch(
-            userRegister({
-                email: this.state.email,
-                password: this.state.password,
-                name: this.state.name,
-                lastname: this.state.lastname
-            })
-        )
+      this.props.dispatch(userRegister(this.state.formData));
     }
 
-    showUsers = ({ users }) => (
-        users 
-        ? users.map(item => 
-            (
-                <tr key={item._id}>
-                    <td>{item.name}</td>
-                    <td>{item.lastname}</td>
-                </tr>
-            ))
-        : null
-    )
+    formFieldHasError(fieldName) {
+      const { register } = this.props.users;
+      const { hideError } = this.state;
+      const errors = register && register.error && register.error.errors;
+
+      return errors && errors[fieldName] && !hideError[fieldName];
+    }
+
+    renderError(fieldName) {
+      if (this.formFieldHasError(fieldName)) {
+        const error = this.props.users.register.error.errors[fieldName];
+
+        return (
+          <div className="error">
+            {error.message}
+          </div>
+        );
+      }
+      return null;
+    }
+
+    renderForm() {
+      const {
+        name, lastname,
+        email, password,
+      } = this.state.formData;
+
+      return (
+        <form onSubmit={this.submitForm}>
+          <h2 className="form-title">Sing Up</h2>
+
+          <div className="form_element">
+            <input
+              type="text"
+              className={this.getErrorClass('name')}
+              placeholder="Enter name"
+              value={name}
+              name="name"
+              onChange={this.handleInput}
+            />
+          </div>
+          { this.renderError('name') }
+
+          <div className="form_element">
+            <input
+              type="text"
+              className={this.getErrorClass('lastname')}
+              placeholder="Enter Lastname"
+              value={lastname}
+              name="lastname"
+              onChange={this.handleInput}
+            />
+          </div>
+          { this.renderError('lastname') }
+
+          <div className="form_element">
+            <input
+              type="email"
+              className={this.getErrorClass('email')}
+              placeholder="Enter Email"
+              value={email}
+              name="email"
+              onChange={this.handleInput}
+            />
+          </div>
+          { this.renderError('email') }
+
+          <div className="form_element">
+            <input
+              type="password"
+              className={this.getErrorClass('password')}
+              placeholder="Enter Password"
+              value={password}
+              name="password"
+              onChange={this.handleInput}
+            />
+          </div>
+          { this.renderError('password') }
+
+          <button type="submit">Sign Up</button>
+        </form>
+      );
+    }
+
+    renderUsers() {
+      const { users } = this.props.users;
+
+      if (users && users.length) {
+        return (
+          <React.Fragment>
+            <h2 className="users-title">Existing Users:</h2>
+            <div className="existing-users limited-width">
+              {users.map(user => (
+                <div key={user._id} className="user-container">
+                  <div className="user-avatar">
+                    <UserAvatar filename={user.avatar} />
+                  </div>
+                  <div className="user-names">
+                    <p title={user.name}>{user.name}</p>
+                    <p title={user.lastname}>{user.lastname}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </React.Fragment>
+        );
+      }
+
+      return null;
+    }
 
     render() {
-        const { users } = this.props;
-        return (
-            <div className="rl_container">
-                <form onSubmit={this.submitForm}>
-                    <h2>Sing Up</h2>
-                    
-                    <div className="form_element">
-                        <input
-                            type="text"
-                            placeholder="Enter name"
-                            value={this.state.name}
-                            onChange={this.handleInputName}
-                         />
-                    </div>
-
-                    <div className="form_element">
-                        <input
-                            type="text"
-                            placeholder="Enter Lastname"
-                            value={this.state.lastname}
-                            onChange={this.handleInputLastname}
-                         />
-                    </div>
-
-                    <div className="form_element">
-                        <input
-                            type="email"
-                            placeholder="Enter Email"
-                            value={this.state.email}
-                            onChange={this.handleInputEmail}
-                         />
-                    </div>
-
-                    <div className="form_element">
-                        <input
-                            type="password"
-                            placeholder="Enter Password"
-                            value={this.state.password}
-                            onChange={this.handleInputPassword}
-                         />
-                    </div>
-
-                    <button type="submit">Sign Up</button>
-                    <div className="error">
-                        {this.state.error}
-                    </div>
-
-                </form>
-                <div className="current_users">
-                    <h4>Current users:</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Lastname</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.showUsers(users)}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        );
+      return (
+        <div className="register-container">
+          { this.renderForm() }
+          { this.renderUsers() }
+        </div>
+      );
     }
 }
+
+Register.propTypes = {
+  users: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
+};
 
 function mapStateToProps(state) {
-    return{
-        users: state.users
-    }
+  return {
+    users: state.users,
+  };
 }
 
-export default connect(mapStateToProps)(Register)
+export default connect(mapStateToProps)(Register);

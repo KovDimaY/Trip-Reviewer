@@ -1,43 +1,49 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import FontAwesome from 'react-fontawesome';
 import { connect } from 'react-redux';
 
-const SidenavItem = ({ item, users }) => {
-    const element = (
-        <div className={item.type}>
-            <Link to={item.link}>
-                <FontAwesome name={item.icon}/>
-                {item.text}
-            </Link>
-        </div>
-    );
+import './styles.css';
 
-    const showItem = () => {
-        if (users.login) {
-            if (users.login.isAuth) {
-                return !item.exclude 
-                    ? element
-                    : null;
-            }
-            return !item.restricted 
-                ? element
-                : null;
-        } 
-        return null;
-    };
-        
-    return (
-        <div>
-            {showItem()}
-        </div>
-    );
+const SidenavItem = ({ item, users }) => {
+  const element = (
+    <Link to={item.link} className={item.type}>
+      <FontAwesome name={item.icon} />
+      {item.text}
+    </Link>
+  );
+
+  const showItem = () => {
+    if (users.login) {
+      if (users.login.isAuth) {
+        return !item.exclude
+          ? element
+          : null;
+      }
+      return !item.restricted
+        ? element
+        : null;
+    }
+    return null;
+  };
+
+  return (
+    <div>
+      {showItem()}
+    </div>
+  );
+};
+
+SidenavItem.propTypes = {
+  users: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
-    return {
-        users: state.users
-    }
+  return {
+    users: state.users,
+  };
 }
 
-export default connect(mapStateToProps)(SidenavItem)
+export default connect(mapStateToProps)(SidenavItem);

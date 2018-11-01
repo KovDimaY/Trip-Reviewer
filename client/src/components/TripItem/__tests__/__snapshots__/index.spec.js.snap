@@ -1,51 +1,92 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TripItem /> should render component 1`] = `
+exports[`<TripItem /> should render component with duration 1 1`] = `
 <Link 
-  className="book_item"
+  className="trip-item-container"
   to="/trips/_id"
 >
   <div
-    className="book_header"
+    className="header"
   >
     <h2 />
   </div>
   <div
-    className="book_items"
+    className="items"
   >
     <div
-      className="book_author"
+      className="country"
     >
-      author
+      country
     </div>
     <div
-      className="book_bubble"
+      className="bubble"
     >
       <strong>
-        Price
+        Expences:
       </strong>
-       $ 
-      price
+       $expences
     </div>
     <div
-      className="book_bubble"
+      className="bubble"
     >
       <strong>
-        Duration
+        Duration:
       </strong>
-        
-      duration
-       days
+       1 day
     </div>
     <div
-      className="book_bubble rating"
+      className="bubble rating"
     >
       <strong>
-        Rating
+        Rating:
       </strong>
-        
-      rating
-       / 5
+       rating / 5
+    </div>
+  </div>
+</Link >
+`;
+
+exports[`<TripItem /> should render component with duration 10 1`] = `
+<Link 
+  className="trip-item-container"
+  to="/trips/_id"
+>
+  <div
+    className="header"
+  >
+    <h2 />
+  </div>
+  <div
+    className="items"
+  >
+    <div
+      className="country"
+    >
+      country
+    </div>
+    <div
+      className="bubble"
+    >
+      <strong>
+        Expences:
+      </strong>
+       $expences
+    </div>
+    <div
+      className="bubble"
+    >
+      <strong>
+        Duration:
+      </strong>
+       10 days
+    </div>
+    <div
+      className="bubble rating"
+    >
+      <strong>
+        Rating:
+      </strong>
+       rating / 5
     </div>
   </div>
 </Link >

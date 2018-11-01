@@ -1,0 +1,383 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EditUserProfile /> should render component 1`] = `
+<div
+  className="edit-user-profile-container"
+>
+  <div
+    className="avatar"
+  >
+    <UserAvatar
+      filename={undefined}
+    />
+  </div>
+  <p
+    className="disclamer"
+  >
+    * To be sure that your avatar will be updated correctly
+     
+    <br />
+    press
+     
+    <b>
+      "
+      Submit changes
+      "
+    </b>
+     
+    button at the bottom of the page
+  </p>
+  <div
+    className="user-avatar-controls"
+  >
+    <ImageUploader
+      className="avatar-button update-user-avatar"
+      filename="id"
+      onUploadError={[Function]}
+      onUploadProgress={[Function]}
+      onUploadStarts={[Function]}
+      onUploadSuccess={[Function]}
+    />
+    <label
+      className="avatar-button delete-user-avatar"
+      onClick={[Function]}
+    >
+      Delete avatar
+    </label>
+  </div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="info"
+    >
+      <div
+        className="form-element"
+      >
+        <span>
+          Name:
+        </span>
+        <input
+          className=""
+          name="name"
+          onChange={[Function]}
+          placeholder="Enter name"
+          type="text"
+          value={undefined}
+        />
+      </div>
+      <div
+        className="form-element"
+      >
+        <span>
+          Lastname:
+        </span>
+        <input
+          className=""
+          name="lastname"
+          onChange={[Function]}
+          placeholder="Enter lastname"
+          type="text"
+          value={undefined}
+        />
+      </div>
+    </div>
+    <hr />
+    <p
+      className="danger-zone"
+    >
+      Danger zone
+    </p>
+    <div
+      className="info danger"
+    >
+      <div
+        className="form-element"
+      >
+        <span>
+          Current Password:
+        </span>
+        <input
+          className=""
+          name="oldPassword"
+          onChange={[Function]}
+          placeholder="Enter your current password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="form-element margin-top"
+      >
+        <span>
+          New Password:
+        </span>
+        <input
+          className=""
+          name="newPassword"
+          onChange={[Function]}
+          placeholder="Enter your new password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="form-element"
+      >
+        <span>
+          Repeat New Password:
+        </span>
+        <input
+          className=""
+          name="repeatPassword"
+          onChange={[Function]}
+          placeholder="Repeat your new password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="form-element"
+      >
+        <span>
+          Email:
+        </span>
+        <input
+          className=""
+          name="email"
+          onChange={[Function]}
+          placeholder="Enter new email"
+          type="email"
+          value={undefined}
+        />
+      </div>
+    </div>
+    <div
+      className="text-center"
+    >
+      <button
+        className="button-link"
+        type="submit"
+      >
+        Submit changes
+      </button>
+    </div>
+  </form>
+  <div
+    className="text-center"
+  >
+    <Link
+      className="button-link calcel"
+      to="/user"
+    >
+      Cancel
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`<EditUserProfile /> should render component with error 1`] = `
+<div
+  className="edit-user-profile-container"
+>
+  <div
+    className="avatar"
+  >
+    <UserAvatar
+      filename={undefined}
+    />
+  </div>
+  <p
+    className="disclamer"
+  >
+    * To be sure that your avatar will be updated correctly
+     
+    <br />
+    press
+     
+    <b>
+      "
+      Submit changes
+      "
+    </b>
+     
+    button at the bottom of the page
+  </p>
+  <div
+    className="user-avatar-controls"
+  >
+    <ImageUploader
+      className="avatar-button update-user-avatar"
+      filename="id"
+      onUploadError={[Function]}
+      onUploadProgress={[Function]}
+      onUploadStarts={[Function]}
+      onUploadSuccess={[Function]}
+    />
+    <label
+      className="avatar-button delete-user-avatar"
+      onClick={[Function]}
+    >
+      Delete avatar
+    </label>
+  </div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="info"
+    >
+      <div
+        className="form-element"
+      >
+        <span>
+          Name:
+        </span>
+        <input
+          className="field-error"
+          name="name"
+          onChange={[Function]}
+          placeholder="Enter name"
+          type="text"
+          value={undefined}
+        />
+      </div>
+      <div
+        className="error"
+      >
+        test
+      </div>
+      <div
+        className="form-element"
+      >
+        <span>
+          Lastname:
+        </span>
+        <input
+          className="field-error"
+          name="lastname"
+          onChange={[Function]}
+          placeholder="Enter lastname"
+          type="text"
+          value={undefined}
+        />
+      </div>
+      <div
+        className="error"
+      >
+        test
+      </div>
+    </div>
+    <hr />
+    <p
+      className="danger-zone"
+    >
+      Danger zone
+    </p>
+    <div
+      className="info danger"
+    >
+      <div
+        className="form-element"
+      >
+        <span>
+          Current Password:
+        </span>
+        <input
+          className="field-error"
+          name="oldPassword"
+          onChange={[Function]}
+          placeholder="Enter your current password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="error"
+      >
+        test
+      </div>
+      <div
+        className="form-element margin-top"
+      >
+        <span>
+          New Password:
+        </span>
+        <input
+          className="field-error"
+          name="newPassword"
+          onChange={[Function]}
+          placeholder="Enter your new password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="error"
+      >
+        test
+      </div>
+      <div
+        className="form-element"
+      >
+        <span>
+          Repeat New Password:
+        </span>
+        <input
+          className="field-error"
+          name="repeatPassword"
+          onChange={[Function]}
+          placeholder="Repeat your new password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="error"
+      >
+        test
+      </div>
+      <div
+        className="form-element"
+      >
+        <span>
+          Email:
+        </span>
+        <input
+          className="field-error"
+          name="email"
+          onChange={[Function]}
+          placeholder="Enter new email"
+          type="email"
+          value={undefined}
+        />
+      </div>
+      <div
+        className="error"
+      >
+        test
+      </div>
+    </div>
+    <div
+      className="text-center"
+    >
+      <button
+        className="button-link"
+        type="submit"
+      >
+        Submit changes
+      </button>
+    </div>
+  </form>
+  <div
+    className="text-center"
+  >
+    <Link
+      className="button-link calcel"
+      to="/user"
+    >
+      Cancel
+    </Link>
+  </div>
+</div>
+`;

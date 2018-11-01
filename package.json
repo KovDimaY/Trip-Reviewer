@@ -4,9 +4,11 @@
   "description": "This is a project for learning purpose",
   "main": "index.js",
   "scripts": {
+    "lint": "./node_modules/.bin/eslint client/src --ext .js && ./node_modules/.bin/eslint server --ext .js",
     "test": "npm run test-jest --prefix client",
     "test:coverage": "npm run test:coverage --prefix client",
     "test:update": "npm run test:update --prefix client",
+    "coverage:report": "open client/coverage/jest/lcov-report/index.html",
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
     "client": "npm run start --prefix client",
@@ -28,19 +30,25 @@
   },
   "homepage": "https://github.com/KovDimaY/Trip-Reviewer#readme",
   "dependencies": {
-    "bcrypt": "1.0.3",
+    "bcrypt": "3.0.0",
     "body-parser": "1.18.2",
     "colors": "1.3.0",
     "concurrently": "3.5.1",
     "cookie-parser": "1.4.3",
     "express": "4.16.2",
+    "generate-password": "1.4.0",
     "jsonwebtoken": "8.0.1",
-    "moment-js": "1.1.15",
     "mongoose": "4.10.8",
-    "nodemailer": "4.6.8",
-    "uuid": "^3.3.2"
+    "nodemailer": "4.6.8"
   },
   "devDependencies": {
+    "babel-eslint": "8.2.3",
+    "eslint": "4.9.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-loader": "2.0.0",
+    "eslint-plugin-import": "2.12.0",
+    "eslint-plugin-jsx-a11y": "6.0.2",
+    "eslint-plugin-react": "7.9.1",
     "nodemon": "1.17.5",
     "redux-mock-store": "1.5.3"
   }

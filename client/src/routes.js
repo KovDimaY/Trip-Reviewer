@@ -1,8 +1,10 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Home from './components/Home';
+import NotFound from './components/404';
+import Home from './containers/Home';
 import User from './components/User';
+import EditUserProfile from './containers/EditUserProfile';
 import Logout from './components/Logout';
 import Login from './containers/Login';
 import ResetPass from './containers/ResetPass';
@@ -15,23 +17,25 @@ import UserReviews from './containers/UserReviews';
 import Layout from './hoc/layout';
 import Auth from './hoc/auth';
 
-const Routes = () => {
-    return (
-        <Layout>
-            <Switch>
-                <Route path="/" exact component={Auth(Home, null)}/>
-                <Route path="/login" exact component={Auth(Login, false)}/>
-                <Route path="/reset-password" exact component={Auth(ResetPass, false)}/>
-                <Route path="/user/logout" exact component={Auth(Logout, true)}/>
-                <Route path="/user/register" exact component={Auth(Register, false)}/>
-                <Route path="/user" exact component={Auth(User, true)}/>
-                <Route path="/user/user-reviews" exact component={Auth(UserReviews, true)}/>
-                <Route path="/user/edit-post/:id" exact component={Auth(EditTrip, true)}/>
-                <Route path="/trip/add" exact component={Auth(AddTrip, true)}/>
-                <Route path="/trips/:id" exact component={Auth(TripView, null)}/>
-            </Switch>
-        </Layout>
-    );
-};
+import * as routes from './constants/routes';
+
+const Routes = () => (
+  <Layout>
+    <Switch>
+      <Route path={routes.HOME} exact component={Auth(Home, null)} />
+      <Route path={routes.LOGIN} exact component={Auth(Login, false)} />
+      <Route path={routes.RESET} exact component={Auth(ResetPass, false)} />
+      <Route path={routes.LOGOUT} exact component={Auth(Logout, true)} />
+      <Route path={routes.REGISTER} exact component={Auth(Register, false)} />
+      <Route path={routes.USER_PROFILE} exact component={Auth(User, true)} />
+      <Route path={routes.USER_REVIEWS} exact component={Auth(UserReviews, true)} />
+      <Route path={`${routes.EDIT_PROFILE}/:id`} exact component={Auth(EditUserProfile, true)} />
+      <Route path={`${routes.EDIT_POST}/:id`} exact component={Auth(EditTrip, true)} />
+      <Route path={routes.ADD_TRIP} exact component={Auth(AddTrip, true)} />
+      <Route path={`${routes.TRIPS}/:id`} exact component={Auth(TripView, null)} />
+      <Route path="*" component={Auth(NotFound, null)} />
+    </Switch>
+  </Layout>
+);
 
 export default Routes;

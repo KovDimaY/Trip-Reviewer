@@ -1,0 +1,559 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CountrySelector /> should render component with a wrong defaultCountry provided 1`] = `
+<div
+  className="country-selector-container"
+>
+  <div
+    className="dropdown"
+  >
+    <div
+      className="btn dropdown-toggle c-select"
+      onClick={[Function]}
+    >
+      <span>
+        <div
+          alt="flag"
+          className="flag af fnone c-dropdown-flag"
+        />
+        Afghanistan
+      </span>
+    </div>
+    <div
+      className="dropdown-menu c-dropdown-menu"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+    >
+      <input
+        className="c-dropdown-input"
+        onInput={[Function]}
+        type="text"
+      />
+      <div
+        className="c-dropdown-menu-overflow"
+      >
+        <ul
+          className="c-dropdown-ul"
+        >
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AF"
+            onClick={[Function]}
+            tabIndex={0}
+          >
+            <div
+              data-option="AF"
+            >
+              <div
+                className="flag af fnone c-dropdown-flag"
+              />
+               
+              Afghanistan
+            </div>
+          </li>
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AX"
+            onClick={[Function]}
+            tabIndex={1}
+          >
+            <div
+              data-option="AX"
+            >
+              <div
+                className="flag ax fnone c-dropdown-flag"
+              />
+               
+              Aland Islands
+            </div>
+          </li>
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AL"
+            onClick={[Function]}
+            tabIndex={2}
+          >
+            <div
+              data-option="AL"
+            >
+              <div
+                className="flag al fnone c-dropdown-flag"
+              />
+               
+              Albania
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<CountrySelector /> should render component with defaultCountry provided 1`] = `
+<div
+  className="country-selector-container"
+>
+  <div
+    className="dropdown"
+  >
+    <div
+      className="btn dropdown-toggle c-select"
+      onClick={[Function]}
+    >
+      <span>
+        <div
+          alt="flag"
+          className="flag af fnone c-dropdown-flag"
+        />
+        Afghanistan
+      </span>
+    </div>
+    <div
+      className="dropdown-menu c-dropdown-menu"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+    >
+      <input
+        className="c-dropdown-input"
+        onInput={[Function]}
+        type="text"
+      />
+      <div
+        className="c-dropdown-menu-overflow"
+      >
+        <ul
+          className="c-dropdown-ul"
+        >
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AF"
+            onClick={[Function]}
+            tabIndex={0}
+          >
+            <div
+              data-option="AF"
+            >
+              <div
+                className="flag af fnone c-dropdown-flag"
+              />
+               
+              Afghanistan
+            </div>
+          </li>
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AX"
+            onClick={[Function]}
+            tabIndex={1}
+          >
+            <div
+              data-option="AX"
+            >
+              <div
+                className="flag ax fnone c-dropdown-flag"
+              />
+               
+              Aland Islands
+            </div>
+          </li>
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AL"
+            onClick={[Function]}
+            tabIndex={2}
+          >
+            <div
+              data-option="AL"
+            >
+              <div
+                className="flag al fnone c-dropdown-flag"
+              />
+               
+              Albania
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<CountrySelector /> should render component with defaultISOALPHA2Code provided 1`] = `
+<div
+  className="country-selector-container"
+>
+  <div
+    className="dropdown"
+  >
+    <div
+      className="btn dropdown-toggle c-select"
+      onClick={[Function]}
+    >
+      <span>
+        <div
+          alt="flag"
+          className="flag af fnone c-dropdown-flag"
+        />
+        Afghanistan
+      </span>
+    </div>
+    <div
+      className="dropdown-menu c-dropdown-menu"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+    >
+      <input
+        className="c-dropdown-input"
+        onInput={[Function]}
+        type="text"
+      />
+      <div
+        className="c-dropdown-menu-overflow"
+      >
+        <ul
+          className="c-dropdown-ul"
+        >
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AF"
+            onClick={[Function]}
+            tabIndex={0}
+          >
+            <div
+              data-option="AF"
+            >
+              <div
+                className="flag af fnone c-dropdown-flag"
+              />
+               
+              Afghanistan
+            </div>
+          </li>
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AX"
+            onClick={[Function]}
+            tabIndex={1}
+          >
+            <div
+              data-option="AX"
+            >
+              <div
+                className="flag ax fnone c-dropdown-flag"
+              />
+               
+              Aland Islands
+            </div>
+          </li>
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AL"
+            onClick={[Function]}
+            tabIndex={2}
+          >
+            <div
+              data-option="AL"
+            >
+              <div
+                className="flag al fnone c-dropdown-flag"
+              />
+               
+              Albania
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<CountrySelector /> should render component with defaultISOALPHA3Code provided 1`] = `
+<div
+  className="country-selector-container"
+>
+  <div
+    className="dropdown"
+  >
+    <div
+      className="btn dropdown-toggle c-select"
+      onClick={[Function]}
+    >
+      <span>
+        <div
+          alt="flag"
+          className="flag af fnone c-dropdown-flag"
+        />
+        Afghanistan
+      </span>
+    </div>
+    <div
+      className="dropdown-menu c-dropdown-menu"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+    >
+      <input
+        className="c-dropdown-input"
+        onInput={[Function]}
+        type="text"
+      />
+      <div
+        className="c-dropdown-menu-overflow"
+      >
+        <ul
+          className="c-dropdown-ul"
+        >
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AF"
+            onClick={[Function]}
+            tabIndex={0}
+          >
+            <div
+              data-option="AF"
+            >
+              <div
+                className="flag af fnone c-dropdown-flag"
+              />
+               
+              Afghanistan
+            </div>
+          </li>
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AX"
+            onClick={[Function]}
+            tabIndex={1}
+          >
+            <div
+              data-option="AX"
+            >
+              <div
+                className="flag ax fnone c-dropdown-flag"
+              />
+               
+              Aland Islands
+            </div>
+          </li>
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AL"
+            onClick={[Function]}
+            tabIndex={2}
+          >
+            <div
+              data-option="AL"
+            >
+              <div
+                className="flag al fnone c-dropdown-flag"
+              />
+               
+              Albania
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<CountrySelector /> should render component with defaultISONumericalCode provided 1`] = `
+<div
+  className="country-selector-container"
+>
+  <div
+    className="dropdown"
+  >
+    <div
+      className="btn dropdown-toggle c-select"
+      onClick={[Function]}
+    >
+      <span>
+        <div
+          alt="flag"
+          className="flag af fnone c-dropdown-flag"
+        />
+        Afghanistan
+      </span>
+    </div>
+    <div
+      className="dropdown-menu c-dropdown-menu"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+    >
+      <input
+        className="c-dropdown-input"
+        onInput={[Function]}
+        type="text"
+      />
+      <div
+        className="c-dropdown-menu-overflow"
+      >
+        <ul
+          className="c-dropdown-ul"
+        >
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AF"
+            onClick={[Function]}
+            tabIndex={0}
+          >
+            <div
+              data-option="AF"
+            >
+              <div
+                className="flag af fnone c-dropdown-flag"
+              />
+               
+              Afghanistan
+            </div>
+          </li>
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AX"
+            onClick={[Function]}
+            tabIndex={1}
+          >
+            <div
+              data-option="AX"
+            >
+              <div
+                className="flag ax fnone c-dropdown-flag"
+              />
+               
+              Aland Islands
+            </div>
+          </li>
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AL"
+            onClick={[Function]}
+            tabIndex={2}
+          >
+            <div
+              data-option="AL"
+            >
+              <div
+                className="flag al fnone c-dropdown-flag"
+              />
+               
+              Albania
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<CountrySelector /> should render component with no props provided 1`] = `
+<div
+  className="country-selector-container"
+>
+  <div
+    className="dropdown"
+  >
+    <div
+      className="btn dropdown-toggle c-select"
+      onClick={[Function]}
+    >
+      <span>
+        <div
+          alt="flag"
+          className="flag af fnone c-dropdown-flag"
+        />
+        Afghanistan
+      </span>
+    </div>
+    <div
+      className="dropdown-menu c-dropdown-menu"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+    >
+      <input
+        className="c-dropdown-input"
+        onInput={[Function]}
+        type="text"
+      />
+      <div
+        className="c-dropdown-menu-overflow"
+      >
+        <ul
+          className="c-dropdown-ul"
+        >
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AF"
+            onClick={[Function]}
+            tabIndex={0}
+          >
+            <div
+              data-option="AF"
+            >
+              <div
+                className="flag af fnone c-dropdown-flag"
+              />
+               
+              Afghanistan
+            </div>
+          </li>
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AX"
+            onClick={[Function]}
+            tabIndex={1}
+          >
+            <div
+              data-option="AX"
+            >
+              <div
+                className="flag ax fnone c-dropdown-flag"
+              />
+               
+              Aland Islands
+            </div>
+          </li>
+          <li
+            className="dropdown-item c-dropdown-item"
+            data-country="AL"
+            onClick={[Function]}
+            tabIndex={2}
+          >
+            <div
+              data-option="AL"
+            >
+              <div
+                className="flag al fnone c-dropdown-flag"
+              />
+               
+              Albania
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;

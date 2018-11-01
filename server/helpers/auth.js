@@ -2,18 +2,18 @@ const bcrypt = require('bcrypt');
 
 const auth = require('./../constants/auth');
 
-const encryptPassword = function(rawPassword, callback) {
-    bcrypt.genSalt(auth.USER_SALT_I, function(err, salt) {
-        if (err) return callback(err);
+const encryptPassword = (rawPassword, callback) => {
+  bcrypt.genSalt(auth.USER_SALT_I, (err1, salt) => {
+    if (err1) return callback(err1);
 
-        bcrypt.hash(rawPassword, salt, function(err, hash) {
-            if (err) return callback(err);
+    return bcrypt.hash(rawPassword, salt, (err2, hash) => {
+      if (err2) return callback(err2);
 
-            callback(null, hash);
-        });
+      return callback(null, hash);
     });
+  });
 };
 
 module.exports = {
-    encryptPassword: encryptPassword
-}
+  encryptPassword,
+};

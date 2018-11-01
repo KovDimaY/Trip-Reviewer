@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserAvatar /> should render component with filename 1`] = `
+<div
+  className="user-avatar-container fit-parent"
+>
+  <Loader
+    className="user-avatar-spinner"
+    color="grey"
+    margin="4px"
+    size="16px"
+  />
+</div>
+`;
+
+exports[`<UserAvatar /> should render component with no filename 1`] = `
+<div
+  className="user-avatar-container fit-parent"
+>
+  <div
+    className="avatar-picture fit-parent"
+  >
+    <img
+      alt="avatar"
+      className="fit-parent"
+      src="/images/avatar.png"
+    />
+  </div>
+</div>
+`;

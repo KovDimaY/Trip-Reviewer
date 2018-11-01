@@ -1,0 +1,112 @@
+.edit-user-profile-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 50px 0;
+}
+.edit-user-profile-container .avatar {
+    text-align: center;
+}
+.edit-user-profile-container .info {
+    box-sizing: border-box;
+    padding: 20px;
+    max-width: 350px;
+    margin: auto;
+}
+.edit-user-profile-container .info .form-element {
+    font-size: 23px;
+    font-weight: 300;
+    margin-top: 10px;
+    color: #a4a4a4;
+}
+.edit-user-profile-container .info div span {
+    display: block;
+    font-weight: 500;
+    color: #02bcd4;
+}
+.edit-user-profile-container .danger div span {
+    display: block;
+    color: orange;
+}
+.edit-user-profile-container .danger-zone {
+    color: orangered;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.edit-user-profile-container .disclamer {
+    color: darkgray;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: -5px;
+}
+.edit-user-profile-container .disclamer-error {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: -5px;
+}
+.edit-user-profile-container .text-center {
+    margin-bottom: 30px;
+}
+.edit-user-profile-container .info .margin-top {
+    margin-top: 50px;
+}
+.edit-user-profile-container input {
+    width: -webkit-fill-available;
+    border: solid 1px gray;
+    height: 36px;
+    margin: 5px 0;
+    padding-left: 10px;
+    font-size: 16px;
+}
+.edit-user-profile-container .user-avatar-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 20px;
+    max-width: 300px;
+    margin: auto;
+}
+.edit-user-profile-container .user-avatar-controls .avatar-button {
+    text-align: center;
+    display: block;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    width: 35%;
+}
+.edit-user-profile-container .user-avatar-controls .update-user-avatar {
+    background-color: #02bcd4;
+}
+.edit-user-profile-container .user-avatar-controls .delete-user-avatar {
+    background-color: orange;
+}
+.edit-user-profile-container .button-link {
+    font-size: 20px;
+    padding: 10px 52px;
+    background: #02bcd4;
+    color: #fff;
+    font-weight: 300;
+    border-radius: 3px;
+    border: none;
+    margin-top: 20px;
+    width: 260px;
+}
+.edit-user-profile-container .calcel {
+    background-color: orange;
+}
+.edit-user-profile-container .error {
+    color: #FF5722;
+    margin-top: 5px;
+    text-align: center;
+}
+.edit-user-profile-container .field-error {
+    border: 2px solid #FF5722;
+    color: #FF5722;
+}
+.edit-user-profile-container .avatar {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 25px auto;
+}

@@ -6,91 +6,131 @@ const config = require('./../config/config').get(process.env.NODE_ENV);
 const auth = require('./../constants/auth');
 
 const userSchema = mongoose.Schema({
-    email: {
-        type: String,
-        required: true,
-        trim: true,
-        unique: 1
+  email: {
+    type: String,
+    trim: true,
+    required: [true, 'Email is required'],
+    unique: 1,
+  },
+  password: {
+    type: String,
+    required: [true, 'Password is required'],
+    minlength: [6, 'Should be at least 6 chars'],
+  },
+  name: {
+    type: String,
+    trim: true,
+    required: [true, 'Name is required'],
+    minlength: [2, 'Should be at least 2 chars'],
+    maxlength: [100, 'Should be 100 chars at most'],
+    validate: {
+      validator(v) {
+        return /^([^0-9]*)$/.test(v);
+      },
+      message: 'Digits are not allowed',
     },
-    password: {
-        type: String,
-        required: true,
-        minlength: 6
+  },
+  lastname: {
+    type: String,
+    trim: true,
+    required: [true, 'Last name is required'],
+    minlength: [2, 'Should be at least 2 chars'],
+    maxlength: [100, 'Should be 100 chars at most'],
+    validate: {
+      validator(v) {
+        return /^([^0-9]*)$/.test(v);
+      },
+      message: 'Digits are not allowed',
     },
-    name: {
-        type: String,
-        maxlength: 100
-    },
-    lastname: {
-        type: String,
-        maxlength: 100
-    },
-    role: {
-        type: Number,
-        default: 0
-    },
-    token: {
-        type: String
-    }
+  },
+  avatar: {
+    type: String,
+  },
+  role: {
+    type: Number,
+    default: 0,
+  },
+  token: {
+    type: String,
+  },
 });
 
-userSchema.pre('save', function(next) {
-    const user = this;
+userSchema.pre('save', function (next) { // eslint-disable-line consistent-return
+  const user = this;
 
-    if(user.isModified('password')) {
-        bcrypt.genSalt(auth.USER_SALT_I, function(err, salt) {
-            if (err) return next(err);
+  if (user.isModified('password')) {
+    bcrypt.genSalt(auth.USER_SALT_I, (err1, salt) => {
+      if (err1) return next(err1);
 
-            bcrypt.hash(user.password, salt, function(err, hash) {
-                if (err) return next(err);
-                user.password = hash;
-                next();
-            });
-        });
-    } else {
-        next();
-    }
+      return bcrypt.hash(user.password, salt, (err2, hash) => {
+        if (err2) return next(err2);
+        user.password = hash;
+        return next();
+      });
+    });
+  } else {
+    return next();
+  }
 });
 
-userSchema.methods.comparePassword = function(candidatePassword, callback) {
-    const user = this;
+userSchema.post('save', (error, doc, next) => {
+  if (error.code === 11000) {
+    const customError = new Error();
 
-    bcrypt.compare(candidatePassword, user.password, function(err, isMatch) {
-        if (err) return callback(err);
-        callback(null, isMatch);
-    });
+    customError.errors = {
+      email: {
+        message: 'This email already exists',
+        path: 'email',
+        name: 'PostSaveError',
+        kind: 'unique',
+      },
+    };
+
+    next(customError);
+  } else {
+    next(error);
+  }
+});
+
+userSchema.methods.comparePassword = function (candidatePassword, callback) {
+  const user = this;
+
+  bcrypt.compare(candidatePassword, user.password, (err, isMatch) => {
+    if (err) return callback(err);
+    return callback(null, isMatch);
+  });
 };
 
-userSchema.methods.generateToken = function(callback) {
-    const user = this;
-    const token = jwt.sign(user._id.toHexString(), config.SECRET);
+userSchema.methods.generateToken = function (callback) {
+  const user = this;
+  const token = jwt.sign(user._id.toHexString(), config.SECRET);
 
-    user.token = token;
-    user.save(function(err, user) {
-        if (err) return callback(err);
-        callback(null, user)
-    });
+  user.token = token;
+  user.save((err, doc) => {
+    if (err) return callback(err);
+    return callback(null, doc);
+  });
 };
 
-userSchema.statics.findByToken = function(token, callback) {
-    const user  = this;
+userSchema.statics.findByToken = function (token, callback) {
+  const user = this;
 
-    jwt.verify(token, config.SECRET, function(err, decode) {
-        user.findOne({ "_id": decode, "token": token }, function(err, user) {
-            if (err) return callback(err);
-            callback(null, user);
-        });
+  jwt.verify(token, config.SECRET, (err1, decode) => {
+    user.findOne({ _id: decode, token }, (err2, doc) => {
+      if (err2) return callback(err2);
+      return callback(null, doc);
     });
+  });
 };
 
-userSchema.methods.deleteToken = function(token, callback) {
-    var user = this;
+userSchema.methods.deleteToken = function (token, callback) {
+  const user = this;
 
-    user.update({ $unset: { token: 1 } }, (err, user) => {
-        if (err) return callback(err);
+  user.update({ $unset: { token: 1 } }, (err, doc) => {
+    if (err) return callback(err);
 
-        callback(null,user)
-    });
+    return callback(null, doc);
+  });
 };
 
 

@@ -1,18 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<HomeContainer /> should render component 1`] = `
-<div>
-  <div
-    className="loadmore"
-    onClick={[Function]}
-  >
-    Load More
-  </div>
-</div>
+<div
+  className="home-container limited-width-shadow"
+/>
 `;
 
 exports[`<HomeContainer /> should render component with a list of items 1`] = `
-<div>
+<div
+  className="home-container limited-width-shadow"
+>
   <TripItem
     _id="_id"
     author="author"
@@ -21,11 +18,5 @@ exports[`<HomeContainer /> should render component with a list of items 1`] = `
     rating="rating"
     title="title"
   />
-  <div
-    className="loadmore"
-    onClick={[Function]}
-  >
-    Load More
-  </div>
 </div>
 `;

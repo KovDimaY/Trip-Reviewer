@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ImageUploader /> should render component 1`] = `
+<CustomUploadButton
+  accept="image/*"
+  className={undefined}
+  filename={undefined}
+  hidden={true}
+  metadata={
+    Object {
+      "cacheControl": "max-age=86400",
+    }
+  }
+  name="avatar"
+  onProgress={[Function]}
+  onUploadError={[Function]}
+  onUploadStart={[Function]}
+  onUploadSuccess={[Function]}
+  storageRef={undefined}
+>
+  Update avatar
+</CustomUploadButton>
+`;
