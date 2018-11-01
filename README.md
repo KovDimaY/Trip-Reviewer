@@ -55,8 +55,10 @@ Thank you in advance!
 ![image](https://user-images.githubusercontent.com/26466644/47854355-d4100580-dde1-11e8-8a1e-f52084168b82.png)
 ![image](https://user-images.githubusercontent.com/26466644/47854559-53053e00-dde2-11e8-8fd6-3e9915680312.png)
 
+9) Reset Password Email:<br>
+![image](https://user-images.githubusercontent.com/26466644/47858656-daf04580-ddec-11e8-99e9-54b90dc3ee1e.png)
 
-9) Test Coverage:<br>
+10) Test Coverage:<br>
 ![image](https://user-images.githubusercontent.com/26466644/47857363-b5157180-dde9-11e8-884f-5ce5d3d0f49c.png)
 
 <br>
