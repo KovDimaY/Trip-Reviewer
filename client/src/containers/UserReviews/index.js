@@ -40,7 +40,7 @@ class UserPosts extends Component {
   );
 
   renderContent(userPosts) {
-    if (userPosts && userPosts.length > 1110) {
+    if (userPosts && userPosts.length > 0) {
       return (
         <table className="reviews-table">
           <thead>
