@@ -31,6 +31,23 @@
 .user-posts-container .reviews-table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+.user-posts-container .empty-view {
+  margin-top: 75px;
+}
+.user-posts-container .empty-view .message {
+  margin-bottom: 75px;
+  font-size: 18px;
+}
+.user-posts-container .empty-view .button {
+  font-size: 20px;
+  padding: 10px 20px;
+  background: #02bcd4;
+  color: #fff;
+  font-weight: 300;
+  border-radius: 3px;
+  border: none;
+  margin-top: 50px;
+}
 
 @media (max-width: 450px) {
   .user-posts-container .only-wide-screen {
