@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment-js';
 
 import { getUserReviews } from '../../actions';
-import { EDIT_POST } from '../../constants/routes';
+import { EDIT_POST, ADD_TRIP } from '../../constants/routes';
 
 import './styles.css';
 
@@ -18,28 +18,30 @@ class UserPosts extends Component {
     }
   }
 
-  showUserPosts = ({ userPosts }) => (
-    userPosts
-      ? userPosts.map(item => (
-        <tr key={item._id}>
-          <td className="post-title">
-            <Link to={`${EDIT_POST}/${item._id}`}>
-              {item.title}
-            </Link>
-          </td>
-          <td className="only-wide-screen">{item.country}</td>
-          <td>{moment(item.createdAt).format('MM/DD/YY')}</td>
-        </tr>
-      ))
-      : null
+  renderUserPosts = userPosts => (
+    userPosts.map(item => (
+      <tr key={item._id}>
+        <td className="post-title">
+          <Link to={`${EDIT_POST}/${item._id}`}>
+            {item.title}
+          </Link>
+        </td>
+        <td className="only-wide-screen">{item.country}</td>
+        <td>{moment(item.createdAt).format('MM/DD/YY')}</td>
+      </tr>
+    ))
   )
 
-  render() {
-    const { users } = this.props;
+  renderEmptyView = () => (
+    <div className="empty-view">
+      <p className="message">You do not have any review yet.</p>
+      <a className="button" href={ADD_TRIP}>Add my first review</a>
+    </div>
+  );
 
-    return (
-      <div className="user-posts-container limited-width">
-        <h2>Your reviews</h2>
+  renderContent(userPosts) {
+    if (userPosts && userPosts.length > 0) {
+      return (
         <table className="reviews-table">
           <thead>
             <tr>
@@ -49,9 +51,24 @@ class UserPosts extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.showUserPosts(users)}
+            {this.renderUserPosts(userPosts)}
           </tbody>
         </table>
+      );
+    } else if (userPosts) {
+      return this.renderEmptyView();
+    }
+
+    return null;
+  }
+
+  render() {
+    const { userPosts } = this.props.users;
+
+    return (
+      <div className="user-posts-container limited-width">
+        <h2>Your reviews</h2>
+        {this.renderContent(userPosts)}
       </div>
     );
   }

@@ -1,6 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<UserPosts /> should render component with login 1`] = `
+exports[`<UserPosts /> should render component with login and no posts 1`] = `
+<div
+  className="user-posts-container limited-width"
+>
+  <h2>
+    Your reviews
+  </h2>
+  <div
+    className="empty-view"
+  >
+    <p
+      className="message"
+    >
+      You do not have any review yet.
+    </p>
+    <a
+      className="button"
+      href="/trip/add"
+    >
+      Add my first review
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<UserPosts /> should render component with login and several posts 1`] = `
 <div
   className="user-posts-container limited-width"
 >
@@ -31,15 +56,34 @@ exports[`<UserPosts /> should render component with login 1`] = `
           className="post-title"
         >
           <Link
-            to="/user/edit-post/id"
+            to="/user/edit-post/id1"
           >
-            title
+            title1
           </Link>
         </td>
         <td
           className="only-wide-screen"
         >
-          country
+          country1
+        </td>
+        <td>
+          Invalid Date
+        </td>
+      </tr>
+      <tr>
+        <td
+          className="post-title"
+        >
+          <Link
+            to="/user/edit-post/id2"
+          >
+            title2
+          </Link>
+        </td>
+        <td
+          className="only-wide-screen"
+        >
+          country2
         </td>
         <td>
           Invalid Date
@@ -57,25 +101,5 @@ exports[`<UserPosts /> should render component with no login 1`] = `
   <h2>
     Your reviews
   </h2>
-  <table
-    className="reviews-table"
-  >
-    <thead>
-      <tr>
-        <th>
-          Title
-        </th>
-        <th
-          className="only-wide-screen"
-        >
-          Country
-        </th>
-        <th>
-          Date
-        </th>
-      </tr>
-    </thead>
-    <tbody />
-  </table>
 </div>
 `;
