@@ -1,0 +1,24 @@
+.empty-view-container {
+  padding: 25px 0 50px 0;
+  text-align: center;
+}
+.empty-view-container .message {
+  margin-bottom: 75px;
+  font-size: 24px;
+}
+.empty-view-container .button {
+  font-size: 20px;
+  padding: 10px 20px;
+  background: #02bcd4;
+  color: #fff;
+  font-weight: 300;
+  border-radius: 3px;
+  border: none;
+  margin-top: 50px;
+}
+
+@media (max-width: 400px) {
+  .empty-view-container .message {
+    font-size: 18px;
+  }
+}
