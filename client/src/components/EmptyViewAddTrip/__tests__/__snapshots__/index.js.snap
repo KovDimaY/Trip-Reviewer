@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EmptyViewAddTrip /> should render component 1`] = `
+<div
+  className="empty-view-container"
+>
+  <p
+    className="message"
+  >
+    There is no any story yet.
+  </p>
+  <a
+    className="button"
+    href="/trip/add"
+  >
+    Add a story
+  </a>
+</div>
+`;

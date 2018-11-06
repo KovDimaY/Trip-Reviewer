@@ -3,11 +3,13 @@ import configureStore from 'redux-mock-store';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
 
+import EmptyView from '../../../components/EmptyViewAddTrip';
 import HomeContainer from '..';
 import { GET_TRIPS } from '../../../constants/action-names';
 import { getTrips } from '../../../actions';
 
 jest.mock('./../../../components/TripItem', () => 'TripItem');
+jest.mock('./../../../components/EmptyViewAddTrip', () => 'EmptyView');
 jest.mock('./../../../actions', () => ({
   getTrips: jest.fn(() => ({
     type: GET_TRIPS,
@@ -64,7 +66,7 @@ describe('<HomeContainer />', () => {
 
     const result = instance.renderItems();
 
-    expect(result).toEqual(<div className="empty-view"><p>There is no any review yet.</p><p>Be the first who posts one! :D</p></div>);
+    expect(result).toEqual(<div className="empty-view-wrapper"><EmptyView /></div>);
   });
 
   it('renderLoadMoreButton should not return null if the showLoadmore is true and initialRender - false', () => {
