@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import TripItem from '../../components/TripItem/index';
+import EmptyView from '../../components/EmptyViewAddTrip';
 import { getTrips } from '../../actions';
 
 import './styles.css';
@@ -50,9 +51,8 @@ class HomeContainer extends Component {
 
     if (!initialRender && list.length < 1) {
       return (
-        <div className="empty-view">
-          <p>There is no any review yet.</p>
-          <p>Be the first who posts one! :D</p>
+        <div className="empty-view-wrapper">
+          <EmptyView />
         </div>
       );
     }

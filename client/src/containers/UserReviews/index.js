@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment-js';
 
+import EmptyView from '../../components/EmptyViewAddTrip';
 import { getUserReviews } from '../../actions';
-import { EDIT_POST, ADD_TRIP } from '../../constants/routes';
+import { EDIT_POST } from '../../constants/routes';
 
 import './styles.css';
 
@@ -32,13 +33,6 @@ class UserPosts extends Component {
     ))
   )
 
-  renderEmptyView = () => (
-    <div className="empty-view">
-      <p className="message">You do not have any review yet.</p>
-      <a className="button" href={ADD_TRIP}>Add my first review</a>
-    </div>
-  );
-
   renderContent(userPosts) {
     if (userPosts && userPosts.length > 0) {
       return (
@@ -56,7 +50,12 @@ class UserPosts extends Component {
         </table>
       );
     } else if (userPosts) {
-      return this.renderEmptyView();
+      return (
+        <EmptyView
+          message="You do not have any story yet."
+          buttonText="Add my first story"
+        />
+      );
     }
 
     return null;
@@ -67,7 +66,7 @@ class UserPosts extends Component {
 
     return (
       <div className="user-posts-container limited-width">
-        <h2>Your reviews</h2>
+        <h2>My stories</h2>
         {this.renderContent(userPosts)}
       </div>
     );

@@ -5,23 +5,12 @@ exports[`<UserPosts /> should render component with login and no posts 1`] = `
   className="user-posts-container limited-width"
 >
   <h2>
-    Your reviews
+    My stories
   </h2>
-  <div
-    className="empty-view"
-  >
-    <p
-      className="message"
-    >
-      You do not have any review yet.
-    </p>
-    <a
-      className="button"
-      href="/trip/add"
-    >
-      Add my first review
-    </a>
-  </div>
+  <EmptyView
+    buttonText="Add my first story"
+    message="You do not have any story yet."
+  />
 </div>
 `;
 
@@ -30,7 +19,7 @@ exports[`<UserPosts /> should render component with login and several posts 1`] 
   className="user-posts-container limited-width"
 >
   <h2>
-    Your reviews
+    My stories
   </h2>
   <table
     className="reviews-table"
@@ -99,7 +88,7 @@ exports[`<UserPosts /> should render component with no login 1`] = `
   className="user-posts-container limited-width"
 >
   <h2>
-    Your reviews
+    My stories
   </h2>
 </div>
 `;
