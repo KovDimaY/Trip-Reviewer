@@ -8,8 +8,18 @@ const mockComponent = props => (
 );
 
 describe('<EmptyViewAddTrip />', () => {
-  it('should render component', () => {
+  it('should render component with default props', () => {
     const tree = create(mockComponent()).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should render component with custom props', () => {
+    const props = {
+      message: 'message',
+      buttonText: 'buttonText',
+    };
+    const tree = create(mockComponent(props)).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

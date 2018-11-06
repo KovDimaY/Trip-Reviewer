@@ -1,6 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<EmptyViewAddTrip /> should render component 1`] = `
+exports[`<EmptyViewAddTrip /> should render component with custom props 1`] = `
+<div
+  className="empty-view-container"
+>
+  <p
+    className="message"
+  >
+    message
+  </p>
+  <a
+    className="button"
+    href="/trip/add"
+  >
+    buttonText
+  </a>
+</div>
+`;
+
+exports[`<EmptyViewAddTrip /> should render component with default props 1`] = `
 <div
   className="empty-view-container"
 >
