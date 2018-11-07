@@ -13,7 +13,7 @@ const colors = {
 };
 
 const limitsExpences = [100, 500, 1000, 5000];
-const limitsDuration = [1, 7, 14, 31];
+const limitsDuration = [2, 7, 14, 31];
 const limitsRating = [1, 2, 3, 4];
 
 const getColorsInversed = (value, limits) => {
