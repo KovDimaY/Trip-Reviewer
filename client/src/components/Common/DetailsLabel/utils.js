@@ -5,11 +5,11 @@ export const TYPES = {
 };
 
 const colors = {
-  very_good: '#00B300',
+  veryGood: '#00B300',
   good: '#7FBB17',
   ok: '#FEC22D',
   bad: '#F47048',
-  very_bad: '#E91E63',
+  veryBad: '#E91E63',
 };
 
 const limitsExpences = [100, 500, 1000, 5000];
@@ -19,7 +19,7 @@ const limitsRating = [1, 2, 3, 4];
 const getColorsInversed = (value, limits) => {
   switch (true) {
     case value > limits[3]:
-      return colors.very_bad;
+      return colors.veryBad;
     case value > limits[2]:
       return colors.bad;
     case value > limits[1]:
@@ -27,14 +27,14 @@ const getColorsInversed = (value, limits) => {
     case value > limits[0]:
       return colors.good;
     default:
-      return colors.very_good;
+      return colors.veryGood;
   }
 };
 
 const getColorsDirect = (value, limits) => {
   switch (true) {
     case value > limits[3]:
-      return colors.very_good;
+      return colors.veryGood;
     case value > limits[2]:
       return colors.good;
     case value > limits[1]:
@@ -42,7 +42,7 @@ const getColorsDirect = (value, limits) => {
     case value > limits[0]:
       return colors.bad;
     default:
-      return colors.very_bad;
+      return colors.veryBad;
   }
 };
 

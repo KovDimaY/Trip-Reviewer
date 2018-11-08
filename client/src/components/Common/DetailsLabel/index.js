@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Wrapper from './Wrapper';
-import { getColorsByTypeAndValue } from './constants';
+import { getColorsByTypeAndValue } from './utils';
 
 const DetailsLabel = ({ children, type, value }) => {
   const color = getColorsByTypeAndValue(type, value);

@@ -2,7 +2,7 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 
 import DetailsLabel from '..';
-import { TYPES } from '../constants';
+import { TYPES } from '../utils';
 
 const mockComponent = props => (
   <DetailsLabel {...props} />

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { TRIPS } from '../../constants/routes';
-import { TYPES } from '../Common/DetailsLabel/constants';
+import { TYPES } from '../Common/DetailsLabel/utils';
 import DetailsLabel from '../Common/DetailsLabel';
 
 import './styles.css';
