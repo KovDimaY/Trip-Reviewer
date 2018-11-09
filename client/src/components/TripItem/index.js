@@ -34,7 +34,6 @@ const TripItem = ({
         <strong>Rating:</strong>
         {` ${rating} / 5`}
       </DetailsLabel>
-
     </div>
   </Link>
 );
