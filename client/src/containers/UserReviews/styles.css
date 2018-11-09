@@ -23,7 +23,9 @@
 }
 .user-posts-container .reviews-table th,
 .user-posts-container .reviews-table td {
+  border: 1px solid #dddddd;
   text-align: center;
+  padding: 8px;
 }
 .user-posts-container .reviews-table .post-title {
   text-align: left;

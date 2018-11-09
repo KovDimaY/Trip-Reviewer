@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DetailsLabel /> Duration should render bad duration 1`] = `
+<div
+  className="Wrapper-ThVjl cjMZrE"
+  color="#F47048"
+>
+  children
+</div>
+`;
+
+exports[`<DetailsLabel /> Duration should render good duration 1`] = `
+<div
+  className="Wrapper-ThVjl gLyMCc"
+  color="#7FBB17"
+>
+  children
+</div>
+`;
+
+exports[`<DetailsLabel /> Duration should render ok duration 1`] = `
+<div
+  className="Wrapper-ThVjl elJdDI"
+  color="#FEC22D"
+>
+  children
+</div>
+`;
+
+exports[`<DetailsLabel /> Duration should render very bad duration 1`] = `
+<div
+  className="Wrapper-ThVjl hLebDS"
+  color="#E91E63"
+>
+  children
+</div>
+`;
+
+exports[`<DetailsLabel /> Duration should render very good duration 1`] = `
+<div
+  className="Wrapper-ThVjl gUEEXL"
+  color="#00B300"
+>
+  children
+</div>
+`;
+
+exports[`<DetailsLabel /> Expences should render bad expences 1`] = `
+<div
+  className="Wrapper-ThVjl gLyMCc"
+  color="#7FBB17"
+>
+  children
+</div>
+`;
+
+exports[`<DetailsLabel /> Expences should render good expences 1`] = `
+<div
+  className="Wrapper-ThVjl cjMZrE"
+  color="#F47048"
+>
+  children
+</div>
+`;
+
+exports[`<DetailsLabel /> Expences should render ok expences 1`] = `
+<div
+  className="Wrapper-ThVjl elJdDI"
+  color="#FEC22D"
+>
+  children
+</div>
+`;
+
+exports[`<DetailsLabel /> Expences should render very bad expences 1`] = `
+<div
+  className="Wrapper-ThVjl gUEEXL"
+  color="#00B300"
+>
+  children
+</div>
+`;
+
+exports[`<DetailsLabel /> Expences should render very good expences 1`] = `
+<div
+  className="Wrapper-ThVjl hLebDS"
+  color="#E91E63"
+>
+  children
+</div>
+`;
+
+exports[`<DetailsLabel /> Rating should render bad rating 1`] = `
+<div
+  className="Wrapper-ThVjl elJdDI"
+  color="#FEC22D"
+>
+  children
+</div>
+`;
+
+exports[`<DetailsLabel /> Rating should render good rating 1`] = `
+<div
+  className="Wrapper-ThVjl gUEEXL"
+  color="#00B300"
+>
+  children
+</div>
+`;
+
+exports[`<DetailsLabel /> Rating should render ok rating 1`] = `
+<div
+  className="Wrapper-ThVjl gUEEXL"
+  color="#00B300"
+>
+  children
+</div>
+`;
+
+exports[`<DetailsLabel /> Rating should render very bad rating 1`] = `
+<div
+  className="Wrapper-ThVjl hLebDS"
+  color="#E91E63"
+>
+  children
+</div>
+`;
+
+exports[`<DetailsLabel /> Rating should render very good rating 1`] = `
+<div
+  className="Wrapper-ThVjl gUEEXL"
+  color="#00B300"
+>
+  children
+</div>
+`;

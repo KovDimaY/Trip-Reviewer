@@ -18,30 +18,33 @@ exports[`<TripItem /> should render component with duration 1 1`] = `
     >
       country
     </div>
-    <div
-      className="bubble"
+    <DetailsLabel
+      type="EXPENCES"
+      value="expences"
     >
       <strong>
         Expences:
       </strong>
        $expences
-    </div>
-    <div
-      className="bubble"
+    </DetailsLabel>
+    <DetailsLabel
+      type="DURATION"
+      value={1}
     >
       <strong>
         Duration:
       </strong>
        1 day
-    </div>
-    <div
-      className="bubble rating"
+    </DetailsLabel>
+    <DetailsLabel
+      type="RATING"
+      value="rating"
     >
       <strong>
         Rating:
       </strong>
        rating / 5
-    </div>
+    </DetailsLabel>
   </div>
 </Link >
 `;
@@ -64,30 +67,33 @@ exports[`<TripItem /> should render component with duration 10 1`] = `
     >
       country
     </div>
-    <div
-      className="bubble"
+    <DetailsLabel
+      type="EXPENCES"
+      value="expences"
     >
       <strong>
         Expences:
       </strong>
        $expences
-    </div>
-    <div
-      className="bubble"
+    </DetailsLabel>
+    <DetailsLabel
+      type="DURATION"
+      value={10}
     >
       <strong>
         Duration:
       </strong>
        10 days
-    </div>
-    <div
-      className="bubble rating"
+    </DetailsLabel>
+    <DetailsLabel
+      type="RATING"
+      value="rating"
     >
       <strong>
         Rating:
       </strong>
        rating / 5
-    </div>
+    </DetailsLabel>
   </div>
 </Link >
 `;
