@@ -1,5 +1,7 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
 
 const applySidenav = () => `
   color: #bababa;
@@ -45,5 +47,15 @@ const Wrapper = styled(Link)`
 
   ${({ sidenav, limit }) => (sidenav ? applySidenav() : applyRegular(limit))}
 `;
+
+Wrapper.propTypes = {
+  limit: PropTypes.number,
+  sidenav: PropTypes.number,
+};
+
+Wrapper.defaultProps = {
+  limit: 0,
+  sidenav: false,
+};
 
 export default Wrapper;

@@ -2,9 +2,12 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import { create } from 'react-test-renderer';
 
-import SidenavItem from '..';
+import NavigationItem from '..';
+import { home, userReviews, signup } from '../../../constants/navigation-items';
 
-jest.mock('react-router-dom', () => ({ Link: 'Link' }));
+jest.mock('../Wrapper', () => 'Wrapper');
+jest.mock('../Label', () => 'Label');
+jest.mock('../Icon', () => 'Icon');
 
 const mockStore = configureStore();
 
@@ -12,22 +15,17 @@ const mockComponent = (initialState = {}, props) => {
   const store = mockStore(initialState);
 
   return (
-    <SidenavItem {...props} store={store} />
+    <NavigationItem {...props} store={store} />
   );
 };
 
-describe('<SidenavItem />', () => {
+describe('<NavigationItem />', () => {
   it('should render component with no login', () => {
     const initialState = {
       users: {},
     };
     const props = {
-      item: {
-        type: 'type',
-        link: 'link',
-        icon: 'icon',
-        text: 'text',
-      },
+      item: home,
     };
     const tree = create(mockComponent(initialState, props)).toJSON();
 
@@ -43,12 +41,7 @@ describe('<SidenavItem />', () => {
       },
     };
     const props = {
-      item: {
-        type: 'type',
-        link: 'link',
-        icon: 'icon',
-        text: 'text',
-      },
+      item: home,
     };
     const tree = create(mockComponent(initialState, props)).toJSON();
 
@@ -64,13 +57,7 @@ describe('<SidenavItem />', () => {
       },
     };
     const props = {
-      item: {
-        type: 'type',
-        link: 'link',
-        icon: 'icon',
-        text: 'text',
-        restricted: true,
-      },
+      item: userReviews,
     };
     const tree = create(mockComponent(initialState, props)).toJSON();
 
@@ -86,12 +73,7 @@ describe('<SidenavItem />', () => {
       },
     };
     const props = {
-      item: {
-        type: 'type',
-        link: 'link',
-        icon: 'icon',
-        text: 'text',
-      },
+      item: home,
     };
     const tree = create(mockComponent(initialState, props)).toJSON();
 
@@ -107,13 +89,24 @@ describe('<SidenavItem />', () => {
       },
     };
     const props = {
-      item: {
-        type: 'type',
-        link: 'link',
-        icon: 'icon',
-        text: 'text',
-        exclude: true,
+      item: signup,
+    };
+    const tree = create(mockComponent(initialState, props)).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should render component with authentication and sidenav', () => {
+    const initialState = {
+      users: {
+        login: {
+          isAuth: true,
+        },
       },
+    };
+    const props = {
+      item: home,
+      sidenav: true,
     };
     const tree = create(mockComponent(initialState, props)).toJSON();
 

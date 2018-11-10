@@ -18,7 +18,13 @@ const Label = styled.span`
 `;
 
 Label.propTypes = {
-  color: PropTypes.string.isRequired,
+  limit: PropTypes.number,
+  sidenav: PropTypes.number,
+};
+
+Label.defaultProps = {
+  limit: 0,
+  sidenav: false,
 };
 
 export default Label;

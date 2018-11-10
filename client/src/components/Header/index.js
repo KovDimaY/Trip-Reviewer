@@ -8,8 +8,6 @@ import {
   home, userProfile, signup,
   login, userReviews, addTrip, logout,
 } from '../../constants/navigation-items';
-import { debounce } from '../../helpers/global';
-
 
 import './styles.css';
 
@@ -18,19 +16,13 @@ class Header extends Component {
     showNav: false,
   }
 
-  componentDidMount() {
-    window.addEventListener('resize', debounce(this.handleHideNav, 1000, true));
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleHideNav);
-  }
-
   handleHideNav = () => {
+    window.removeEventListener('resize', this.handleHideNav);
     this.setState({ showNav: false });
   }
 
   handleOpenNav = () => {
+    window.addEventListener('resize', this.handleHideNav);
     this.setState({ showNav: true });
   }
 

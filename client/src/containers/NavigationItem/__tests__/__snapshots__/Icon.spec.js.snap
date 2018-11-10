@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationItem/<Icon /> should render component 1`] = `
+<span
+  aria-hidden={true}
+  className="fa fa-undefined Icon-cxuQhR gTgVNd"
+/>
+`;

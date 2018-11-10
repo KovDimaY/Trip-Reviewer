@@ -10,11 +10,11 @@ import Icon from './Icon';
 
 const WIDTH_LIMIT = 1024;
 
-const SidenavItem = ({ item, users, sidenav }) => {
+const NavigationItem = ({ item, users, sidenav }) => {
   const element = (
-    <Wrapper to={data[item].link} sidenav={sidenav} limit={WIDTH_LIMIT}>
+    <Wrapper to={data[item].link} sidenav={sidenav ? 1 : 0} limit={WIDTH_LIMIT}>
       <Icon name={data[item].icon} />
-      <Label sidenav={sidenav} limit={WIDTH_LIMIT}>{data[item].text}</Label>
+      <Label sidenav={sidenav ? 1 : 0} limit={WIDTH_LIMIT}>{data[item].text}</Label>
     </Wrapper>
   );
 
@@ -39,13 +39,13 @@ const SidenavItem = ({ item, users, sidenav }) => {
   );
 };
 
-SidenavItem.propTypes = {
+NavigationItem.propTypes = {
   users: PropTypes.object.isRequired,
   item: PropTypes.string.isRequired,
   sidenav: PropTypes.bool,
 };
 
-SidenavItem.defaultProps = {
+NavigationItem.defaultProps = {
   sidenav: false,
 };
 
@@ -55,4 +55,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(SidenavItem);
+export default connect(mapStateToProps)(NavigationItem);
