@@ -19,17 +19,10 @@ const NavigationItem = ({ item, users, sidenav }) => {
   );
 
   const showItem = () => {
-    if (users.login) {
-      if (users.login.isAuth) {
-        return !data[item].exclude
-          ? element
-          : null;
-      }
-      return !data[item].restricted
-        ? element
-        : null;
+    if (users.login && users.login.isAuth) {
+      return !data[item].exclude ? element : null;
     }
-    return null;
+    return !data[item].restricted ? element : null;
   };
 
   return (

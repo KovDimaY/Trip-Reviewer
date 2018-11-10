@@ -57,5 +57,3 @@ exports[`<NavigationItem /> should render component with authentication and side
   </Label>
 </Wrapper>
 `;
-
-exports[`<NavigationItem /> should render component with no login 1`] = `null`;

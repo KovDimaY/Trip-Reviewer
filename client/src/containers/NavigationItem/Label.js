@@ -24,7 +24,7 @@ Label.propTypes = {
 
 Label.defaultProps = {
   limit: 0,
-  sidenav: false,
+  sidenav: 0,
 };
 
 export default Label;

@@ -55,7 +55,7 @@ Wrapper.propTypes = {
 
 Wrapper.defaultProps = {
   limit: 0,
-  sidenav: false,
+  sidenav: 0,
 };
 
 export default Wrapper;

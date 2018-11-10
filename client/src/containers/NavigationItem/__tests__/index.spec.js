@@ -20,18 +20,6 @@ const mockComponent = (initialState = {}, props) => {
 };
 
 describe('<NavigationItem />', () => {
-  it('should render component with no login', () => {
-    const initialState = {
-      users: {},
-    };
-    const props = {
-      item: home,
-    };
-    const tree = create(mockComponent(initialState, props)).toJSON();
-
-    expect(tree).toMatchSnapshot();
-  });
-
   it('should render component when no authenticated', () => {
     const initialState = {
       users: {
