@@ -97,59 +97,61 @@ class Register extends PureComponent {
       } = this.state.formData;
 
       return (
-        <form onSubmit={this.submitForm}>
-          <h2 className="form-title">Sing Up</h2>
+        <div className="form-container">
+          <form onSubmit={this.submitForm}>
+            <h2 className="form-title">Sing Up</h2>
 
-          <div className="form_element">
-            <input
-              type="text"
-              className={this.getErrorClass('name')}
-              placeholder="Enter name"
-              value={name}
-              name="name"
-              onChange={this.handleInput}
-            />
-          </div>
-          { this.renderError('name') }
+            <div className="form_element">
+              <input
+                type="text"
+                className={this.getErrorClass('name')}
+                placeholder="Enter name"
+                value={name}
+                name="name"
+                onChange={this.handleInput}
+              />
+            </div>
+            { this.renderError('name') }
 
-          <div className="form_element">
-            <input
-              type="text"
-              className={this.getErrorClass('lastname')}
-              placeholder="Enter Lastname"
-              value={lastname}
-              name="lastname"
-              onChange={this.handleInput}
-            />
-          </div>
-          { this.renderError('lastname') }
+            <div className="form_element">
+              <input
+                type="text"
+                className={this.getErrorClass('lastname')}
+                placeholder="Enter Lastname"
+                value={lastname}
+                name="lastname"
+                onChange={this.handleInput}
+              />
+            </div>
+            { this.renderError('lastname') }
 
-          <div className="form_element">
-            <input
-              type="email"
-              className={this.getErrorClass('email')}
-              placeholder="Enter Email"
-              value={email}
-              name="email"
-              onChange={this.handleInput}
-            />
-          </div>
-          { this.renderError('email') }
+            <div className="form_element">
+              <input
+                type="email"
+                className={this.getErrorClass('email')}
+                placeholder="Enter Email"
+                value={email}
+                name="email"
+                onChange={this.handleInput}
+              />
+            </div>
+            { this.renderError('email') }
 
-          <div className="form_element">
-            <input
-              type="password"
-              className={this.getErrorClass('password')}
-              placeholder="Enter Password"
-              value={password}
-              name="password"
-              onChange={this.handleInput}
-            />
-          </div>
-          { this.renderError('password') }
+            <div className="form_element">
+              <input
+                type="password"
+                className={this.getErrorClass('password')}
+                placeholder="Enter Password"
+                value={password}
+                name="password"
+                onChange={this.handleInput}
+              />
+            </div>
+            { this.renderError('password') }
 
-          <button type="submit">Sign Up</button>
-        </form>
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
       );
     }
 
@@ -158,7 +160,7 @@ class Register extends PureComponent {
 
       if (users && users.length) {
         return (
-          <React.Fragment>
+          <div className="user-list-container">
             <h2 className="users-title">Existing Users:</h2>
             <div className="existing-users limited-width">
               {users.map(user => (
@@ -173,7 +175,7 @@ class Register extends PureComponent {
                 </div>
               ))}
             </div>
-          </React.Fragment>
+          </div>
         );
       }
 
