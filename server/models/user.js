@@ -46,6 +46,9 @@ const userSchema = mongoose.Schema({
   avatar: {
     type: String,
   },
+  nationality: {
+    type: String,
+  },
   role: {
     type: Number,
     default: 0,

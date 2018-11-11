@@ -7,6 +7,7 @@ import 'react-sweet-progress/lib/style.css';
 
 import ImageUploader from '../../components/ImageUploader';
 import UserAvatar from '../../components/UserAvatar';
+import CountrySelector from '../../components/CountrySelector';
 import { updateUser } from '../../actions';
 import { firebase } from '../../firebase';
 import { USER_PROFILE } from '../../constants/routes';
@@ -21,6 +22,7 @@ class EditUserProfile extends PureComponent {
       lastname: this.props.users.login.lastname,
       email: this.props.users.login.email,
       avatar: this.props.users.login.avatar,
+      nationality: this.props.users.login.nationality,
       oldPassword: '',
       newPassword: '',
       repeatPassword: '',
@@ -121,6 +123,17 @@ class EditUserProfile extends PureComponent {
     });
   }
 
+  handleCountrychange = (countryObject) => {
+    const newFormdata = {
+      ...this.state.formData,
+      nationality: countryObject.countryName,
+    };
+
+    this.setState({
+      formData: newFormdata,
+    });
+  }
+
   submitForm = (event) => {
     event.preventDefault();
     this.props.dispatch(updateUser(this.state.formData));
@@ -166,9 +179,11 @@ class EditUserProfile extends PureComponent {
           onUploadSuccess={this.onUploadSuccess}
           onUploadError={this.onUploadError}
           className="avatar-button update-user-avatar"
-        />
+        >
+          Update
+        </ImageUploader>
         <label className="avatar-button delete-user-avatar" onClick={this.handleDeleteAvatar}>
-          Delete avatar
+          Delete
         </label>
       </div>
     );
@@ -180,9 +195,7 @@ class EditUserProfile extends PureComponent {
     return (
       <div className="info">
         <div className="form-element">
-          <span>
-            Name:
-          </span>
+          <span className="title-label">Name:</span>
           <input
             type="text"
             className={this.getErrorClass('name')}
@@ -195,9 +208,7 @@ class EditUserProfile extends PureComponent {
         { this.renderError('name') }
 
         <div className="form-element">
-          <span>
-            Lastname:
-          </span>
+          <span className="title-label">Lastname:</span>
           <input
             type="text"
             className={this.getErrorClass('lastname')}
@@ -221,9 +232,7 @@ class EditUserProfile extends PureComponent {
     return (
       <div className="info danger">
         <div className="form-element">
-          <span>
-            Current Password:
-          </span>
+          <span className="title-label">Current Password:</span>
           <input
             type="password"
             className={this.getErrorClass('oldPassword')}
@@ -235,10 +244,8 @@ class EditUserProfile extends PureComponent {
         </div>
         { this.renderError('oldPassword') }
 
-        <div className="form-element margin-top">
-          <span>
-            New Password:
-          </span>
+        <div className="form-element">
+          <span className="title-label">New Password:</span>
           <input
             type="password"
             className={this.getErrorClass('newPassword')}
@@ -251,9 +258,7 @@ class EditUserProfile extends PureComponent {
         { this.renderError('newPassword') }
 
         <div className="form-element">
-          <span>
-            Repeat New Password:
-          </span>
+          <span className="title-label">Repeat New Password:</span>
           <input
             type="password"
             className={this.getErrorClass('repeatPassword')}
@@ -266,9 +271,7 @@ class EditUserProfile extends PureComponent {
         { this.renderError('repeatPassword') }
 
         <div className="form-element">
-          <span>
-            Email:
-          </span>
+          <span className="title-label">Email:</span>
           <input
             type="email"
             className={this.getErrorClass('email')}
@@ -302,41 +305,59 @@ class EditUserProfile extends PureComponent {
     );
   }
 
-  render() {
+  renderFormContent() {
     const { avatar } = this.state.formData;
 
     return (
-      <div className="edit-user-profile-container">
-        <div className="avatar">
-          <UserAvatar filename={avatar} />
+      <div className="form-content-wrapper">
+        <div className="left-column">
+          <div className="avatar">
+            <UserAvatar filename={avatar} />
+          </div>
+
+          { this.renderDisclaimer() }
+          { this.renderAvatarControls() }
+          { this.renderSoftInfoInputs() }
         </div>
 
-        { this.renderDisclaimer() }
-        { this.renderAvatarControls() }
+        <div className="right-column">
+          <div className="info">
+            <div className="form-element">
+              <span className="title-label">Nationality:</span>
+              <CountrySelector
+                defaultCountry={this.state.formData.nationality}
+                getSelectedCountry={this.handleCountrychange}
+              />
+            </div>
+          </div>
 
-        <form onSubmit={this.submitForm}>
-          { this.renderSoftInfoInputs() }
-
-          <hr />
-          <p className="danger-zone">
-            Danger zone
-          </p>
+          <p className="danger-zone margin-top">Danger zone</p>
 
           { this.renderDangerZoneInputs() }
-
           { this.renderError() }
+        </div>
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div className="edit-user-profile-container">
+        <form onSubmit={this.submitForm}>
+          { this.renderFormContent() }
 
           <div className="text-center">
             <button type="submit" className="button-link">
               Submit changes
             </button>
           </div>
+
+          <div className="text-center">
+            <Link to={USER_PROFILE} className="button-link calcel">
+              Cancel
+            </Link>
+          </div>
         </form>
-        <div className="text-center">
-          <Link to={USER_PROFILE} className="button-link calcel">
-            Cancel
-          </Link>
-        </div>
       </div>
     );
   }
