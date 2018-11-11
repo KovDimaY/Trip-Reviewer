@@ -10,28 +10,34 @@ import './styles.css';
 const User = (props) => {
   const user = props.users.login;
   const redirect = `${EDIT_PROFILE}/${user.id}`;
+  const nationality = user.nationality ? user.nationality : 'Not specified';
 
   return (
-    <div className="user_container">
+    <div className="user-container">
       <div className="avatar">
         <UserAvatar filename={user.avatar} />
       </div>
 
       <div className="data">
-        <div>
-          <span>Name:</span>
+        <div className="info-item" title={user.name}>
+          <span className="info-title">Name:</span>
           {user.name}
         </div>
-        <div>
-          <span>Lastname:</span>
+        <div className="info-item" title={user.lastname}>
+          <span className="info-title">Lastname:</span>
           {user.lastname}
         </div>
-        <div>
-          <span>Email:</span>
+        <div className="info-item" title={nationality}>
+          <span className="info-title">Nationality:</span>
+          {nationality}
+        </div>
+        <div className="info-item" title={user.email}>
+          <span className="info-title">Email:</span>
           {user.email}
         </div>
       </div>
-      <div className="text-center">
+
+      <div className="text-center button-wrapper">
         <Link to={redirect} className="button-link">
           Edit Profile
         </Link>

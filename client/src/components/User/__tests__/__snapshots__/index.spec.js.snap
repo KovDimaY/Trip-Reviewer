@@ -2,7 +2,7 @@
 
 exports[`<User /> should render component 1`] = `
 <div
-  className="user_container"
+  className="user-container"
 >
   <div
     className="avatar"
@@ -14,27 +14,53 @@ exports[`<User /> should render component 1`] = `
   <div
     className="data"
   >
-    <div>
-      <span>
+    <div
+      className="info-item"
+      title="name"
+    >
+      <span
+        className="info-title"
+      >
         Name:
       </span>
       name
     </div>
-    <div>
-      <span>
+    <div
+      className="info-item"
+      title="lastname"
+    >
+      <span
+        className="info-title"
+      >
         Lastname:
       </span>
       lastname
     </div>
-    <div>
-      <span>
+    <div
+      className="info-item"
+      title="Not specified"
+    >
+      <span
+        className="info-title"
+      >
+        Nationality:
+      </span>
+      Not specified
+    </div>
+    <div
+      className="info-item"
+      title="email"
+    >
+      <span
+        className="info-title"
+      >
         Email:
       </span>
       email
     </div>
   </div>
   <div
-    className="text-center"
+    className="text-center button-wrapper"
   >
     <Link
       className="button-link"
