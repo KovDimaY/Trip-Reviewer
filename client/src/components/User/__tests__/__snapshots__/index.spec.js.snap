@@ -1,6 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<User /> should render component 1`] = `
+exports[`<User /> should render component with nationality 1`] = `
+<div
+  className="user-container"
+>
+  <div
+    className="avatar"
+  >
+    <UserAvatar
+      filename={undefined}
+    />
+  </div>
+  <div
+    className="data"
+  >
+    <div
+      className="info-item"
+      title="name"
+    >
+      <span
+        className="info-title"
+      >
+        Name:
+      </span>
+      name
+    </div>
+    <div
+      className="info-item"
+      title="lastname"
+    >
+      <span
+        className="info-title"
+      >
+        Lastname:
+      </span>
+      lastname
+    </div>
+    <div
+      className="info-item"
+      title="nationality"
+    >
+      <span
+        className="info-title"
+      >
+        Nationality:
+      </span>
+      nationality
+    </div>
+    <div
+      className="info-item"
+      title="email"
+    >
+      <span
+        className="info-title"
+      >
+        Email:
+      </span>
+      email
+    </div>
+  </div>
+  <div
+    className="text-center button-wrapper"
+  >
+    <Link
+      className="button-link"
+      to="/user/edit-profile/undefined"
+    >
+      Edit Profile
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`<User /> should render component without nationality 1`] = `
 <div
   className="user-container"
 >

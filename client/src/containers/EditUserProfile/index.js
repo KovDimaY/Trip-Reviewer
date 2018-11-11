@@ -123,7 +123,7 @@ class EditUserProfile extends PureComponent {
     });
   }
 
-  handleCountrychange = (countryObject) => {
+  handleCountryChange = (countryObject) => {
     const newFormdata = {
       ...this.state.formData,
       nationality: countryObject.countryName,
@@ -326,7 +326,7 @@ class EditUserProfile extends PureComponent {
               <span className="title-label">Nationality:</span>
               <CountrySelector
                 defaultCountry={this.state.formData.nationality}
-                getSelectedCountry={this.handleCountrychange}
+                getSelectedCountry={this.handleCountryChange}
               />
             </div>
           </div>
