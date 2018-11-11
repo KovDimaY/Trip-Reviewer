@@ -21,7 +21,7 @@ jest.mock('./../../../firebase', () => ({
 }));
 
 const mockComponent = props => (
-  <ImageUploader {...props} />
+  <ImageUploader {...props} >Test</ImageUploader>
 );
 
 describe('<ImageUploader />', () => {

@@ -78,9 +78,7 @@ class EditUserProfile extends PureComponent {
   }
 
   onUploadSuccess = (filename) => {
-    const newFormData = {
-      ...this.state.formData,
-    };
+    const newFormData = { ...this.state.formData };
 
     newFormData.avatar = filename;
 
@@ -100,9 +98,7 @@ class EditUserProfile extends PureComponent {
   }
 
   handleDeleteAvatar = () => {
-    const newFormData = {
-      ...this.state.formData,
-    };
+    const newFormData = { ...this.state.formData };
 
     newFormData.avatar = null;
 
@@ -129,9 +125,7 @@ class EditUserProfile extends PureComponent {
       nationality: countryObject.countryName,
     };
 
-    this.setState({
-      formData: newFormdata,
-    });
+    this.setState({ formData: newFormdata });
   }
 
   submitForm = (event) => {
@@ -151,11 +145,7 @@ class EditUserProfile extends PureComponent {
     if (this.formFieldHasError(fieldName)) {
       const error = this.props.result.error.errors[fieldName];
 
-      return (
-        <div className="error">
-          {error.message}
-        </div>
-      );
+      return <div className="error">{error.message}</div>;
     }
     return null;
   }

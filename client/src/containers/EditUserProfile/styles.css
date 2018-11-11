@@ -7,7 +7,6 @@
     flex-direction: row;
     justify-content: center;
 }
-
 .edit-user-profile-container .left-column,
 .edit-user-profile-container .right-column {
     padding: 0 25px;
@@ -18,7 +17,6 @@
 .edit-user-profile-container .left-column {
     padding-top: 15px;
 }
-
 .edit-user-profile-container .info .title-label {
     display: block;
     font-weight: 500;
@@ -48,12 +46,6 @@
     font-weight: normal;
     color: black;
 }
-
-
-
-
-
-
 .edit-user-profile-container .avatar {
     text-align: center;
 }

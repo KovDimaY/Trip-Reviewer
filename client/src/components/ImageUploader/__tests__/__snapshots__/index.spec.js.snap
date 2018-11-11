@@ -17,5 +17,7 @@ exports[`<ImageUploader /> should render component 1`] = `
   onUploadStart={[Function]}
   onUploadSuccess={[Function]}
   storageRef={undefined}
-/>
+>
+  Test
+</CustomUploadButton>
 `;
