@@ -5,58 +5,51 @@ exports[`<User /> should render component with nationality 1`] = `
   className="user-container"
 >
   <div
-    className="avatar"
-  >
-    <UserAvatar
-      filename={undefined}
-    />
-  </div>
-  <div
-    className="data"
+    className="data-wrapper"
   >
     <div
-      className="info-item"
-      title="name"
+      className="avatar"
     >
-      <span
-        className="info-title"
-      >
-        Name:
-      </span>
-      name
+      <UserAvatar
+        filename={undefined}
+      />
     </div>
     <div
-      className="info-item"
-      title="lastname"
+      className="info-wrapper"
     >
-      <span
-        className="info-title"
+      <div
+        className="info-item"
+        title="name"
       >
-        Lastname:
-      </span>
-      lastname
-    </div>
-    <div
-      className="info-item"
-      title="nationality"
-    >
-      <span
-        className="info-title"
+        <span
+          className="info-title"
+        >
+          Name:
+        </span>
+        name
+      </div>
+      <div
+        className="info-item"
+        title="lastname"
       >
-        Nationality:
-      </span>
-      nationality
-    </div>
-    <div
-      className="info-item"
-      title="email"
-    >
-      <span
-        className="info-title"
+        <span
+          className="info-title"
+        >
+          Lastname:
+        </span>
+        lastname
+      </div>
+      <div
+        className="info-item"
+        title="email"
       >
-        Email:
-      </span>
-      email
+        <span
+          className="info-title"
+        >
+          Email:
+        </span>
+        email
+      </div>
     </div>
   </div>
   <div
@@ -77,58 +70,51 @@ exports[`<User /> should render component without nationality 1`] = `
   className="user-container"
 >
   <div
-    className="avatar"
-  >
-    <UserAvatar
-      filename={undefined}
-    />
-  </div>
-  <div
-    className="data"
+    className="data-wrapper"
   >
     <div
-      className="info-item"
-      title="name"
+      className="avatar"
     >
-      <span
-        className="info-title"
-      >
-        Name:
-      </span>
-      name
+      <UserAvatar
+        filename={undefined}
+      />
     </div>
     <div
-      className="info-item"
-      title="lastname"
+      className="info-wrapper"
     >
-      <span
-        className="info-title"
+      <div
+        className="info-item"
+        title="name"
       >
-        Lastname:
-      </span>
-      lastname
-    </div>
-    <div
-      className="info-item"
-      title="Not specified"
-    >
-      <span
-        className="info-title"
+        <span
+          className="info-title"
+        >
+          Name:
+        </span>
+        name
+      </div>
+      <div
+        className="info-item"
+        title="lastname"
       >
-        Nationality:
-      </span>
-      Not specified
-    </div>
-    <div
-      className="info-item"
-      title="email"
-    >
-      <span
-        className="info-title"
+        <span
+          className="info-title"
+        >
+          Lastname:
+        </span>
+        lastname
+      </div>
+      <div
+        className="info-item"
+        title="email"
       >
-        Email:
-      </span>
-      email
+        <span
+          className="info-title"
+        >
+          Email:
+        </span>
+        email
+      </div>
     </div>
   </div>
   <div

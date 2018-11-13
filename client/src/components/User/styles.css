@@ -1,22 +1,20 @@
 .user-container {
-    position: relative;
-    max-width: 750px;
+    max-width: 450px;
     margin: 75px auto;
+}
+.user-container .data-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
 }
 .user-container .avatar {
     width: 200px;
     height: 200px;
-    margin: 0 75px;
-    float: left;
 }
-.user-container .data {
-    overflow: hidden;
-    box-sizing: border-box;
-    margin-bottom: 25px;
-    width: 350px;
-    padding: 0 25px;
+.user-container .info-wrapper {
+    margin-left: 50px;
 }
-.user-container .data .info-item {
+.user-container .info-item {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 18px;
@@ -24,17 +22,12 @@
     margin-bottom: 20px;
     color: #a4a4a4;
 }
-.user-container .data .info-item .info-title {
+.user-container .info-title {
     display: block;
     font-weight: 500;
     font-size: 24px;
     color: #02bcd4;
     margin-bottom: 5px;
-}
-.user-container .button-wrapper {
-    position: absolute;
-    top: 230px;
-    left: 75px;
 }
 .user-container .button-link {
     width: 172px;
@@ -60,19 +53,14 @@
     .user-container {
         margin: 50px auto 75px;
     }
-    .user-container .avatar {
-        float: none;
-        margin: auto;
+    .user-container .data-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 0;
     }
-    .user-container .button-wrapper {
-        position: relative;
-        top: auto;
-        left: auto;
-    }
-    .user-container .data {
-        width: auto;
+    .user-container .info-wrapper {
         margin: 50px 0;
-        padding: 0 25px;
     }
     .user-container .data .info-item {
         text-align: center;

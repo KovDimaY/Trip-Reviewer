@@ -48,7 +48,6 @@ app.get('/api/auth', auth, (req, res) => {
     name: req.user.name,
     lastname: req.user.lastname,
     avatar: req.user.avatar,
-    nationality: req.user.nationality,
   });
 });
 
@@ -219,14 +218,13 @@ app.post('/api/tripUpdate', (req, res) => {
 
 app.post('/api/userUpdate', (req, res) => {
   const {
-    _id, name, lastname, email, avatar, nationality,
+    _id, name, lastname, email, avatar,
     oldPassword, newPassword, repeatPassword,
   } = req.body;
   const fieldsToUpdate = {
     name,
     lastname,
     avatar,
-    nationality,
   };
 
   User.findById(_id, (err1, user) => { // eslint-disable-line consistent-return
