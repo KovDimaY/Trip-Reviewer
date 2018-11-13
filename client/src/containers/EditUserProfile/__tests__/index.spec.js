@@ -11,7 +11,6 @@ import { USER_PROFILE } from '../../../constants/routes';
 jest.mock('react-router-dom', () => ({ Link: 'Link' }));
 jest.mock('./../../../components/ImageUploader', () => ('ImageUploader'));
 jest.mock('./../../../components/UserAvatar', () => ('UserAvatar'));
-jest.mock('./../../../components/CountrySelector', () => 'CountrySelector');
 jest.mock('./../../../actions', () => ({
   updateUser: jest.fn(() => ({
     type: UPDATE_USER,
@@ -167,29 +166,6 @@ describe('<EditUserProfile />', () => {
 
     expect(preventDefault).toHaveBeenCalled();
     expect(updateUser).toHaveBeenCalledWith(state);
-  });
-
-  it('handleCountryChange should change state correctly', () => {
-    const initialState = {
-      users: {
-        userUpdate: {},
-      },
-    };
-    const props = {
-      users: {
-        login: {
-          id: 'id',
-        },
-      },
-    };
-    const countryName = 'countryName';
-    const coutryObject = { countryName };
-
-    const instance = shallow(mockComponent(initialState, props)).dive().instance();
-
-    instance.handleCountryChange(coutryObject);
-
-    expect(instance.state.formData.nationality).toEqual(countryName);
   });
 
   it('handleInput should change state correctly', () => {

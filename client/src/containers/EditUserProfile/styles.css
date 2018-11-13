@@ -26,26 +26,6 @@
     display: block;
     color: orange;
 }
-.edit-user-profile-container .info .country-selector-container {
-    margin: 5px 0;
-    width: 100%;
-}
-.edit-user-profile-container .info .country-selector-container .c-select {
-    height: 39px;
-    border: solid 1px gray;
-    margin: 5px 0;
-    padding: 9px 25px;
-    font-size: 16px;
-    font-weight: normal;
-    background: white;
-    color: black;
-    border-radius: 0;
-}
-.edit-user-profile-container .info .country-selector-container .c-dropdown-menu {
-    font-size: 16px;
-    font-weight: normal;
-    color: black;
-}
 .edit-user-profile-container .avatar {
     text-align: center;
 }
@@ -64,7 +44,7 @@
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 4;
+    margin: 10px 0 40px 0;
 }
 .edit-user-profile-container .disclamer {
     color: darkgray;
@@ -77,9 +57,6 @@
     text-align: center;
     font-size: 14px;
     margin-bottom: -5px;
-}
-.edit-user-profile-container .margin-top {
-    margin-top: 45px;
 }
 .edit-user-profile-container input {
     width: -webkit-fill-available;
@@ -109,17 +86,17 @@
 .edit-user-profile-container .user-avatar-controls .update-user-avatar {
     background-color: #02bcd4;
 }
-.edit-user-profile-container .user-avatar-controls .delete-user-avatar {
-    background-color: orange;
-}
 .edit-user-profile-container .user-avatar-controls .update-user-avatar:hover {
     background-color: #009EB3;
 }
-.edit-user-profile-container .user-avatar-controls .delete-user-avatar:hover {
-    background-color: #e69500;
-}
 .edit-user-profile-container .user-avatar-controls .update-user-avatar:active {
     background-color: #0495A8;
+}
+.edit-user-profile-container .user-avatar-controls .delete-user-avatar {
+    background-color: orange;
+}
+.edit-user-profile-container .user-avatar-controls .delete-user-avatar:hover {
+    background-color: #e69500;
 }
 .edit-user-profile-container .user-avatar-controls .delete-user-avatar:active {
     background-color: #cc8500;
@@ -164,8 +141,8 @@
     color: #FF5722;
 }
 .edit-user-profile-container .avatar {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     margin: 0 auto 25px auto;
 }
 
@@ -180,5 +157,12 @@
         width: 75%;
         margin: auto;
         max-width: 400px;
+    }
+    .edit-user-profile-container .avatar {
+        width: 200px;
+        height: 200px;
+    }
+    .edit-user-profile-container .danger-zone {
+        margin: 50px 0 25px 0;
     }
 }

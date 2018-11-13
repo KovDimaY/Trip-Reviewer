@@ -7,7 +7,6 @@ import 'react-sweet-progress/lib/style.css';
 
 import ImageUploader from '../../components/ImageUploader';
 import UserAvatar from '../../components/UserAvatar';
-import CountrySelector from '../../components/CountrySelector';
 import { updateUser } from '../../actions';
 import { firebase } from '../../firebase';
 import { USER_PROFILE } from '../../constants/routes';
@@ -22,7 +21,6 @@ class EditUserProfile extends PureComponent {
       lastname: this.props.users.login.lastname,
       email: this.props.users.login.email,
       avatar: this.props.users.login.avatar,
-      nationality: this.props.users.login.nationality,
       oldPassword: '',
       newPassword: '',
       repeatPassword: '',
@@ -117,15 +115,6 @@ class EditUserProfile extends PureComponent {
       formData: newFormData,
       hideError: newHideError,
     });
-  }
-
-  handleCountryChange = (countryObject) => {
-    const newFormdata = {
-      ...this.state.formData,
-      nationality: countryObject.countryName,
-    };
-
-    this.setState({ formData: newFormdata });
   }
 
   submitForm = (event) => {
@@ -311,17 +300,7 @@ class EditUserProfile extends PureComponent {
         </div>
 
         <div className="right-column">
-          <div className="info">
-            <div className="form-element">
-              <span className="title-label">Nationality:</span>
-              <CountrySelector
-                defaultCountry={this.state.formData.nationality}
-                getSelectedCountry={this.handleCountryChange}
-              />
-            </div>
-          </div>
-
-          <p className="danger-zone margin-top">Danger zone</p>
+          <p className="danger-zone">Danger zone</p>
 
           { this.renderDangerZoneInputs() }
           { this.renderError() }

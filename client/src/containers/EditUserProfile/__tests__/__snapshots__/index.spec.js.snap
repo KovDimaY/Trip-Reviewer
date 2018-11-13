@@ -98,25 +98,8 @@ exports[`<EditUserProfile /> should render component 1`] = `
       <div
         className="right-column"
       >
-        <div
-          className="info"
-        >
-          <div
-            className="form-element"
-          >
-            <span
-              className="title-label"
-            >
-              Nationality:
-            </span>
-            <CountrySelector
-              defaultCountry={undefined}
-              getSelectedCountry={[Function]}
-            />
-          </div>
-        </div>
         <p
-          className="danger-zone margin-top"
+          className="danger-zone"
         >
           Danger zone
         </p>
@@ -326,25 +309,8 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
       <div
         className="right-column"
       >
-        <div
-          className="info"
-        >
-          <div
-            className="form-element"
-          >
-            <span
-              className="title-label"
-            >
-              Nationality:
-            </span>
-            <CountrySelector
-              defaultCountry={undefined}
-              getSelectedCountry={[Function]}
-            />
-          </div>
-        </div>
         <p
-          className="danger-zone margin-top"
+          className="danger-zone"
         >
           Danger zone
         </p>
