@@ -11,29 +11,13 @@ const mockComponent = props => (
 );
 
 describe('<User />', () => {
-  it('should render component without nationality', () => {
+  it('should render component', () => {
     const props = {
       users: {
         login: {
           name: 'name',
           lastname: 'lastname',
           email: 'email',
-        },
-      },
-    };
-    const tree = create(mockComponent(props)).toJSON();
-
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('should render component with nationality', () => {
-    const props = {
-      users: {
-        login: {
-          name: 'name',
-          lastname: 'lastname',
-          email: 'email',
-          nationality: 'nationality',
         },
       },
     };
