@@ -2,26 +2,34 @@ import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import { Link } from 'react-router-dom';
 
-import Nav from '../Sidenav/index';
+import NavigationItem from '../../containers/NavigationItem';
+import SideNav from '../Sidenav';
+import {
+  home, userProfile, signup,
+  login, userReviews, addTrip, logout,
+} from '../../constants/navigation-items';
 
 import './styles.css';
 
 class Header extends Component {
-    state = {
-      showNav: false,
-    }
+  state = {
+    showNav: false,
+  }
 
-    handleHideNav = () => {
-      this.setState({ showNav: false });
-    }
+  handleHideNav = () => {
+    window.removeEventListener('resize', this.handleHideNav);
+    this.setState({ showNav: false });
+  }
 
-    handleOpenNav = () => {
-      this.setState({ showNav: true });
-    }
+  handleOpenNav = () => {
+    window.addEventListener('resize', this.handleHideNav);
+    this.setState({ showNav: true });
+  }
 
-    render() {
-      return (
-        <header className="header-container">
+  render() {
+    return (
+      <header className="header-container">
+        <div className="only-mobile">
           <div className="open-nav">
             <FontAwesome
               name="bars"
@@ -33,17 +41,33 @@ class Header extends Component {
               }}
             />
           </div>
-          <Nav
+          <SideNav
             showNav={this.state.showNav}
             onHideNav={this.handleHideNav}
           />
+        </div>
 
-          <Link to="/" className="logo">
-                    Travel Stories
-          </Link>
-        </header>
-      );
-    }
+        <div className="only-desktop">
+          <div className="left-side">
+            <NavigationItem item={home} />
+            <NavigationItem item={userReviews} />
+            <NavigationItem item={addTrip} />
+          </div>
+
+          <div className="right-side">
+            <NavigationItem item={userProfile} />
+            <NavigationItem item={login} />
+            <NavigationItem item={signup} />
+            <NavigationItem item={logout} />
+          </div>
+        </div>
+
+        <Link to="/" className="logo">
+          Travel Stories
+        </Link>
+      </header>
+    );
+  }
 }
 
 export default Header;

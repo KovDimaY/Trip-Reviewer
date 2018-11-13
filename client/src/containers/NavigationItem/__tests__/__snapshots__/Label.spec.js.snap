@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationItem/<Label /> should render regular component 1`] = `
+<span
+  className="Label-bxMjsr dewtPP"
+/>
+`;
+
+exports[`NavigationItem/<Label /> should render sidenav component 1`] = `
+<span
+  className="Label-bxMjsr ekgpif"
+/>
+`;

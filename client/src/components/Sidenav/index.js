@@ -2,8 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactSideNav from 'react-simple-sidenav';
 
-import { items } from './items';
-import SidenavItem from '../../containers/SidenavItem/index';
+import {
+  home, userProfile, signup,
+  login, userReviews, addTrip, logout,
+} from '../../constants/navigation-items';
+import SidenavItem from '../../containers/NavigationItem';
+
+const order = [
+  home, userProfile, signup,
+  login, addTrip, userReviews, logout,
+];
 
 const Sidenav = props => (
   <ReactSideNav
@@ -15,9 +23,9 @@ const Sidenav = props => (
     }}
   >
     {
-      items.map(item => (
-        <div key={item.id} onClick={props.onHideNav}>
-          <SidenavItem item={item} />
+      order.map(item => (
+        <div key={item} onClick={props.onHideNav}>
+          <SidenavItem item={item} sidenav />
         </div>
       ))
     }

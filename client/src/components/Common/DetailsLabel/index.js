@@ -11,7 +11,7 @@ const DetailsLabel = ({ children, type, value }) => {
 };
 
 DetailsLabel.propTypes = {
-  children: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
   type: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
 };
