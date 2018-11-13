@@ -18,6 +18,6 @@ exports[`<ImageUploader /> should render component 1`] = `
   onUploadSuccess={[Function]}
   storageRef={undefined}
 >
-  Update avatar
+  Test
 </CustomUploadButton>
 `;

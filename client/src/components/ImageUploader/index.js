@@ -49,13 +49,14 @@ class ImageUploader extends Component {
         onProgress={this.handleProgress}
         className={this.props.className}
       >
-        Update avatar
+        {this.props.children}
       </CustomUploadButton>
     );
   }
 }
 
 ImageUploader.propTypes = {
+  children: PropTypes.node.isRequired,
   filename: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
   onUploadStarts: PropTypes.func.isRequired,

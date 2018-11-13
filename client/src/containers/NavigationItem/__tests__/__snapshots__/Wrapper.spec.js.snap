@@ -8,6 +8,6 @@ exports[`NavigationItem/<Wrapper /> should render regular component 1`] = `
 
 exports[`NavigationItem/<Wrapper /> should render sidenav component 1`] = `
 <Link
-  className="Wrapper-ThVjl cbaHPM"
+  className="Wrapper-ThVjl bwOZxy"
 />
 `;

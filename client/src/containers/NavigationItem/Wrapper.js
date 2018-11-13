@@ -7,6 +7,7 @@ const applySidenav = () => `
   color: #bababa;
   padding: 10px;
   border-top: 1px solid #404040;
+  line-height: normal;
 `;
 
 const applyRegular = limit => `
