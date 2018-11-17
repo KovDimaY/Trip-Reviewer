@@ -5,7 +5,6 @@
   place-content: center;
   padding-bottom: 100px;
 }
-
 .not-found-container .picture {
   height: 500px;
   background-image: url("./image.png");
@@ -13,21 +12,18 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-
 .not-found-container .text {
   font-size: 72px;
   letter-spacing: 2px;
   margin: 0;
   font-family: Papyrus;
 }
-
 .not-found-container .title {
   font-size: 350px;
   margin: -25px 0 -210px 0;
   letter-spacing: 15px;
   font-family: Papyrus;
 }
-
 .not-found-container .button {
   font-size: 20px;
   padding: 10px 15px;
@@ -40,6 +36,14 @@
   width: 260px;
   align-self: center;
   cursor: pointer;
+}
+.not-found-container .button:hover {
+  background: #009EB3;
+  transform: scale(1.05);
+}
+.not-found-container .button:active {
+  background: #0495A8;
+  transform: scale(1.01);
 }
 
 @media (max-width: 600px) {

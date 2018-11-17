@@ -13,10 +13,9 @@
 }
 .home-container .loadmore:hover {
   background: #009EB3;
-  font-size: 18px;
+  transform: scale(1.05);
 }
-
 .home-container .loadmore:active {
   background: #0495A8;
-  font-size: 17px;
+  transform: scale(1.01);
 }

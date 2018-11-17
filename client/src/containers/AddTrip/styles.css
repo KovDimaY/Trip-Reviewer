@@ -50,11 +50,11 @@
     width: 80%;
 }
 .add-review-container .add-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     background: #009eb3;
 }
 .add-review-container .add-button:active {
-    transform: scale(1.05);
+    transform: scale(1.01);
     background: #0495a8;
 }
 .add-review-container .add-button:disabled {

@@ -3,13 +3,13 @@ import configureStore from 'redux-mock-store';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
 
-import EmptyView from '../../../components/EmptyViewAddTrip';
+import EmptyView from '../../../components/Common/EmptyViewAddTrip';
 import HomeContainer from '..';
 import { GET_TRIPS } from '../../../constants/action-names';
 import { getTrips } from '../../../actions';
 
 jest.mock('./../../../components/TripItem', () => 'TripItem');
-jest.mock('./../../../components/EmptyViewAddTrip', () => 'EmptyView');
+jest.mock('./../../../components/Common/EmptyViewAddTrip', () => 'EmptyView');
 jest.mock('./../../../actions', () => ({
   getTrips: jest.fn(() => ({
     type: GET_TRIPS,

@@ -2,7 +2,7 @@
     text-align: center;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .register-container .form-container {
     margin: 0 25px 0 100px;
@@ -41,11 +41,11 @@
     cursor: pointer;
 }
 .register-container button:hover {
-    font-size: 22px;
+    transform: scale(1.05);
     background: #009EB3;
 }
 .register-container button:active {
-    font-size: 21px;
+    transform: scale(1.01);
     background: #0495A8;
 }
 .register-container .error {

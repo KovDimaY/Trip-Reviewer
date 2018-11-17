@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ADD_TRIP } from '../../constants/routes';
+import { ADD_TRIP } from '../../../constants/routes';
 
 import './styles.css';
 

@@ -17,27 +17,19 @@ const applyRegular = limit => `
 
   &:hover {
     background: #009eb3;
-    font-size: 20px;
+    transform: scale(1.05);
     text-shadow: 1px 1px 20px white;
   }
 
   &:active {
     background: #0495a8;
-    font-size: 19px;
+    transform: scale(1.01);
     text-shadow: 1px 1px 10px white;
   }
 
   @media (max-width: ${limit}px) {
     font-size: 16px;
     padding: 0 15px;
-
-    &:hover {
-      font-size: 18px;
-    }
-
-    &:active {
-      font-size: 17px;
-    }
   }
 `;
 

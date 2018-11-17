@@ -44,7 +44,7 @@
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    margin: 10px 0 40px 0;
+    margin: 10px 0 10px 0;
 }
 .edit-user-profile-container .disclamer {
     color: darkgray;
@@ -57,6 +57,13 @@
     text-align: center;
     font-size: 14px;
     margin-bottom: -5px;
+}
+.edit-user-profile-container .disclamer-danger {
+    color: darkgray;
+    text-align: center;
+    font-size: 12px;
+    width: 95%;
+    margin: 12px auto 30px;
 }
 .edit-user-profile-container input {
     width: -webkit-fill-available;
@@ -87,18 +94,22 @@
     background-color: #02bcd4;
 }
 .edit-user-profile-container .user-avatar-controls .update-user-avatar:hover {
+    transform: scale(1.05);
     background-color: #009EB3;
 }
 .edit-user-profile-container .user-avatar-controls .update-user-avatar:active {
+    transform: scale(1.01);
     background-color: #0495A8;
 }
 .edit-user-profile-container .user-avatar-controls .delete-user-avatar {
     background-color: orange;
 }
 .edit-user-profile-container .user-avatar-controls .delete-user-avatar:hover {
+    transform: scale(1.05);
     background-color: #e69500;
 }
 .edit-user-profile-container .user-avatar-controls .delete-user-avatar:active {
+    transform: scale(1.01);
     background-color: #cc8500;
 }
 .edit-user-profile-container .button-link {
@@ -114,9 +125,11 @@
     width: 260px;
 }
 .edit-user-profile-container .button-link:hover {
+    transform: scale(1.05);
     background: #009EB3;
 }
 .edit-user-profile-container .button-link:active {
+    transform: scale(1.01);
     background: #0495A8;
 }
 .edit-user-profile-container .calcel {
@@ -126,9 +139,11 @@
     margin: 25px auto;
 }
 .edit-user-profile-container .calcel:hover {
+    transform: scale(1.05);
     background: #e69500;
 }
 .edit-user-profile-container .calcel:active {
+    transform: scale(1.01);
     background: #cc8500;
 }
 .edit-user-profile-container .error {
@@ -141,8 +156,8 @@
     color: #FF5722;
 }
 .edit-user-profile-container .avatar {
-    width: 100px;
-    height: 100px;
+    width: 144px;
+    height: 144px;
     margin: 0 auto 25px auto;
 }
 
@@ -163,6 +178,6 @@
         height: 200px;
     }
     .edit-user-profile-container .danger-zone {
-        margin: 50px 0 25px 0;
+        margin: 50px 0 10px 0;
     }
 }
