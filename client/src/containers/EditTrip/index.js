@@ -34,6 +34,7 @@ class EditTrip extends PureComponent {
       rating: false,
       expences: false,
     },
+    loading: false,
   };
 
   componentWillMount() {
@@ -47,6 +48,7 @@ class EditTrip extends PureComponent {
       nextProps.history.push(`${routes.TRIPS}/${trip._id}`);
     } else if (updatedTrip) {
       this.setState({
+        loading: false,
         hideError: {
           title: false,
           country: false,
@@ -69,6 +71,7 @@ class EditTrip extends PureComponent {
 
       this.setState({
         editorState,
+        loading: false,
         formdata: {
           _id: trip._id,
           title: trip.title,
@@ -160,10 +163,14 @@ class EditTrip extends PureComponent {
   submitForm = (event) => {
     event.preventDefault();
     this.props.dispatch(updateTrip(this.state.formdata));
+    this.setState({ loading: true });
   }
 
   deletePost = () => {
-    this.props.dispatch(deleteTrip(this.props.match.params.id));
+    if (!this.state.loading) {
+      this.props.dispatch(deleteTrip(this.props.match.params.id));
+      this.setState({ loading: true });
+    }
   }
 
   goToReviews = () => {
@@ -187,27 +194,31 @@ class EditTrip extends PureComponent {
     return null;
   }
 
+  renderPostDeleted() {
+    if (this.props.trips.postDeleted) {
+      return (
+        <div className="red_tag">
+            Post Deleted
+          {this.redirectUser()}
+        </div>
+      );
+    }
+    return null;
+  }
+
   render() {
+    const { loading, formdata } = this.state;
     const {
       title, country,
       duration, rating, expences,
-    } = this.state.formdata;
-    const { trips } = this.props;
+    } = formdata;
 
     return (
       <div className="edit-review-container limited-width">
-        {
-          trips.postDeleted
-            ? (
-              <div className="red_tag">
-                  Post Deleted
-                {this.redirectUser()}
-              </div>
-            )
-            : null
-        }
+        { this.renderPostDeleted() }
+
         <form onSubmit={this.submitForm}>
-          <h2 className="title">Edit review</h2>
+          <h2 className="title">Edit story</h2>
 
           <div className="form_element">
             <span className="label">
@@ -283,15 +294,15 @@ class EditTrip extends PureComponent {
           </div>
           { this.renderError('rating') }
 
-          <button type="submit" className="add-button">
-            Edit review
+          <button type="submit" className="add-button" disabled={loading}>
+            Edit story
           </button>
           <div className="delete-post">
             <div
-              className="button"
+              className={`button${loading ? ' loading' : ''}`}
               onClick={this.deletePost}
             >
-              Delete review
+              Delete story
             </div>
           </div>
         </form>

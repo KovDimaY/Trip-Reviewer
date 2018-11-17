@@ -37,6 +37,7 @@
     font-size: 14px;
 }
 .add-review-container .add-button {
+    cursor: pointer;
     font-size: 20px;
     padding: 10px 52px;
     background: #02bcd4;
@@ -48,10 +49,18 @@
     margin-bottom: 50px;
     width: 80%;
 }
-.add-review-container .conf_link {
-    color: #8BC34A;
-    font-weight: 600;
-    margin-top: 20px;
+.add-review-container .add-button:hover {
+    transform: scale(1.1);
+    background: #009eb3;
+}
+.add-review-container .add-button:active {
+    transform: scale(1.05);
+    background: #0495a8;
+}
+.add-review-container .add-button:disabled {
+    cursor: not-allowed;
+    transform: none;
+    background: grey;
 }
 .add-review-container .error {
     color: #FF5722;
