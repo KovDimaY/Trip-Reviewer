@@ -2,6 +2,7 @@ import {
   GET_TRIPS,
   GET_TRIP,
   GET_TRIP_W_REVIEWER,
+  GET_TRIP_W_REVIEWER_ERROR,
   CLEAR_TRIP_W_REVIEWER,
   ADD_TRIP,
   UPDATE_TRIP,
@@ -43,6 +44,13 @@ export default function (state = {}, action) {
         ...state,
         current: action.payload.trip,
         reviewer: action.payload.reviewer,
+        error: null,
+      };
+    case GET_TRIP_W_REVIEWER_ERROR:
+      return {
+        ...state,
+        current: null,
+        error: action.payload,
       };
     case ADD_TRIP:
     case CLEAR_NEW_TRIP:

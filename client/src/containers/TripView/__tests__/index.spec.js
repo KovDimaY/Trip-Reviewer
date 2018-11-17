@@ -5,6 +5,7 @@ import { shallow } from 'enzyme';
 
 import TripView from '..';
 import { clearTripWithReviewer } from '../../../actions';
+import { notDeepEqual } from 'assert';
 
 jest.mock('react-draft-wysiwyg', () => ({ Editor: 'Editor' }));
 jest.mock('draft-js', () => ({
@@ -126,5 +127,53 @@ describe('<TripView />', () => {
     instance.componentWillUnmount();
 
     expect(clearTripWithReviewer).toHaveBeenCalled();
+  });
+
+  it('should redirect when componentWillReceiveProps is called with error', () => {
+    const push = jest.fn();
+    const initialState = {
+      trips: {},
+    };
+    const props = {
+      match: {
+        params: {
+          id: 'id',
+        },
+      },
+      history: { push },
+    };
+    const newProps = {
+      trips: { error: true },
+    };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+    instance.componentWillReceiveProps(newProps);
+
+    expect(push).toHaveBeenCalledWith('/Not-Found');
+  });
+
+  it('should not redirect when componentWillReceiveProps is called without error', () => {
+    const push = jest.fn();
+    const initialState = {
+      trips: {},
+    };
+    const props = {
+      match: {
+        params: {
+          id: 'id',
+        },
+      },
+      history: { push },
+    };
+    const newProps = {
+      trips: { error: false },
+    };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+    instance.componentWillReceiveProps(newProps);
+
+    expect(push).not.toHaveBeenCalledWith('/Not-Found');
   });
 });

@@ -5,6 +5,7 @@ import {
   GET_USERS,
   GET_TRIP_W_REVIEWER,
   CLEAR_TRIP_W_REVIEWER,
+  GET_TRIP_W_REVIEWER_ERROR,
   USER_REGISTER,
   USER_LOGIN,
   RESET_PASSWORD,
@@ -42,23 +43,28 @@ export function getTrips(
 export function getTripWithReviewer(id) {
   const request = axios.get(`/api/getTrip?id=${id}`);
 
-  return dispatch => request.then(({ data: tripData }) => {
-    const trip = tripData;
+  return dispatch => request
+    .then(({ data: tripData }) => {
+      const trip = tripData;
 
-    return axios
-      .get(`/api/getReviewer?id=${trip.ownerId}`)
-      .then(({ data: reviewerData }) => {
-        const response = {
-          trip,
-          reviewer: reviewerData,
-        };
+      return axios
+        .get(`/api/getReviewer?id=${trip.ownerId}`)
+        .then(({ data: reviewerData }) => {
+          const response = {
+            trip,
+            reviewer: reviewerData,
+          };
 
-        dispatch({
-          type: GET_TRIP_W_REVIEWER,
-          payload: response,
+          dispatch({
+            type: GET_TRIP_W_REVIEWER,
+            payload: response,
+          });
         });
-      });
-  });
+    })
+    .catch(error => dispatch({
+      type: GET_TRIP_W_REVIEWER_ERROR,
+      payload: error,
+    }));
 }
 
 export function getUserReviews(userId) {

@@ -2,6 +2,7 @@ import {
   GET_TRIPS,
   GET_TRIP,
   GET_TRIP_W_REVIEWER,
+  GET_TRIP_W_REVIEWER_ERROR,
   CLEAR_TRIP_W_REVIEWER,
   ADD_TRIP,
   UPDATE_TRIP,
@@ -122,6 +123,23 @@ describe('trips reducer', () => {
     const expected = {
       current: 'trip',
       reviewer: 'reviewer',
+      error: null,
+    };
+
+    const newState = reducer(initialState, action);
+
+    expect(newState).toEqual(expected);
+  });
+
+  it('handles actions of type GET_TRIP_W_REVIEWER_ERROR', () => {
+    const initialState = {};
+    const action = {
+      type: GET_TRIP_W_REVIEWER_ERROR,
+      payload: 'test',
+    };
+    const expected = {
+      current: null,
+      error: 'test',
     };
 
     const newState = reducer(initialState, action);
@@ -141,6 +159,7 @@ describe('trips reducer', () => {
     const expected = {
       current: 'trip',
       reviewer: 'reviewer',
+      error: null,
     };
 
     const newState = reducer(initialState, action);

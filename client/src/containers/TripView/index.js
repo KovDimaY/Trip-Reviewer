@@ -13,6 +13,12 @@ class TripView extends Component {
     this.props.dispatch(getTripWithReviewer(this.props.match.params.id));
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.trips && nextProps.trips.error) {
+      this.props.history.push('/Not-Found');
+    }
+  }
+
   componentWillUnmount() {
     this.props.dispatch(clearTripWithReviewer());
   }
@@ -87,6 +93,7 @@ class TripView extends Component {
 
 TripView.propTypes = {
   trips: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
 };

@@ -24,6 +24,7 @@ import {
   GET_TRIPS,
   GET_USERS,
   GET_TRIP_W_REVIEWER,
+  GET_TRIP_W_REVIEWER_ERROR,
   CLEAR_TRIP_W_REVIEWER,
   USER_REGISTER,
   USER_LOGIN,
@@ -143,6 +144,27 @@ describe('Testing async actions', () => {
 
       return store.dispatch(getTripWithReviewer(id)).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
+      });
+    });
+
+    it('has the correct type and payload when fails', () => {
+      const id = 'test';
+      const firstResponceMock = { error: 'error' };
+      moxios.stubRequest(`/api/getTrip?id=${id}`, {
+        status: 400,
+        response: firstResponceMock,
+      });
+
+      const expectedAction = {
+        type: GET_TRIP_W_REVIEWER_ERROR,
+        payload: 'Error: Request failed with status code 400',
+      };
+
+      const store = mockStore({});
+
+      return store.dispatch(getTripWithReviewer(id)).then(() => {
+        expect(store.getActions()[0].type).toEqual(expectedAction.type);
+        expect(store.getActions()[0].payload.toString()).toEqual(expectedAction.payload);
       });
     });
   });

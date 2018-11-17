@@ -6,6 +6,7 @@ export const UPDATE_USER = 'update-user';
 export const DELETE_TRIP = 'delete-trip';
 export const GET_TRIP = 'get-trip';
 export const GET_TRIP_W_REVIEWER = 'get-trip-w-reviewer';
+export const GET_TRIP_W_REVIEWER_ERROR = 'get-trip-w-reviewer-error';
 export const CLEAR_TRIP_W_REVIEWER = 'clear-trip-w-reviewer';
 export const CLEAR_NEW_TRIP = 'clear-new-trip';
 export const CLEAR_TRIP = 'clear-trip';
