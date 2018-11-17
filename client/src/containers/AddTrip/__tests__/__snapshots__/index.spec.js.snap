@@ -10,7 +10,7 @@ exports[`<AddTrip /> should render component 1`] = `
     <h2
       className="title"
     >
-      Add a review
+      Add a story
     </h2>
     <div
       className="form_element"
@@ -103,6 +103,7 @@ exports[`<AddTrip /> should render component 1`] = `
     </div>
     <button
       className="add-button"
+      disabled={false}
       type="submit"
     >
       Add review
@@ -121,7 +122,7 @@ exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
     <h2
       className="title"
     >
-      Add a review
+      Add a story
     </h2>
     <div
       className="form_element"
@@ -239,6 +240,7 @@ exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
     </div>
     <button
       className="add-button"
+      disabled={false}
       type="submit"
     >
       Add review
@@ -257,7 +259,7 @@ exports[`<AddTrip /> should render component with newTrip and success true 1`] =
     <h2
       className="title"
     >
-      Add a review
+      Add a story
     </h2>
     <div
       className="form_element"
@@ -350,6 +352,7 @@ exports[`<AddTrip /> should render component with newTrip and success true 1`] =
     </div>
     <button
       className="add-button"
+      disabled={false}
       type="submit"
     >
       Add review

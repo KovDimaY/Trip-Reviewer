@@ -32,6 +32,7 @@ class AddTrip extends Component {
       rating: false,
       expences: false,
     },
+    loading: false,
   };
 
   componentWillReceiveProps(newProps) {
@@ -41,6 +42,7 @@ class AddTrip extends Component {
       newProps.history.push(`${TRIPS}/${newtrip.tripId}`);
     } else {
       this.setState({
+        loading: false,
         hideError: {
           title: false,
           country: false,
@@ -134,6 +136,7 @@ class AddTrip extends Component {
       ...this.state.formdata,
       ownerId: this.props.users.login.id,
     }));
+    this.setState({ loading: true });
   }
 
   renderError(fieldName) {
@@ -150,15 +153,16 @@ class AddTrip extends Component {
   }
 
   render() {
+    const { loading, formdata } = this.state;
     const {
       title, country,
       duration, rating, expences,
-    } = this.state.formdata;
+    } = formdata;
 
     return (
       <div className="add-review-container limited-width">
         <form onSubmit={this.submitForm}>
-          <h2 className="title">Add a review</h2>
+          <h2 className="title">Add a story</h2>
 
           <div className="form_element">
             <span className="label">
@@ -234,7 +238,7 @@ class AddTrip extends Component {
           </div>
           { this.renderError('rating') }
 
-          <button type="submit" className="add-button">
+          <button type="submit" className="add-button" disabled={loading}>
             Add review
           </button>
         </form>
