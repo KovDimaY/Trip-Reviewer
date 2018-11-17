@@ -132,7 +132,18 @@ const updateModelAndSendEmail = (Model, _id, fieldsToUpdate, res, transporter, d
   } = data;
 
   Model.findByIdAndUpdate(_id, fieldsToUpdate, { new: true, runValidators: true }, (err) => {
-    if (err) return res.json({ success: false, error: err });
+    if (err && err.code === 11000) {
+      return res.json({
+        success: false,
+        error: {
+          errors: {
+            email: { message: 'This email already exists' },
+          },
+        },
+      });
+    } else if (err) {
+      return res.json({ success: false, error: err });
+    }
 
     const mailOptions = setUpdateProfileEmailOptions(
       adminMail, mailTo, name, lastname, email, newPassword, user,
