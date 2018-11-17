@@ -34,6 +34,7 @@ import {
   UPDATE_USER,
   DELETE_TRIP,
   GET_TRIP,
+  GET_TRIP_ERROR,
   CLEAR_NEW_TRIP,
   CLEAR_TRIP,
   GET_USER_REVIEWS,
@@ -213,6 +214,27 @@ describe('Testing async actions', () => {
 
       return store.dispatch(getTrip(id)).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
+      });
+    });
+
+    it('has the correct type and payload when fails', () => {
+      const id = 'id';
+      const responceMock = 'test';
+      moxios.stubRequest(`/api/getTrip?id=${id}`, {
+        status: 400,
+        response: responceMock,
+      });
+
+      const expectedAction = {
+        type: GET_TRIP_ERROR,
+        payload: 'Error: Request failed with status code 400',
+      };
+
+      const store = mockStore({});
+
+      return store.dispatch(getTrip(id)).then(() => {
+        expect(store.getActions()[0].type).toEqual(expectedAction.type);
+        expect(store.getActions()[0].payload.toString()).toEqual(expectedAction.payload);
       });
     });
   });

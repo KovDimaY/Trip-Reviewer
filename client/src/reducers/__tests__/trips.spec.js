@@ -1,6 +1,7 @@
 import {
   GET_TRIPS,
   GET_TRIP,
+  GET_TRIP_ERROR,
   GET_TRIP_W_REVIEWER,
   GET_TRIP_W_REVIEWER_ERROR,
   CLEAR_TRIP_W_REVIEWER,
@@ -53,6 +54,21 @@ describe('trips reducer', () => {
     };
     const expected = {
       trip: 'test',
+    };
+
+    const newState = reducer(initialState, action);
+
+    expect(newState).toEqual(expected);
+  });
+
+  it('handles actions of type GET_TRIP_ERROR', () => {
+    const initialState = {};
+    const action = {
+      type: GET_TRIP_ERROR,
+      payload: 'test',
+    };
+    const expected = {
+      trip: { error: 'test' },
     };
 
     const newState = reducer(initialState, action);

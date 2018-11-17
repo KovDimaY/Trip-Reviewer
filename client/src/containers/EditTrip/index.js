@@ -44,7 +44,9 @@ class EditTrip extends PureComponent {
   componentWillReceiveProps(nextProps) {
     const { trip, updatedTrip } = nextProps.trips;
 
-    if (updatedTrip && updatedTrip.success) {
+    if (trip && trip.error) {
+      nextProps.history.push('/Not-Found');
+    } else if (updatedTrip && updatedTrip.success) {
       nextProps.history.push(`${routes.TRIPS}/${trip._id}`);
     } else if (updatedTrip) {
       this.setState({

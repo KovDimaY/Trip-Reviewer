@@ -15,6 +15,7 @@ import {
   UPDATE_USER,
   DELETE_TRIP,
   GET_TRIP,
+  GET_TRIP_ERROR,
   CLEAR_NEW_TRIP,
   CLEAR_TRIP,
   GET_USER_REVIEWS,
@@ -93,12 +94,19 @@ export function updateUser(data) {
 export function getTrip(id) {
   const request = axios.get(`/api/getTrip?id=${id}`);
 
-  return dispatch => request.then((response) => {
-    dispatch({
-      type: GET_TRIP,
-      payload: response.data,
+  return dispatch => request
+    .then((response) => {
+      dispatch({
+        type: GET_TRIP,
+        payload: response.data,
+      });
+    })
+    .catch((error) => {
+      dispatch({
+        type: GET_TRIP_ERROR,
+        payload: error,
+      });
     });
-  });
 }
 
 export function updateTrip(data) {

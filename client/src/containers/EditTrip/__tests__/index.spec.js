@@ -200,6 +200,31 @@ describe('<EditTrip />', () => {
     expect(instance.state.formdata).not.toEqual(nextProps.trips.trip);
   });
 
+  it('should redirect when componentWillReceiveProps is called with error', () => {
+    const push = jest.fn();
+    const path = '/Not-Found';
+    const initialState = {
+      trips: {},
+    };
+    const props = {
+      match: {
+        params: { id: 'id' },
+      },
+    };
+    const nextProps = {
+      trips: {
+        trip: { error: 'error' },
+      },
+      history: { push },
+    };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+    instance.componentWillReceiveProps(nextProps);
+
+    expect(push).toHaveBeenCalledWith(path);
+  });
+
   it('should redirect when componentWillReceiveProps is called with updatedTrip success', () => {
     const push = jest.fn();
     const tripId = 'test';
