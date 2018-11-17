@@ -2,7 +2,7 @@
 
 exports[`NavigationItem/<Wrapper /> should render regular component 1`] = `
 <Link
-  className="Wrapper-ThVjl brWOvv"
+  className="Wrapper-ThVjl iBnLkl"
 />
 `;
 
