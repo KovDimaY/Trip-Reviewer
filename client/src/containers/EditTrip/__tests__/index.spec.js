@@ -264,6 +264,7 @@ describe('<EditTrip />', () => {
       },
     };
     const expected = {
+      loading: false,
       hideError: {
         title: false,
         country: false,
@@ -335,6 +336,7 @@ describe('<EditTrip />', () => {
   });
 
   it('should dispatch deleteTrip when deletePost is called', () => {
+    const setState = jest.fn();
     const initialState = {
       trips: {},
     };
@@ -347,10 +349,37 @@ describe('<EditTrip />', () => {
     };
 
     const instance = shallow(mockComponent(initialState, props)).dive().instance();
+    instance.setState = setState;
 
     instance.deletePost();
 
     expect(deleteTrip).toHaveBeenCalledWith('id');
+    expect(setState).toHaveBeenCalledWith({ loading: true });
+  });
+
+  it('should not dispatch deleteTrip when deletePost is called while loading', () => {
+    const setState = jest.fn();
+    const dispatch = jest.fn();
+    const initialState = {
+      trips: {},
+    };
+    const props = {
+      match: {
+        params: {
+          id: 'id',
+        },
+      },
+      dispatch,
+    };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+    instance.setState = setState;
+    instance.state.loading = true;
+
+    instance.deletePost();
+
+    expect(dispatch).not.toHaveBeenCalled();
+    expect(setState).not.toHaveBeenCalledWith({ loading: true });
   });
 
   it('handleInput should change state correctly', () => {

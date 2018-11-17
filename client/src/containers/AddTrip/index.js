@@ -239,7 +239,7 @@ class AddTrip extends Component {
           { this.renderError('rating') }
 
           <button type="submit" className="add-button" disabled={loading}>
-            Add review
+            Add story
           </button>
         </form>
       </div>

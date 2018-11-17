@@ -106,7 +106,7 @@ exports[`<AddTrip /> should render component 1`] = `
       disabled={false}
       type="submit"
     >
-      Add review
+      Add story
     </button>
   </form>
 </div>
@@ -243,7 +243,7 @@ exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
       disabled={false}
       type="submit"
     >
-      Add review
+      Add story
     </button>
   </form>
 </div>
@@ -355,7 +355,7 @@ exports[`<AddTrip /> should render component with newTrip and success true 1`] =
       disabled={false}
       type="submit"
     >
-      Add review
+      Add story
     </button>
   </form>
 </div>

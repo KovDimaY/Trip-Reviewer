@@ -37,6 +37,7 @@
     font-size: 14px;
 }
 .edit-review-container .add-button {
+    cursor: pointer;
     font-size: 20px;
     padding: 10px 52px;
     background: #02bcd4;
@@ -46,6 +47,19 @@
     border: none;
     margin-top: 50px;
     width: 80%;
+}
+.edit-review-container .add-button:hover {
+    transform: scale(1.1);
+    background: #009eb3;
+}
+.edit-review-container .add-button:active {
+    transform: scale(1.05);
+    background: #0495a8;
+}
+.edit-review-container .add-button:disabled {
+    cursor: not-allowed;
+    transform: none;
+    background: grey;
 }
 .edit-review-container .error {
     color: #FF5722;
@@ -65,6 +79,7 @@
     left: -10px;
 }
 .edit-review-container .delete-post .button {
+    cursor: pointer;
     font-size: 20px;
     padding: 10px 52px;
     background: #E91E63;
@@ -76,6 +91,20 @@
     box-sizing: border-box;
     display: inline-block;
     margin-bottom: 50px;
+}
+.edit-review-container .delete-post .button:hover {
+    transform: scale(1.1);
+    background: #d11553;
+}
+.edit-review-container .delete-post .button:active {
+    transform: scale(1.05);
+    background: #ba124a;
+}
+.edit-review-container .delete-post .loading,
+.edit-review-container .delete-post .loading:hover {
+    cursor: not-allowed;
+    transform: none;
+    background: grey;
 }
 .edit-review-container .editor-wrapper {
     width: 80%;
