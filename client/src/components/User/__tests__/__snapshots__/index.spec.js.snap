@@ -57,7 +57,7 @@ exports[`<User /> should render component 1`] = `
   >
     <Link
       className="button-link"
-      to="/user/edit-profile/undefined"
+      to="/user/edit-profile"
     >
       Edit Profile
     </Link>
