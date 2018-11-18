@@ -33,33 +33,16 @@ a {
   box-shadow: 1px 1px 60px black;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: #d8d8d8;
-  }
-  ::-moz-placeholder { /* Firefox 19+ */
-    color: #d8d8d8;
-  }
-  :-ms-input-placeholder { /* IE 10+ */
-    color: #d8d8d8;
-  }
-  :-moz-placeholder { /* Firefox 18- */
-    color: #d8d8d8;
-  }
-
-/*=============================
-            USER
-===============================*/
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+  color: #d8d8d8;
 }
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+::-moz-placeholder { /* Firefox 19+ */
+  color: #d8d8d8;
 }
-tr:nth-child(even) {
-    background-color: #dddddd;
+:-ms-input-placeholder { /* IE 10+ */
+  color: #d8d8d8;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #d8d8d8;
 }
 
 /*=============================
@@ -130,5 +113,11 @@ tr:nth-child(even) {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 800px) {
+  .limited-width-shadow {
+    box-shadow: none;
   }
 }

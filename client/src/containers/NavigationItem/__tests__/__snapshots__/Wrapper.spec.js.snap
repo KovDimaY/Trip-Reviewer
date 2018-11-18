@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationItem/<Wrapper /> should render regular component 1`] = `
+<Link
+  className="Wrapper-ThVjl iBnLkl"
+/>
+`;
+
+exports[`NavigationItem/<Wrapper /> should render sidenav component 1`] = `
+<Link
+  className="Wrapper-ThVjl bwOZxy"
+/>
+`;

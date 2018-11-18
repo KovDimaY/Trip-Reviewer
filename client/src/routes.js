@@ -29,7 +29,7 @@ const Routes = () => (
       <Route path={routes.REGISTER} exact component={Auth(Register, false)} />
       <Route path={routes.USER_PROFILE} exact component={Auth(User, true)} />
       <Route path={routes.USER_REVIEWS} exact component={Auth(UserReviews, true)} />
-      <Route path={`${routes.EDIT_PROFILE}/:id`} exact component={Auth(EditUserProfile, true)} />
+      <Route path={`${routes.EDIT_PROFILE}`} exact component={Auth(EditUserProfile, true)} />
       <Route path={`${routes.EDIT_POST}/:id`} exact component={Auth(EditTrip, true)} />
       <Route path={routes.ADD_TRIP} exact component={Auth(AddTrip, true)} />
       <Route path={`${routes.TRIPS}/:id`} exact component={Auth(TripView, null)} />

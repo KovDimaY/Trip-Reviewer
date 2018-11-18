@@ -5,6 +5,7 @@ import { create } from 'react-test-renderer';
 import UserPosts from '..';
 
 jest.mock('react-router-dom', () => ({ Link: 'Link' }));
+jest.mock('./../../../components/Common/EmptyViewAddTrip', () => 'EmptyView');
 jest.mock('./../../../actions', () => ({
   getUserReviews: jest.fn(() => ({
     type: 'getTripWithReviewer',
@@ -22,17 +23,37 @@ const mockComponent = (initialState = {}, props) => {
 };
 
 describe('<UserPosts />', () => {
-  it('should render component with login', () => {
+  it('should render component with login and no posts', () => {
+    const initialState = {
+      users: {
+        login: {
+          id: 'id',
+        },
+        userPosts: [],
+      },
+    };
+    const tree = create(mockComponent(initialState)).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should render component with login and several posts', () => {
     const initialState = {
       users: {
         login: {
           id: 'id',
         },
         userPosts: [{
-          _id: 'id',
-          title: 'title',
-          country: 'country',
-          createdAt: 'createdAt',
+          _id: 'id1',
+          title: 'title1',
+          country: 'country1',
+          createdAt: 'createdAt1',
+        },
+        {
+          _id: 'id2',
+          title: 'title2',
+          country: 'country2',
+          createdAt: 'createdAt2',
         }],
       },
     };

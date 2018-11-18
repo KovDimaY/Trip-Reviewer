@@ -10,7 +10,7 @@ exports[`<EditTrip /> should render component 1`] = `
     <h2
       className="title"
     >
-      Edit review
+      Edit story
     </h2>
     <div
       className="form_element"
@@ -103,9 +103,10 @@ exports[`<EditTrip /> should render component 1`] = `
     </div>
     <button
       className="add-button"
+      disabled={false}
       type="submit"
     >
-      Edit review
+      Edit story
     </button>
     <div
       className="delete-post"
@@ -114,7 +115,7 @@ exports[`<EditTrip /> should render component 1`] = `
         className="button"
         onClick={[Function]}
       >
-        Delete review
+        Delete story
       </div>
     </div>
   </form>
@@ -136,7 +137,7 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
     <h2
       className="title"
     >
-      Edit review
+      Edit story
     </h2>
     <div
       className="form_element"
@@ -229,9 +230,10 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
     </div>
     <button
       className="add-button"
+      disabled={false}
       type="submit"
     >
-      Edit review
+      Edit story
     </button>
     <div
       className="delete-post"
@@ -240,7 +242,7 @@ exports[`<EditTrip /> should render component with postDeleted 1`] = `
         className="button"
         onClick={[Function]}
       >
-        Delete review
+        Delete story
       </div>
     </div>
   </form>
@@ -257,7 +259,7 @@ exports[`<EditTrip /> should render component with updatedTrip and errors 1`] = 
     <h2
       className="title"
     >
-      Edit review
+      Edit story
     </h2>
     <div
       className="form_element"
@@ -375,9 +377,10 @@ exports[`<EditTrip /> should render component with updatedTrip and errors 1`] = 
     </div>
     <button
       className="add-button"
+      disabled={false}
       type="submit"
     >
-      Edit review
+      Edit story
     </button>
     <div
       className="delete-post"
@@ -386,7 +389,7 @@ exports[`<EditTrip /> should render component with updatedTrip and errors 1`] = 
         className="button"
         onClick={[Function]}
       >
-        Delete review
+        Delete story
       </div>
     </div>
   </form>

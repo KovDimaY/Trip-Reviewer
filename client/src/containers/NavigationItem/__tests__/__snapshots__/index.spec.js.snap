@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NavigationItem /> should render component when no authenticated 1`] = `
+<Wrapper
+  limit={1024}
+  sidenav={0}
+  to="/"
+>
+  <Icon
+    name="home"
+  />
+  <Label
+    limit={1024}
+    sidenav={0}
+  >
+    Home
+  </Label>
+</Wrapper>
+`;
+
+exports[`<NavigationItem /> should render component when no authenticated and restricted 1`] = `null`;
+
+exports[`<NavigationItem /> should render component with authentication 1`] = `
+<Wrapper
+  limit={1024}
+  sidenav={0}
+  to="/"
+>
+  <Icon
+    name="home"
+  />
+  <Label
+    limit={1024}
+    sidenav={0}
+  >
+    Home
+  </Label>
+</Wrapper>
+`;
+
+exports[`<NavigationItem /> should render component with authentication and excluded 1`] = `null`;
+
+exports[`<NavigationItem /> should render component with authentication and sidenav 1`] = `
+<Wrapper
+  limit={1024}
+  sidenav={1}
+  to="/"
+>
+  <Icon
+    name="home"
+  />
+  <Label
+    limit={1024}
+    sidenav={1}
+  >
+    Home
+  </Label>
+</Wrapper>
+`;

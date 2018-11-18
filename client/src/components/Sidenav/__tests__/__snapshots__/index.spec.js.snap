@@ -14,115 +14,57 @@ exports[`<Sidenav /> should render component 1`] = `
   <div
     onClick={[Function]}
   >
-    <SidenavItem
-      item={
-        Object {
-          "icon": "home",
-          "id": 1,
-          "link": "/",
-          "restricted": false,
-          "text": "Home",
-          "type": "navItem",
-        }
-      }
+    <NavigationItem
+      item="HOME"
+      sidenav={true}
     />
   </div>
   <div
     onClick={[Function]}
   >
-    <SidenavItem
-      item={
-        Object {
-          "icon": "user",
-          "id": 2,
-          "link": "/user",
-          "restricted": true,
-          "text": "My Profile",
-          "type": "navItem",
-        }
-      }
+    <NavigationItem
+      item="USER_PROFILE"
+      sidenav={true}
     />
   </div>
   <div
     onClick={[Function]}
   >
-    <SidenavItem
-      item={
-        Object {
-          "exclude": true,
-          "icon": "user-plus",
-          "id": 3,
-          "link": "/user/register",
-          "restricted": false,
-          "text": "Register",
-          "type": "navItem",
-        }
-      }
+    <NavigationItem
+      item="SIGNUP"
+      sidenav={true}
     />
   </div>
   <div
     onClick={[Function]}
   >
-    <SidenavItem
-      item={
-        Object {
-          "exclude": true,
-          "icon": "sign-in-alt",
-          "id": 4,
-          "link": "/login",
-          "restricted": false,
-          "text": "Login",
-          "type": "navItem",
-        }
-      }
+    <NavigationItem
+      item="LOGIN"
+      sidenav={true}
     />
   </div>
   <div
     onClick={[Function]}
   >
-    <SidenavItem
-      item={
-        Object {
-          "icon": "file-alt",
-          "id": 5,
-          "link": "/user/user-reviews",
-          "restricted": true,
-          "text": "My reviews",
-          "type": "navItem",
-        }
-      }
+    <NavigationItem
+      item="ADD_TRIP"
+      sidenav={true}
     />
   </div>
   <div
     onClick={[Function]}
   >
-    <SidenavItem
-      item={
-        Object {
-          "icon": "edit",
-          "id": 6,
-          "link": "/trip/add",
-          "restricted": true,
-          "text": "Add reviews",
-          "type": "navItem",
-        }
-      }
+    <NavigationItem
+      item="USER_REVIEWS"
+      sidenav={true}
     />
   </div>
   <div
     onClick={[Function]}
   >
-    <SidenavItem
-      item={
-        Object {
-          "icon": "sign-out-alt",
-          "id": 7,
-          "link": "/user/logout",
-          "restricted": true,
-          "text": "Logout",
-          "type": "navItem",
-        }
-      }
+    <NavigationItem
+      item="LOGOUT"
+      sidenav={true}
     />
   </div>
 </ReactSideNav>

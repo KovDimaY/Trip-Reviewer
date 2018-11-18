@@ -5,25 +5,62 @@ exports[`<Header /> should render component 1`] = `
   className="header-container"
 >
   <div
-    className="open-nav"
+    className="only-mobile"
   >
-    <span
-      aria-hidden={true}
-      className="fa fa-bars"
-      onClick={[Function]}
-      style={
-        Object {
-          "color": "#ffffff",
-          "cursor": "pointer",
-          "padding": "10px",
+    <div
+      className="open-nav"
+    >
+      <span
+        aria-hidden={true}
+        className="fa fa-bars"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "#ffffff",
+            "cursor": "pointer",
+            "padding": "10px",
+          }
         }
-      }
+      />
+    </div>
+    <SideNav
+      onHideNav={[Function]}
+      showNav={false}
     />
   </div>
-  <Nav
-    onHideNav={[Function]}
-    showNav={false}
-  />
+  <div
+    className="only-desktop"
+  >
+    <div
+      className="left-side"
+    >
+      <NavigationItem
+        item="HOME"
+      />
+      <NavigationItem
+        item="USER_REVIEWS"
+      />
+      <NavigationItem
+        item="ADD_TRIP"
+      />
+    </div>
+    <div
+      className="right-side"
+    >
+      <NavigationItem
+        item="USER_PROFILE"
+      />
+      <NavigationItem
+        item="LOGIN"
+      />
+      <NavigationItem
+        item="SIGNUP"
+      />
+      <NavigationItem
+        item="LOGOUT"
+      />
+    </div>
+  </div>
   <Link
     className="logo"
     to="/"

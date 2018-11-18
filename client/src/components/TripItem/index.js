@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { TRIPS } from '../../constants/routes';
+import { TYPES } from '../Common/DetailsLabel/utils';
+import DetailsLabel from '../Common/DetailsLabel';
 
 import './styles.css';
 
@@ -18,21 +20,20 @@ const TripItem = ({
         {country}
       </div>
 
-      <div className="bubble">
+      <DetailsLabel type={TYPES.expences} value={expences}>
         <strong>Expences:</strong>
         {` $${expences}`}
-      </div>
+      </DetailsLabel>
 
-      <div className="bubble">
+      <DetailsLabel type={TYPES.duration} value={duration}>
         <strong>Duration:</strong>
         {duration === 1 ? ' 1 day' : ` ${duration} days`}
-      </div>
+      </DetailsLabel>
 
-      <div className="bubble rating">
+      <DetailsLabel type={TYPES.rating} value={rating}>
         <strong>Rating:</strong>
         {` ${rating} / 5`}
-      </div>
-
+      </DetailsLabel>
     </div>
   </Link>
 );

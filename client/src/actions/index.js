@@ -5,6 +5,7 @@ import {
   GET_USERS,
   GET_TRIP_W_REVIEWER,
   CLEAR_TRIP_W_REVIEWER,
+  GET_TRIP_W_REVIEWER_ERROR,
   USER_REGISTER,
   USER_LOGIN,
   RESET_PASSWORD,
@@ -14,6 +15,7 @@ import {
   UPDATE_USER,
   DELETE_TRIP,
   GET_TRIP,
+  GET_TRIP_ERROR,
   CLEAR_NEW_TRIP,
   CLEAR_TRIP,
   GET_USER_REVIEWS,
@@ -42,23 +44,28 @@ export function getTrips(
 export function getTripWithReviewer(id) {
   const request = axios.get(`/api/getTrip?id=${id}`);
 
-  return dispatch => request.then(({ data: tripData }) => {
-    const trip = tripData;
+  return dispatch => request
+    .then(({ data: tripData }) => {
+      const trip = tripData;
 
-    return axios
-      .get(`/api/getReviewer?id=${trip.ownerId}`)
-      .then(({ data: reviewerData }) => {
-        const response = {
-          trip,
-          reviewer: reviewerData,
-        };
+      return axios
+        .get(`/api/getReviewer?id=${trip.ownerId}`)
+        .then(({ data: reviewerData }) => {
+          const response = {
+            trip,
+            reviewer: reviewerData,
+          };
 
-        dispatch({
-          type: GET_TRIP_W_REVIEWER,
-          payload: response,
+          dispatch({
+            type: GET_TRIP_W_REVIEWER,
+            payload: response,
+          });
         });
-      });
-  });
+    })
+    .catch(error => dispatch({
+      type: GET_TRIP_W_REVIEWER_ERROR,
+      payload: error,
+    }));
 }
 
 export function getUserReviews(userId) {
@@ -87,12 +94,19 @@ export function updateUser(data) {
 export function getTrip(id) {
   const request = axios.get(`/api/getTrip?id=${id}`);
 
-  return dispatch => request.then((response) => {
-    dispatch({
-      type: GET_TRIP,
-      payload: response.data,
+  return dispatch => request
+    .then((response) => {
+      dispatch({
+        type: GET_TRIP,
+        payload: response.data,
+      });
+    })
+    .catch((error) => {
+      dispatch({
+        type: GET_TRIP_ERROR,
+        payload: error,
+      });
     });
-  });
 }
 
 export function updateTrip(data) {

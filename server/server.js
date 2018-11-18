@@ -57,6 +57,7 @@ app.get('/api/getTrip', (req, res) => {
 
   Trip.findById(id, (err, doc) => {
     if (err) return res.status(400).send(err);
+    if (!doc) return res.status(400).send({ error: 'Document not found' });
 
     return res.send(doc);
   });

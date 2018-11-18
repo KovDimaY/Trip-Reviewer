@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment-js';
 
+import EmptyView from '../../components/Common/EmptyViewAddTrip';
 import { getUserReviews } from '../../actions';
 import { EDIT_POST } from '../../constants/routes';
 
@@ -18,28 +19,23 @@ class UserPosts extends Component {
     }
   }
 
-  showUserPosts = ({ userPosts }) => (
-    userPosts
-      ? userPosts.map(item => (
-        <tr key={item._id}>
-          <td className="post-title">
-            <Link to={`${EDIT_POST}/${item._id}`}>
-              {item.title}
-            </Link>
-          </td>
-          <td className="only-wide-screen">{item.country}</td>
-          <td>{moment(item.createdAt).format('MM/DD/YY')}</td>
-        </tr>
-      ))
-      : null
+  renderUserPosts = userPosts => (
+    userPosts.map(item => (
+      <tr key={item._id}>
+        <td className="post-title">
+          <Link to={`${EDIT_POST}/${item._id}`}>
+            {item.title}
+          </Link>
+        </td>
+        <td className="only-wide-screen">{item.country}</td>
+        <td>{moment(item.createdAt).format('MM/DD/YY')}</td>
+      </tr>
+    ))
   )
 
-  render() {
-    const { users } = this.props;
-
-    return (
-      <div className="user-posts-container limited-width">
-        <h2>Your reviews</h2>
+  renderContent(userPosts) {
+    if (userPosts && userPosts.length > 0) {
+      return (
         <table className="reviews-table">
           <thead>
             <tr>
@@ -49,9 +45,29 @@ class UserPosts extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.showUserPosts(users)}
+            {this.renderUserPosts(userPosts)}
           </tbody>
         </table>
+      );
+    } else if (userPosts) {
+      return (
+        <EmptyView
+          message="You do not have any story yet."
+          buttonText="Add my first story"
+        />
+      );
+    }
+
+    return null;
+  }
+
+  render() {
+    const { userPosts } = this.props.users;
+
+    return (
+      <div className="user-posts-container limited-width">
+        <h2>My stories</h2>
+        {this.renderContent(userPosts)}
       </div>
     );
   }

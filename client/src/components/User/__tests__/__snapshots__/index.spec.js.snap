@@ -2,43 +2,62 @@
 
 exports[`<User /> should render component 1`] = `
 <div
-  className="user_container"
+  className="user-container"
 >
   <div
-    className="avatar"
+    className="data-wrapper"
   >
-    <UserAvatar
-      filename={undefined}
-    />
+    <div
+      className="avatar"
+    >
+      <UserAvatar
+        filename={undefined}
+      />
+    </div>
+    <div
+      className="info-wrapper"
+    >
+      <div
+        className="info-item"
+        title="name"
+      >
+        <span
+          className="info-title"
+        >
+          Name:
+        </span>
+        name
+      </div>
+      <div
+        className="info-item"
+        title="lastname"
+      >
+        <span
+          className="info-title"
+        >
+          Lastname:
+        </span>
+        lastname
+      </div>
+      <div
+        className="info-item"
+        title="email"
+      >
+        <span
+          className="info-title"
+        >
+          Email:
+        </span>
+        email
+      </div>
+    </div>
   </div>
   <div
-    className="data"
-  >
-    <div>
-      <span>
-        Name:
-      </span>
-      name
-    </div>
-    <div>
-      <span>
-        Lastname:
-      </span>
-      lastname
-    </div>
-    <div>
-      <span>
-        Email:
-      </span>
-      email
-    </div>
-  </div>
-  <div
-    className="text-center"
+    className="text-center button-wrapper"
   >
     <Link
       className="button-link"
-      to="/user/edit-profile/undefined"
+      to="/user/edit-profile"
     >
       Edit Profile
     </Link>

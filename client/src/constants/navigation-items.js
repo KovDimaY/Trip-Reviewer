@@ -1,62 +1,65 @@
-import * as routes from '../../constants/routes';
+import * as routes from './routes';
 
-export const items = [
-  {
+export const home = 'HOME';
+export const userProfile = 'USER_PROFILE';
+export const signup = 'SIGNUP';
+export const login = 'LOGIN';
+export const userReviews = 'USER_REVIEWS';
+export const addTrip = 'ADD_TRIP';
+export const logout = 'LOGOUT';
+
+const items = {
+  [home]: {
     id: 1,
-    type: 'navItem',
     icon: 'home',
     text: 'Home',
     link: routes.HOME,
     restricted: false,
   },
-  {
+  [userProfile]: {
     id: 2,
-    type: 'navItem',
     icon: 'user',
-    text: 'My Profile',
+    text: 'Profile',
     link: routes.USER_PROFILE,
     restricted: true,
   },
-  {
+  [signup]: {
     id: 3,
-    type: 'navItem',
     icon: 'user-plus',
-    text: 'Register',
+    text: 'Signup',
     link: routes.REGISTER,
     restricted: false,
     exclude: true,
   },
-  {
+  [login]: {
     id: 4,
-    type: 'navItem',
     icon: 'sign-in-alt',
     text: 'Login',
     link: routes.LOGIN,
     restricted: false,
     exclude: true,
   },
-  {
+  [userReviews]: {
     id: 5,
-    type: 'navItem',
-    icon: 'file-alt',
-    text: 'My reviews',
+    icon: 'edit',
+    text: 'Edit',
     link: routes.USER_REVIEWS,
     restricted: true,
   },
-  {
+  [addTrip]: {
     id: 6,
-    type: 'navItem',
-    icon: 'edit',
-    text: 'Add reviews',
+    icon: 'file-alt',
+    text: 'Add',
     link: routes.ADD_TRIP,
     restricted: true,
   },
-  {
+  [logout]: {
     id: 7,
-    type: 'navItem',
     icon: 'sign-out-alt',
     text: 'Logout',
     link: routes.LOGOUT,
     restricted: true,
   },
-];
+};
+
+export default items;

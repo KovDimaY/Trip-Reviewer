@@ -1,5 +1,14 @@
 .register-container {
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.register-container .form-container {
+    margin: 0 25px 0 100px;
+}
+.register-container .user-list-container {
+    margin: 0 100px 0 25px;
 }
 .register-container .form_element {
     margin-top: 20px;
@@ -29,6 +38,15 @@
     border: none;
     margin-top: 20px;
     width: 260px;
+    cursor: pointer;
+}
+.register-container button:hover {
+    transform: scale(1.05);
+    background: #009EB3;
+}
+.register-container button:active {
+    transform: scale(1.01);
+    background: #0495A8;
 }
 .register-container .error {
     color: #FF5722;
@@ -38,12 +56,11 @@
     border: 2px solid #FF5722;
     color: #FF5722;
 }
-
 .register-container .users-title {
+    margin-bottom: 13px;
     font-size: 33px;
     font-weight: 300;
     color: orange;
-    margin: 50px auto 10px auto;
 }
 .register-container .existing-users {
     display: flex;
@@ -52,15 +69,15 @@
     margin: 0 auto 50px auto;
 }
 .register-container .user-container {
-    margin: 25px;
+    margin: 15px;
 }
 .register-container .user-avatar {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 .register-container .user-names {
-    width: 200px;
-    margin-top: 20px;
+    width: 150px;
+    margin-top: 10px;
 }
 .register-container .user-names p {
     color: #404040;
@@ -72,13 +89,30 @@
     overflow: hidden;
 }
 
+@media (max-width: 1049px) {
+    .register-container {
+        flex-direction: column;
+    }
+    .register-container .form-container {
+        margin: 0;
+    }
+    .register-container .user-list-container {
+        margin: 50px;
+    }
+}
+
 @media (max-width: 600px) {
+    .register-container {
+        text-align: center;
+    }
+    .register-container .user-list-container {
+        margin: 10px 25px;
+    }
     .register-container .users-title {
         margin: 50px auto 25px auto;
     }
     .register-container .existing-users {
         display: block;
-        padding: 0 10%;
     }
     .register-container .user-container {
         border: 1px solid #ebebeb;

@@ -1,5 +1,5 @@
 .home-container .loadmore {
-  background: #ffaf1a;
+  background: #00BCD4;
   text-align: center;
   text-transform: uppercase;
   color: #ffffff;
@@ -8,21 +8,14 @@
   font-weight: 500;
   cursor: pointer;
 }
-.home-container .empty-view {
-  text-align: center;
-  font-size: 24px;
-  margin: 50px 0;
-}
-.home-container .empty-view p {
-  margin: 25px 0;
+.home-container .empty-view-wrapper {
+  padding: 75px 0;
 }
 .home-container .loadmore:hover {
-  background: #ffa500;
-  font-size: 18px;
+  background: #009EB3;
+  transform: scale(1.05);
 }
-
-@media (max-width: 400px) {
-  .home-container .empty-view p {
-    font-size: 18px;
-  }
+.home-container .loadmore:active {
+  background: #0495A8;
+  transform: scale(1.01);
 }

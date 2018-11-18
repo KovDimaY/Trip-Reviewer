@@ -4,6 +4,7 @@ import { create } from 'react-test-renderer';
 import TripItem from '..';
 
 jest.mock('react-router-dom', () => ({ Link: 'Link ' }));
+jest.mock('../../Common/DetailsLabel', () => 'DetailsLabel');
 
 const mockComponent = props => (
   <TripItem {...props} />

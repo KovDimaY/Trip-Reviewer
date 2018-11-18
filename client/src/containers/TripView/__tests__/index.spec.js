@@ -127,4 +127,52 @@ describe('<TripView />', () => {
 
     expect(clearTripWithReviewer).toHaveBeenCalled();
   });
+
+  it('should redirect when componentWillReceiveProps is called with error', () => {
+    const push = jest.fn();
+    const initialState = {
+      trips: {},
+    };
+    const props = {
+      match: {
+        params: {
+          id: 'id',
+        },
+      },
+      history: { push },
+    };
+    const newProps = {
+      trips: { error: true },
+    };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+    instance.componentWillReceiveProps(newProps);
+
+    expect(push).toHaveBeenCalledWith('/Not-Found');
+  });
+
+  it('should not redirect when componentWillReceiveProps is called without error', () => {
+    const push = jest.fn();
+    const initialState = {
+      trips: {},
+    };
+    const props = {
+      match: {
+        params: {
+          id: 'id',
+        },
+      },
+      history: { push },
+    };
+    const newProps = {
+      trips: { error: false },
+    };
+
+    const instance = shallow(mockComponent(initialState, props)).dive().instance();
+
+    instance.componentWillReceiveProps(newProps);
+
+    expect(push).not.toHaveBeenCalledWith('/Not-Found');
+  });
 });

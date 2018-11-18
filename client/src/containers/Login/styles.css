@@ -2,13 +2,11 @@
     text-align: center;
     padding: 25px 0 50px 0;
 }
-
 .login-container h2 {
     font-size: 33px;
     font-weight: 300;
     color: #02bcd4;
 }
-
 .login-container input {
     font-size: 20px;
     border-radius: 3px;
@@ -19,8 +17,8 @@
     font-weight: 300;
     width: 260px;
 }
-
 .login-container button {
+    cursor: pointer;
     font-size: 20px;
     padding: 10px 52px;
     background: #02bcd4;
@@ -31,27 +29,32 @@
     margin-top: 20px;
     width: 260px;
 }
-
+.login-container button:hover {
+    background: #009EB3;
+    transform: scale(1.05);
+}
+.login-container button:active {
+    background: #0495A8;
+    transform: scale(1.01);
+}
 .login-container button:disabled {
+    background: #02bcd4;
     opacity: 0.5;
     cursor: not-allowed;
+    transform: none;
 }
-
 .login-container .error {
     color: #FF5722;
     margin-top: 10px;
     font-weight: 600;
 }
-
 .login-container .field-error {
     border: 2px solid #FF5722;
     color: #FF5722;
 }
-
 .login-container .form_element {
     margin-top: 20px;
 }
-
 .login-container .reset-password {
     color: gold;
     display: block;
