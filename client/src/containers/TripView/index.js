@@ -75,7 +75,7 @@ class TripView extends Component {
                 {duration === 1 ? ' 1 day' : ` ${duration} days`}
               </div>
               <div>
-                <span>Expences:</span>
+                <span>Expenses:</span>
                 {` $${expences} `}
               </div>
             </div>

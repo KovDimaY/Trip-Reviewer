@@ -21,7 +21,7 @@ const TripItem = ({
       </div>
 
       <DetailsLabel type={TYPES.expences} value={expences}>
-        <strong>Expences:</strong>
+        <strong>Expenses:</strong>
         {` $${expences}`}
       </DetailsLabel>
 
