@@ -220,13 +220,13 @@ class AddTrip extends Component {
 
           <div className="form_element">
             <span className="label">
-              Expences ($):
+              Expenses ($):
             </span>
             <input
               type="number"
               name="expences"
               className={`form-input ${this.getErrorClass('expences')}`}
-              placeholder="Enter expences"
+              placeholder="Enter expenses"
               value={expences}
               onChange={this.handleInput}
             />

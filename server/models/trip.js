@@ -52,7 +52,7 @@ const tripSchema = mongoose.Schema({
   },
   expences: {
     type: Number,
-    required: [true, 'Expences is required'],
+    required: [true, 'Expenses is required'],
     min: [0, 'Should be non negative'],
   },
   ownerId: {

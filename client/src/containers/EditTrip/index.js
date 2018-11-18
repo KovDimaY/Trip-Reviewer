@@ -278,13 +278,13 @@ class EditTrip extends PureComponent {
 
           <div className="form_element">
             <span className="label">
-              Expences ($):
+              Expenses ($):
             </span>
             <input
               type="number"
               name="expences"
               className={`form-input ${this.getErrorClass('expences')}`}
-              placeholder="Enter Price"
+              placeholder="Enter expenses"
               value={expences}
               onChange={this.handleInput}
             />
