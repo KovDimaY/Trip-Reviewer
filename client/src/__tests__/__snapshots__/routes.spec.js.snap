@@ -41,7 +41,7 @@ exports[`<Routes /> should render component 1`] = `
     <Route
       component={[Function]}
       exact={true}
-      path="/user/edit-profile/:id"
+      path="/user/edit-profile"
     />
     <Route
       component={[Function]}

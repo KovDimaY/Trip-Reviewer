@@ -9,7 +9,7 @@ import './styles.css';
 
 const User = (props) => {
   const user = props.users.login;
-  const redirect = `${EDIT_PROFILE}/${user.id}`;
+  const redirect = `${EDIT_PROFILE}`;
 
   return (
     <div className="user-container">
