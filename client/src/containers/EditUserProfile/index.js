@@ -304,7 +304,7 @@ class EditUserProfile extends PureComponent {
           <p className="disclamer-danger">
             * To change anything from the {'"'}Danger Zone{'"'} you should enter
             your <b>current password</b>. If you do not enter your current
-            password - nothing wiil be changed.
+            password - nothing will be changed.
           </p>
 
           { this.renderDangerZoneInputs() }

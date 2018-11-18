@@ -114,7 +114,7 @@ exports[`<EditUserProfile /> should render component 1`] = `
           <b>
             current password
           </b>
-          . If you do not enter your current password - nothing wiil be changed.
+          . If you do not enter your current password - nothing will be changed.
         </p>
         <div
           className="info danger"
@@ -338,7 +338,7 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
           <b>
             current password
           </b>
-          . If you do not enter your current password - nothing wiil be changed.
+          . If you do not enter your current password - nothing will be changed.
         </p>
         <div
           className="info danger"
