@@ -81,13 +81,13 @@ exports[`<AddTrip /> should render component 1`] = `
       <span
         className="label"
       >
-        Expences ($):
+        Expenses ($):
       </span>
       <input
         className="form-input "
         name="expences"
         onChange={[Function]}
-        placeholder="Enter expences"
+        placeholder="Enter expenses"
         type="number"
         value=""
       />
@@ -208,13 +208,13 @@ exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
       <span
         className="label"
       >
-        Expences ($):
+        Expenses ($):
       </span>
       <input
         className="form-input field-error"
         name="expences"
         onChange={[Function]}
-        placeholder="Enter expences"
+        placeholder="Enter expenses"
         type="number"
         value=""
       />
@@ -330,13 +330,13 @@ exports[`<AddTrip /> should render component with newTrip and success true 1`] =
       <span
         className="label"
       >
-        Expences ($):
+        Expenses ($):
       </span>
       <input
         className="form-input "
         name="expences"
         onChange={[Function]}
-        placeholder="Enter expences"
+        placeholder="Enter expenses"
         type="number"
         value=""
       />

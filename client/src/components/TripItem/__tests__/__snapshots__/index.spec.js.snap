@@ -23,7 +23,7 @@ exports[`<TripItem /> should render component with duration 1 1`] = `
       value="expences"
     >
       <strong>
-        Expences:
+        Expenses:
       </strong>
        $expences
     </DetailsLabel>
@@ -72,7 +72,7 @@ exports[`<TripItem /> should render component with duration 10 1`] = `
       value="expences"
     >
       <strong>
-        Expences:
+        Expenses:
       </strong>
        $expences
     </DetailsLabel>

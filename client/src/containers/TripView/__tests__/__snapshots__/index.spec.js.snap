@@ -48,7 +48,7 @@ exports[`<TripView /> should render component with current trip of 1 day and cor
       </div>
       <div>
         <span>
-          Expences:
+          Expenses:
         </span>
          $expences 
       </div>
@@ -116,7 +116,7 @@ exports[`<TripView /> should render component with current trip of 10 days and w
       </div>
       <div>
         <span>
-          Expences:
+          Expenses:
         </span>
          $expences 
       </div>
