@@ -103,6 +103,19 @@ exports[`<EditUserProfile /> should render component 1`] = `
         >
           Danger zone
         </p>
+        <p
+          className="disclamer-danger"
+        >
+          * To change anything from the 
+          "
+          Danger Zone
+          "
+           you should enter your 
+          <b>
+            current password
+          </b>
+          . If you do not enter your current password - nothing will be changed.
+        </p>
         <div
           className="info danger"
         >
@@ -313,6 +326,19 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
           className="danger-zone"
         >
           Danger zone
+        </p>
+        <p
+          className="disclamer-danger"
+        >
+          * To change anything from the 
+          "
+          Danger Zone
+          "
+           you should enter your 
+          <b>
+            current password
+          </b>
+          . If you do not enter your current password - nothing will be changed.
         </p>
         <div
           className="info danger"

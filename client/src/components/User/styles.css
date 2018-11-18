@@ -1,18 +1,18 @@
 .user-container {
-    max-width: 450px;
+    max-width: 500px;
     margin: 75px auto;
 }
 .user-container .data-wrapper {
     display: flex;
     flex-direction: row;
-    margin-bottom: 50px;
+    margin-bottom: 75px;
 }
 .user-container .avatar {
     width: 200px;
     height: 200px;
 }
 .user-container .info-wrapper {
-    margin-left: 50px;
+    margin-left: 100px;
 }
 .user-container .info-item {
     overflow: hidden;
@@ -41,11 +41,11 @@
     border: none;
 }
 .user-container .button-link:hover {
-    font-size: 22px;
+    transform: scale(1.05);
     background: #009EB3;
 }
 .user-container .button-link:active {
-    font-size: 21px;
+    transform: scale(1.01);
     background: #0495A8;
 }
 

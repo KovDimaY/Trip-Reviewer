@@ -49,11 +49,11 @@
     width: 80%;
 }
 .edit-review-container .add-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     background: #009eb3;
 }
 .edit-review-container .add-button:active {
-    transform: scale(1.05);
+    transform: scale(1.01);
     background: #0495a8;
 }
 .edit-review-container .add-button:disabled {
@@ -93,11 +93,11 @@
     margin-bottom: 50px;
 }
 .edit-review-container .delete-post .button:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     background: #d11553;
 }
 .edit-review-container .delete-post .button:active {
-    transform: scale(1.05);
+    transform: scale(1.01);
     background: #ba124a;
 }
 .edit-review-container .delete-post .loading,

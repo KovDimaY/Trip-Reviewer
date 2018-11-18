@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import TripItem from '../../components/TripItem/index';
-import EmptyView from '../../components/EmptyViewAddTrip';
+import EmptyView from '../../components/Common/EmptyViewAddTrip';
 import { getTrips } from '../../actions';
 
 import './styles.css';

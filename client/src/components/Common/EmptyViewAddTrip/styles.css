@@ -7,6 +7,8 @@
   font-size: 24px;
 }
 .empty-view-container .button {
+  display: inline-block;
+  cursor: pointer;
   font-size: 20px;
   padding: 10px 20px;
   background: #02bcd4;
@@ -14,7 +16,14 @@
   font-weight: 300;
   border-radius: 3px;
   border: none;
-  margin-top: 50px;
+}
+.empty-view-container .button:hover {
+  background: #009EB3;
+  transform: scale(1.05);
+}
+.empty-view-container .button:active {
+  background: #0495A8;
+  transform: scale(1.01);
 }
 
 @media (max-width: 400px) {

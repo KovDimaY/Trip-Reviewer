@@ -5,7 +5,7 @@ import { create } from 'react-test-renderer';
 import UserPosts from '..';
 
 jest.mock('react-router-dom', () => ({ Link: 'Link' }));
-jest.mock('./../../../components/EmptyViewAddTrip', () => 'EmptyView');
+jest.mock('./../../../components/Common/EmptyViewAddTrip', () => 'EmptyView');
 jest.mock('./../../../actions', () => ({
   getUserReviews: jest.fn(() => ({
     type: 'getTripWithReviewer',

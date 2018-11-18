@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment-js';
 
-import EmptyView from '../../components/EmptyViewAddTrip';
+import EmptyView from '../../components/Common/EmptyViewAddTrip';
 import { getUserReviews } from '../../actions';
 import { EDIT_POST } from '../../constants/routes';
 

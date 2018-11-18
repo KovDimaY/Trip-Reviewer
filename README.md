@@ -1,7 +1,7 @@
 # Trip-Reviewer
 [![Build Status](https://travis-ci.com/KovDimaY/Trip-Reviewer.svg?branch=master)](https://travis-ci.com/KovDimaY/Trip-Reviewer)
 [![Coverage Status](https://coveralls.io/repos/github/KovDimaY/Trip-Reviewer/badge.svg?branch=master)](https://coveralls.io/github/KovDimaY/Trip-Reviewer?branch=master)
-[![GitHub version](https://img.shields.io/badge/version-2.0.0-yellow.svg)](https://github.com/KovDimaY/Trip-Reviewer/releases)
+[![GitHub version](https://img.shields.io/badge/version-2.1.0-yellow.svg)](https://github.com/KovDimaY/Trip-Reviewer/releases)
 [![GitHub demo](https://img.shields.io/badge/demo-available-green.svg)](https://trip-reviewer.herokuapp.com)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/KovDimaY/Trip-Reviewer/blob/master/LICENSE)
 
@@ -12,7 +12,7 @@ This project was created to practice my full stack skills. It uses Mongo, React 
 Also it is my first project where it is implemented a custom authentication system with cache and jwt.
 This project has a very strict Git Flow, 100% test coverage and strict linting, CI with Travis, two environments and an Issue-Project-Release system to organise development process. I tried to make this project as organised as possible because I am a very methodological person and I like when everything is structured.
 
-The last deployed production version is [**Trip-Reviewer v2.0.0**](https://github.com/KovDimaY/Trip-Reviewer/releases). 
+The last deployed production version is [**Trip-Reviewer v2.1.0**](https://github.com/KovDimaY/Trip-Reviewer/releases). 
 <br>
 <br>
 
@@ -116,6 +116,11 @@ npm run dev
 ##### In the root of the project run the commands:
 ```
 npm run test
+```
+
+##### To run linter (ESLint):
+```
+npm run lint
 ```
 
 ##### To generate coverage report:
