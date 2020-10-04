@@ -106,8 +106,13 @@ const generateProfileUpdateTemplate = (name, lastname, email, newPassword, user)
 `;
 
 const setUpdateProfileEmailOptions = (
-  adminMail, emailTo, name,
-  lastname, email, newPassword, user,
+  adminMail,
+  emailTo,
+  name,
+  lastname,
+  email,
+  newPassword,
+  user
 ) => ({
   from: `"Admin TripReview" <${adminMail}>`,
   to: emailTo,
@@ -119,19 +124,25 @@ const updateProfileSendEmail = (transporter, mailOptions, res) => {
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.log(error); // eslint-disable-line no-console
-      return res.json({ success: true, error, message: 'Your data is updated, but the email failed to be sent' });
+      return res.json({
+        success: true,
+        error,
+        message: 'Your data is updated, but the email failed to be sent',
+      });
     }
     console.log(`Email sent: ${info.response}`); // eslint-disable-line no-console
-    return res.json({ success: true, info: info.response, message: 'Your profile was successfully updated' });
+    return res.json({
+      success: true,
+      info: info.response,
+      message: 'Your profile was successfully updated',
+    });
   });
 };
 
 const updateModelAndSendEmail = (Model, _id, fieldsToUpdate, res, transporter, data, user) => {
-  const {
-    adminMail, mailTo, name, lastname, email, newPassword,
-  } = data;
+  const { adminMail, mailTo, name, lastname, email, newPassword } = data;
 
-  Model.findByIdAndUpdate(_id, fieldsToUpdate, { new: true, runValidators: true }, (err) => {
+  Model.findByIdAndUpdate(_id, fieldsToUpdate, { new: true, runValidators: true }, err => {
     if (err && err.code === 11000) {
       return res.json({
         success: false,
@@ -146,7 +157,13 @@ const updateModelAndSendEmail = (Model, _id, fieldsToUpdate, res, transporter, d
     }
 
     const mailOptions = setUpdateProfileEmailOptions(
-      adminMail, mailTo, name, lastname, email, newPassword, user,
+      adminMail,
+      mailTo,
+      name,
+      lastname,
+      email,
+      newPassword,
+      user
     );
 
     return updateProfileSendEmail(transporter, mailOptions, res);
