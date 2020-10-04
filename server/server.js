@@ -160,8 +160,8 @@ app.post('/api/register', (req, res) => {
 });
 
 app.post('/api/login', (req, res) => {
+  // eslint-disable-next-line consistent-return
   User.findOne({ email: req.body.email }, (err1, user) => {
-    // eslint-disable-line consistent-return
     if (err1) return res.status(400).send(err1);
     if (!user) {
       return res.json({
@@ -173,8 +173,8 @@ app.post('/api/login', (req, res) => {
       });
     }
 
+    // eslint-disable-next-line consistent-return
     user.comparePassword(req.body.password, (err2, isMatch) => {
-      // eslint-disable-line consistent-return, max-len
       if (err2) return res.status(400).send(err2);
       if (!isMatch) {
         return res.json({
@@ -223,13 +223,13 @@ app.post('/api/userUpdate', (req, res) => {
     avatar,
   };
 
+  // eslint-disable-next-line consistent-return
   User.findById(_id, (err1, user) => {
-    // eslint-disable-line consistent-return
     if (err1) return res.status(400).send(err1);
 
     if (req.body.oldPassword) {
+      // eslint-disable-next-line consistent-return
       user.comparePassword(oldPassword, (err2, isMatch) => {
-        // eslint-disable-line consistent-return, max-len
         if (err2) return res.status(400).send(err2);
 
         if (!isMatch) {
