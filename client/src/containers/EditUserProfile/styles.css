@@ -1,183 +1,183 @@
 .edit-user-profile-container {
-    margin: auto;
-    padding: 50px 0;
+  margin: auto;
+  padding: 50px 0;
 }
 .edit-user-profile-container .form-content-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .edit-user-profile-container .left-column,
 .edit-user-profile-container .right-column {
-    padding: 0 25px;
-    width: 40%;
-    margin: 0 25px;
-    max-width: 400px;
+  padding: 0 25px;
+  width: 40%;
+  margin: 0 25px;
+  max-width: 400px;
 }
 .edit-user-profile-container .left-column {
-    padding-top: 15px;
+  padding-top: 15px;
 }
 .edit-user-profile-container .info .title-label {
-    display: block;
-    font-weight: 500;
-    color: #02bcd4;
+  display: block;
+  font-weight: 500;
+  color: #02bcd4;
 }
 .edit-user-profile-container .danger .title-label {
-    display: block;
-    color: orange;
+  display: block;
+  color: orange;
 }
 .edit-user-profile-container .avatar {
-    text-align: center;
+  text-align: center;
 }
 .edit-user-profile-container .info {
-    box-sizing: border-box;
-    margin: auto;
+  box-sizing: border-box;
+  margin: auto;
 }
 .edit-user-profile-container .info .form-element {
-    font-size: 23px;
-    font-weight: 300;
-    margin-top: 10px;
-    color: #a4a4a4;
+  font-size: 23px;
+  font-weight: 300;
+  margin-top: 10px;
+  color: #a4a4a4;
 }
 .edit-user-profile-container .danger-zone {
-    color: orangered;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin: 10px 0 10px 0;
+  color: orangered;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0 10px 0;
 }
 .edit-user-profile-container .disclamer {
-    color: darkgray;
-    text-align: center;
-    font-size: 12px;
-    margin-bottom: -5px;
+  color: darkgray;
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: -5px;
 }
 .edit-user-profile-container .disclamer-error {
-    color: red;
-    text-align: center;
-    font-size: 14px;
-    margin-bottom: -5px;
+  color: red;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: -5px;
 }
 .edit-user-profile-container .disclamer-danger {
-    color: darkgray;
-    text-align: center;
-    font-size: 12px;
-    width: 95%;
-    margin: 12px auto 30px;
+  color: darkgray;
+  text-align: center;
+  font-size: 12px;
+  width: 95%;
+  margin: 12px auto 30px;
 }
 .edit-user-profile-container input {
-    width: -webkit-fill-available;
-    border: solid 1px gray;
-    height: 36px;
-    margin: 5px 0;
-    padding-left: 10px;
-    font-size: 16px;
+  width: -webkit-fill-available;
+  border: solid 1px gray;
+  height: 36px;
+  margin: 5px 0;
+  padding-left: 10px;
+  font-size: 16px;
 }
 .edit-user-profile-container .user-avatar-controls {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    padding: 20px 0;
-    margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 20px 0;
+  margin: auto;
 }
 .edit-user-profile-container .user-avatar-controls .avatar-button {
-    text-align: center;
-    cursor: pointer;
-    display: block;
-    color: white;
-    padding: 10px;
-    border-radius: 4px;
-    width: 30%;
-    font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  width: 30%;
+  font-size: 16px;
 }
 .edit-user-profile-container .user-avatar-controls .update-user-avatar {
-    background-color: #02bcd4;
+  background-color: #02bcd4;
 }
 .edit-user-profile-container .user-avatar-controls .update-user-avatar:hover {
-    transform: scale(1.05);
-    background-color: #009EB3;
+  transform: scale(1.05);
+  background-color: #009eb3;
 }
 .edit-user-profile-container .user-avatar-controls .update-user-avatar:active {
-    transform: scale(1.01);
-    background-color: #0495A8;
+  transform: scale(1.01);
+  background-color: #0495a8;
 }
 .edit-user-profile-container .user-avatar-controls .delete-user-avatar {
-    background-color: orange;
+  background-color: orange;
 }
 .edit-user-profile-container .user-avatar-controls .delete-user-avatar:hover {
-    transform: scale(1.05);
-    background-color: #e69500;
+  transform: scale(1.05);
+  background-color: #e69500;
 }
 .edit-user-profile-container .user-avatar-controls .delete-user-avatar:active {
-    transform: scale(1.01);
-    background-color: #cc8500;
+  transform: scale(1.01);
+  background-color: #cc8500;
 }
 .edit-user-profile-container .button-link {
-    cursor: pointer;
-    font-size: 20px;
-    padding: 10px 15px;
-    background: #02bcd4;
-    color: #fff;
-    font-weight: 300;
-    border-radius: 3px;
-    border: none;
-    margin: 50px auto 0;
-    width: 260px;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px 15px;
+  background: #02bcd4;
+  color: #fff;
+  font-weight: 300;
+  border-radius: 3px;
+  border: none;
+  margin: 50px auto 0;
+  width: 260px;
 }
 .edit-user-profile-container .button-link:hover {
-    transform: scale(1.05);
-    background: #009EB3;
+  transform: scale(1.05);
+  background: #009eb3;
 }
 .edit-user-profile-container .button-link:active {
-    transform: scale(1.01);
-    background: #0495A8;
+  transform: scale(1.01);
+  background: #0495a8;
 }
 .edit-user-profile-container .calcel {
-    background-color: orange;
-    display: inline-block;
-    width: 230px;
-    margin: 25px auto;
+  background-color: orange;
+  display: inline-block;
+  width: 230px;
+  margin: 25px auto;
 }
 .edit-user-profile-container .calcel:hover {
-    transform: scale(1.05);
-    background: #e69500;
+  transform: scale(1.05);
+  background: #e69500;
 }
 .edit-user-profile-container .calcel:active {
-    transform: scale(1.01);
-    background: #cc8500;
+  transform: scale(1.01);
+  background: #cc8500;
 }
 .edit-user-profile-container .error {
-    color: #FF5722;
-    margin-top: 5px;
-    text-align: center;
+  color: #ff5722;
+  margin-top: 5px;
+  text-align: center;
 }
 .edit-user-profile-container .field-error {
-    border: 2px solid #FF5722;
-    color: #FF5722;
+  border: 2px solid #ff5722;
+  color: #ff5722;
 }
 .edit-user-profile-container .avatar {
-    width: 144px;
-    height: 144px;
-    margin: 0 auto 25px auto;
+  width: 144px;
+  height: 144px;
+  margin: 0 auto 25px auto;
 }
 
 @media (max-width: 800px) {
-    .edit-user-profile-container .form-content-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .edit-user-profile-container .left-column,
-    .edit-user-profile-container .right-column {
-        width: 75%;
-        margin: auto;
-        max-width: 400px;
-    }
-    .edit-user-profile-container .avatar {
-        width: 200px;
-        height: 200px;
-    }
-    .edit-user-profile-container .danger-zone {
-        margin: 50px 0 10px 0;
-    }
+  .edit-user-profile-container .form-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .edit-user-profile-container .left-column,
+  .edit-user-profile-container .right-column {
+    width: 75%;
+    margin: auto;
+    max-width: 400px;
+  }
+  .edit-user-profile-container .avatar {
+    width: 200px;
+    height: 200px;
+  }
+  .edit-user-profile-container .danger-zone {
+    margin: 50px 0 10px 0;
+  }
 }

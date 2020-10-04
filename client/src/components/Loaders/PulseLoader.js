@@ -1,4 +1,3 @@
-
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import assign from 'domkit/appendVendorPrefix';
@@ -23,7 +22,13 @@ const animationName = insertKeyframesRule(keyframes);
 
 class PulseLoader extends PureComponent {
   static getAnimationStyle(param) {
-    const animation = [animationName, '0.75s', `${param * 0.12}s`, 'infinite', 'cubic-bezier(.2,.68,.18,1.08)'].join(' ');
+    const animation = [
+      animationName,
+      '0.75s',
+      `${param * 0.12}s`,
+      'infinite',
+      'cubic-bezier(.2,.68,.18,1.08)',
+    ].join(' ');
     const animationFillMode = 'both';
 
     return {
@@ -44,13 +49,9 @@ class PulseLoader extends PureComponent {
   }
 
   getStyle(param) {
-    return assign(
-      this.getBallStyle(param),
-      PulseLoader.getAnimationStyle(param),
-      {
-        display: 'inline-block',
-      },
-    );
+    return assign(this.getBallStyle(param), PulseLoader.getAnimationStyle(param), {
+      display: 'inline-block',
+    });
   }
 
   render() {

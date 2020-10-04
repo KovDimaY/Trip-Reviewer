@@ -6,18 +6,16 @@ import './styles.css';
 
 class Logout extends Component {
   componentWillMount() {
-    axios
-      .get('/api/logout')
-      .then(this.handleResponce);
+    axios.get('/api/logout').then(this.handleResponce);
   }
 
   handleResponce = () => {
     setTimeout(this.redirectToHome, 2000);
-  }
+  };
 
   redirectToHome = () => {
     this.props.history.push('/');
-  }
+  };
 
   render() {
     return (

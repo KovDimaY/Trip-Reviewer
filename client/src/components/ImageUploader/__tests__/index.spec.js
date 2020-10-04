@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 import ImageUploader from '..';
 import { firebase } from '../../../firebase';
 
-jest.mock('react-firebase-file-uploader/lib/CustomUploadButton', () => ('CustomUploadButton'));
+jest.mock('react-firebase-file-uploader/lib/CustomUploadButton', () => 'CustomUploadButton');
 jest.mock('./../../../firebase', () => ({
   firebase: {
     auth: jest.fn(() => ({
@@ -20,9 +20,7 @@ jest.mock('./../../../firebase', () => ({
   },
 }));
 
-const mockComponent = props => (
-  <ImageUploader {...props} >Test</ImageUploader>
-);
+const mockComponent = props => <ImageUploader {...props}>Test</ImageUploader>;
 
 describe('<ImageUploader />', () => {
   it('should render component', () => {

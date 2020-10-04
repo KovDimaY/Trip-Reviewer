@@ -18,11 +18,11 @@
   border: none;
 }
 .empty-view-container .button:hover {
-  background: #009EB3;
+  background: #009eb3;
   transform: scale(1.05);
 }
 .empty-view-container .button:active {
-  background: #0495A8;
+  background: #0495a8;
   transform: scale(1.01);
 }
 

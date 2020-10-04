@@ -8,17 +8,13 @@ import DetailsLabel from '../Common/DetailsLabel';
 
 import './styles.css';
 
-const TripItem = ({
-  _id, title, country, expences, duration, rating,
-}) => (
+const TripItem = ({ _id, title, country, expences, duration, rating }) => (
   <Link to={`${TRIPS}/${_id}`} className="trip-item-container">
     <div className="header">
       <h2>{title}</h2>
     </div>
     <div className="items">
-      <div className="country">
-        {country}
-      </div>
+      <div className="country">{country}</div>
 
       <DetailsLabel type={TYPES.expences} value={expences}>
         <strong>Expenses:</strong>
@@ -45,7 +41,6 @@ TripItem.propTypes = {
   expences: PropTypes.number.isRequired,
   duration: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
-
 };
 
 export default TripItem;

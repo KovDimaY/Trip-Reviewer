@@ -1,27 +1,27 @@
 .stars-rating-container .star-empty {
-    color: black;
+  color: black;
 }
 
 .stars-rating-container .error-empty,
 .stars-rating-container .error-label {
-    color: red;
+  color: red;
 }
 
 .stars-rating-container .star-empty:before {
-    font-size: 39px;
+  font-size: 39px;
 }
 
 .stars-rating-container .star-full {
-    color: gold;
-    margin-top: 6px;
+  color: gold;
+  margin-top: 6px;
 }
 
 .stars-rating-container .star-full:before {
-    font-size: 27px;
+  font-size: 27px;
 }
 
 .stars-rating-container .rating-label {
-    display: block;
-    font-size: 24px;
-    margin-bottom: 5px;
+  display: block;
+  font-size: 24px;
+  margin-bottom: 5px;
 }

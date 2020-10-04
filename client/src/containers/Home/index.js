@@ -43,7 +43,7 @@ class HomeContainer extends Component {
     const order = 'desc';
 
     this.props.dispatch(getTrips(newItemsToLoad, startingFrom, order, list));
-  }
+  };
 
   renderItems() {
     const { list = [] } = this.props.trips;

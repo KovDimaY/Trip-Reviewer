@@ -23,7 +23,7 @@ class TripView extends Component {
     this.props.dispatch(clearTripWithReviewer());
   }
 
-  getEditorState = (state) => {
+  getEditorState = state => {
     let editorState = EditorState.createEmpty();
 
     try {
@@ -36,16 +36,13 @@ class TripView extends Component {
     }
 
     return editorState;
-  }
+  };
 
   render() {
     const { trips } = this.props;
 
     if (trips && trips.current) {
-      const {
-        title, country, description,
-        duration, rating, expences,
-      } = trips.current;
+      const { title, country, description, duration, rating, expences } = trips.current;
       const { name, lastname } = trips.reviewer;
 
       return (

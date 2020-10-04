@@ -17,9 +17,7 @@ const mockStore = configureStore();
 const mockComponent = (initialState = {}, props) => {
   const store = mockStore(initialState);
 
-  return (
-    <UserPosts {...props} store={store} />
-  );
+  return <UserPosts {...props} store={store} />;
 };
 
 describe('<UserPosts />', () => {
@@ -43,18 +41,20 @@ describe('<UserPosts />', () => {
         login: {
           id: 'id',
         },
-        userPosts: [{
-          _id: 'id1',
-          title: 'title1',
-          country: 'country1',
-          createdAt: 'createdAt1',
-        },
-        {
-          _id: 'id2',
-          title: 'title2',
-          country: 'country2',
-          createdAt: 'createdAt2',
-        }],
+        userPosts: [
+          {
+            _id: 'id1',
+            title: 'title1',
+            country: 'country1',
+            createdAt: 'createdAt1',
+          },
+          {
+            _id: 'id2',
+            title: 'title2',
+            country: 'country2',
+            createdAt: 'createdAt2',
+          },
+        ],
       },
     };
     const tree = create(mockComponent(initialState)).toJSON();

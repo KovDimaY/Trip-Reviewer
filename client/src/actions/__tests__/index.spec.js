@@ -44,7 +44,6 @@ import {
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-
 describe('Testing async actions', () => {
   beforeEach(() => {
     moxios.install();
@@ -182,9 +181,7 @@ describe('Testing async actions', () => {
         });
       });
 
-      const expectedActions = [
-        { type: GET_USER_REVIEWS, payload: responceMock },
-      ];
+      const expectedActions = [{ type: GET_USER_REVIEWS, payload: responceMock }];
 
       const store = mockStore({});
 
@@ -206,9 +203,7 @@ describe('Testing async actions', () => {
         });
       });
 
-      const expectedActions = [
-        { type: GET_TRIP, payload: responceMock },
-      ];
+      const expectedActions = [{ type: GET_TRIP, payload: responceMock }];
 
       const store = mockStore({});
 
@@ -251,9 +246,7 @@ describe('Testing async actions', () => {
         });
       });
 
-      const expectedActions = [
-        { type: UPDATE_TRIP, payload: responceMock },
-      ];
+      const expectedActions = [{ type: UPDATE_TRIP, payload: responceMock }];
 
       const store = mockStore({});
 
@@ -275,9 +268,7 @@ describe('Testing async actions', () => {
         });
       });
 
-      const expectedActions = [
-        { type: UPDATE_USER, payload: responceMock },
-      ];
+      const expectedActions = [{ type: UPDATE_USER, payload: responceMock }];
 
       const store = mockStore({});
 
@@ -299,9 +290,7 @@ describe('Testing async actions', () => {
         });
       });
 
-      const expectedActions = [
-        { type: DELETE_TRIP, payload: responceMock },
-      ];
+      const expectedActions = [{ type: DELETE_TRIP, payload: responceMock }];
 
       const store = mockStore({});
 
@@ -326,9 +315,7 @@ describe('Testing async actions', () => {
         });
       });
 
-      const expectedActions = [
-        { type: USER_LOGIN, payload: responceMock },
-      ];
+      const expectedActions = [{ type: USER_LOGIN, payload: responceMock }];
 
       const store = mockStore({});
 
@@ -349,9 +336,7 @@ describe('Testing async actions', () => {
         });
       });
 
-      const expectedActions = [
-        { type: USER_AUTH, payload: responceMock },
-      ];
+      const expectedActions = [{ type: USER_AUTH, payload: responceMock }];
 
       const store = mockStore({});
 
@@ -372,9 +357,7 @@ describe('Testing async actions', () => {
         });
       });
 
-      const expectedActions = [
-        { type: ADD_TRIP, payload: responceMock },
-      ];
+      const expectedActions = [{ type: ADD_TRIP, payload: responceMock }];
 
       const store = mockStore({});
 
@@ -395,9 +378,7 @@ describe('Testing async actions', () => {
         });
       });
 
-      const expectedActions = [
-        { type: GET_USERS, payload: responceMock },
-      ];
+      const expectedActions = [{ type: GET_USERS, payload: responceMock }];
 
       const store = mockStore({});
 
@@ -418,9 +399,7 @@ describe('Testing async actions', () => {
         });
       });
 
-      const expectedActions = [
-        { type: USER_REGISTER, payload: responceMock },
-      ];
+      const expectedActions = [{ type: USER_REGISTER, payload: responceMock }];
 
       const store = mockStore({});
 
@@ -444,9 +423,7 @@ describe('Testing async actions', () => {
         });
       });
 
-      const expectedActions = [
-        { type: RESET_PASSWORD, payload: responceMock },
-      ];
+      const expectedActions = [{ type: RESET_PASSWORD, payload: responceMock }];
 
       const store = mockStore({});
 

@@ -9,16 +9,16 @@ import './styles.css';
 class ResetPass extends Component {
   state = {
     email: '',
-  }
+  };
 
-  handleInputEmail = (event) => {
+  handleInputEmail = event => {
     this.setState({ email: event.target.value });
-  }
+  };
 
-  submitForm = (event) => {
+  submitForm = event => {
     event.preventDefault();
     this.props.dispatch(resetPassword(this.state));
-  }
+  };
 
   render() {
     const { users } = this.props;
@@ -39,13 +39,7 @@ class ResetPass extends Component {
 
           <button type="submit">Reset</button>
 
-          <div className="error">
-            {
-              users.reset
-                ? <div>{users.reset.message}</div>
-                : null
-            }
-          </div>
+          <div className="error">{users.reset ? <div>{users.reset.message}</div> : null}</div>
         </form>
       </div>
     );

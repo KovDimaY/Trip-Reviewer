@@ -4,9 +4,7 @@ import { create } from 'react-test-renderer';
 import DetailsLabel from '..';
 import { TYPES } from '../utils';
 
-const mockComponent = props => (
-  <DetailsLabel {...props} />
-);
+const mockComponent = props => <DetailsLabel {...props} />;
 
 describe('<DetailsLabel />', () => {
   describe('Duration', () => {

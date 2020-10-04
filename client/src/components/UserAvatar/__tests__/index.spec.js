@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 import UserAvatar from '..';
 import { firebase } from '../../../firebase';
 
-jest.mock('./../../Loaders/PulseLoader', () => ('Loader'));
+jest.mock('./../../Loaders/PulseLoader', () => 'Loader');
 jest.mock('./../../../firebase', () => ({
   firebase: {
     storage: jest.fn(() => ({
@@ -20,10 +20,7 @@ jest.mock('./../../../firebase', () => ({
   },
 }));
 
-
-const mockComponent = props => (
-  <UserAvatar {...props} />
-);
+const mockComponent = props => <UserAvatar {...props} />;
 
 describe('<UserAvatar />', () => {
   it('should render component with no filename', () => {

@@ -6,9 +6,7 @@ import Sidenav from '..';
 jest.mock('react-simple-sidenav', () => 'ReactSideNav');
 jest.mock('./../../../containers/NavigationItem', () => 'NavigationItem');
 
-const mockComponent = props => (
-  <Sidenav {...props} />
-);
+const mockComponent = props => <Sidenav {...props} />;
 
 describe('<Sidenav />', () => {
   it('should render component', () => {

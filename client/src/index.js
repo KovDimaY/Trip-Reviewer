@@ -11,5 +11,5 @@ ReactDOM.render(
       <Routes />
     </BrowserRouter>
   </Root>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );

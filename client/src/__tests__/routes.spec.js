@@ -9,9 +9,7 @@ jest.mock('react-router-dom', () => ({
   Route: 'Route',
 }));
 
-const mockComponent = props => (
-  <Routes {...props} />
-);
+const mockComponent = props => <Routes {...props} />;
 
 describe('<Routes />', () => {
   it('should render component', () => {

@@ -4,11 +4,9 @@ import { mount } from 'enzyme';
 
 import StarsRating from '..';
 
-jest.mock('react-rating', () => ('Rating'));
+jest.mock('react-rating', () => 'Rating');
 
-const mockComponent = props => (
-  <StarsRating {...props} />
-);
+const mockComponent = props => <StarsRating {...props} />;
 
 describe('<StarsRating />', () => {
   it('should render component', () => {
