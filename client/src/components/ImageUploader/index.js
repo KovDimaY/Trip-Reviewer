@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadButton';
 import { firebase } from '../../firebase';
 
-
 class ImageUploader extends Component {
   componentWillMount() {
     firebase.auth().signInAnonymously().catch(this.handleAuthError);
@@ -13,26 +12,26 @@ class ImageUploader extends Component {
     firebase.auth().signOut();
   }
 
-  handleAuthError = (error) => {
+  handleAuthError = error => {
     console.log(error); // eslint-disable-line no-console
-  }
+  };
 
   handleUploadStart = () => {
     this.props.onUploadStarts();
-  }
+  };
 
-  handleUploadError = (error) => {
+  handleUploadError = error => {
     console.log(error); // eslint-disable-line no-console
     this.props.onUploadError(error);
-  }
+  };
 
-  handleProgress = (progress) => {
+  handleProgress = progress => {
     this.props.onUploadProgress(progress);
-  }
+  };
 
-  handleUploadSuccess = (filename) => {
+  handleUploadSuccess = filename => {
     this.props.onUploadSuccess(filename);
-  }
+  };
 
   render() {
     return (

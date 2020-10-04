@@ -6,9 +6,7 @@ import TripItem from '..';
 jest.mock('react-router-dom', () => ({ Link: 'Link ' }));
 jest.mock('../../Common/DetailsLabel', () => 'DetailsLabel');
 
-const mockComponent = props => (
-  <TripItem {...props} />
-);
+const mockComponent = props => <TripItem {...props} />;
 
 describe('<TripItem />', () => {
   it('should render component with duration 1', () => {

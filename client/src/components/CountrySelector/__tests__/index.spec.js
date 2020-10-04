@@ -5,29 +5,29 @@ import { shallow } from 'enzyme';
 import CountrySelector from '..';
 
 jest.mock('../../../constants/countries', () => ({
-  COUNTRIES: [{
-    countryName: 'Afghanistan',
-    ISOALPHA2Code: 'AF',
-    ISOALPHA3Code: 'AFG',
-    ISONumericalCode: 4,
-  },
-  {
-    countryName: 'Aland Islands',
-    ISOALPHA2Code: 'AX',
-    ISOALPHA3Code: 'ALA',
-    ISONumericalCode: 248,
-  },
-  {
-    countryName: 'Albania',
-    ISOALPHA2Code: 'AL',
-    ISOALPHA3Code: 'ALB',
-    ISONumericalCode: 8,
-  }],
+  COUNTRIES: [
+    {
+      countryName: 'Afghanistan',
+      ISOALPHA2Code: 'AF',
+      ISOALPHA3Code: 'AFG',
+      ISONumericalCode: 4,
+    },
+    {
+      countryName: 'Aland Islands',
+      ISOALPHA2Code: 'AX',
+      ISOALPHA3Code: 'ALA',
+      ISONumericalCode: 248,
+    },
+    {
+      countryName: 'Albania',
+      ISOALPHA2Code: 'AL',
+      ISOALPHA3Code: 'ALB',
+      ISONumericalCode: 8,
+    },
+  ],
 }));
 
-const mockComponent = props => (
-  <CountrySelector {...props} />
-);
+const mockComponent = props => <CountrySelector {...props} />;
 
 describe('<CountrySelector />', () => {
   it('should render component with no props provided', () => {

@@ -13,7 +13,6 @@ import {
 } from '../../constants/action-names';
 import reducer from '../trips';
 
-
 describe('trips reducer', () => {
   it('handles actions of unknown type', () => {
     const action = {

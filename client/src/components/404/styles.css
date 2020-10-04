@@ -7,7 +7,7 @@
 }
 .not-found-container .picture {
   height: 500px;
-  background-image: url("./image.png");
+  background-image: url('./image.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -38,11 +38,11 @@
   cursor: pointer;
 }
 .not-found-container .button:hover {
-  background: #009EB3;
+  background: #009eb3;
   transform: scale(1.05);
 }
 .not-found-container .button:active {
-  background: #0495A8;
+  background: #0495a8;
   transform: scale(1.01);
 }
 

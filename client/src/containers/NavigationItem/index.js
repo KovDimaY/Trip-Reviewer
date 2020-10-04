@@ -14,7 +14,9 @@ const NavigationItem = ({ item, users, sidenav }) => {
   const element = (
     <Wrapper to={data[item].link} sidenav={sidenav ? 1 : 0} limit={WIDTH_LIMIT}>
       <Icon name={data[item].icon} />
-      <Label sidenav={sidenav ? 1 : 0} limit={WIDTH_LIMIT}>{data[item].text}</Label>
+      <Label sidenav={sidenav ? 1 : 0} limit={WIDTH_LIMIT}>
+        {data[item].text}
+      </Label>
     </Wrapper>
   );
 
@@ -25,11 +27,7 @@ const NavigationItem = ({ item, users, sidenav }) => {
     return !data[item].restricted ? element : null;
   };
 
-  return (
-    <React.Fragment>
-      {showItem()}
-    </React.Fragment>
-  );
+  return <React.Fragment>{showItem()}</React.Fragment>;
 };
 
 NavigationItem.propTypes = {

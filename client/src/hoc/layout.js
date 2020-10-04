@@ -7,9 +7,7 @@ import Footer from '../components/Footer/index';
 const Layout = props => (
   <div>
     <Header />
-    <div style={{ minHeight: '95vh' }}>
-      {props.children}
-    </div>
+    <div style={{ minHeight: '95vh' }}>{props.children}</div>
     <Footer />
   </div>
 );

@@ -28,9 +28,7 @@ const mockStore = configureStore();
 const mockComponent = (initialState = {}, props) => {
   const store = mockStore(initialState);
 
-  return (
-    <TripView {...props} store={store} />
-  );
+  return <TripView {...props} store={store} />;
 };
 
 describe('<TripView />', () => {

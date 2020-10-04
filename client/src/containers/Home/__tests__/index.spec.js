@@ -22,9 +22,7 @@ const mockStore = configureStore();
 const mockComponent = (initialState = {}, props) => {
   const store = mockStore(initialState);
 
-  return (
-    <HomeContainer {...props} store={store} />
-  );
+  return <HomeContainer {...props} store={store} />;
 };
 
 describe('<HomeContainer />', () => {
@@ -66,7 +64,11 @@ describe('<HomeContainer />', () => {
 
     const result = instance.renderItems();
 
-    expect(result).toEqual(<div className="empty-view-wrapper"><EmptyView /></div>);
+    expect(result).toEqual(
+      <div className="empty-view-wrapper">
+        <EmptyView />
+      </div>
+    );
   });
 
   it('renderLoadMoreButton should not return null if the showLoadmore is true and initialRender - false', () => {

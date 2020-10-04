@@ -59,7 +59,7 @@ class AddTrip extends Component {
     this.props.dispatch(clearNewTrip());
   }
 
-  onEditorStateChange = (editorState) => {
+  onEditorStateChange = editorState => {
     const newFormdata = { ...this.state.formdata };
     const newHideError = {
       ...this.state.hideError,
@@ -75,7 +75,7 @@ class AddTrip extends Component {
       formdata: newFormdata,
       hideError: newHideError,
     });
-  }
+  };
 
   getErrorClass(fieldName) {
     return this.formFieldHasError(fieldName) ? 'field-error' : '';
@@ -89,7 +89,7 @@ class AddTrip extends Component {
     return errors && errors[fieldName] && !hideError[fieldName];
   }
 
-  handleInput = (event) => {
+  handleInput = event => {
     const newFormdata = { ...this.state.formdata };
     const newHideError = { ...this.state.hideError };
     const { value, name } = event.target;
@@ -101,9 +101,9 @@ class AddTrip extends Component {
       formdata: newFormdata,
       hideError: newHideError,
     });
-  }
+  };
 
-  handleCountrychange = (countryObject) => {
+  handleCountrychange = countryObject => {
     const newFormdata = {
       ...this.state.formdata,
       country: countryObject.countryName,
@@ -112,9 +112,9 @@ class AddTrip extends Component {
     this.setState({
       formdata: newFormdata,
     });
-  }
+  };
 
-  handleRating = (rating) => {
+  handleRating = rating => {
     const newFormdata = {
       ...this.state.formdata,
       rating,
@@ -128,36 +128,31 @@ class AddTrip extends Component {
       formdata: newFormdata,
       hideError: newHideError,
     });
-  }
+  };
 
-  submitForm = (event) => {
+  submitForm = event => {
     event.preventDefault();
-    this.props.dispatch(addTrip({
-      ...this.state.formdata,
-      ownerId: this.props.users.login.id,
-    }));
+    this.props.dispatch(
+      addTrip({
+        ...this.state.formdata,
+        ownerId: this.props.users.login.id,
+      })
+    );
     this.setState({ loading: true });
-  }
+  };
 
   renderError(fieldName) {
     if (this.formFieldHasError(fieldName)) {
       const error = this.props.trips.newtrip.error.errors[fieldName];
 
-      return (
-        <div className="error">
-          {error.message}
-        </div>
-      );
+      return <div className="error">{error.message}</div>;
     }
     return null;
   }
 
   render() {
     const { loading, formdata } = this.state;
-    const {
-      title, country,
-      duration, rating, expences,
-    } = formdata;
+    const { title, country, duration, rating, expences } = formdata;
 
     return (
       <div className="add-review-container limited-width">
@@ -165,9 +160,7 @@ class AddTrip extends Component {
           <h2 className="title">Add a story</h2>
 
           <div className="form_element">
-            <span className="label">
-              Title:
-            </span>
+            <span className="label">Title:</span>
             <input
               type="text"
               name="title"
@@ -177,12 +170,10 @@ class AddTrip extends Component {
               onChange={this.handleInput}
             />
           </div>
-          { this.renderError('title') }
+          {this.renderError('title')}
 
           <div className="form_element">
-            <span className="label">
-              Trip to:
-            </span>
+            <span className="label">Trip to:</span>
             <CountrySelector
               defaultCountry={country}
               getSelectedCountry={this.handleCountrychange}
@@ -190,9 +181,7 @@ class AddTrip extends Component {
           </div>
 
           <div className="form_element">
-            <span className="label">
-              Description:
-            </span>
+            <span className="label">Description:</span>
             <Editor
               editorState={this.state.editorState}
               wrapperClassName={`editor-wrapper ${this.getErrorClass('description')}`}
@@ -201,12 +190,10 @@ class AddTrip extends Component {
               toolbar={toolbar}
             />
           </div>
-          { this.renderError('description') }
+          {this.renderError('description')}
 
           <div className="form_element">
-            <span className="label">
-              Duration (days):
-            </span>
+            <span className="label">Duration (days):</span>
             <input
               type="number"
               name="duration"
@@ -216,12 +203,10 @@ class AddTrip extends Component {
               onChange={this.handleInput}
             />
           </div>
-          { this.renderError('duration') }
+          {this.renderError('duration')}
 
           <div className="form_element">
-            <span className="label">
-              Expenses ($):
-            </span>
+            <span className="label">Expenses ($):</span>
             <input
               type="number"
               name="expences"
@@ -231,12 +216,16 @@ class AddTrip extends Component {
               onChange={this.handleInput}
             />
           </div>
-          { this.renderError('expences') }
+          {this.renderError('expences')}
 
           <div className="form_element">
-            <StarsRating rating={rating} error={this.getErrorClass('rating')} onChange={this.handleRating} />
+            <StarsRating
+              rating={rating}
+              error={this.getErrorClass('rating')}
+              onChange={this.handleRating}
+            />
           </div>
-          { this.renderError('rating') }
+          {this.renderError('rating')}
 
           <button type="submit" className="add-button" disabled={loading}>
             Add story
