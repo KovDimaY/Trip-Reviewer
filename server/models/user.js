@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const config = require('./../config/config').get(process.env.NODE_ENV);
@@ -55,7 +55,8 @@ const userSchema = mongoose.Schema({
   },
 });
 
-userSchema.pre('save', function (next) { // eslint-disable-line consistent-return
+// eslint-disable-next-line consistent-return
+userSchema.pre('save', function (next) {
   const user = this;
 
   if (user.isModified('password')) {
@@ -132,7 +133,6 @@ userSchema.methods.deleteToken = function (token, callback) {
     return callback(null, doc);
   });
 };
-
 
 const User = mongoose.model('User', userSchema);
 
