@@ -5,7 +5,7 @@ node_js:
 cache:
   directories:
     - node_modules
-  
+
 install:
   - npm install
   - cd client
@@ -17,7 +17,7 @@ jobs:
   include:
     - stage: Produce Coverage
       node_js: 8.6.0
-      script: 
+      script:
         - npm run lint
         - npm run test:coverage && cat ./client/coverage/jest/lcov.info | ./client/node_modules/coveralls/bin/coveralls.js
 
