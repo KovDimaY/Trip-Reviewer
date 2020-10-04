@@ -9,10 +9,7 @@ const path = require('path');
 
 const config = require('./config/config').get(process.env.NODE_ENV);
 const { encryptPassword } = require('./helpers/auth');
-const {
-  updateModelAndSendEmail,
-  generateResetPasswordTemplate,
-} = require('./helpers/mailing');
+const { updateModelAndSendEmail, generateResetPasswordTemplate } = require('./helpers/mailing');
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -37,7 +34,6 @@ const transporter = nodemailer.createTransport({
     pass: adminPassword,
   },
 });
-
 
 // GET //
 app.get('/api/auth', auth, (req, res) => {
@@ -70,7 +66,10 @@ app.get('/api/getManyTrips', (req, res) => {
   const order = req.query.order === 'desc' ? 'desc' : 'asc';
 
   // ORDER = asc || desc
-  Trip.find().skip(skip).sort({ _id: order }).limit(limit)
+  Trip.find()
+    .skip(skip)
+    .sort({ _id: order })
+    .limit(limit)
     .exec((err, doc) => {
       if (err) return res.status(400).send(err);
 
@@ -116,15 +115,13 @@ app.get('/api/getUserReviews', (req, res) => {
   });
 });
 
-
 app.get('/api/logout', auth, (req, res) => {
-  req.user.deleteToken(req.token, (err) => {
+  req.user.deleteToken(req.token, err => {
     if (err) return res.status(400).send(err);
 
     return res.sendStatus(200);
   });
 });
-
 
 // POST //
 app.post('/api/trip', (req, res) => {
@@ -148,7 +145,7 @@ app.post('/api/trip', (req, res) => {
 app.post('/api/register', (req, res) => {
   const user = new User(req.body);
 
-  user.save((err1) => {
+  user.save(err1 => {
     if (err1) return res.json({ success: false, error: err1 });
 
     return user.generateToken((err2, doc) => {
@@ -163,7 +160,8 @@ app.post('/api/register', (req, res) => {
 });
 
 app.post('/api/login', (req, res) => {
-  User.findOne({ email: req.body.email }, (err1, user) => { // eslint-disable-line consistent-return
+  User.findOne({ email: req.body.email }, (err1, user) => {
+    // eslint-disable-line consistent-return
     if (err1) return res.status(400).send(err1);
     if (!user) {
       return res.json({
@@ -175,7 +173,8 @@ app.post('/api/login', (req, res) => {
       });
     }
 
-    user.comparePassword(req.body.password, (err2, isMatch) => { // eslint-disable-line consistent-return, max-len
+    user.comparePassword(req.body.password, (err2, isMatch) => {
+      // eslint-disable-line consistent-return, max-len
       if (err2) return res.status(400).send(err2);
       if (!isMatch) {
         return res.json({
@@ -199,7 +198,6 @@ app.post('/api/login', (req, res) => {
   });
 });
 
-
 // UPDATE //
 app.post('/api/tripUpdate', (req, res) => {
   Trip.findByIdAndUpdate(req.body._id, req.body, { new: true, runValidators: true }, (err, doc) => {
@@ -218,21 +216,20 @@ app.post('/api/tripUpdate', (req, res) => {
 });
 
 app.post('/api/userUpdate', (req, res) => {
-  const {
-    _id, name, lastname, email, avatar,
-    oldPassword, newPassword, repeatPassword,
-  } = req.body;
+  const { _id, name, lastname, email, avatar, oldPassword, newPassword, repeatPassword } = req.body;
   const fieldsToUpdate = {
     name,
     lastname,
     avatar,
   };
 
-  User.findById(_id, (err1, user) => { // eslint-disable-line consistent-return
+  User.findById(_id, (err1, user) => {
+    // eslint-disable-line consistent-return
     if (err1) return res.status(400).send(err1);
 
     if (req.body.oldPassword) {
-      user.comparePassword(oldPassword, (err2, isMatch) => { // eslint-disable-line consistent-return, max-len
+      user.comparePassword(oldPassword, (err2, isMatch) => {
+        // eslint-disable-line consistent-return, max-len
         if (err2) return res.status(400).send(err2);
 
         if (!isMatch) {
@@ -258,11 +255,21 @@ app.post('/api/userUpdate', (req, res) => {
               fieldsToUpdate.password = encrypted;
 
               return updateModelAndSendEmail(
-                User, _id, fieldsToUpdate, res, transporter,
+                User,
+                _id,
+                fieldsToUpdate,
+                res,
+                transporter,
                 {
-                  adminMail, mailTo: user.email, name, lastname, avatar, email, newPassword,
+                  adminMail,
+                  mailTo: user.email,
+                  name,
+                  lastname,
+                  avatar,
+                  email,
+                  newPassword,
                 },
-                user,
+                user
               );
             });
           } else {
@@ -287,16 +294,26 @@ app.post('/api/userUpdate', (req, res) => {
           fieldsToUpdate.email = email;
 
           updateModelAndSendEmail(
-            User, _id, fieldsToUpdate, res, transporter,
+            User,
+            _id,
+            fieldsToUpdate,
+            res,
+            transporter,
             {
-              adminMail, mailTo: user.email, name, lastname, avatar, email, newPassword: null,
+              adminMail,
+              mailTo: user.email,
+              name,
+              lastname,
+              avatar,
+              email,
+              newPassword: null,
             },
-            user,
+            user
           );
         }
       });
     } else {
-      User.findByIdAndUpdate(_id, fieldsToUpdate, { new: true, runValidators: true }, (err4) => {
+      User.findByIdAndUpdate(_id, fieldsToUpdate, { new: true, runValidators: true }, err4 => {
         if (err4) return res.json({ success: false, error: err4 });
 
         return res.json({
@@ -335,12 +352,16 @@ app.post('/api/resetPassword', (req, res) => {
             return res.json({ success: false, error });
           }
           console.log(`Email sent: ${info.response}`); // eslint-disable-line no-console
-          return res.json({ success: true, info: info.response, message: 'New password is sent to your email' });
+          return res.json({
+            success: true,
+            info: info.response,
+            message: 'New password is sent to your email',
+          });
         });
-      });
+      }
+    );
   });
 });
-
 
 // DELETE //
 
@@ -348,7 +369,7 @@ app.post('/api/resetPassword', (req, res) => {
 app.delete('/api/tripDelete', (req, res) => {
   const { id } = req.query;
 
-  Trip.findByIdAndRemove(id, (err) => {
+  Trip.findByIdAndRemove(id, err => {
     if (err) return res.status(400).send(err);
 
     return res.json(true);
@@ -360,7 +381,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendfile(path.resolve(__dirname, '../client', 'build', 'index.html'));
   });
 }
-
 
 // SERVE //
 app.listen(port, () => {
