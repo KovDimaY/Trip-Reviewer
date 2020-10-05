@@ -25,15 +25,11 @@ exports[`<EditUserProfile /> should render component 1`] = `
         >
           * To be sure that your avatar will be updated correctly 
           <br />
-          press
-           
+          press 
           <b>
-            "
-            Submit changes
-            "
+            "Submit changes"
           </b>
-           
-          button at the bottom of the page
+           button at the bottom of the page
         </p>
         <div
           className="user-avatar-controls"
@@ -105,12 +101,7 @@ exports[`<EditUserProfile /> should render component 1`] = `
         <p
           className="disclamer-danger"
         >
-          * To change anything from the 
-          "
-          Danger Zone
-          "
-           you should enter your
-           
+          * To change anything from the "Danger Zone" you should enter your 
           <b>
             current password
           </b>
@@ -239,15 +230,11 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
         >
           * To be sure that your avatar will be updated correctly 
           <br />
-          press
-           
+          press 
           <b>
-            "
-            Submit changes
-            "
+            "Submit changes"
           </b>
-           
-          button at the bottom of the page
+           button at the bottom of the page
         </p>
         <div
           className="user-avatar-controls"
@@ -329,12 +316,7 @@ exports[`<EditUserProfile /> should render component with error 1`] = `
         <p
           className="disclamer-danger"
         >
-          * To change anything from the 
-          "
-          Danger Zone
-          "
-           you should enter your
-           
+          * To change anything from the "Danger Zone" you should enter your 
           <b>
             current password
           </b>
