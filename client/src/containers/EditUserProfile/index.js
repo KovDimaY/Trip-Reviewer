@@ -278,11 +278,7 @@ class EditUserProfile extends PureComponent {
     return (
       <p className="disclamer">
         * To be sure that your avatar will be updated correctly <br />
-        press{' '}
-        <b>
-          {'"'}Submit changes{'"'}
-        </b>{' '}
-        button at the bottom of the page
+        press <b>&quot;Submit changes&quot;</b> button at the bottom of the page
       </p>
     );
   }
@@ -305,7 +301,7 @@ class EditUserProfile extends PureComponent {
         <div className="right-column">
           <p className="danger-zone">Danger zone</p>
           <p className="disclamer-danger">
-            * To change anything from the {'"'}Danger Zone{'"'} you should enter your{' '}
+            * To change anything from the &quot;Danger Zone&quot; you should enter your&nbsp;
             <b>current password</b>. If you do not enter your current password - nothing will be
             changed.
           </p>
