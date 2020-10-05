@@ -3,9 +3,7 @@ import { create } from 'react-test-renderer';
 
 import Root from '../root';
 
-const mockComponent = props => (
-  <Root {...props} />
-);
+const mockComponent = props => <Root {...props} />;
 
 describe('<Root />', () => {
   it('should render component', () => {

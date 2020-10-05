@@ -42,9 +42,7 @@ const mockStore = configureStore();
 const mockComponent = (initialState = {}, props) => {
   const store = mockStore(initialState);
 
-  return (
-    <EditTrip {...props} store={store} />
-  );
+  return <EditTrip {...props} store={store} />;
 };
 
 describe('<EditTrip />', () => {

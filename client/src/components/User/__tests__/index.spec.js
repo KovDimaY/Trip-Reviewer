@@ -6,9 +6,7 @@ import User from '..';
 jest.mock('react-router-dom', () => ({ Link: 'Link' }));
 jest.mock('../../UserAvatar', () => 'UserAvatar');
 
-const mockComponent = props => (
-  <User {...props} />
-);
+const mockComponent = props => <User {...props} />;
 
 describe('<User />', () => {
   it('should render component', () => {

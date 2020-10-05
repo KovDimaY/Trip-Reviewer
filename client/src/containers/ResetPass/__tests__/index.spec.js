@@ -17,9 +17,7 @@ jest.mock('./../../../actions', () => ({
 const mockComponent = (initialState = {}, props) => {
   const store = mockStore(initialState);
 
-  return (
-    <ResetPass {...props} store={store} />
-  );
+  return <ResetPass {...props} store={store} />;
 };
 
 describe('<ResetPass />', () => {

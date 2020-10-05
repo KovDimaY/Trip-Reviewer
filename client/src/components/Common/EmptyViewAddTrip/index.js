@@ -8,7 +8,9 @@ import './styles.css';
 const EmptyViewAddTrip = ({ message, buttonText }) => (
   <div className="empty-view-container">
     <p className="message">{message}</p>
-    <a className="button" href={ADD_TRIP}>{buttonText}</a>
+    <a className="button" href={ADD_TRIP}>
+      {buttonText}
+    </a>
   </div>
 );
 

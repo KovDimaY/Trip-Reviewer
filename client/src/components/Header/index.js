@@ -5,8 +5,13 @@ import { Link } from 'react-router-dom';
 import NavigationItem from '../../containers/NavigationItem';
 import SideNav from '../Sidenav';
 import {
-  home, userProfile, signup,
-  login, userReviews, addTrip, logout,
+  home,
+  userProfile,
+  signup,
+  login,
+  userReviews,
+  addTrip,
+  logout,
 } from '../../constants/navigation-items';
 
 import './styles.css';
@@ -14,17 +19,17 @@ import './styles.css';
 class Header extends Component {
   state = {
     showNav: false,
-  }
+  };
 
   handleHideNav = () => {
     window.removeEventListener('resize', this.handleHideNav);
     this.setState({ showNav: false });
-  }
+  };
 
   handleOpenNav = () => {
     window.addEventListener('resize', this.handleHideNav);
     this.setState({ showNav: true });
-  }
+  };
 
   render() {
     return (
@@ -41,10 +46,7 @@ class Header extends Component {
               }}
             />
           </div>
-          <SideNav
-            showNav={this.state.showNav}
-            onHideNav={this.handleHideNav}
-          />
+          <SideNav showNav={this.state.showNav} onHideNav={this.handleHideNav} />
         </div>
 
         <div className="only-desktop">

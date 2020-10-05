@@ -9,8 +9,8 @@ import { updateUser } from '../../../actions';
 import { USER_PROFILE } from '../../../constants/routes';
 
 jest.mock('react-router-dom', () => ({ Link: 'Link' }));
-jest.mock('./../../../components/ImageUploader', () => ('ImageUploader'));
-jest.mock('./../../../components/UserAvatar', () => ('UserAvatar'));
+jest.mock('./../../../components/ImageUploader', () => 'ImageUploader');
+jest.mock('./../../../components/UserAvatar', () => 'UserAvatar');
 jest.mock('./../../../actions', () => ({
   updateUser: jest.fn(() => ({
     type: UPDATE_USER,
@@ -23,9 +23,7 @@ const mockStore = configureStore();
 const mockComponent = (initialState = {}, props) => {
   const store = mockStore(initialState);
 
-  return (
-    <EditUserProfile {...props} store={store} />
-  );
+  return <EditUserProfile {...props} store={store} />;
 };
 
 describe('<EditUserProfile />', () => {

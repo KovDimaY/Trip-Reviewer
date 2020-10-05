@@ -6,9 +6,7 @@ import Layout from '../layout';
 jest.mock('./../../components/Header/index', () => 'Header');
 jest.mock('./../../components/Footer/index', () => 'Footer');
 
-const mockComponent = props => (
-  <Layout {...props} />
-);
+const mockComponent = props => <Layout {...props} />;
 
 describe('<Layout />', () => {
   it('should render component', () => {

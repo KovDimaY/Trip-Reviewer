@@ -3,9 +3,7 @@ import { create } from 'react-test-renderer';
 
 import Label from '../Label';
 
-const mockComponent = props => (
-  <Label {...props} />
-);
+const mockComponent = props => <Label {...props} />;
 
 describe('NavigationItem/<Label />', () => {
   it('should render regular component', () => {

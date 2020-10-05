@@ -5,9 +5,7 @@ import Wrapper from '../Wrapper';
 
 jest.mock('react-router-dom', () => ({ Link: 'Link' }));
 
-const mockComponent = props => (
-  <Wrapper {...props} />
-);
+const mockComponent = props => <Wrapper {...props} />;
 
 describe('NavigationItem/<Wrapper />', () => {
   it('should render regular component', () => {

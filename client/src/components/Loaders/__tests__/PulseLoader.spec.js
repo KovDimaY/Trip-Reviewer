@@ -5,9 +5,7 @@ import PulseLoader from '../PulseLoader';
 
 jest.mock('domkit/insertKeyframesRule', () => jest.fn(() => 'animation'));
 
-const mockComponent = props => (
-  <PulseLoader {...props} />
-);
+const mockComponent = props => <PulseLoader {...props} />;
 
 describe('<PulseLoader />', () => {
   it('should render component with default props', () => {
