@@ -3,9 +3,7 @@ import { create } from 'react-test-renderer';
 
 import Footer from '..';
 
-const mockComponent = props => (
-  <Footer {...props} />
-);
+const mockComponent = props => <Footer {...props} />;
 
 describe('<Footer />', () => {
   it('should render component', () => {

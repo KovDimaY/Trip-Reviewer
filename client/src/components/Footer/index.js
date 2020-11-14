@@ -4,12 +4,7 @@ import './styles.css';
 
 const Footer = () => {
   const renderIcon = (url, type) => (
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href={url}
-      className={`footer-${type}`}
-    >
+    <a target="_blank" rel="noopener noreferrer" href={url} className={`footer-${type}`}>
       <i className={`fab fa-${type}`} />
     </a>
   );

@@ -1,68 +1,68 @@
 .user-container {
-    max-width: 500px;
-    margin: 75px auto;
+  max-width: 500px;
+  margin: 75px auto;
 }
 .user-container .data-wrapper {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 75px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 75px;
 }
 .user-container .avatar {
-    width: 200px;
-    height: 200px;
+  width: 200px;
+  height: 200px;
 }
 .user-container .info-wrapper {
-    margin-left: 100px;
+  margin-left: 100px;
 }
 .user-container .info-item {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 18px;
-    font-weight: 300;
-    margin-bottom: 20px;
-    color: #a4a4a4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  color: #a4a4a4;
 }
 .user-container .info-title {
-    display: block;
-    font-weight: 500;
-    font-size: 24px;
-    color: #02bcd4;
-    margin-bottom: 5px;
+  display: block;
+  font-weight: 500;
+  font-size: 24px;
+  color: #02bcd4;
+  margin-bottom: 5px;
 }
 .user-container .button-link {
-    width: 172px;
-    display: inline-block;
-    font-size: 20px;
-    padding: 10px 15px;
-    background: #02BCD4;
-    color: #fff;
-    font-weight: 300;
-    border-radius: 3px;
-    border: none;
+  width: 172px;
+  display: inline-block;
+  font-size: 20px;
+  padding: 10px 15px;
+  background: #02bcd4;
+  color: #fff;
+  font-weight: 300;
+  border-radius: 3px;
+  border: none;
 }
 .user-container .button-link:hover {
-    transform: scale(1.05);
-    background: #009EB3;
+  transform: scale(1.05);
+  background: #009eb3;
 }
 .user-container .button-link:active {
-    transform: scale(1.01);
-    background: #0495A8;
+  transform: scale(1.01);
+  background: #0495a8;
 }
 
 @media (max-width: 800px) {
-    .user-container {
-        margin: 50px auto 75px;
-    }
-    .user-container .data-wrapper {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        margin: 0;
-    }
-    .user-container .info-wrapper {
-        margin: 50px 0;
-    }
-    .user-container .data .info-item {
-        text-align: center;
-    }
+  .user-container {
+    margin: 50px auto 75px;
+  }
+  .user-container .data-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+  }
+  .user-container .info-wrapper {
+    margin: 50px 0;
+  }
+  .user-container .data .info-item {
+    text-align: center;
+  }
 }

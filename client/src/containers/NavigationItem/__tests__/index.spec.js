@@ -14,9 +14,7 @@ const mockStore = configureStore();
 const mockComponent = (initialState = {}, props) => {
   const store = mockStore(initialState);
 
-  return (
-    <NavigationItem {...props} store={store} />
-  );
+  return <NavigationItem {...props} store={store} />;
 };
 
 describe('<NavigationItem />', () => {

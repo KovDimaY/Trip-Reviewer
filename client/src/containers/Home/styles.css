@@ -1,5 +1,5 @@
 .home-container .loadmore {
-  background: #00BCD4;
+  background: #00bcd4;
   text-align: center;
   text-transform: uppercase;
   color: #ffffff;
@@ -12,10 +12,10 @@
   padding: 75px 0;
 }
 .home-container .loadmore:hover {
-  background: #009EB3;
+  background: #009eb3;
   transform: scale(1.05);
 }
 .home-container .loadmore:active {
-  background: #0495A8;
+  background: #0495a8;
   transform: scale(1.01);
 }

@@ -42,12 +42,12 @@ class Login extends Component {
     return error && error.field === fieldName && !hideError[fieldName];
   }
 
-  submitForm = (event) => {
+  submitForm = event => {
     event.preventDefault();
     this.props.dispatch(loginUser(this.state.formData));
-  }
+  };
 
-  handleInput = (event) => {
+  handleInput = event => {
     const newFormData = { ...this.state.formData };
     const newHideError = { ...this.state.hideError };
     const { value, name } = event.target;
@@ -59,17 +59,13 @@ class Login extends Component {
       formData: newFormData,
       hideError: newHideError,
     });
-  }
+  };
 
   renderError(fieldName) {
     if (this.formFieldHasError(fieldName)) {
       const { error } = this.props.users.login;
 
-      return (
-        <div className="error">
-          {error.message}
-        </div>
-      );
+      return <div className="error">{error.message}</div>;
     }
     return null;
   }
@@ -82,9 +78,7 @@ class Login extends Component {
     return (
       <div className="login-container">
         <form onSubmit={this.submitForm}>
-          <h2>
-            Log in here
-          </h2>
+          <h2>Log in here</h2>
 
           <div className="form_element">
             <input
@@ -96,7 +90,7 @@ class Login extends Component {
               onChange={this.handleInput}
             />
           </div>
-          { this.renderError('email') }
+          {this.renderError('email')}
 
           <div className="form_element">
             <input
@@ -108,21 +102,18 @@ class Login extends Component {
               onChange={this.handleInput}
             />
           </div>
-          { this.renderError('password') }
+          {this.renderError('password')}
 
           <button type="submit" disabled={disableButton}>
             Log in
           </button>
           <br />
 
-          {
-            error && error.message && (
-              <a href="reset-password" className="reset-password">
-                Forgot my password
-              </a>
-            )
-          }
-
+          {error && error.message && (
+            <a href="reset-password" className="reset-password">
+              Forgot my password
+            </a>
+          )}
         </form>
       </div>
     );

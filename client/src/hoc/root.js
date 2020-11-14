@@ -10,9 +10,7 @@ import reducers from '../reducers';
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, ReduxThunk)(createStore);
 
 const Root = props => (
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    {props.children}
-  </Provider>
+  <Provider store={createStoreWithMiddleware(reducers)}>{props.children}</Provider>
 );
 
 Root.propTypes = {
@@ -20,4 +18,3 @@ Root.propTypes = {
 };
 
 export default Root;
-

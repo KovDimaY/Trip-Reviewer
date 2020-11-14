@@ -22,9 +22,7 @@ const mockStore = configureStore();
 const mockComponent = (initialState = {}, props) => {
   const store = mockStore(initialState);
 
-  return (
-    <Register {...props} store={store} />
-  );
+  return <Register {...props} store={store} />;
 };
 
 describe('<Register />', () => {

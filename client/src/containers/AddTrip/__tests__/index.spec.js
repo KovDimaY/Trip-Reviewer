@@ -31,9 +31,7 @@ const mockStore = configureStore();
 const mockComponent = (initialState = {}, props) => {
   const store = mockStore(initialState);
 
-  return (
-    <AddTrip {...props} store={store} />
-  );
+  return <AddTrip {...props} store={store} />;
 };
 
 describe('<AddTrip />', () => {

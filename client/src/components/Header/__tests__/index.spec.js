@@ -8,9 +8,7 @@ jest.mock('../../Sidenav', () => 'SideNav');
 jest.mock('../../../containers/NavigationItem', () => 'NavigationItem');
 jest.mock('react-router-dom', () => ({ Link: 'Link' }));
 
-const mockComponent = props => (
-  <Header {...props} />
-);
+const mockComponent = props => <Header {...props} />;
 
 describe('<Header />', () => {
   it('should render component', () => {

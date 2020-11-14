@@ -7,7 +7,7 @@ import { EDIT_PROFILE } from '../../constants/routes';
 
 import './styles.css';
 
-const User = (props) => {
+const User = props => {
   const user = props.users.login;
   const redirect = `${EDIT_PROFILE}`;
 

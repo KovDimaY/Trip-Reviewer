@@ -4,9 +4,7 @@ import { shallow } from 'enzyme';
 
 import NotFound from '..';
 
-const mockComponent = props => (
-  <NotFound {...props} />
-);
+const mockComponent = props => <NotFound {...props} />;
 
 describe('<NotFound />', () => {
   it('should render component', () => {

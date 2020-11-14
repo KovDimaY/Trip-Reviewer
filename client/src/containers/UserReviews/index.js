@@ -19,19 +19,16 @@ class UserPosts extends Component {
     }
   }
 
-  renderUserPosts = userPosts => (
+  renderUserPosts = userPosts =>
     userPosts.map(item => (
       <tr key={item._id}>
         <td className="post-title">
-          <Link to={`${EDIT_POST}/${item._id}`}>
-            {item.title}
-          </Link>
+          <Link to={`${EDIT_POST}/${item._id}`}>{item.title}</Link>
         </td>
         <td className="only-wide-screen">{item.country}</td>
         <td>{moment(item.createdAt).format('MM/DD/YY')}</td>
       </tr>
-    ))
-  )
+    ));
 
   renderContent(userPosts) {
     if (userPosts && userPosts.length > 0) {
@@ -44,18 +41,11 @@ class UserPosts extends Component {
               <th>Date</th>
             </tr>
           </thead>
-          <tbody>
-            {this.renderUserPosts(userPosts)}
-          </tbody>
+          <tbody>{this.renderUserPosts(userPosts)}</tbody>
         </table>
       );
     } else if (userPosts) {
-      return (
-        <EmptyView
-          message="You do not have any story yet."
-          buttonText="Add my first story"
-        />
-      );
+      return <EmptyView message="You do not have any story yet." buttonText="Add my first story" />;
     }
 
     return null;

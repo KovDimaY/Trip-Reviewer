@@ -40,9 +40,12 @@ class EditUserProfile extends PureComponent {
   };
 
   componentWillMount() {
-    firebase.auth().signInAnonymously().catch((error) => {
-      console.log(error); // eslint-disable-line no-console
-    });
+    firebase
+      .auth()
+      .signInAnonymously()
+      .catch(error => {
+        console.log(error); // eslint-disable-line no-console
+      });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -69,13 +72,13 @@ class EditUserProfile extends PureComponent {
       progress: 0,
       uploadError: null,
     });
-  }
+  };
 
-  onUploadProgress = (progress) => {
+  onUploadProgress = progress => {
     this.setState({ progress });
-  }
+  };
 
-  onUploadSuccess = (filename) => {
+  onUploadSuccess = filename => {
     const newFormData = { ...this.state.formData };
 
     newFormData.avatar = filename;
@@ -85,11 +88,11 @@ class EditUserProfile extends PureComponent {
       isUploading: false,
       progress: 100,
     });
-  }
+  };
 
-  onUploadError = (error) => {
+  onUploadError = error => {
     this.setState({ isUploading: false, uploadError: error });
-  }
+  };
 
   getErrorClass(fieldName) {
     return this.formFieldHasError(fieldName) ? 'field-error' : '';
@@ -101,9 +104,9 @@ class EditUserProfile extends PureComponent {
     newFormData.avatar = null;
 
     this.setState({ formData: newFormData });
-  }
+  };
 
-  handleInput = (event) => {
+  handleInput = event => {
     const newFormData = { ...this.state.formData };
     const newHideError = { ...this.state.hideError };
     const { value, name } = event.target;
@@ -115,12 +118,12 @@ class EditUserProfile extends PureComponent {
       formData: newFormData,
       hideError: newHideError,
     });
-  }
+  };
 
-  submitForm = (event) => {
+  submitForm = event => {
     event.preventDefault();
     this.props.dispatch(updateUser(this.state.formData));
-  }
+  };
 
   formFieldHasError(fieldName) {
     const { result } = this.props;
@@ -184,7 +187,7 @@ class EditUserProfile extends PureComponent {
             onChange={this.handleInput}
           />
         </div>
-        { this.renderError('name') }
+        {this.renderError('name')}
 
         <div className="form-element">
           <span className="title-label">Lastname:</span>
@@ -197,16 +200,13 @@ class EditUserProfile extends PureComponent {
             onChange={this.handleInput}
           />
         </div>
-        { this.renderError('lastname') }
+        {this.renderError('lastname')}
       </div>
     );
   }
 
   renderDangerZoneInputs() {
-    const {
-      oldPassword, newPassword,
-      repeatPassword, email,
-    } = this.state.formData;
+    const { oldPassword, newPassword, repeatPassword, email } = this.state.formData;
 
     return (
       <div className="info danger">
@@ -221,7 +221,7 @@ class EditUserProfile extends PureComponent {
             onChange={this.handleInput}
           />
         </div>
-        { this.renderError('oldPassword') }
+        {this.renderError('oldPassword')}
 
         <div className="form-element">
           <span className="title-label">New Password:</span>
@@ -234,7 +234,7 @@ class EditUserProfile extends PureComponent {
             onChange={this.handleInput}
           />
         </div>
-        { this.renderError('newPassword') }
+        {this.renderError('newPassword')}
 
         <div className="form-element">
           <span className="title-label">Repeat New Password:</span>
@@ -247,7 +247,7 @@ class EditUserProfile extends PureComponent {
             onChange={this.handleInput}
           />
         </div>
-        { this.renderError('repeatPassword') }
+        {this.renderError('repeatPassword')}
 
         <div className="form-element">
           <span className="title-label">Email:</span>
@@ -260,7 +260,7 @@ class EditUserProfile extends PureComponent {
             onChange={this.handleInput}
           />
         </div>
-        { this.renderError('email') }
+        {this.renderError('email')}
       </div>
     );
   }
@@ -269,17 +269,16 @@ class EditUserProfile extends PureComponent {
     if (this.state.uploadError) {
       return (
         <p className="disclamer-error">
-          Upload was not successful.<br />
-          The avatar image should be smaller than{' '}
-          <b>1MB</b>.
+          Upload was not successful.
+          <br />
+          The avatar image should be smaller than <b>1MB</b>.
         </p>
       );
     }
     return (
       <p className="disclamer">
-        * To be sure that your avatar will be updated correctly{' '}<br />
-        press{' '}<b>{'"'}Submit changes{'"'}</b>{' '}
-        button at the bottom of the page
+        * To be sure that your avatar will be updated correctly <br />
+        press <b>&quot;Submit changes&quot;</b> button at the bottom of the page
       </p>
     );
   }
@@ -294,21 +293,21 @@ class EditUserProfile extends PureComponent {
             <UserAvatar filename={avatar} />
           </div>
 
-          { this.renderDisclaimer() }
-          { this.renderAvatarControls() }
-          { this.renderSoftInfoInputs() }
+          {this.renderDisclaimer()}
+          {this.renderAvatarControls()}
+          {this.renderSoftInfoInputs()}
         </div>
 
         <div className="right-column">
           <p className="danger-zone">Danger zone</p>
           <p className="disclamer-danger">
-            * To change anything from the {'"'}Danger Zone{'"'} you should enter
-            your <b>current password</b>. If you do not enter your current
-            password - nothing will be changed.
+            * To change anything from the &quot;Danger Zone&quot; you should enter your&nbsp;
+            <b>current password</b>. If you do not enter your current password - nothing will be
+            changed.
           </p>
 
-          { this.renderDangerZoneInputs() }
-          { this.renderError() }
+          {this.renderDangerZoneInputs()}
+          {this.renderError()}
         </div>
       </div>
     );
@@ -318,7 +317,7 @@ class EditUserProfile extends PureComponent {
     return (
       <div className="edit-user-profile-container">
         <form onSubmit={this.submitForm}>
-          { this.renderFormContent() }
+          {this.renderFormContent()}
 
           <div className="text-center">
             <button type="submit" className="button-link">

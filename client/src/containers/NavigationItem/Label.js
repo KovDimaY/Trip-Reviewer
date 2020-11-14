@@ -13,7 +13,7 @@ const Label = styled.span`
   &:hover {
     color: white;
   }
-  
+
   ${props => getCalculatedStyles(props)}
 `;
 

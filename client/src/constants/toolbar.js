@@ -1,3 +1,4 @@
+// prettier-ignore
 const toolbar = {
   options: ['image', 'emoji', 'link', 'inline', 'list', 'textAlign', 'remove', 'history'],
   inline: {

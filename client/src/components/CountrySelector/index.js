@@ -34,66 +34,59 @@ class CountrySelector extends React.Component {
     }
   }
 
-  getCountry = (props) => {
+  getCountry = props => {
     let country = {};
 
     if (props.defaultCountry) {
-      country = COUNTRIES
-        .find(item => item.countryName === props.defaultCountry);
+      country = COUNTRIES.find(item => item.countryName === props.defaultCountry);
     } else if (props.defaultISOALPHA2Code) {
-      country = COUNTRIES
-        .find(item => item.ISOALPHA2Code === props.defaultISOALPHA2Code);
+      country = COUNTRIES.find(item => item.ISOALPHA2Code === props.defaultISOALPHA2Code);
     } else if (props.defaultISOALPHA3Code) {
-      country = COUNTRIES
-        .find(item => item.ISOALPHA3Code === props.defaultISOALPHA3Code);
+      country = COUNTRIES.find(item => item.ISOALPHA3Code === props.defaultISOALPHA3Code);
     } else if (props.defaultISONumericalCode) {
-      country = COUNTRIES
-        .find(item => item.ISONumericalCode === props.defaultISONumericalCode);
+      country = COUNTRIES.find(item => item.ISONumericalCode === props.defaultISONumericalCode);
     }
 
     return country && Object.keys(country).length ? country : COUNTRIES[0];
-  }
+  };
 
-  handleSelectCountry = (country) => {
+  handleSelectCountry = country => {
     this.setState({ currentCountry: country });
-  }
+  };
 
-  handleChangeCountry = (e) => {
+  handleChangeCountry = e => {
     const query = e.target.value.toLowerCase().trim();
 
-    const displayedCountries = COUNTRIES
-      .filter(item => item.countryName.toLowerCase().search(query) >= 0);
+    const displayedCountries = COUNTRIES.filter(
+      item => item.countryName.toLowerCase().search(query) >= 0
+    );
 
     this.setState({ displayedCountries });
-  }
+  };
 
-  focusInput = (component) => {
+  focusInput = component => {
     if (component) {
       component.focus();
     }
-  }
+  };
 
-  show = (e) => {
+  show = e => {
     this.setState({ isListVisible: true });
 
     if (typeof window !== 'undefined' && e.target.tagName.toUpperCase() !== 'INPUT') {
       document.addEventListener('click', this.hide);
     }
-  }
+  };
 
-  hide = (e) => {
+  hide = e => {
     if (typeof window !== 'undefined' && e.target.tagName.toUpperCase() !== 'INPUT') {
       this.setState({ isListVisible: false });
       document.removeEventListener('click', this.hide);
     }
-  }
+  };
 
   render() {
-    const {
-      currentCountry,
-      isListVisible,
-      displayedCountries,
-    } = this.state;
+    const { currentCountry, isListVisible, displayedCountries } = this.state;
 
     return (
       <div className="country-selector-container">
@@ -104,10 +97,11 @@ class CountrySelector extends React.Component {
                 alt="flag"
                 className={
                   currentCountry.ISOALPHA2Code
-                      ? `flag ${currentCountry.ISOALPHA2Code.toLowerCase()} fnone c-dropdown-flag`
-                      : 'c-dropdown-flag'
+                    ? `flag ${currentCountry.ISOALPHA2Code.toLowerCase()} fnone c-dropdown-flag`
+                    : 'c-dropdown-flag'
                 }
-              />{currentCountry.countryName}
+              />
+              {currentCountry.countryName}
             </span>
           </div>
           <div
@@ -121,24 +115,23 @@ class CountrySelector extends React.Component {
               onInput={this.handleChangeCountry}
             />
             <div className="c-dropdown-menu-overflow">
-              <ul className="c-dropdown-ul">{
-                displayedCountries.map((item, index) => {
-                    const flag = item.ISOALPHA2Code.toLowerCase();
-                    return (
-                      <li
-                        tabIndex={index}
-                        className="dropdown-item c-dropdown-item"
-                        data-country={item.ISOALPHA2Code}
-                        key={item.ISOALPHA2Code}
-                        onClick={() => this.handleSelectCountry(item)}
-                      >
-                        <div data-option={`${item.ISOALPHA2Code}`}>
-                          <div className={`flag ${flag} fnone c-dropdown-flag`} /> {item.countryName}
-                        </div>
-                      </li>
-                    );
-                })
-                }
+              <ul className="c-dropdown-ul">
+                {displayedCountries.map((item, index) => {
+                  const flag = item.ISOALPHA2Code.toLowerCase();
+                  return (
+                    <li
+                      tabIndex={index}
+                      className="dropdown-item c-dropdown-item"
+                      data-country={item.ISOALPHA2Code}
+                      key={item.ISOALPHA2Code}
+                      onClick={() => this.handleSelectCountry(item)}
+                    >
+                      <div data-option={`${item.ISOALPHA2Code}`}>
+                        <div className={`flag ${flag} fnone c-dropdown-flag`} /> {item.countryName}
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>

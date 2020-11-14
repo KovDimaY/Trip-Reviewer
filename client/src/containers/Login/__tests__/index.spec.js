@@ -18,9 +18,7 @@ jest.mock('./../../../actions', () => ({
 const mockComponent = (initialState = {}, props) => {
   const store = mockStore(initialState);
 
-  return (
-    <Login {...props} store={store} />
-  );
+  return <Login {...props} store={store} />;
 };
 
 describe('<Login />', () => {

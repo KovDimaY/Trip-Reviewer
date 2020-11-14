@@ -1,5 +1,4 @@
-
-.reset-password-container  {
+.reset-password-container {
   text-align: center;
   padding: 25px 0 50px 0;
 }
@@ -33,7 +32,7 @@
   width: 260px;
 }
 .reset-password-container .error {
-  color: #FF5722;
+  color: #ff5722;
   margin-top: 20px;
   font-weight: 600;
 }

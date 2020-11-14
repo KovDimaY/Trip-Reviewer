@@ -4,9 +4,7 @@ import { mount } from 'enzyme';
 
 import Logout from '..';
 
-const mockComponent = props => (
-  <Logout {...props} />
-);
+const mockComponent = props => <Logout {...props} />;
 
 describe('<Logout />', () => {
   jest.useFakeTimers();

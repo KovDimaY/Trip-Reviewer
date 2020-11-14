@@ -1,136 +1,136 @@
 .register-container {
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 .register-container .form-container {
-    margin: 0 25px 0 100px;
+  margin: 0 25px 0 100px;
 }
 .register-container .user-list-container {
-    margin: 0 100px 0 25px;
+  margin: 0 100px 0 25px;
 }
 .register-container .form_element {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 .register-container .form-title {
-    font-size: 33px;
-    font-weight: 300;
-    color: #02bcd4;
+  font-size: 33px;
+  font-weight: 300;
+  color: #02bcd4;
 }
 .register-container input {
-    font-size: 20px;
-    border-radius: 3px;
-    border: 1px solid #ebebeb;
-    box-sizing: border-box;
-    padding: 11px 31px;
-    background: #f7f7f7;
-    font-weight: 300;
-    width: 260px;
+  font-size: 20px;
+  border-radius: 3px;
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
+  padding: 11px 31px;
+  background: #f7f7f7;
+  font-weight: 300;
+  width: 260px;
 }
 .register-container button {
-    font-size: 20px;
-    padding: 10px 52px;
-    background: #02bcd4;
-    color: #fff;
-    font-weight: 300;
-    border-radius: 3px;
-    border: none;
-    margin-top: 20px;
-    width: 260px;
-    cursor: pointer;
+  font-size: 20px;
+  padding: 10px 52px;
+  background: #02bcd4;
+  color: #fff;
+  font-weight: 300;
+  border-radius: 3px;
+  border: none;
+  margin-top: 20px;
+  width: 260px;
+  cursor: pointer;
 }
 .register-container button:hover {
-    transform: scale(1.05);
-    background: #009EB3;
+  transform: scale(1.05);
+  background: #009eb3;
 }
 .register-container button:active {
-    transform: scale(1.01);
-    background: #0495A8;
+  transform: scale(1.01);
+  background: #0495a8;
 }
 .register-container .error {
-    color: #FF5722;
-    margin-top: 5px;
+  color: #ff5722;
+  margin-top: 5px;
 }
 .register-container .field-error {
-    border: 2px solid #FF5722;
-    color: #FF5722;
+  border: 2px solid #ff5722;
+  color: #ff5722;
 }
 .register-container .users-title {
-    margin-bottom: 13px;
-    font-size: 33px;
-    font-weight: 300;
-    color: orange;
+  margin-bottom: 13px;
+  font-size: 33px;
+  font-weight: 300;
+  color: orange;
 }
 .register-container .existing-users {
-    display: flex;
-    flex-flow: wrap;
-    justify-content: space-evenly;
-    margin: 0 auto 50px auto;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-evenly;
+  margin: 0 auto 50px auto;
 }
 .register-container .user-container {
-    margin: 15px;
+  margin: 15px;
 }
 .register-container .user-avatar {
-    width: 150px;
-    height: 150px;
+  width: 150px;
+  height: 150px;
 }
 .register-container .user-names {
-    width: 150px;
-    margin-top: 10px;
+  width: 150px;
+  margin-top: 10px;
 }
 .register-container .user-names p {
-    color: #404040;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 3px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+  color: #404040;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 3px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media (max-width: 1049px) {
-    .register-container {
-        flex-direction: column;
-    }
-    .register-container .form-container {
-        margin: 0;
-    }
-    .register-container .user-list-container {
-        margin: 50px;
-    }
+  .register-container {
+    flex-direction: column;
+  }
+  .register-container .form-container {
+    margin: 0;
+  }
+  .register-container .user-list-container {
+    margin: 50px;
+  }
 }
 
 @media (max-width: 600px) {
-    .register-container {
-        text-align: center;
-    }
-    .register-container .user-list-container {
-        margin: 10px 25px;
-    }
-    .register-container .users-title {
-        margin: 50px auto 25px auto;
-    }
-    .register-container .existing-users {
-        display: block;
-    }
-    .register-container .user-container {
-        border: 1px solid #ebebeb;
-        background-color: #f7f7f7;
-        display: flex;
-        padding: 15px;
-        margin: 5px 0;
-    }
-    .register-container .user-avatar {
-        width: 50px;
-        height: 50px;
-    }
-    .register-container .user-names {
-        width: calc(100% - 75px);
-        margin: 3px 0 0 25px;
-        text-align: left;
-    }
-    .register-container .user-names p {
-        margin: 0;
-    }
+  .register-container {
+    text-align: center;
+  }
+  .register-container .user-list-container {
+    margin: 10px 25px;
+  }
+  .register-container .users-title {
+    margin: 50px auto 25px auto;
+  }
+  .register-container .existing-users {
+    display: block;
+  }
+  .register-container .user-container {
+    border: 1px solid #ebebeb;
+    background-color: #f7f7f7;
+    display: flex;
+    padding: 15px;
+    margin: 5px 0;
+  }
+  .register-container .user-avatar {
+    width: 50px;
+    height: 50px;
+  }
+  .register-container .user-names {
+    width: calc(100% - 75px);
+    margin: 3px 0 0 25px;
+    text-align: left;
+  }
+  .register-container .user-names p {
+    margin: 0;
+  }
 }

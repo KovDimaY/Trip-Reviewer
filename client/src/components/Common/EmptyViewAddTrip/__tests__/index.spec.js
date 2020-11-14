@@ -3,9 +3,7 @@ import { create } from 'react-test-renderer';
 
 import EmptyViewAddTrip from '..';
 
-const mockComponent = props => (
-  <EmptyViewAddTrip {...props} />
-);
+const mockComponent = props => <EmptyViewAddTrip {...props} />;
 
 describe('<EmptyViewAddTrip />', () => {
   it('should render component with default props', () => {
