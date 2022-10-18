@@ -13,7 +13,7 @@ describe('<TripItem />', () => {
     const props = {
       _id: '_id',
       country: 'country',
-      expences: 'expences',
+      expenses: 'expenses',
       duration: 1,
       rating: 'rating',
     };
@@ -26,7 +26,7 @@ describe('<TripItem />', () => {
     const props = {
       _id: '_id',
       country: 'country',
-      expences: 'expences',
+      expenses: 'expenses',
       duration: 10,
       rating: 'rating',
     };

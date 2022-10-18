@@ -55,7 +55,7 @@ const tripSchema = mongoose.Schema(
       min: [1, 'Rating is required'],
       max: [5, 'Incorrect value is provided'],
     },
-    expences: {
+    expenses: {
       type: Number,
       required: [true, 'Expenses is required'],
       min: [0, 'Should be non negative'],

@@ -45,7 +45,7 @@ exports[`<DetailsLabel /> Duration should render very good duration 1`] = `
 </div>
 `;
 
-exports[`<DetailsLabel /> Expences should render bad expences 1`] = `
+exports[`<DetailsLabel /> Expenses should render bad expenses 1`] = `
 <div
   className="Wrapper-ThVjl gLyMCc"
   color="#7FBB17"
@@ -54,7 +54,7 @@ exports[`<DetailsLabel /> Expences should render bad expences 1`] = `
 </div>
 `;
 
-exports[`<DetailsLabel /> Expences should render good expences 1`] = `
+exports[`<DetailsLabel /> Expenses should render good expenses 1`] = `
 <div
   className="Wrapper-ThVjl cjMZrE"
   color="#F47048"
@@ -63,7 +63,7 @@ exports[`<DetailsLabel /> Expences should render good expences 1`] = `
 </div>
 `;
 
-exports[`<DetailsLabel /> Expences should render ok expences 1`] = `
+exports[`<DetailsLabel /> Expenses should render ok expenses 1`] = `
 <div
   className="Wrapper-ThVjl elJdDI"
   color="#FEC22D"
@@ -72,7 +72,7 @@ exports[`<DetailsLabel /> Expences should render ok expences 1`] = `
 </div>
 `;
 
-exports[`<DetailsLabel /> Expences should render very bad expences 1`] = `
+exports[`<DetailsLabel /> Expenses should render very bad expenses 1`] = `
 <div
   className="Wrapper-ThVjl gUEEXL"
   color="#00B300"
@@ -81,7 +81,7 @@ exports[`<DetailsLabel /> Expences should render very bad expences 1`] = `
 </div>
 `;
 
-exports[`<DetailsLabel /> Expences should render very good expences 1`] = `
+exports[`<DetailsLabel /> Expenses should render very good expenses 1`] = `
 <div
   className="Wrapper-ThVjl hLebDS"
   color="#E91E63"

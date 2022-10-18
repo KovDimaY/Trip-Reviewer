@@ -49,41 +49,41 @@ describe('<DetailsLabel />', () => {
     });
   });
 
-  describe('Expences', () => {
+  describe('Expenses', () => {
     const props = {
       children: 'children',
-      type: TYPES.expences,
+      type: TYPES.expenses,
     };
 
-    it('should render very bad expences', () => {
+    it('should render very bad expenses', () => {
       props.value = 99;
       const tree = create(mockComponent(props)).toJSON();
 
       expect(tree).toMatchSnapshot();
     });
 
-    it('should render bad expences', () => {
+    it('should render bad expenses', () => {
       props.value = 101;
       const tree = create(mockComponent(props)).toJSON();
 
       expect(tree).toMatchSnapshot();
     });
 
-    it('should render ok expences', () => {
+    it('should render ok expenses', () => {
       props.value = 501;
       const tree = create(mockComponent(props)).toJSON();
 
       expect(tree).toMatchSnapshot();
     });
 
-    it('should render good expences', () => {
+    it('should render good expenses', () => {
       props.value = 1001;
       const tree = create(mockComponent(props)).toJSON();
 
       expect(tree).toMatchSnapshot();
     });
 
-    it('should render very good expences', () => {
+    it('should render very good expenses', () => {
       props.value = 5001;
       const tree = create(mockComponent(props)).toJSON();
 

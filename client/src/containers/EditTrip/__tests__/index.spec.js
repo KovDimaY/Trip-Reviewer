@@ -73,7 +73,7 @@ describe('<EditTrip />', () => {
               description: { message: 'description error' },
               duration: { message: 'duration error' },
               rating: { message: 'rating error' },
-              expences: { message: 'expences error' },
+              expenses: { message: 'expenses error' },
             },
           },
         },
@@ -132,7 +132,7 @@ describe('<EditTrip />', () => {
           description: '{"test":"test"}',
           duration: 'trip.duration',
           rating: 'trip.rating',
-          expences: 'trip.expences',
+          expenses: 'trip.expenses',
         },
       },
     };
@@ -164,7 +164,7 @@ describe('<EditTrip />', () => {
           description: 'trip.description',
           duration: 'trip.duration',
           rating: 'trip.rating',
-          expences: 'trip.expences',
+          expenses: 'trip.expenses',
         },
       },
     };
@@ -294,7 +294,7 @@ describe('<EditTrip />', () => {
         description: false,
         duration: false,
         rating: false,
-        expences: false,
+        expenses: false,
       },
     };
 
@@ -339,7 +339,7 @@ describe('<EditTrip />', () => {
       country: 'country',
       duration: 'duration',
       ownerId: 'id',
-      expences: 'expences',
+      expenses: 'expenses',
       rating: 'rating',
       description: 'description',
       title: 'title',

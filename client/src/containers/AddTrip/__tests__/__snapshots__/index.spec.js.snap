@@ -68,6 +68,7 @@ exports[`<AddTrip /> should render component 1`] = `
       </span>
       <input
         className="form-input "
+        min="0"
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
@@ -85,7 +86,8 @@ exports[`<AddTrip /> should render component 1`] = `
       </span>
       <input
         className="form-input "
-        name="expences"
+        min="0"
+        name="expenses"
         onChange={[Function]}
         placeholder="Enter expenses"
         type="number"
@@ -190,6 +192,7 @@ exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
       </span>
       <input
         className="form-input field-error"
+        min="0"
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
@@ -212,7 +215,8 @@ exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
       </span>
       <input
         className="form-input field-error"
-        name="expences"
+        min="0"
+        name="expenses"
         onChange={[Function]}
         placeholder="Enter expenses"
         type="number"
@@ -222,7 +226,7 @@ exports[`<AddTrip /> should render component with newTrip and errors 1`] = `
     <div
       className="error"
     >
-      expences error
+      expenses error
     </div>
     <div
       className="form_element"
@@ -317,6 +321,7 @@ exports[`<AddTrip /> should render component with newTrip and success true 1`] =
       </span>
       <input
         className="form-input "
+        min="0"
         name="duration"
         onChange={[Function]}
         placeholder="Enter duration"
@@ -334,7 +339,8 @@ exports[`<AddTrip /> should render component with newTrip and success true 1`] =
       </span>
       <input
         className="form-input "
-        name="expences"
+        min="0"
+        name="expenses"
         onChange={[Function]}
         placeholder="Enter expenses"
         type="number"

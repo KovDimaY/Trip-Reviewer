@@ -8,7 +8,7 @@ import DetailsLabel from '../Common/DetailsLabel';
 
 import './styles.css';
 
-const TripItem = ({ _id, title, country, expences, duration, rating }) => (
+const TripItem = ({ _id, title, country, expenses, duration, rating }) => (
   <Link to={`${TRIPS}/${_id}`} className="trip-item-container">
     <div className="header">
       <h2>{title}</h2>
@@ -16,9 +16,9 @@ const TripItem = ({ _id, title, country, expences, duration, rating }) => (
     <div className="items">
       <div className="country">{country}</div>
 
-      <DetailsLabel type={TYPES.expences} value={expences}>
+      <DetailsLabel type={TYPES.expenses} value={expenses}>
         <strong>Expenses:</strong>
-        {` $${expences}`}
+        {` $${expenses}`}
       </DetailsLabel>
 
       <DetailsLabel type={TYPES.duration} value={duration}>
@@ -38,7 +38,7 @@ TripItem.propTypes = {
   _id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
-  expences: PropTypes.number.isRequired,
+  expenses: PropTypes.number.isRequired,
   duration: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
 };

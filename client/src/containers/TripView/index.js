@@ -42,7 +42,7 @@ class TripView extends Component {
     const { trips } = this.props;
 
     if (trips && trips.current) {
-      const { title, country, description, duration, rating, expences } = trips.current;
+      const { title, country, description, duration, rating, expenses } = trips.current;
       const { name, lastname } = trips.reviewer;
 
       return (
@@ -73,7 +73,7 @@ class TripView extends Component {
               </div>
               <div>
                 <span>Expenses:</span>
-                {` $${expences} `}
+                {` $${expenses} `}
               </div>
             </div>
             <div className="right">

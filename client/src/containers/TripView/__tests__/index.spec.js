@@ -57,7 +57,7 @@ describe('<TripView />', () => {
           country: 'country',
           description: '{"test":"test"}',
           duration: 1,
-          expences: 'expences',
+          expenses: 'expenses',
           rating: 'rating',
         },
         reviewer: {
@@ -86,7 +86,7 @@ describe('<TripView />', () => {
           country: 'country',
           description: 'description',
           duration: 10,
-          expences: 'expences',
+          expenses: 'expenses',
           rating: 'rating',
         },
         reviewer: {
