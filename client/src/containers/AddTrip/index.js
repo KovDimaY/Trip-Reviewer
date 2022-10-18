@@ -22,7 +22,7 @@ class AddTrip extends Component {
       description: '',
       duration: '',
       rating: 0,
-      expences: '',
+      expenses: '',
     },
     hideError: {
       title: false,
@@ -30,7 +30,7 @@ class AddTrip extends Component {
       description: false,
       duration: false,
       rating: false,
-      expences: false,
+      expenses: false,
     },
     loading: false,
   };
@@ -49,7 +49,7 @@ class AddTrip extends Component {
           description: false,
           duration: false,
           rating: false,
-          expences: false,
+          expenses: false,
         },
       });
     }
@@ -152,7 +152,7 @@ class AddTrip extends Component {
 
   render() {
     const { loading, formdata } = this.state;
-    const { title, country, duration, rating, expences } = formdata;
+    const { title, country, duration, rating, expenses } = formdata;
 
     return (
       <div className="add-review-container limited-width">
@@ -195,6 +195,7 @@ class AddTrip extends Component {
           <div className="form_element">
             <span className="label">Duration (days):</span>
             <input
+              min="0"
               type="number"
               name="duration"
               className={`form-input ${this.getErrorClass('duration')}`}
@@ -208,15 +209,16 @@ class AddTrip extends Component {
           <div className="form_element">
             <span className="label">Expenses ($):</span>
             <input
+              min="0"
               type="number"
-              name="expences"
-              className={`form-input ${this.getErrorClass('expences')}`}
+              name="expenses"
+              className={`form-input ${this.getErrorClass('expenses')}`}
               placeholder="Enter expenses"
-              value={expences}
+              value={expenses}
               onChange={this.handleInput}
             />
           </div>
-          {this.renderError('expences')}
+          {this.renderError('expenses')}
 
           <div className="form_element">
             <StarsRating
