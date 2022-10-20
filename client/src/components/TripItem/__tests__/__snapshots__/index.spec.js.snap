@@ -19,13 +19,13 @@ exports[`<TripItem /> should render component with duration 1 1`] = `
       country
     </div>
     <DetailsLabel
-      type="EXPENCES"
-      value="expences"
+      type="EXPENSES"
+      value="expenses"
     >
       <strong>
         Expenses:
       </strong>
-       $expences
+       $expenses
     </DetailsLabel>
     <DetailsLabel
       type="DURATION"
@@ -68,13 +68,13 @@ exports[`<TripItem /> should render component with duration 10 1`] = `
       country
     </div>
     <DetailsLabel
-      type="EXPENCES"
-      value="expences"
+      type="EXPENSES"
+      value="expenses"
     >
       <strong>
         Expenses:
       </strong>
-       $expences
+       $expenses
     </DetailsLabel>
     <DetailsLabel
       type="DURATION"
